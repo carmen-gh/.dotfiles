@@ -30,7 +30,7 @@ source $ZSH/oh-my-zsh.sh
 # ALIAS ----------------------------------------------------------------- 
 #
 alias zshconfig="nvim ~/.zshrc"
-alias vimconfig="nvim ~/.vimrc"
+alias vimconfig="nvim ~/.dotfiles/.vimrc"
 alias gitconfig="nvim ~/.gitconfig"
 alias adb='/Users/carmen/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 

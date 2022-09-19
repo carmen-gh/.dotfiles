@@ -1,26 +1,23 @@
 call plug#begin()
 
- Plug 'ryanoasis/vim-devicons'
- Plug 'scrooloose/nerdtree'
- Plug 'preservim/nerdcommenter'
- Plug 'mhinz/vim-startify'
- Plug 'junegunn/vim-easy-align'
- Plug 'tpope/vim-fugitive'
+ Plug 'EdenEast/nightfox.nvim'
  Plug 'airblade/vim-gitgutter'
- Plug 'junegunn/gv.vim'
- Plug 'lilyball/vim-swift'
- Plug 'vim-airline/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
- Plug 'tpope/vim-surround'
+ Plug 'itchyny/lightline.vim'
  Plug 'jiangmiao/auto-pairs'
- Plug 'sheerun/vim-polyglot'
+ Plug 'junegunn/vim-easy-align'
+ Plug 'lilyball/vim-swift'
  Plug 'matthewbdaly/vim-filetype-settings'
+ Plug 'mhinz/vim-startify'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
- Plug 'arcticicestudio/nord-vim'
- Plug 'joshdick/onedark.vim'
- Plug 'hzchirs/vim-material'
- Plug 'EdenEast/nightfox.nvim'
+ Plug 'preservim/nerdcommenter'
+ Plug 'ryanoasis/vim-devicons'
+ Plug 'scrooloose/nerdtree'
+ Plug 'sheerun/vim-polyglot'
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-fugitive'
+ Plug 'tpope/vim-repeat'
+ Plug 'tpope/vim-surround'
  Plug 'udalov/kotlin-vim'
 
 call plug#end()
@@ -47,19 +44,12 @@ set splitbelow
 set splitright
 set tabstop=4
 set ttyfast
-
+set textwidth=80
+set colorcolumn=+1
 
 syntax on
 
-" Airline settings___________________________________
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#right_sep = ' '
-let g:airline#extensions#tabline#right_alt_sep = '|'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='material'
+let g:lightline= { 'colorscheme': 'wombat', }
 
 " use ;; for escape
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
