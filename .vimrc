@@ -2,6 +2,7 @@ call plug#begin()
 
  Plug 'EdenEast/nightfox.nvim'
  Plug 'airblade/vim-gitgutter'
+ Plug 'inkarkat/vim-ReplaceWithRegister'
  Plug 'itchyny/lightline.vim'
  Plug 'jiangmiao/auto-pairs'
  Plug 'junegunn/vim-easy-align'
@@ -19,6 +20,7 @@ call plug#begin()
  Plug 'tpope/vim-repeat'
  Plug 'tpope/vim-surround'
  Plug 'udalov/kotlin-vim'
+ Plug 'vim-scripts/argtextobj.vim'
 
 call plug#end()
 
@@ -50,6 +52,9 @@ set colorcolumn=+1
 syntax on
 
 let g:lightline= { 'colorscheme': 'wombat', }
+
+" neovim highlight a selection on yank
+au TextYankPost * silent! lua vim.highlight.on_yank()
 
 " use ;; for escape
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
