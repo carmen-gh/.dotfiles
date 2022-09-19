@@ -1,0 +1,44 @@
+[user]
+        name = Carmen Geelhaar
+        email = camina.apps@gmail.com
+        signingkey = 4DF0A90613C4612015A7DEDE3D479F8DB2CA3989
+[core]
+        pager = delta
+        excludesfile = /Users/carmen/.gitignore_global
+  editor = nvim
+[color]
+        ui = auto
+[alias]
+        unstage = reset --soft HEAD^
+  amend = commit --amend -m
+  cpick = cherry-pick
+        cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+        loggraph = log --graph --pretty=short --abbrev-commit
+[commit]
+        gpgsign = true
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+        helper = !/opt/homebrew/bin/gh auth git-credential
+[pull]
+        rebase = true
+[init]
+        defaultBranch = main
+[gpg]
+        program = /usr/local/bin/gpg
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true # use n and N to move between diff sessions
+        side-by-side = true
+        line-numbers = true
+[merge]
+        conflictstyle = diff3
+        tool = opendiff
+[diff]
+        colorMoved = default
+[push]
+        autoSetupRemote = true
