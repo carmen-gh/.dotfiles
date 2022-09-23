@@ -12,12 +12,13 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins -------------------------------------------------------------
-plugins=(git colored-man-pages gradle)
+plugins=(git colored-man-pages gradle vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 
 # User configuration ***************************************************
+export KEYTIMEOUT=1
 
 # Preferred editor for local and remote sessions------------------------
 #
