@@ -31,7 +31,7 @@ set clipboard=unnamed
 set expandtab
 set hidden
 set ignorecase
-set mouse=a
+set mouse=v
 set nohlsearch 
 set noshowmode
 set noswapfile
@@ -85,6 +85,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeShowHidden=1
 " close NERDTree with last open tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -102,7 +103,7 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-"press Alt-j to move the current line down, or press Alt-k to move the current line up.
+"press ⌥-j (option-j) to move the current line down, or press ⌥-k (option-k) to move the current line up.
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 inoremap ∆ <Esc>:m .+1<CR>==gi
@@ -111,7 +112,7 @@ vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

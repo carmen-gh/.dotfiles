@@ -1,7 +1,3 @@
-[user]
-    name = Carmen Geelhaar
-    email = camina.apps@gmail.com        
-    signingkey = 4DF0A90613C4612015A7DEDE3D479F8DB2CA3989
 [core]
     pager = delta
     excludesfile = /Users/carmen/.gitignore_global       
@@ -9,13 +5,13 @@
 [color]
     ui = auto
 [alias]
+    l = log --pretty=custom
+    compare = diff --cached # view the changes you staged for the next commit relative to HEAD
     unstage = reset --soft HEAD^
     amend = commit --amend -m
     cpick = cherry-pick
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-    loggraph = log --graph --pretty=short --abbrev-commit
-[commit]
-    gpgsign = true
+    loggraph = log --graph --pretty=custom
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
@@ -35,6 +31,7 @@
     navigate = true # use n and N to move between diff sessions
     side-by-side = true
     line-numbers = true
+    theme="DarkNeo"
 [merge]
     conflictstyle = diff3
     tool = opendiff
@@ -42,3 +39,23 @@
     colorMoved = default
 [push]
     autoSetupRemote = true
+    followTags = true
+[pretty]
+    custom = "%C(magenta)%h %C(green)%s %C(cyan)%d  %n%C(yellow)%an  %C(yellow)%ar%n"
+    #                     │        │            │        │               └─ date relativ
+    #                     │        │            │        └─ author name
+    #                     │        │            └─ decorations(branch, heads or tags)
+    #                     │        └─ message
+    #                     └─ hash (abbreviated)
+
+[user]
+    #configered in `~/.gitconfig.local`
+[include]
+    # Load local configs.
+    # https://git-scm.com/docs/git-config#_includes
+    #
+    # [!] The following needs to remain at the end of this file in
+    #     order to allow any of the above configs to be overwritten
+    #     by the local ones
+
+    path = ~/.gitconfig.local

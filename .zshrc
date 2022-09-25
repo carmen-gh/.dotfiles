@@ -7,6 +7,7 @@ fi
 
 export ZSH="/Users/carmen/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
+export BAT_THEME="Coldark-Dark"
 
 # Theme ------------------------------------------------------------
 ZSH_THEME="powerlevel10k/powerlevel10k"
