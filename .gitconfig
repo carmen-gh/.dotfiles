@@ -1,6 +1,6 @@
 [core]
     pager = delta
-    excludesfile = /Users/carmen/.gitignore_global       
+    excludesfile = ~/.gitignore_global       
     editor = nvim
 [color]
     ui = auto
