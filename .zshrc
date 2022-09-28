@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="/Users/carmen/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 export BAT_THEME="Coldark-Dark"
 
@@ -34,7 +34,7 @@ export KEYTIMEOUT=1
 alias zshconfig="nvim ~/.zshrc"
 alias vimconfig="nvim ~/.dotfiles/.vimrc"
 alias gitconfig="nvim ~/.gitconfig"
-alias adb='/Users/carmen/Library/Android/sdk/platform-tools/adb'
+alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 
 alias cat='bat'
 # For a full list of active aliases, run `alias`.
