@@ -46,7 +46,7 @@ set splitbelow
 set splitright
 set tabstop=4
 set ttyfast
-set textwidth=80
+set textwidth=120
 set colorcolumn=+1
 
 syntax on
