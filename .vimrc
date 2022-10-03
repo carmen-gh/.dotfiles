@@ -21,6 +21,7 @@ call plug#begin()
  Plug 'tpope/vim-surround'
  Plug 'udalov/kotlin-vim'
  Plug 'vim-scripts/argtextobj.vim'
+ Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()
 
@@ -38,6 +39,7 @@ set noswapfile
 set number relativenumber
 set scrolloff=8
 set shiftwidth=4
+set showtabline=2
 set smartcase
 set smartindent
 set smarttab
@@ -51,7 +53,21 @@ set colorcolumn=+1
 
 syntax on
 
-let g:lightline= { 'colorscheme': 'wombat', }
+let g:lightline#bufferline#show_number = 1 
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline = { 
+            \ 'colorscheme': 'material', 
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'FugitiveHead'
+            \ },
+            \ }
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " neovim highlight a selection on yank
 au TextYankPost * silent! lua vim.highlight.on_yank()
