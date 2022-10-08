@@ -1,3 +1,6 @@
+os:
+  editCommand: 'floaterm'
+
 git:
   paging:
     colorArg: always

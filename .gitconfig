@@ -31,7 +31,7 @@
     navigate = true # use n and N to move between diff sessions
     side-by-side = true
     line-numbers = true
-    theme="DarkNeo"
+	syntax-theme = 'zenburn'
 [merge]
     conflictstyle = diff3
     tool = opendiff

@@ -37,6 +37,7 @@ alias gitconfig="nvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 
 alias cat='bat'
+alias lg='lazygit'
 # For a full list of active aliases, run `alias`.
 
 # POWERLEVEL ------------------------------------------------------------
