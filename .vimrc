@@ -1,6 +1,6 @@
 call plug#begin()
 
- Plug 'EdenEast/nightfox.nvim'
+ Plug 'sonph/onehalf', { 'rtp': 'vim' }
  Plug 'airblade/vim-gitgutter'
  Plug 'inkarkat/vim-ReplaceWithRegister'
  Plug 'itchyny/lightline.vim'
@@ -25,7 +25,7 @@ call plug#begin()
 
 call plug#end()
 
-colorscheme nordfox
+colorscheme onehalfdark
 
 set autoindent
 set clipboard=unnamed
@@ -50,13 +50,15 @@ set tabstop=4
 set ttyfast
 set textwidth=120
 set colorcolumn=+1
+set t_Co=256
+set cursorline
 
 syntax on
 
 let g:lightline#bufferline#show_number = 1 
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline = { 
-            \ 'colorscheme': 'material', 
+            \ 'colorscheme': 'onehalfdark', 
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'gitbranch', 'readonly', 'modified' ] ]
@@ -68,6 +70,13 @@ let g:lightline = {
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 
 " neovim highlight a selection on yank
 au TextYankPost * silent! lua vim.highlight.on_yank()
