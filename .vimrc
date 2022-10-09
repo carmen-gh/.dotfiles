@@ -52,8 +52,10 @@ set textwidth=120
 set colorcolumn=+1
 set t_Co=256
 set cursorline
+set laststatus=3 "global statusline neovim
 
-syntax on
+highlight WinSeparator guibg=None
+
 
 let g:lightline#bufferline#show_number = 1 
 let g:lightline#bufferline#enable_devicons = 1
