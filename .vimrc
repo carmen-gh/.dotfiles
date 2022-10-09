@@ -152,3 +152,18 @@ cnoremap <C-p> <C-t>
 
 " open lazygit
 nnoremap <leader>lg :FloatermNew --height=0.8 --width=0.9 --title=lazygit lazygit<CR>
+
+
+" window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+
+" hide cursor line of inactive window
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
