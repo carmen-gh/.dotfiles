@@ -21,6 +21,7 @@ call plug#begin()
  Plug 'tpope/vim-surround'
  Plug 'udalov/kotlin-vim'
  Plug 'vim-scripts/argtextobj.vim'
+ Plug 'voldikss/vim-floaterm'
  Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()
@@ -47,7 +48,6 @@ set softtabstop=4
 set splitbelow
 set splitright
 set tabstop=4
-set ttyfast
 set textwidth=120
 set colorcolumn=+1
 set t_Co=256
@@ -103,6 +103,7 @@ nnoremap tw  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 
+
 " NERDTree__________________________________________
 "  \+n tree focus 
 nnoremap <leader>n :NERDTreeFocus<CR> 
@@ -148,3 +149,6 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 cnoremap <C-n> <C-g>
 cnoremap <C-p> <C-t>
 
+
+" open lazygit
+nnoremap <leader>lg :FloatermNew --height=0.8 --width=0.9 --title=lazygit lazygit<CR>
