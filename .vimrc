@@ -63,7 +63,7 @@ let g:lightline = {
             \ 'colorscheme': 'onehalfdark', 
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'gitbranch', 'readonly', 'modified' ] ]
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
             \ },
             \ 'component_function': {
             \   'gitbranch': 'FugitiveHead'
@@ -92,16 +92,19 @@ let mapleader = " "
 
 " Tabs______________________________________________
 " ctrl+t to open a new tab and select a file
-map <c-t> :tabnew<cr><c-p>
+map <c-t> :tabnew<cr><leader>ff 
 
-" vim tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tw  :tabclose<CR>
-nnoremap tn  :tabnew<CR>
-
+" vim tab navigation, go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 
 " NERDTree__________________________________________
