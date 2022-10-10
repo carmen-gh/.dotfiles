@@ -8,8 +8,10 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 export BAT_THEME="OneHalfDark"
+export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
-# Theme ------------------------------------------------------------
+
+# THEME ------------------------------------------------------------
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins -------------------------------------------------------------
