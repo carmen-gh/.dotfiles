@@ -5,11 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 export ZSH="$HOME/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 export BAT_THEME="OneHalfDark"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
+source "$HOME/.cargo/env"
 
 # THEME ------------------------------------------------------------
 ZSH_THEME="powerlevel10k/powerlevel10k"
