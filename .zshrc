@@ -1,9 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below. if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" fi
 
 
 export ZSH="$HOME/.oh-my-zsh"
@@ -11,7 +6,8 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 export BAT_THEME="OneHalfDark"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
-source "$HOME/.cargo/env"
+source "$HOME/usr/bin/sourcekit-lsp" # add swift lsp
+source "$HOME/.cargo/env" # add rust cargo
 
 # THEME ------------------------------------------------------------
 ZSH_THEME="powerlevel10k/powerlevel10k"
