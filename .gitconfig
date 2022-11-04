@@ -41,7 +41,7 @@
     autoSetupRemote = true
     followTags = true
 [pretty]
-    custom = "%C(magenta)%h %C(green)%s %C(cyan)%d  %n%C(yellow)%an  %C(yellow)%ar%n"
+    custom = "%C(magenta)%h  %C(green) %s %C(cyan)%d %n%C(yellow) %an  %C(yellow)%ar%n"
     #                     │        │            │        │               └─ date relativ
     #                     │        │            │        └─ author name
     #                     │        │            └─ decorations(branch, heads or tags)
