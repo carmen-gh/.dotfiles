@@ -8,3 +8,4 @@ git:
 
 gui:
   showIcons: true
+  sidePanelWidth: 0.22
