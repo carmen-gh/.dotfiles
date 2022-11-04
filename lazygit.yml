@@ -4,4 +4,7 @@ os:
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: git-split-diffs --color
+
+gui:
+  showIcons: true
