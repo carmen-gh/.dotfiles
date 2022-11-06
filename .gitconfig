@@ -41,7 +41,7 @@
     autoSetupRemote = true
     followTags = true
 [pretty]
-    custom = "%C(magenta)%h  %C(green) %s %C(cyan)%d %n%C(yellow) %an  %C(yellow)%ar%n"
+    custom = "%C(magenta)%h  %C(green) %s %C(yellow)%d %n%C(cyan) %an  %C(cyan)%ar%n"
     #                     │        │            │        │               └─ date relativ
     #                     │        │            │        └─ author name
     #                     │        │            └─ decorations(branch, heads or tags)
@@ -59,3 +59,5 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
+[split-diffs]
+	theme-name = github-dark-dim
