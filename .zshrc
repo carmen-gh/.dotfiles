@@ -32,12 +32,12 @@ export KEYTIMEOUT=1
 # ALIAS ----------------------------------------------------------------- 
 #
 alias zshconfig="nvim ~/.zshrc"
-alias vimconfig="nvim ~/.dotfiles/.vimrc"
+alias vimconfig="nvim ~/.dotfiles/nvim/init.lua"
 alias gitconfig="nvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 
-alias cat='bat'
 alias lg='lazygit'
+alias mv='mv -i'
 # For a full list of active aliases, run `alias`.
 
 # POWERLEVEL ------------------------------------------------------------
