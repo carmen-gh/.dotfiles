@@ -47,7 +47,8 @@
     #                     │        │            └─ decorations(branch, heads or tags)
     #                     │        └─ message
     #                     └─ hash (abbreviated)
-
+[split-diffs]
+	theme-name = github-dark-dim
 [user]
     #configered in `~/.gitconfig.local`
 [include]
@@ -59,5 +60,3 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
-[split-diffs]
-	theme-name = github-dark-dim
