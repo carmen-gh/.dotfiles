@@ -5,7 +5,7 @@
 [color]
     ui = auto
 [alias]
-    l = log --pretty=custom
+    l = log --pretty=custom --reverse
     lg = log --graph --pretty=custom
     compare = diff --cached # view the changes you staged for the next commit relative to HEAD
     unstage = reset --soft HEAD^
@@ -41,7 +41,7 @@
     autoSetupRemote = true
     followTags = true
 [pretty]
-    custom = "%C(yellow)%h  %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n"
+    custom = "%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n"
     #                     │        │            │        │               └─ date relativ
     #                     │        │            │        └─ author name
     #                     │        │            └─ decorations(branch, heads or tags)
