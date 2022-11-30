@@ -101,6 +101,7 @@ return {
     FolderSymlink = "",
     Forward = "",
     Gear = "",
+    Gears = '',
     History = "",
     Lightbulb = "",
     LineLeft = "▏",

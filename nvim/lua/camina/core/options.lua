@@ -25,7 +25,7 @@ vim.opt.textwidth = 120
 vim.opt.colorcolumn= "+1" -- show max textwidth column
 vim.opt.showmode = false
 -- vim.opt.winbar = "%{%v:lua.require'camina.plugins.winbar'.eval()%}"
-
+vim.opt.laststatus = 3
 -- backspace
 vim.opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 

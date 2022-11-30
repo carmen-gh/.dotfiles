@@ -1,10 +1,10 @@
 local M = {}
 
-local frappe = require("catppuccin.palettes").get_palette("frappe")
+local color = require("catppuccin.palettes").get_palette("frappe")
 
-vim.api.nvim_set_hl(0, "WinBarPath", { bg = frappe.overlay1, fg = frappe.base })
-vim.api.nvim_set_hl(0, "WinBarModified", { bg = frappe.overlay1, fg = frappe.base })
-vim.api.nvim_set_hl(0, "WinBarEndings", { bg = NONE, fg = frappe.overlay1 })
+vim.api.nvim_set_hl(0, "WinBarPath", { bg = color.overlay1, fg = color.base })
+vim.api.nvim_set_hl(0, "WinBarModified", { bg = color.overlay1, fg = color.base })
+vim.api.nvim_set_hl(0, "WinBarEndings", { bg = NONE, fg = color.overlay1 })
 
 function M.eval()
 	local file_path = vim.api.nvim_eval_statusline("%f", {}).str

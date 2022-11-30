@@ -1,44 +1,39 @@
+env:
+  TERM: xterm-256color
 font:
   size: 13
-
   normal:
     family: JetBrainsMono Nerd Font
     style: Regular
-
   bold:
     family: JetBrainsMono Nerd Font
     style: Bold
-
   italic:
     family: JetBrainsMono Nerd Font
     style: Italic
- 
+
 window:
   dimensions:
     columns: 170
     lines: 50
 
   padding:
-    x: 6
-    y: 6
+    x: 3
+    y: 3
 
   # opacity: 0.9
-  decorations: buttonless
-
+  # decorations: buttonless
 
 #Key bindings
 key_bindings:
-  - { key: Return,        mods: Control|Shift,    action: SpawnNewInstance   }
-
-
-
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
 # Nightfox Alacritty Colors
 # Style: nightfox
 # Upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/nightfox_alacritty.yml
-# colors:
+colors:
 #   # Default colors
-#   primary:
-#     background: '0x192330'
+  primary:
+    background: '0x192330'
 #     foreground: '0xcdcecf'
 #   # Normal colors
 #   normal:

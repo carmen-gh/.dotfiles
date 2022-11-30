@@ -56,8 +56,8 @@ vim.keymap.set("n", "<leader>fg", "<cmd>Telescope git_status<cr>")  -- find curr
 vim.keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>")       -- find all marks
 vim.keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<cr>")     -- find all keymaps
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")   -- find available help tags
-vim.keymap.set("n", "<leaser>fd", "<cmd>Telescope diagnostic<cr>")  -- find all diagnostic
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>") -- find all references (find usage)
+vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>")  -- find all diagnostic
+vim.keymap.set("n", "<leader>fu", "<cmd>Telescope lsp_references<cr>") -- find all references (find usage)
 
 -- terminal
 vim.keymap.set("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true}) -- toggle lazygit terminal
@@ -65,19 +65,19 @@ vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<
 vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>")   -- toggle terminal vertical
 
 -- lsp
-vim.keymap.set({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true }) -- Code action
-vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })        -- find definition and reference
+vim.keymap.set({"n","v"}, "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true }) -- Code action
+vim.keymap.set("n", "<leader>u", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })        -- find definition and reference aka usage
 vim.keymap.set("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", {silent=true}) -- format code
-vim.keymap.set("n", "<leader>cn", "<cmd>Lspsaga rename<CR>", { silent = true })            -- Rename
+vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true })            -- Rename
 vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })           -- Peek definition
-vim.keymap.set("n","<leader>co", "<cmd>LSoutlineToggle<CR>",{ silent = true })             -- Outline
+-- vim.keymap.set("n","<leader>co", "<cmd>LSoutlineToggle<CR>",{ silent = true })             -- Outline
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })                  -- Hover Doc
 
 -- diagnostic
-vim.keymap.set("n", "<leader>dl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })   -- Show line diagnostics
+vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })   -- Show line diagnostics
 vim.keymap.set("n", "<leader>dc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true }) -- Show cursor diagnostic
-vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })      -- Diagnostics jump next
-vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })      -- Diagnostics jump previous
+vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })      -- Diagnostics jump next
+vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })      -- Diagnostics jump previous
 vim.keymap.set("n", "<leader>b", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { silent = true })-- toggle breakpoint
 -- step back
 -- continue
