@@ -6,7 +6,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 11.0)
 export BAT_THEME="OneHalfDark"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
-source "$HOME/usr/bin/sourcekit-lsp" # add swift lsp
+export PATH=/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp:$PATH
+
+
 source "$HOME/.cargo/env" # add rust cargo
 
 # THEME ------------------------------------------------------------
