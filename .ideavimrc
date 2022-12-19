@@ -32,7 +32,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " use ;; for escape
-inoremap ;; <Esc>
+inoremap jj <Esc>
 
 " use space as leader
 map <Space> <leader>
