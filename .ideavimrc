@@ -38,7 +38,8 @@ inoremap jj <Esc>
 map <Space> <leader>
 
 " \n to focus NERDTree
-"nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <leader>e :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
@@ -51,8 +52,10 @@ map <leader>qa <Action>(CloseAllEditorsButActive)
 map <leader>u <Action>(FindUsages)
 map <leader>h <Action>(PreviousTab)
 map <leader>l <Action>(NextTab)
-map <leader>n <Action>(GotoNextError)
-map <leader>e <Action>(Generate)
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map gl <Action> -- show diagnostic
+
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
 " track actions by turning on 'IdeaVim: track action Ids' in settings
