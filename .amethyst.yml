@@ -1,0 +1,28 @@
+# Layouts
+ignore-menu-bar: false
+window-margins: true
+window-margin-size: 5
+smart-window-margins: true
+
+layouts:
+  - tall
+  - fullscreen
+  - tall-right
+  - wide
+  - column
+
+# Mouse
+mouse-follows-focus: false
+focus-follows-mouse: false
+mouse-swaps-windows: true
+mouse-resizes-windows: true
+
+# Floating
+float-small-windows: true
+floating-is-blacklist: true
+floating:
+  [
+    "com.runningwithcrayons.Alfred",
+    "com.1password.1password",
+    "org.keepassxc.keepassxc",
+  ]
