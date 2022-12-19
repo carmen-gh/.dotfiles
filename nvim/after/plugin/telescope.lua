@@ -8,15 +8,17 @@ if not actions_setup then
 	return
 end
 
--- configure telescope
+local Icons = require("camina.icons")
+
+    -- configure telescope
 telescope.setup({
 	defaults = {
-        prompt_prefix="  ",
-        selection_caret = " ",
+        prompt_prefix = Icons.ui.search,
+        selection_caret = Icons.ui.BoldDividerRight ,
 		mappings = {
 			i = {
-				["<C-k>"] = actions.move_selection_previous, -- move to prev result
-				["<C-j>"] = actions.move_selection_next, -- move to next result
+				["<C-p>"] = actions.move_selection_previous, -- move to prev result
+				["<C-n>"] = actions.move_selection_next, -- move to next result
 				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
                 ["<C-s>"] = actions.file_vsplit, -- Perform file vsplit on selection
                 ["<C-S>"] = actions.file_vsplit, -- Perform file horizontal split on selection
