@@ -25,4 +25,5 @@ floating:
     "com.runningwithcrayons.Alfred",
     "com.1password.1password",
     "org.keepassxc.keepassxc",
+    "com.cisco.anyconnect.gui",
   ]
