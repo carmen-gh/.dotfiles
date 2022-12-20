@@ -8,7 +8,7 @@ local Icons = require("camina.icons")
 
 local config = {
     options = {
-        theme = "tokyonight",
+        theme = "onedark",
         globalstatus = true,
         component_separators = { left = " ", right = " " },
         section_separators = { left = " ", right = " " },
