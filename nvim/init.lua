@@ -1,13 +1,1 @@
 require("camina")
--- require("camina.plugins-setup")
--- require("camina.plugins.lsp-zero")
--- require("camina.plugins.null-ls")
--- require("camina.plugins.lualine")
--- require("camina.plugins.neo-tree")
--- require("camina.plugins.telescope")
--- require("camina.plugins.treesitter")
--- require("camina.plugins.toggleterm")
-
--- require("camina.core.options")
--- require("camina.core.keymaps")
--- require("camina.core.colorscheme")
