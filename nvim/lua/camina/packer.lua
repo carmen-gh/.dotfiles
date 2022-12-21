@@ -36,6 +36,11 @@ return packer.startup({
         -- theme
         use("folke/tokyonight.nvim")
         use("navarasu/onedark.nvim")
+        use({ "levouh/tint.nvim",
+            config = function()
+                require("tint").setup()
+            end,
+        })
 
         -- lua functions (used by many plugins)
         use("nvim-lua/plenary.nvim")

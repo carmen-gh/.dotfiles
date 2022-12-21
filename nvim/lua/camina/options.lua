@@ -44,5 +44,12 @@ vim.opt.completeopt = "menu,menuone,noselect"
 
 vim.opt.clipboard = "unnamed"
 
+vim.opt.autoread = true
+
+-- autoreload buffer after change on disk (e.g. lazygit toggleterm)
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
 
 vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
