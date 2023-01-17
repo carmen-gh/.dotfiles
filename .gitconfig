@@ -1,6 +1,6 @@
 [core]
-	pager = git-split-diffs
-    excludesfile = ~/.gitignore_global       
+    pager = git-split-diffs
+	excludesfile = ~/.gitignore
     editor = nvim
 [color]
     ui = auto
@@ -31,7 +31,7 @@
     navigate = true # use n and N to move between diff sessions
     side-by-side = true
     line-numbers = true
-	syntax-theme = OneHalfDark
+    syntax-theme = OneHalfDark
 [merge]
     conflictstyle = diff3
     tool = opendiff
@@ -48,7 +48,7 @@
     #                     │        └─ message
     #                     └─ hash (abbreviated)
 [split-diffs]
-	theme-name = github-dark-dim
+    theme-name = github-dark-dim
 [user]
     #configered in `~/.gitconfig.local`
 [include]
