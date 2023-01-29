@@ -31,6 +31,13 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+"delete single character without copying into register
+nnoremap x "_x
+
+" increment and decrement number
+nnoremap <leader>+ <C-a>
+nnoremap <leader>- <C-x>
+
 " use ;; for escape
 inoremap jj <Esc>
 
@@ -38,23 +45,56 @@ inoremap jj <Esc>
 map <Space> <leader>
 
 " \n to focus NERDTree
-"nnoremap <leader>e :NERDTreeToggle<CR>
 map <leader>e :NERDTreeToggle<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
 map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>r <Action>(Refactorings.QuickListPopupAction)
-map <leader>f <Action>(GotoFile)
-map <leader>g <Action>(FindInPath)
+"map <leader>r <Action>(Refactorings.QuickListPopupAction)
+
 map <leader>s <Action>(Switcher)
 map <leader>qa <Action>(CloseAllEditorsButActive)
-map <leader>u <Action>(FindUsages)
 map <leader>h <Action>(PreviousTab)
 map <leader>l <Action>(NextTab)
+
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
-map gl <Action> -- show diagnostic
+map gl <Action>(ShowErrorDescription)
+
+"find file
+map <leader>ff <Action>(GotoFile)
+"find string (workspace)
+map <leader>fs <Action>(FindInPath)
+map <leader>fr <Action>(FindUsages)
+
+"find open file (buffer)
+map <leader>fb <Action)(GotoAction)
+"map <leader>fb <Action>(Switcher)
+
+" leader fg - find git status
+" leader fk - find keymaps
+" leader fh - find help
+map <leader>fd <Action>(ActivateProblemsViewToolWindow)
+
+"map <leader> <Action>(ActivateTODOToolWindow)
+map <leader>tl <Action>(ActivateLogcatToolWindow)
+map <leader>tt <Action>(ActivateTerminalToolWindow)
+map <leader>tp <Action>(ActivateProblemsViewToolWindow)
+map <leader>tg <Action>(ActivateVersionControlToolWindow)
+map <leader>ts <Action>(ActivateFindToolWindow)
+map <leader>pr <Action>(ActivatePullRequestsToolWindow)
+map <leader>tm <Action>(ActivateBookmarksToolWindow)
+
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cf <Action>(ReformatCode)
+map <leader>r <Action>(RenameElement)
+map <leader>co <Action>(ActivateStructureToolWindow)
+
+" Bookmarks / Marks
+"map <leader>ma <Action>(Bookmarks)
+map <leader>m <Action>(ToggleBookmark)
+map <leader>cm <Action>(EditBookmark)
+map <leader>fm <Action>(ShowBookmarks)
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
