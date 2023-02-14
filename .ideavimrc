@@ -44,8 +44,8 @@ inoremap jj <Esc>
 " use space as leader
 map <Space> <leader>
 
-" \n to focus NERDTree
-map <leader>e :NERDTreeToggle<CR>
+" \n open and focus NERDTree on current open file
+map <leader>e :NERDTreeFind<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
