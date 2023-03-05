@@ -34,6 +34,10 @@ noremap <Right> <Nop>
 "delete single character without copying into register
 nnoremap x "_x
 
+"remap Y to map from current position to the end of line
+"This mapping sets up Y to be consistent with the C and D operators, which act from the cursor to the end of the line
+noremap Y y$
+
 " increment and decrement number
 nnoremap <leader>+ <C-a>
 nnoremap <leader>- <C-x>
