@@ -25,7 +25,7 @@ set smartindent
 set smarttab
 
 " Open ideavimrc
-map <leader>; :e ~/.ideavimrc<CR>
+map <leader>; :vsplit ~/.ideavimrc<CR>
 "map / <Action>(Find)
 
 "disable key movement in normal, visual, select, and operator-pending modes
