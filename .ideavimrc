@@ -16,7 +16,7 @@ set clipboard+=ideaput
 set clipboard+=unnamed
 set ignorecase
 set incsearch
-set nohlsearch
+"set nohlsearch
 set number relativenumber
 set scrolloff=8
 set showcmd
@@ -24,6 +24,9 @@ set showmode
 set smartindent
 set smarttab
 
+" Open ideavimrc
+map <leader>; :e ~/.ideavimrc<CR>
+"map / <Action>(Find)
 
 "disable key movement in normal, visual, select, and operator-pending modes
 noremap <Up> <Nop>
@@ -36,7 +39,7 @@ nnoremap x "_x
 
 "remap Y to map from current position to the end of line
 "This mapping sets up Y to be consistent with the C and D operators, which act from the cursor to the end of the line
-noremap Y y$
+nnoremap Y y$
 
 " increment and decrement number
 nnoremap <leader>+ <C-a>
@@ -57,7 +60,9 @@ map <leader>b <Action>(ToggleLineBreakpoint)
 "map <leader>r <Action>(Refactorings.QuickListPopupAction)
 
 map <leader>s <Action>(Switcher)
-map <leader>qa <Action>(CloseAllEditorsButActive)
+map <leader>q <Action>(CloseContent)
+map <leader>Q <Action>(CloseAllEditors)
+
 map <leader>h <Action>(PreviousTab)
 map <leader>l <Action>(NextTab)
 
@@ -69,11 +74,10 @@ map gl <Action>(ShowErrorDescription)
 map <leader>ff <Action>(GotoFile)
 "find string (workspace)
 map <leader>fs <Action>(FindInPath)
-map <leader>fr <Action>(FindUsages)
-
-"find open file (buffer)
-map <leader>fb <Action)(GotoAction)
-"map <leader>fb <Action>(Switcher)
+map <leader>fu <Action>(FindUsages)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fa <Action>(SearchEverywhere)
+"map <leader>fb <Action>(GotoAction)
 
 " leader fg - find git status
 " leader fk - find keymaps
@@ -101,6 +105,11 @@ map <leader>co <Action>(ActivateStructureToolWindow)
 map <leader>m <Action>(ToggleBookmark)
 map <leader>cm <Action>(EditBookmark)
 map <leader>fm <Action>(ShowBookmarks)
+
+
+" Navigate git changes
+map [h <Action>(VcsShowPrevChangeMarker)
+map ]h <Action>(VcsShowNextChangeMarker)
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
