@@ -40,6 +40,9 @@ alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 
 alias lg='lazygit'
 alias mv='mv -i'
+alias ls='exa --oneline --icons'
+alias ll='exa --long --icons'
+alias la='exa --long --icons --all'
 # For a full list of active aliases, run `alias`.
 
 # POWERLEVEL ------------------------------------------------------------
