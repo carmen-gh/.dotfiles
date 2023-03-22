@@ -43,6 +43,8 @@ alias mv='mv -i'
 alias ls='exa --oneline --icons'
 alias ll='exa --long --icons'
 alias la='exa --long --icons --all'
+alias adb-kill-emulator='adb -s emulator-5554 emu kill'
+alias adb-restart='adb kill-server; adb start-server'
 # For a full list of active aliases, run `alias`.
 
 # POWERLEVEL ------------------------------------------------------------
