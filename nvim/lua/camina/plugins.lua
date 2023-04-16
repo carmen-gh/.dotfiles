@@ -96,16 +96,20 @@ local plugins = {
     opts = {},
   }
 
-
 }
 
-local opts = {}
+local opts = {
+  ui = {
+    border = "rounded"
+  },
+  colorscheme = "onedark",
+}
 
 require("lazy").setup(plugins, opts)
 
 
 
-
+ 
 -- -- Todo
 -- use {
 --   "folke/todo-comments.nvim",
