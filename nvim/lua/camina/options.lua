@@ -22,7 +22,7 @@ vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 vim.opt.textwidth = 120
-vim.opt.colorcolumn= "+1" -- show max textwidth column
+vim.opt.colorcolumn = "+1" -- show max textwidth column
 vim.opt.showmode = false
 -- vim.opt.winbar = "%{%v:lua.require'camina.plugins.winbar'.eval()%}"
 vim.opt.laststatus = 3
@@ -46,10 +46,14 @@ vim.opt.clipboard = "unnamed"
 
 vim.opt.autoread = true
 
+-- spell checking
+vim.opt.spell = false
+vim.opt.spelllang = "en_us"
+
 -- autoreload buffer after change on disk (e.g. lazygit toggleterm)
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   command = "if mode() != 'c' | checktime | endif",
   pattern = { "*" },
 })
 
-vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
+vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]

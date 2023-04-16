@@ -92,9 +92,14 @@ local function ins_right(component)
     table.insert(config.sections.lualine_x, component)
 end
 
-local function ins_left(component)
-    table.insert(config.sections.lualine_c, component)
-end
+-- local function ins_left(component)
+--     table.insert(config.sections.lualine_c, component)
+-- end
+
+
+
+-- ------------------------------------------------------
+-- LSP Component
 
 ins_right({
     -- Lsp server name

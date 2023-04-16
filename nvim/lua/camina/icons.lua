@@ -138,7 +138,7 @@ return {
     Warning = "",
     BoldInformation = " ",
     Information = "",
-    BoldRejected =" ",
+    BoldRejected = " ",
     Rejected = "",
     BoldQuestion = " ",
     Question = "",

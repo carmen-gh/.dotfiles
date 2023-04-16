@@ -38,6 +38,7 @@ alias vimconfig="nvim ~/.dotfiles/nvim/init.lua"
 alias gitconfig="nvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='nvim' 
+alias avim="NVIM_APPNAME=AstroNvim nvim"
 alias lg='lazygit'
 alias mv='mv -i'
 alias ls='exa --oneline --icons'

@@ -68,7 +68,6 @@ return packer.startup({
                 { 'rafamadriz/friendly-snippets' }, -- Optional
             }
         }
-
         use("glepnir/lspsaga.nvim")
         use("onsails/lspkind.nvim")
 
@@ -144,6 +143,26 @@ return packer.startup({
         -- terminal
         use({ "akinsho/toggleterm.nvim", tag = "*" })
 
+        -- Todo
+        use {
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+            config = function()
+                require("todo-comments").setup {
+                    signs = false,
+                    keywords = {
+                        TODO = { color = "warning" },
+                    }
+                }
+            end
+        }
+        use {
+            "folke/trouble.nvim",
+            requires = "nvim-tree/nvim-web-devicons",
+            config = function()
+                require("trouble").setup()
+            end
+        }
 
         if packer_bootstrap then
             require('packer').sync()

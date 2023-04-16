@@ -15,6 +15,7 @@ neotree.setup({
 	default_component_configs = {
 		indent = {
 			padding = 0,
+			indent_size = 1,
 		},
 		git_status = {
 			symbols = {

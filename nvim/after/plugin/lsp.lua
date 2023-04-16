@@ -28,9 +28,32 @@ lsp.set_preferences({
 lsp.nvim_workspace()
 
 local lspkind = require('lspkind')
+local cmp = require('cmp')
 lsp.setup_nvim_cmp({
     formatting = {
-        format = lspkind.cmp_format()
+        preselect = cmp.PreselectMode.None,
+        fields = { "abbr", "kind", "menu" },
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            maxwidth = '30'
+        }),
+        window = {
+            completion = {
+                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                col_offset = -3,
+                side_padding = 0,
+            },
+        },
+    },
+    confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+    },
+    sources = cmp.config.sources {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
     },
 })
 
@@ -39,6 +62,8 @@ lsp.configure('sourcekit', {
 })
 
 lsp.setup()
+
+-- 
 
 vim.diagnostic.config({
     virtual_text = {

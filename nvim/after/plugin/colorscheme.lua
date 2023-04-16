@@ -17,12 +17,12 @@ require("onedark").setup {
 
 require("onedark").load()
 
-require("tokyonight").setup({
-    style = "storm",
-    dim_inactive = true,
-    on_colors = function(colors)
-        colors.hint = "#e6d387"
-    end
-})
+-- require("tokyonight").setup({
+--     style = "storm",
+--     dim_inactive = true,
+--     on_colors = function(colors)
+--         colors.hint = "#e6d387"
+--     end
+-- })
 
 vim.cmd [[colorscheme onedark]]
