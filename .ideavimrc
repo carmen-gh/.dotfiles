@@ -61,10 +61,10 @@ map <leader>b <Action>(ToggleLineBreakpoint)
 
 map <leader>s <Action>(Switcher)
 map <leader>q <Action>(CloseContent)
-map <leader>Q <Action>(CloseAllEditors)
+map <leader>qa <Action>(CloseAllEditors)
 
-map <leader>h <Action>(PreviousTab)
-map <leader>l <Action>(NextTab)
+map ]t <Action>(NextTab)
+map [t <Action>(PreviousTab)
 
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
@@ -97,17 +97,17 @@ map <leader>td <Action>(ActivateDebugToolWindow)
 
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cf <Action>(ReformatCode)
-map <leader>r <Action>(RenameElement)
+map <leader>cr <Action>(RenameElement)
 map <leader>co <Action>(ActivateStructureToolWindow)
 
 " Bookmarks / Marks
 "map <leader>ma <Action>(Bookmarks)
 map <leader>m <Action>(ToggleBookmark)
 map <leader>cm <Action>(EditBookmark)
-map <leader>fm <Action>(ShowBookmarks)
+map gm <Action>(ShowBookmarks)
 
 
-" Navigate git changes
+" Navigate git changes (hunks)
 map [h <Action>(VcsShowPrevChangeMarker)
 map ]h <Action>(VcsShowNextChangeMarker)
 
