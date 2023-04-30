@@ -16,7 +16,19 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   "navarasu/onedark.nvim",
   "nvim-lua/plenary.nvim",
-  "glepnir/lspsaga.nvim",
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      { "kyazdani42/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    },
+    opts = {},
+  },
   "onsails/lspkind.nvim",
   "p00f/nvim-ts-rainbow",
   "lukas-reineke/indent-blankline.nvim",
@@ -30,6 +42,17 @@ local plugins = {
   "jose-elias-alvarez/null-ls.nvim",
   "jayp0521/mason-null-ls.nvim",
   {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+  },
+  {
     "levouh/tint.nvim",
     opts = {},
   },
@@ -40,26 +63,28 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.0",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" }
+    },
   },
   {
     "VonHeikemen/lsp-zero.nvim",
     branch = 'v1.x',
     dependencies = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' }, -- Required
-      { 'williamboman/mason.nvim' }, -- Optional
+      { 'neovim/nvim-lspconfig' },             -- Required
+      { 'williamboman/mason.nvim' },           -- Optional
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' }, -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-buffer' }, -- Optional
-      { 'hrsh7th/cmp-path' }, -- Optional
-      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+      { 'hrsh7th/nvim-cmp' },                  -- Required
+      { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+      { 'hrsh7th/cmp-buffer' },                -- Optional
+      { 'hrsh7th/cmp-path' },                  -- Optional
+      { 'saadparwaiz1/cmp_luasnip' },          -- Optional
+      { 'hrsh7th/cmp-nvim-lua' },              -- Optional
       -- Snippets
-      { 'L3MON4D3/LuaSnip' }, -- Required
-      { 'rafamadriz/friendly-snippets' }, -- Optional
+      { 'L3MON4D3/LuaSnip' },                  -- Required
+      { 'rafamadriz/friendly-snippets' },      -- Optional
     }
   },
   {
@@ -94,8 +119,10 @@ local plugins = {
   {
     "numToStr/Comment.nvim",
     opts = {},
+  },
+  {
+    "Exafunction/codeium.vim"
   }
-
 }
 
 local opts = {
@@ -109,7 +136,6 @@ require("lazy").setup(plugins, opts)
 
 
 
- 
 -- -- Todo
 -- use {
 --   "folke/todo-comments.nvim",

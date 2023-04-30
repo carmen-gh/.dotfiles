@@ -10,6 +10,7 @@ local lsp = require('lsp-zero')
 local Icons = require("camina.icons")
 
 lsp.set_preferences({
+    float_border = 'rounded',
     suggest_lsp_servers = true,
     setup_servers_on_start = true,
     set_lsp_keymaps = true,
