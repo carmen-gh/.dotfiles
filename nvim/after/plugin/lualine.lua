@@ -101,10 +101,12 @@ end
 -- ------------------------------------------------------
 -- LSP Component
 
-
 ins_right({
     -- codeium status
-    function() return Icons.misc.Robot .. vim.fn['codeium#GetStatusString']() end
+    function()
+        return vim.fn['codeium#GetStatusString']()
+    end,
+    icon = Icons.misc.Robot
 })
 
 ins_right({

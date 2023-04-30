@@ -149,6 +149,7 @@ return {
   },
   misc = {
     Robot = "ﮧ",
+    Wand = "",
     Squirrel = "",
     Tag = "",
     Watch = "",
