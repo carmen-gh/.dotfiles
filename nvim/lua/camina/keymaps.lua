@@ -11,8 +11,8 @@ vim.keymap.set("i", "jj", "<ESC>")
 vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copying into register" })
 
 -- increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "increment number" })
-vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "decrement number" })
+-- vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "increment number" })
+-- vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "decrement number" })
 
 -- disable arrow keys
 vim.keymap.set("n", "<UP>", "<NOP>")
@@ -39,6 +39,16 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
+
+-- buffer navigation
+vim.keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
+vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
+vim.keymap.set("n", "[B", "<cmd>bfirst<CR>", { desc = "first buffer" })
+vim.keymap.set("n", "]B", "<cmd>blast<CR>", { desc = "last buffer" })
+
+-- splitting
+vim.keymap.set("n", "<leader>|", "<cmd>vs<CR>", { desc = "split vertically" })
+vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", { desc = "split horizontally" })
 
 -- clear search highlight
 vim.keymap.set("n", "<C-c>", "<Cmd>noh<cr>", { desc = "[c]lear search highlight" })
