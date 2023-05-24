@@ -1,6 +1,6 @@
 [core]
     pager = git-split-diffs
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
     editor = nvim
 [color]
     ui = auto
@@ -17,21 +17,14 @@
     required = true
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
-[credential "https://github.com"]
-    helper = !/opt/homebrew/bin/gh auth git-credential
 [pull]
     rebase = true
 [init]
     defaultBranch = main
 [gpg]
-    program = /usr/local/bin/gpg
+    program = /usr/local/bin/gpg # linux: /usr/bin/gpg
 [interactive]
     diffFilter = delta --color-only
-[delta]
-    navigate = true # use n and N to move between diff sessions
-    side-by-side = true
-    line-numbers = true
-    syntax-theme = OneHalfDark
 [merge]
     conflictstyle = diff3
     tool = opendiff
