@@ -15,16 +15,18 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: `opts = {}` is the same as calling `require('myPlugin').setup({})`
 local plugins = {
   "navarasu/onedark.nvim",
+  { "catppuccin/nvim", name = "catppuccin" },
   "nvim-lua/plenary.nvim",
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup({})
+      require("lspsaga").setup {
+        ui = { kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind() },
+      }
     end,
     dependencies = {
       { "kyazdani42/nvim-web-devicons" },
-      --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" }
     },
     opts = {},
@@ -51,10 +53,6 @@ local plugins = {
   {
     "simrat39/rust-tools.nvim",
     ft = "rust",
-  },
-  {
-    "levouh/tint.nvim",
-    opts = {},
   },
   {
     "lewis6991/gitsigns.nvim",

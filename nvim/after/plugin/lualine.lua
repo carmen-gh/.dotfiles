@@ -3,12 +3,12 @@ if not status then
     return
 end
 
---local C = require("catppuccin.palettes").get_palette()
+local C = require("catppuccin.palettes").get_palette()
 local Icons = require("camina.icons")
 
 local config = {
     options = {
-        theme = "onedark",
+        theme = "catppuccin",
         globalstatus = true,
         component_separators = { left = " ", right = " " },
         section_separators = { left = " ", right = " " },
@@ -53,7 +53,7 @@ local config = {
                 "filetype",
                 colored = true,
                 icon_only = true,
-                --color = { bg = C.surface0 },
+                color = { bg = C.mantle },
             },
             {
                 "filename",
