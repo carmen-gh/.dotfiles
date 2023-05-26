@@ -1,5 +1,5 @@
 [core]
-    pager = git-split-diffs
+    pager = "git-split-diffs --color | less -RFX"
     excludesfile = ~/.gitignore
     editor = nvim
 [color]
@@ -23,13 +23,11 @@
     defaultBranch = main
 [gpg]
     program = /usr/local/bin/gpg # linux: /usr/bin/gpg
-[interactive]
-    diffFilter = delta --color-only
 [merge]
     conflictstyle = diff3
-    tool = opendiff
+    tool = vimdiff
 [diff]
-    colorMoved = default
+    colorMoved = default 
 [push]
     autoSetupRemote = true
     followTags = true
