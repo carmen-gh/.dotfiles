@@ -27,12 +27,12 @@ vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", { desc = "[S]ave current buffer" 
 -- vim.keymap.set("n", "<leader>x", "<cmd><UP><CR>")
 
 -- Line movement (alt-j and alt-k)
-vim.keymap.set("n", "∆", "<cmd>m .+1<CR>==", { desc = "Move line down [alt + j]" })
-vim.keymap.set("n", "˚", "<cmd>m .-2<CR>==", { desc = "Move line up [alt + k]" })
-vim.keymap.set("i", "∆", "<ESC><cmd>m .+1<CR>==gi", { desc = "Move line down [alt + j]" })
-vim.keymap.set("i", "˚", "<ESC><cmd>m .-2<CR>==gi", { desc = "Move line up [alt + k]" })
-vim.keymap.set("v", "∆", "<cmd>m '>+1<CR>gv=gv", { desc = "Move line down [alt + j]" })
-vim.keymap.set("v", "˚", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", { desc = "Move line down [alt + j]" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==", { desc = "Move line up [alt + k]" })
+vim.keymap.set("i", "<A-j>", "<ESC><cmd>m .+1<CR>==gi", { desc = "Move line down [alt + j]" })
+vim.keymap.set("i", "<A-k>", "<ESC><cmd>m .-2<CR>==gi", { desc = "Move line up [alt + k]" })
+vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move line down [alt + j]" })
+vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
 
 -- window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
@@ -52,6 +52,8 @@ vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", { desc = "split horizontally" })
 
 -- clear search highlight
 vim.keymap.set("n", "<C-c>", "<Cmd>noh<cr>", { desc = "[c]lear search highlight" })
+
+vim.keymap.set("n", "YY", "va{Vy", { desc = "copy function or json object" })
 
 -- --------------------------------------------
 -- plugin keymaps
