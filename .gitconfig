@@ -51,3 +51,5 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
+[mergetool "vimdiff"]
+	path = nvim
