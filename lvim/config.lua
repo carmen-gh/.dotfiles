@@ -152,6 +152,11 @@ vim.api.nvim_create_autocmd("QuitPre", {
   end
 })
 
+-- autoreload buffer after change on disk (e.g. lazygit toggleterm)
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -237,7 +242,7 @@ end
 vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
 
 lvim.builtin.which_key.mappings["r"] = {
-  name = "ust",
+  name = "Rust",
   r = { "<cmd>RustRunnables<Cr>", "Runnables" },
   t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
   m = { "<cmd>RustExpandMacro<Cr>", "Expand Macro" },
