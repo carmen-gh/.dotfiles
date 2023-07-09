@@ -23,8 +23,11 @@ set showcmd
 set showmode
 set smartindent
 set smarttab
+set which-key
+set notimeout
 
 " Open ideavimrc
+let g:WhichKeyDesc_leader_vimrc = "<leader>; open ideavimrc"
 map <leader>; :vsplit ~/.ideavimrc<CR>
 "map / <Action>(Find)
 
@@ -40,10 +43,12 @@ nnoremap x "_x
 "remap Y to map from current position to the end of line
 "This mapping sets up Y to be consistent with the C and D operators, which act from the cursor to the end of the line
 nnoremap Y y$
+" copy method or json object
+nnoremap YY va{Vy}
 
 " increment and decrement number
-nnoremap <leader>+ <C-a>
-nnoremap <leader>- <C-x>
+" nnoremap <leader>+ <C-a>
+" nnoremap <leader>- <C-x>
 
 " use ;; for escape
 inoremap jj <Esc>
@@ -52,7 +57,9 @@ inoremap jj <Esc>
 map <Space> <leader>
 
 " \n open and focus NERDTree on current open file
+let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
 map <leader>e :NERDTreeFind<CR>
+
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
@@ -70,10 +77,12 @@ map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
 
-"find file
+" Finder (leader f)
+let g:WhichKeyDesc_leader_finder = "<leader>f Find"
 map <leader>ff <Action>(GotoFile)
-"find string (workspace)
+let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
 map <leader>fs <Action>(FindInPath)
+let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
 map <leader>fu <Action>(FindUsages)
 map <leader>fr <Action>(RecentFiles)
 map <leader>fa <Action>(SearchEverywhere)
@@ -82,23 +91,43 @@ map <leader>fa <Action>(SearchEverywhere)
 " leader fg - find git status
 " leader fk - find keymaps
 " leader fh - find help
-map <leader>fd <Action>(ActivateProblemsViewToolWindow)
 
-"map <leader> <Action>(ActivateTODOToolWindow)
-map <leader>tl <Action>(ActivateLogcatToolWindow)
-map <leader>tt <Action>(ActivateTerminalToolWindow)
-map <leader>tp <Action>(ActivateProblemsViewToolWindow)
-map <leader>tg <Action>(ActivateVersionControlToolWindow)
-map <leader>ts <Action>(ActivateFindToolWindow)
-map <leader>tb <Action>(ActivateBuildToolWindow)
-map <leader>pr <Action>(ActivatePullRequestsToolWindow)
-map <leader>tm <Action>(ActivateBookmarksToolWindow)
-map <leader>td <Action>(ActivateDebugToolWindow)
+" Views (leader v)
+let g:WhichKeyDesc_leader_view = "<leader>v view"
+let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
+map <leader>vo <Action>(ActivateTODOToolWindow)
+let g:WhichKeyDesc_view_logcat = "<leader>vl logcat view"
+map <leader>vl <Action>(ActivateLogcatToolWindow)
+let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
+map <leader>vt <Action>(ActivateTerminalToolWindow)
+let g:WhichKeyDesc_view_problems = "<leader>vp PROBLEMS view"
+map <leader>vp <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_view_git = "<leader>vg GIT view"
+map <leader>vg <Action>(ActivateVersionControlToolWindow)
+"map <leader>ts <Action>(ActivateFindToolWindow)
+let g:WhichKeyDesc_view_build = "<leader>vb BUILD view"
+map <leader>vb <Action>(ActivateBuildToolWindow)
+"map <leader> <Action>(ActivatePullRequestsToolWindow)
+"map <leader>vc <Action>... commit
+let g:WhichKeyDesc_view_marks = "<leader>vm BOOKMARKS (marks) view"
+map <leader>vm <Action>(ActivateBookmarksToolWindow)
+let g:WhichKeyDesc_view_debug = "<leader>vd DEBUG view"
+map <leader>vd <Action>(ActivateDebugToolWindow)
+let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
+map <leader>vs <Action>(ActivateStructureToolWindow)
 
-map <leader>ca <Action>(ShowIntentionActions)
-map <leader>cf <Action>(ReformatCode)
-map <leader>cr <Action>(RenameElement)
-map <leader>co <Action>(ActivateStructureToolWindow)
+" Lsp (leader l)
+let g:WhichKeyDesc_leader_lsp = "<leader>l lsp"
+let g:WhichKeyDesc_lsp_action = "<leader>la code action"
+map <leader>la <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_lsp_format = "<leader>lf format"
+map <leader>lf <Action>(ReformatCode)
+let g:WhichKeyDesc_lsp_rename = "<leader>lr rename"
+map <leader>lr <Action>(RenameElement)
+let g:WhichKeyDesc_lsp_diagnostic = "<leader>ld problems file (diagnostics)"
+map <leader>ld <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
+map <leader>lu <Action>(FindUsages)
 
 " Bookmarks / Marks
 "map <leader>ma <Action>(Bookmarks)
@@ -114,3 +143,4 @@ map ]h <Action>(VcsShowNextChangeMarker)
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
 " track actions by turning on 'IdeaVim: track action Ids' in settings
+let g:WhichKey_SortOrder = "by_key_prefix_first"
