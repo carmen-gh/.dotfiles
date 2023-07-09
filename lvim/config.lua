@@ -24,6 +24,7 @@ lvim.builtin.which_key.mappings["t"] = {
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
   o = { "<cmd>TodoTrouble<cr>", "todo" },
 }
+lvim.builtin.which_key.mappings["l"]["R"] = { ":LspRestart<cr>", lvim.icons.kind.Null .. " Restart" }
 
 ------------------------------------------------------------------------------------------------------------------------
 -- Options
@@ -36,12 +37,12 @@ vim.opt.textwidth = 120
 ------------------------------------------------------------------------------------------------------------------------
 -- Plugins
 ------------------------------------------------------------------------------------------------------------------------
+-- add TreeSJ and sourround from AstroVim community, tint
 lvim.plugins = {
   { "tpope/vim-sleuth" },
   { "tpope/vim-repeat" },
   {
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
     cmd = "Troubletoggle",
   },
   {
@@ -56,7 +57,7 @@ lvim.plugins = {
     name = "catppuccin",
     priority = 1000
   },
-  { "lunarvim/colorschemes" },
+  { "sindrets/diffview.nvim" },
   { "mrjones2014/nvim-ts-rainbow" },
   "simrat39/rust-tools.nvim",
   {
@@ -93,6 +94,8 @@ lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lir.active = false
 lvim.builtin.dap.breakpoint.text = lvim.icons.git.FileIgnored
 lvim.builtin.which_key.setup.icons.separator = lvim.icons.ui.ChevronRight
+table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries,
+  { "d", "  Diffview", ":DiffviewOpen<CR>" })
 
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.disable_netrw = true
@@ -108,7 +111,7 @@ local components = require "lvim.core.lualine.components"
 -- lualine show different mode icon = 
 lvim.builtin.lualine.sections.lualine_c = { 'diagnostics' }
 lvim.builtin.lualine.sections.lualine_x = { components.lsp, components.filetype }
-lvim.builtin.lualine.sections.lualine_y = { }
+lvim.builtin.lualine.sections.lualine_y = {}
 lvim.builtin.lualine.extensions = { 'trouble' }
 
 lvim.builtin.terminal.active = true
@@ -135,6 +138,7 @@ lvim.builtin.telescope = {
 ------------------------------------------------------------------------------------------------------------------------
 -- Autocommands
 ------------------------------------------------------------------------------------------------------------------------
+-- quit nvimtree if last window
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
     local invalid_win = {}
@@ -162,8 +166,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 ------------------------------------------------------------------------------------------------------------------------
 -- rust
 ------------------------------------------------------------------------------------------------------------------------
--- codelldb, rustfmt, rust-analyzer
-
+-- install via Mason: codelldb, rustfmt, rust-analyzer
 pcall(function()
   require("rust-tools").setup {
     tools = {
@@ -261,4 +264,3 @@ lvim.builtin.which_key.mappings["r"] = {
   f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
   D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
 }
-

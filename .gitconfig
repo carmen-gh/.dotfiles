@@ -26,6 +26,8 @@
 [merge]
     conflictstyle = diff3
     tool = vimdiff
+[mergetool "vimdiff"]
+    path = nvim
 [diff]
     colorMoved = default 
 [push]
@@ -51,5 +53,3 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
-[mergetool "vimdiff"]
-	path = nvim
