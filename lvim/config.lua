@@ -28,7 +28,7 @@ lvim.builtin.which_key.mappings["l"]["R"] = { ":LspRestart<cr>", lvim.icons.kind
 -- TODO remap lsp next and previous diagnostics
 -- TODO add remap for treesj see docu https://github.com/Wansmer/treesj
 lvim.builtin.which_key.mappings["l"]["J"] = { ":lua require('treesj').toggle()<CR>", " Join/splitting blocks of code" }
--- lvim.builtin.which_key.mappings["b"]["r"] = { ":bufdo e!<cr>", " reload buffer from disk" } 
+
 ------------------------------------------------------------------------------------------------------------------------
 -- Options
 ------------------------------------------------------------------------------------------------------------------------
