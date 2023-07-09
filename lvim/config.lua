@@ -25,6 +25,9 @@ lvim.builtin.which_key.mappings["t"] = {
   o = { "<cmd>TodoTrouble<cr>", "todo" },
 }
 lvim.builtin.which_key.mappings["l"]["R"] = { ":LspRestart<cr>", lvim.icons.kind.Null .. " Restart" }
+-- TODO remap lsp next and previous diagnostics
+-- TODO add remap for treesj see docu https://github.com/Wansmer/treesj
+lvim.builtin.which_key.mappings["l"]["J"] = { ":lua require('treesj').toggle()<CR>", " Join/splitting blocks of code" }
 
 ------------------------------------------------------------------------------------------------------------------------
 -- Options
@@ -55,9 +58,41 @@ lvim.plugins = {
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        dim_inactive = {
+          enabled = true,
+          shade = "light",
+          percentage = 0.8,
+        },
+      })
+    end,
     priority = 1000
   },
-  { "sindrets/diffview.nvim" },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end
+  },
+  {
+    "Wansmer/treesj",
+    cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+  },
+  {
+    "sindrets/diffview.nvim",
+    event = "BufRead"
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    ft = "markdown",
+    config = function()
+      vim.g.mkdp_auto_start = 1
+    end,
+  },
   { "mrjones2014/nvim-ts-rainbow" },
   "simrat39/rust-tools.nvim",
   {
@@ -113,8 +148,6 @@ lvim.builtin.lualine.sections.lualine_c = { 'diagnostics' }
 lvim.builtin.lualine.sections.lualine_x = { components.lsp, components.filetype }
 lvim.builtin.lualine.sections.lualine_y = {}
 lvim.builtin.lualine.extensions = { 'trouble' }
-
-lvim.builtin.terminal.active = true
 
 lvim.builtin.terminal.active = false
 
