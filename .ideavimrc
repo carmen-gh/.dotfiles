@@ -79,14 +79,18 @@ map gl <Action>(ShowErrorDescription)
 
 " Finder (leader f)
 let g:WhichKeyDesc_leader_finder = "<leader>f Find"
-map <leader>ff <Action>(GotoFile)
 let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
-map <leader>fs <Action>(FindInPath)
+map <leader>ff <Action>(GotoFile)
 let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
+map <leader>fs <Action>(FindInPath)
+let g:WhichKeyDesc_finder_usage = "<leader>fu Find usage"
 map <leader>fu <Action>(FindUsages)
+let g:WhichKeyDesc_finder_recent = "<leader>fr recent files"
 map <leader>fr <Action>(RecentFiles)
-map <leader>fa <Action>(SearchEverywhere)
-"map <leader>fb <Action>(GotoAction)
+let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
+map <leader>fe <Action>(SearchEverywhere)
+let g:WhichKeyDesc_finder_action = "<leader>fa action"
+map <leader>fa <Action>(GotoAction)
 
 " leader fg - find git status
 " leader fk - find keymaps
@@ -96,7 +100,7 @@ map <leader>fa <Action>(SearchEverywhere)
 let g:WhichKeyDesc_leader_view = "<leader>v view"
 let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
 map <leader>vo <Action>(ActivateTODOToolWindow)
-let g:WhichKeyDesc_view_logcat = "<leader>vl logcat view"
+let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
 map <leader>vl <Action>(ActivateLogcatToolWindow)
 let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
 map <leader>vt <Action>(ActivateTerminalToolWindow)
@@ -128,11 +132,16 @@ let g:WhichKeyDesc_lsp_diagnostic = "<leader>ld problems file (diagnostics)"
 map <leader>ld <Action>(ActivateProblemsViewToolWindow)
 let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
 map <leader>lu <Action>(FindUsages)
+let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader> prev diagnostic"
+map <leader>lk <Action>(ShowErrorDescription)
 
 " Bookmarks / Marks
-"map <leader>ma <Action>(Bookmarks)
-map <leader>m <Action>(ToggleBookmark)
-map <leader>cm <Action>(EditBookmark)
+let g:WhichKeyDesc_leader_marks = "<leader>m Marks (Bookmarks)"
+let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
+map <leader>mt <Action>(ToggleBookmark)
+let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
+map <leader>me <Action>(EditBookmark)
+let g:WhichKeyDesc_marks_show = "gm go to marks (show marks)"
 map gm <Action>(ShowBookmarks)
 
 
