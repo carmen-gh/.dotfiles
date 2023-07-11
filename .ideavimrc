@@ -26,6 +26,9 @@ set smarttab
 set which-key
 set notimeout
 
+let g:WhichKey_FontSize = 15
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#41ead4""
 " Open ideavimrc
 let g:WhichKeyDesc_leader_vimrc = "<leader>; open ideavimrc"
 map <leader>; :vsplit ~/.ideavimrc<CR>
@@ -78,7 +81,7 @@ map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
 
 " Finder (leader f)
-let g:WhichKeyDesc_leader_finder = "<leader>f Find"
+let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
 let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
 map <leader>ff <Action>(GotoFile)
 let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
@@ -97,7 +100,7 @@ map <leader>fa <Action>(GotoAction)
 " leader fh - find help
 
 " Views (leader v)
-let g:WhichKeyDesc_leader_view = "<leader>v view"
+let g:WhichKeyDesc_leader_view = "<leader>v +view"
 let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
 map <leader>vo <Action>(ActivateTODOToolWindow)
 let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
@@ -121,7 +124,7 @@ let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
 map <leader>vs <Action>(ActivateStructureToolWindow)
 
 " Lsp (leader l)
-let g:WhichKeyDesc_leader_lsp = "<leader>l lsp"
+let g:WhichKeyDesc_leader_lsp = "<leader>l +lsp"
 let g:WhichKeyDesc_lsp_action = "<leader>la code action"
 map <leader>la <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_lsp_format = "<leader>lf format"
@@ -133,10 +136,10 @@ map <leader>ld <Action>(ActivateProblemsViewToolWindow)
 let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
 map <leader>lu <Action>(FindUsages)
 let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader> prev diagnostic"
-map <leader>lk <Action>(ShowErrorDescription)
+map <leader>lk <Action>(ShowErrorDescription) 
 
 " Bookmarks / Marks
-let g:WhichKeyDesc_leader_marks = "<leader>m Marks (Bookmarks)"
+let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks)"
 let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
 map <leader>mt <Action>(ToggleBookmark)
 let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
@@ -148,7 +151,7 @@ map gm <Action>(ShowBookmarks)
 " Navigate git changes (hunks)
 map [h <Action>(VcsShowPrevChangeMarker)
 map ]h <Action>(VcsShowNextChangeMarker)
-
+ 
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
 " track actions by turning on 'IdeaVim: track action Ids' in settings
