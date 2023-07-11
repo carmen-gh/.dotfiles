@@ -30,13 +30,15 @@ set smarttab
 set which-key
 set notimeout
 
+
 let g:WhichKey_FontSize = 15
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#41ead4""
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
 " Open ideavimrc
-let g:WhichKeyDesc_leader_vimrc = "<leader>; open ideavimrc"
 map <leader>; :vsplit ~/.ideavimrc<CR>
-"map / <Action>(Find)
+let g:WhichKeyDesc_leader_vimrc = "<leader>; open ideavimrc"
 
 "disable key movement in normal, visual, select, and operator-pending modes
 noremap <Up> <Nop>
@@ -71,100 +73,187 @@ inoremap jj <Esc>
 " use space as leader
 map <Space> <leader>
 
+" window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " \n open and focus NERDTree on current open file
-let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
 map <leader>e :NERDTreeFind<CR>
+let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
 
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
 map <leader>b <Action>(ToggleLineBreakpoint)
-"map <leader>r <Action>(Refactorings.QuickListPopupAction)
 
-map <leader>s <Action>(Switcher)
+"map <leader>s <Action>(Switcher)
 map <leader>q <Action>(CloseContent)
 map <leader>qa <Action>(CloseAllEditors)
 
 map ]t <Action>(NextTab)
 map [t <Action>(PreviousTab)
 
+" Debug (d)
+" TODO add
+
+" Buffer (b) tabs in IntelliJ
+" TODO add
+" close
+" close all
+" close all except this
+
+" Test (t)
+" run nearest test
+" debug nearest test
+" rerun failed tests
+" run all tests
+" debug all tests
+
+" Source code generation (c)
+
+" Split (s)
+map <leader>sl <Action>(MoveTabRight)
+map <leader>sh <Action>(MoveTabLeft)
+map <leader>sj <Action>(MoveTabDown)
+map <leader>sk <Action>(MoveTabUp)
+map <leader>su <Action>(Unsplit)
+map <leader>sm <Action>(MoveEditorToOppositeTabGroup)
+let g:WhichKeyDesc_leader_split = "<leader>s +Split"
+let g:WhichKeyDesc_split_right = "<leader>sl split and move right"
+let g:WhichKeyDesc_split_left = "<leader>sh split and move left"
+let g:WhichKeyDesc_split_down = "<leader>sj split and move down"
+let g:WhichKeyDesc_split_up = "<leader>sk split and move up"
+let g:WhichKeyDesc_split_unsplit = "<leader>su unsplit"
+let g:WhichKeyDesc_split_move = "<leader>sm move to opposite"
+
+" Find (f)
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(FindInPath)
+map <leader>fu <Action>(FindUsages)
+map <leader>fr <Action>(RecentFiles)
+map <leader>fe <Action>(SearchEverywhere)
+map <leader>fa <Action>(GotoAction)
+map <leader>fl <Action>(RecentLocations)
+let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
+let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
+let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
+let g:WhichKeyDesc_finder_usage = "<leader>fu Find usage"
+let g:WhichKeyDesc_finder_recent = "<leader>fr recent files"
+let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
+let g:WhichKeyDesc_finder_action = "<leader>fa action"
+let g:WhichKeyDesc_finder_location = "<leader>fl recent location"
+
+" Views (v)
+map <leader>vb <Action>(ActivateBuildToolWindow)
+map <leader>vc <Action>(ActivateCommitToolWindow)
+map <leader>vd <Action>(ActivateDebugToolWindow)
+map <leader>ve <Action>(ActivateDeviceExplorerToolWindow)
+map <leader>vg <Action>(ActivateVersionControlToolWindow)
+map <leader>vl <Action>(ActivateLogcatToolWindow)
+map <leader>vm <Action>(ActivateBookmarksToolWindow)
+map <leader>vo <Action>(ActivateTODOToolWindow)
+map <leader>vp <Action>(ActivateProblemsViewToolWindow)
+map <leader>vs <Action>(ActivateStructureToolWindow)
+map <leader>vt <Action>(ActivateTerminalToolWindow)
+"map <leader> <Action>(ActivatePullRequestsToolWindow)
+let g:WhichKeyDesc_leader_view = "<leader>v +view"
+let g:WhichKeyDesc_view_build = "<leader>vb BUILD view"
+let g:WhichKeyDesc_view_commit = "<leader>vc COMMIT view"
+let g:WhichKeyDesc_view_debug = "<leader>vd DEBUG view"
+let g:WhichKeyDesc_view_explorer = "<leader>ve device EXPLORER view"
+let g:WhichKeyDesc_view_git = "<leader>vg GIT view"
+let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
+let g:WhichKeyDesc_view_marks = "<leader>vm BOOKMARKS (marks) view"
+let g:WhichKeyDesc_view_problems = "<leader>vp PROBLEMS view"
+let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
+let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view
+let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
+
+" Lsp (l)
+map <leader>la <Action>(ShowIntentionActions)
+map <leader>ld <Action>(ActivateProblemsViewToolWindow)
+map <leader>lf <Action>(ReformatCode)
+map <leader>lk <Action>(ShowErrorDescription)
+map <leader>lr <Action>(RenameElement)
+map <leader>lu <Action>(FindUsages)
+map <leader>lo <Action>(OptimizeImports)
+map <leader>lq <Action>(Refactorings.QuickListPopupAction)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
-
-" Finder (leader f)
-let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
-let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
-map <leader>ff <Action>(GotoFile)
-let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
-map <leader>fs <Action>(FindInPath)
-let g:WhichKeyDesc_finder_usage = "<leader>fu Find usage"
-map <leader>fu <Action>(FindUsages)
-let g:WhichKeyDesc_finder_recent = "<leader>fr recent files"
-map <leader>fr <Action>(RecentFiles)
-let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
-map <leader>fe <Action>(SearchEverywhere)
-let g:WhichKeyDesc_finder_action = "<leader>fa action"
-map <leader>fa <Action>(GotoAction)
-
-" leader fg - find git status
-" leader fk - find keymaps
-" leader fh - find help
-
-" Views (leader v)
-let g:WhichKeyDesc_leader_view = "<leader>v +view"
-let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
-map <leader>vo <Action>(ActivateTODOToolWindow)
-let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
-map <leader>vl <Action>(ActivateLogcatToolWindow)
-let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
-map <leader>vt <Action>(ActivateTerminalToolWindow)
-let g:WhichKeyDesc_view_problems = "<leader>vp PROBLEMS view"
-map <leader>vp <Action>(ActivateProblemsViewToolWindow)
-let g:WhichKeyDesc_view_git = "<leader>vg GIT view"
-map <leader>vg <Action>(ActivateVersionControlToolWindow)
-"map <leader>ts <Action>(ActivateFindToolWindow)
-let g:WhichKeyDesc_view_build = "<leader>vb BUILD view"
-map <leader>vb <Action>(ActivateBuildToolWindow)
-"map <leader> <Action>(ActivatePullRequestsToolWindow)
-"map <leader>vc <Action>... commit
-let g:WhichKeyDesc_view_marks = "<leader>vm BOOKMARKS (marks) view"
-map <leader>vm <Action>(ActivateBookmarksToolWindow)
-let g:WhichKeyDesc_view_debug = "<leader>vd DEBUG view"
-map <leader>vd <Action>(ActivateDebugToolWindow)
-let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
-map <leader>vs <Action>(ActivateStructureToolWindow)
-
-" Lsp (leader l)
 let g:WhichKeyDesc_leader_lsp = "<leader>l +lsp"
 let g:WhichKeyDesc_lsp_action = "<leader>la code action"
-map <leader>la <Action>(ShowIntentionActions)
-let g:WhichKeyDesc_lsp_format = "<leader>lf format"
-map <leader>lf <Action>(ReformatCode)
-let g:WhichKeyDesc_lsp_rename = "<leader>lr rename"
-map <leader>lr <Action>(RenameElement)
 let g:WhichKeyDesc_lsp_diagnostic = "<leader>ld problems file (diagnostics)"
-map <leader>ld <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_lsp_format = "<leader>lf format"
+let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader>lk prev diagnostic"
+let g:WhichKeyDesc_lsp_rename = "<leader>lr rename"
 let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
-map <leader>lu <Action>(FindUsages)
-let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader> prev diagnostic"
-map <leader>lk <Action>(ShowErrorDescription) 
+let g:WhichKeyDesc_lsp_imports = "<leader>lo optimize imports"
+let g:WhichKeyDesc_lsp_quicklist = "<leader>lq quicklist refactoring"
 
-" Bookmarks / Marks
+" Marks (m)
+map <leader>mt <Action>(ToggleBookmark)
+map <leader>me <Action>(EditBookmark)
+map <leader>ml <Action>(ShowBookmarks)
+map gm <Action>(ShowBookmarks)
 let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks)"
 let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
-map <leader>mt <Action>(ToggleBookmark)
 let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
-map <leader>me <Action>(EditBookmark)
+let g:WhichKeyDesc_marks_list = "<leader>ml list"
 let g:WhichKeyDesc_marks_show = "gm go to marks (show marks)"
-map gm <Action>(ShowBookmarks)
 
-
-" Navigate git changes (hunks)
+" Git (g)
+map <leader>gn <Action>(Git.CreateNewBranch)
+map <leader>ga <Action>(Git.Branches)
+map <leader>gj <Action>(VcsShowNextChangeMarker)
+map <leader>gk <Action>(VcsShowPrevChangeMarker)
+map <leader>gd <Action>(Compare.LastVersion)
+map <leader>gr <Action>(Vcs.RollbackChangedLines)
+map <leader>gc <Action>(ActivateCommitToolWindow)
+map <leader>gl <Action>(Annotate)
 map [h <Action>(VcsShowPrevChangeMarker)
 map ]h <Action>(VcsShowNextChangeMarker)
- 
+let g:WhichKeyDesc_leader_git = "<leader>g +Git"
+let g:WhichKeyDesc_git_new = "<leader>gn new branch"
+let g:WhichKeyDesc_git_action = "<leader>ga action panel"
+let g:WhichKeyDesc_git_nextHunk = "<leader>gj next hunk "
+let g:WhichKeyDesc_git_prevHunk = "<leader>gk prev hunk "
+let g:WhichKeyDesc_git_diff = "<leader>gd diff
+let g:WhichKeyDesc_git_rollback = "<leader>gr rollback"
+let g:WhichKeyDesc_git_commit = "<leader>gc commit"
+let g:WhichKeyDesc_git_blame = "<leader>gl blame"
+
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
 " track actions by turning on 'IdeaVim: track action Ids' in settings
-let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
