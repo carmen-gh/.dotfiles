@@ -8,7 +8,7 @@ export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH=/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp:$PATH
-
+export PATH=$HOME/.local/bin:$PATH
 
 source "$HOME/.cargo/env" # add rust cargo
 
