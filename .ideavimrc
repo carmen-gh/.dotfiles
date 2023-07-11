@@ -70,6 +70,8 @@ nnoremap YY va{Vy}
 " use ;; for escape
 inoremap jj <Esc>
 
+" join lines ??
+
 " use space as leader
 map <Space> <leader>
 
@@ -86,23 +88,33 @@ let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map <leader>d <Action>(AndroidConnectDebuggerAction)
-map <leader>b <Action>(ToggleLineBreakpoint)
 
 "map <leader>s <Action>(Switcher)
-map <leader>q <Action>(CloseContent)
-map <leader>qa <Action>(CloseAllEditors)
 
 map ]t <Action>(NextTab)
 map [t <Action>(PreviousTab)
 
 " Debug (d)
 " TODO add
+map <leader>dt <Action>(ToggleLineBreakpoint)
+" step back
+" continue
+" disconnect
+" watch
+" expression
+" step into
+" step out
+" quit
+" start
+" toggle UI
 
-" Buffer (b) tabs in IntelliJ
-" TODO add
-" close
-" close all
-" close all except this
+" Quit (q) close
+" add leader q and hide from which key
+"map <leader>q <Action>(CloseActiveTab)
+map <leader>qt <Action>(CloseActiveTab)
+map <leader>qa <Action>(CloseAllEditors)
+map <leader>qx <Action>(CloseAllEditorsButActive)
+let g:WhichKeyDesc_leader_quit = "<leader>q +Quit (close)"
 
 " Test (t)
 " run nearest test
@@ -110,6 +122,14 @@ map [t <Action>(PreviousTab)
 " rerun failed tests
 " run all tests
 " debug all tests
+
+" Android (a)
+" build
+" select device
+" device explorer
+" configuration
+" studio bot
+" sync gradle files
 
 " Source code generation (c)
 
@@ -158,7 +178,7 @@ map <leader>vp <Action>(ActivateProblemsViewToolWindow)
 map <leader>vs <Action>(ActivateStructureToolWindow)
 map <leader>vt <Action>(ActivateTerminalToolWindow)
 "map <leader> <Action>(ActivatePullRequestsToolWindow)
-let g:WhichKeyDesc_leader_view = "<leader>v +view"
+let g:WhichKeyDesc_leader_view = "<leader>v +View"
 let g:WhichKeyDesc_view_build = "<leader>vb BUILD view"
 let g:WhichKeyDesc_view_commit = "<leader>vc COMMIT view"
 let g:WhichKeyDesc_view_debug = "<leader>vd DEBUG view"
@@ -183,7 +203,7 @@ map <leader>lq <Action>(Refactorings.QuickListPopupAction)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
-let g:WhichKeyDesc_leader_lsp = "<leader>l +lsp"
+let g:WhichKeyDesc_leader_lsp = "<leader>l +LSP"
 let g:WhichKeyDesc_lsp_action = "<leader>la code action"
 let g:WhichKeyDesc_lsp_diagnostic = "<leader>ld problems file (diagnostics)"
 let g:WhichKeyDesc_lsp_format = "<leader>lf format"
