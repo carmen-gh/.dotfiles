@@ -25,7 +25,7 @@ truncate_to_repo = true
 [character]
 success_symbol = "[](green)"
 error_symbol = "[](red)"
-vicmd_symbol = "[](green)"
+vicmd_symbol = "[](yellow)"
 
 [git_branch]
 symbol = " "
