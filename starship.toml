@@ -1,14 +1,107 @@
 palette = "catppuccin_frappe"
 
-[character]
-# success_symbol = "[❯](blue)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$rust\
+$python\
+$cmd_duration $jobs\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
 
 [directory]
-truncation_length = 4
+style = "bold blue"
+read_only = ""
+truncate_to_repo = true
+
+[character]
+success_symbol = "[](green)"
+error_symbol = "[](red)"
+vicmd_symbol = "[](green)"
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "overlay1"
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+modified = 'M'
+conflicted = ' ' 
+ahead = '󱞿 '
+behind = '󱞥 '
+diverged = '󰹹 '
+untracked = '?'
+stashed = '󰬸 '
+staged = 'S'
+deleted = 'D'
+style = "yellow"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "overlay1"
+
+[git_metrics]
+disabled = false
+
+[jobs]
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = "[$symbol]($style)"
+
+[cmd_duration]
+format = "[$duration]($style)"
+style = "yellow"
+
+[rust]
+format = '[${symbol}(${version} )]($style)'
+symbol = " "
+
+[python]
+format = '[${symbol}(${version} )]($style)'
+symbol = " "
+
+[time]
+disabled = false
+style = "bright-black"
+format = "[$time]($style)"
+
+# -----------
+
+# [character]
+# success_symbol = "[❯](green)"
+# error_symbol = "[❯](red)"
+# vicmd_symbol = "[❮](green)"
+
+# [directory]
+# truncation_length = 4
 # Catppuccin 'lavender'
-style = "bold lavender"
+# style = "bold lavender"
+
+# [git_branch]
+# symbol = " " 
+# format = "[$symbol$branch]($style) "
+# style = "blue"
+
+# [git_status]
+# format = '([\[$all_status$ahead_behind\]]($style) )'
+# style = "cyan"
+
+# [git_state]
+# format = '\([$state( $progress_current/$progress_total)]($style)\) '
+# style = "blue"
+
+# [git_metrics]
+# disabled = false
 
 [palettes.catppuccin_frappe]
 rosewater = "#f2d5cf"
@@ -35,5 +128,4 @@ surface2 = "#626880"
 surface1 = "#51576d"
 surface0 = "#414559"
 base = "#303446"
-mantle = "#292c3c"
-crust = "#232634"
+
