@@ -145,6 +145,7 @@ let g:WhichKeyDesc_android_debugger = "<leader>Ad attach debugger"
 let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
 
 " Source code generation (c)
+map <leader>cn <Action>(Kotlin.NewFile)
 
 " Split (s)
 map <leader>sl <Action>(MoveTabRight)
