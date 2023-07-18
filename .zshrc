@@ -12,8 +12,11 @@ export PATH=$HOME/.local/bin:$PATH
 
 source "$HOME/.cargo/env" # add rust cargo
 
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
 # THEME ------------------------------------------------------------
-ZSH_THEME="powerlevel10k/powerlevel10k"
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins -------------------------------------------------------------
 plugins=(git colored-man-pages gradle vi-mode)
@@ -33,7 +36,6 @@ export KEYTIMEOUT=1
  fi
 
 # ALIAS ----------------------------------------------------------------- 
-#
 alias zshconfig="nvim ~/.zshrc"
 alias vimconfig="nvim ~/.dotfiles/nvim/init.lua"
 alias gitconfig="nvim ~/.gitconfig"
@@ -49,12 +51,5 @@ alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 # For a full list of active aliases, run `alias`.
 
-# POWERLEVEL ------------------------------------------------------------
-#
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
-[[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+# Starship Prompt ------------------------------------------------------------
+eval "$(starship init zsh)"
