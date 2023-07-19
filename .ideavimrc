@@ -107,7 +107,6 @@ map <leader>dt <Action>(ToggleLineBreakpoint)
 " quit
 " start
 " toggle UI
-
 let g:WhichKeyDesc_leader_debug = "<leader>d +Debug"
 let g:WhichKeyDesc_debug_breakpoint = "<leader>dt toggle Breakpoint"
 
@@ -120,6 +119,7 @@ map <leader>qx <Action>(CloseAllEditorsButActive)
 let g:WhichKeyDesc_leader_quit = "<leader>q +Quit (close)"
 
 " Test (t)
+" go to test
 " run nearest test
 " debug nearest test
 " rerun failed tests
@@ -146,6 +146,8 @@ let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
 
 " Source code generation (c)
 map <leader>cn <Action>(Kotlin.NewFile)
+let g:WhichKeyDesc_leader_code = "<leader>c +Code Generation"
+let g:WhichKeyDesc_code_newFile = "<leader>cn new file"
 
 " Split (s)
 map <leader>sl <Action>(MoveTabRight)
@@ -255,7 +257,7 @@ let g:WhichKeyDesc_git_new = "<leader>gn new branch"
 let g:WhichKeyDesc_git_action = "<leader>ga action panel"
 let g:WhichKeyDesc_git_nextHunk = "<leader>gj next hunk "
 let g:WhichKeyDesc_git_prevHunk = "<leader>gk prev hunk "
-let g:WhichKeyDesc_git_diff = "<leader>gd diff
+let g:WhichKeyDesc_git_diff = "<leader>gd diff"
 let g:WhichKeyDesc_git_rollback = "<leader>gr rollback"
 let g:WhichKeyDesc_git_commit = "<leader>gc commit"
 let g:WhichKeyDesc_git_blame = "<leader>gl blame"
