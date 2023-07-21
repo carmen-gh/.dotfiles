@@ -111,20 +111,26 @@ let g:WhichKeyDesc_leader_debug = "<leader>d +Debug"
 let g:WhichKeyDesc_debug_breakpoint = "<leader>dt toggle Breakpoint"
 
 " Quit (q) close
-" add leader q and hide from which key
-"map <leader>q <Action>(CloseActiveTab)
-map <leader>qt <Action>(CloseActiveTab)
+map <leader>qt <Action>(CloseEditor)
 map <leader>qa <Action>(CloseAllEditors)
-map <leader>qx <Action>(CloseAllEditorsButActive)
+map <leader>qo <Action>(CloseAllEditorsButActive)
 let g:WhichKeyDesc_leader_quit = "<leader>q +Quit (close)"
+let g:WhichKeyDesc_quit_tab = "<leader>qt quit active tab"
+let g:WhichKeyDesc_quit_all = "<leader>qa quit all tabs"
+let g:WhichKeyDesc_quit_others = "<leader>qo quit other tabs"
 
 " Test (t)
-" go to test
-" run nearest test
-" debug nearest test
-" rerun failed tests
+map gt <Action>(GotoTest)
 " run all tests
 " debug all tests
+map <leader>tr <Action>(RunClass)
+map <leader>td <Action>(DebugClass)
+map <leader>tf <Action>(RerunFailedTests)
+let g:WhichKeyDesc_leader_test = "<leader>t +Test"
+let g:WhichKeyDesc_test_goto = "gt go to Test"
+let g:WhichKeyDesc_test_run = "<leader>tr run nearest test"
+let g:WhichKeyDesc_test_debug = "<leader>td debug nearest test"
+
 
 " Android (A)
 map <leader>Ar <Action>(Run)
@@ -143,6 +149,7 @@ let g:WhichKeyDesc_android_stop = "<leader>As stop"
 let g:WhichKeyDesc_android_gradleSync = "<leader>Ag gradle sync"
 let g:WhichKeyDesc_android_debugger = "<leader>Ad attach debugger"
 let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
+let g:WhichKeyDesc_android_devices = "<leader>Ae Device Explorer"
 
 " Source code generation (c)
 map <leader>cn <Action>(Kotlin.NewFile)
@@ -194,6 +201,7 @@ map <leader>vp <Action>(ActivateProblemsViewToolWindow)
 map <leader>vs <Action>(ActivateStructureToolWindow)
 map <leader>vt <Action>(ActivateTerminalToolWindow)
 "map <leader> <Action>(ActivatePullRequestsToolWindow)
+map <leader>vz <Action>(ToggleZenMode)
 let g:WhichKeyDesc_leader_view = "<leader>v +View"
 let g:WhichKeyDesc_view_build = "<leader>vb BUILD view"
 let g:WhichKeyDesc_view_commit = "<leader>vc COMMIT view"
@@ -204,8 +212,9 @@ let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
 let g:WhichKeyDesc_view_marks = "<leader>vm BOOKMARKS (marks) view"
 let g:WhichKeyDesc_view_problems = "<leader>vp PROBLEMS view"
 let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
-let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view
+let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
 let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
+let g:WhichKeyDesc_view_zen = "<leader>vz toggle Zen mode"
 
 " Lsp (l)
 map <leader>la <Action>(ShowIntentionActions)
@@ -243,6 +252,7 @@ let g:WhichKeyDesc_marks_show = "gm go to marks (show marks)"
 " Git (g)
 map <leader>gn <Action>(Git.CreateNewBranch)
 map <leader>ga <Action>(Git.Branches)
+map <leader>gb <Action>(GitToolBox.SwitchRecentBranches)
 map <leader>gj <Action>(VcsShowNextChangeMarker)
 map <leader>gk <Action>(VcsShowPrevChangeMarker)
 map <leader>gd <Action>(Compare.LastVersion)
@@ -255,6 +265,7 @@ map ]h <Action>(VcsShowNextChangeMarker)
 let g:WhichKeyDesc_leader_git = "<leader>g +Git"
 let g:WhichKeyDesc_git_new = "<leader>gn new branch"
 let g:WhichKeyDesc_git_action = "<leader>ga action panel"
+let g:WhichKeyDesc_git_branch = "<leader>gb switch branch"
 let g:WhichKeyDesc_git_nextHunk = "<leader>gj next hunk "
 let g:WhichKeyDesc_git_prevHunk = "<leader>gk prev hunk "
 let g:WhichKeyDesc_git_diff = "<leader>gd diff"
