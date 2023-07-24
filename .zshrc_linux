@@ -23,6 +23,8 @@ alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='lvim' 
 alias lg='lazygit'
 alias mv='mv -i'
+alias cp='cp -i'
+alias grep='grep --color=auto '
 alias rm='trash'
 alias rmdir='rm -rf'
 alias cat='batcat'
@@ -30,12 +32,15 @@ alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 alias gw="./gradlew"
 alias trim="awk '{\$1=\$1};1'"
+alias ...="cd ../.."
 
 function take {
   mkdir -p $1
   cd $1
 }
 
+alias work="timer 90m"
+alias break="timer 10m"
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
