@@ -23,9 +23,9 @@ read_only = ""
 truncate_to_repo = true
 
 [character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
-vicmd_symbol = "[](yellow)"
+success_symbol = "[󰁔](green)"
+error_symbol = "[󰁔](red)"
+vicmd_symbol = "[󰁔](orange)"
 
 [git_branch]
 symbol = " "
@@ -43,7 +43,7 @@ untracked = '?'
 stashed = '󰬸 '
 staged = 'S'
 deleted = 'D'
-style = "yellow"
+style = "overlay1"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '

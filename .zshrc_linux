@@ -12,6 +12,8 @@ plug "wintermi/zsh-starship"
 autoload -Uz compinit
 compinit
 
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export BAT_THEME="Catppuccin-frappe"
@@ -41,6 +43,7 @@ function take {
 
 alias work="timer 90m"
 alias break="timer 10m"
+
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
