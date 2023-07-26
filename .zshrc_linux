@@ -18,7 +18,7 @@ export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export BAT_THEME="Catppuccin-frappe"
 
-alias zshconfig="lvim ~/.zshrc"
+alias zshconfig="lvim ~/.zshrc_linux"
 alias vimconfig="lvim ~/.dotfiles/nvim/init.lua"
 alias gitconfig="lvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb'
@@ -41,8 +41,8 @@ function take {
   cd $1
 }
 
-alias work="timer 90m"
-alias break="timer 10m"
+alias work="timer 90m && notify-send 'timer is over'"
+alias break="timer 10m && notify-send 'timer is over'"
 
 # Starship prompt
 eval "$(starship init zsh)"
