@@ -14,12 +14,13 @@ compinit
 
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+export EDITOR=lvim
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export BAT_THEME="Catppuccin-frappe"
 
-alias zshconfig="lvim ~/.zshrc_linux"
-alias vimconfig="lvim ~/.dotfiles/nvim/init.lua"
+alias zshconfig="lvim ~/.dotfiles/.zshrc_linux"
+alias vimconfig="lvim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="lvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias vim='lvim' 
