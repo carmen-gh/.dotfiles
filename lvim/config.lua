@@ -122,16 +122,21 @@ lvim.plugins = {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "css", "scss", "html", "javascript", "toml" }, {
-        RGB = true,        -- #RGB hex codes
-        RRGGBB = true,     -- #RRGGBB hex codes
-        RRGGBBAA = true,   -- #RRGGBBAA hex codes
-        rgb_fn = true,     -- CSS rgb() and rgba() functions
-        hsl_fn = true,     -- CSS hsl() and hsla() functions
-        css = true,        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-        css_fn = true,     -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        RGB = true,      -- #RGB hex codes
+        RRGGBB = true,   -- #RRGGBB hex codes
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true,   -- CSS rgb() and rgba() functions
+        hsl_fn = true,   -- CSS hsl() and hsla() functions
+        css = true,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
       })
     end,
   },
+  "ChristianChiarulli/swenv.nvim",
+  "stevearc/dressing.nvim",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python"
 }
 
 
@@ -139,6 +144,7 @@ lvim.plugins = {
 -- builtin
 ------------------------------------------------------------------------------------------------------------------------
 lvim.colorscheme = "catppuccin-frappe"
+-- lvim.lsp.automatic_servers_installation = false
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lir.active = false
 lvim.builtin.dap.breakpoint.text = lvim.icons.git.FileIgnored
@@ -291,7 +297,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<m-d>", "<cmd>RustOpenExternalDocs<Cr>", { noremap = true, silent = true })
 
-lvim.builtin.which_key.mappings["r"] = {
+lvim.builtin.which_key.mappings["R"] = {
   name = "Rust",
   r = { "<cmd>RustRunnables<Cr>", "Runnables" },
   t = { "<cmd>lua _CARGO_TEST()<cr>", "Cargo Test" },
@@ -311,3 +317,63 @@ lvim.builtin.which_key.mappings["r"] = {
   f = { "<cmd>lua require'crates'.show_features_popup()<cr>", "[crates] show features" },
   D = { "<cmd>lua require'crates'.show_dependencies_popup()<cr>", "[crates] show dependencies" },
 }
+
+------------------------------------------------------------------------------------------------------------------------
+-- python
+------------------------------------------------------------------------------------------------------------------------
+
+-- automatically install python syntax highlighting
+lvim.builtin.treesitter.ensure_installed = {
+  "python",
+}
+
+-- setup formatting
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup { { name = "black" }, }
+lvim.format_on_save.enabled = true
+lvim.format_on_save.pattern = { "*.py" }
+
+-- setup linting
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup { { command = "flake8", filetypes = { "python" } } }
+
+-- setup debug adapter
+lvim.builtin.dap.active = true
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+pcall(function()
+  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
+end)
+
+-- setup testing
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")({
+      -- Extra arguments for nvim-dap configuration
+      -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+      dap = {
+        justMyCode = false,
+        console = "integratedTerminal",
+      },
+      args = { "--log-level", "DEBUG", "--quiet" },
+      runner = "pytest",
+    })
+  }
+})
+
+lvim.builtin.which_key.mappings["dm"] = { "<cmd>lua require('neotest').run.run()<cr>",
+  "Test Method" }
+lvim.builtin.which_key.mappings["dM"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>",
+  "Test Method DAP" }
+lvim.builtin.which_key.mappings["df"] = {
+  "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<cr>", "Test Class" }
+lvim.builtin.which_key.mappings["dF"] = {
+  "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", "Test Class DAP" }
+lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.toggle()<cr>", "Test Summary" }
+
+
+-- binding for switching
+lvim.builtin.which_key.mappings["C"] = {
+  name = "Python",
+  c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
+}
+
