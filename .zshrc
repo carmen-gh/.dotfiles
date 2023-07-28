@@ -36,11 +36,11 @@ export KEYTIMEOUT=1
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='nvim'
+   export EDITOR='lvim'
  fi
 
 # ALIAS ----------------------------------------------------------------- 
-alias zshconfig="lvim ~/.zshrc"
+alias zshconfig="lvim ~/.dotfiles/.zshrc"
 alias vimconfig="lvim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="lvim ~/.gitconfig"
 alias vim='lvim' 
