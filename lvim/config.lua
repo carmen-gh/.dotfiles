@@ -14,6 +14,8 @@ lvim.keys.normal_mode["<leader>d"] = [["_d]]
 lvim.keys.normal_mode["YY"] = "va{Vy}"        -- copy function or json object
 lvim.builtin.which_key.mappings["-"] = { "<cmd>split<CR>", "split horizontally" }
 lvim.builtin.which_key.mappings["|"] = { "<cmd>vs<CR>", "split vertically" }
+-- TODO change from t to D ? t would then be used for test 
+-- remove trouble if references and todo list shown with telescope?
 lvim.builtin.which_key.mappings["t"] = {
   name = "Diagnostics",
   t = { "<cmd>TroubleToggle<cr>", "trouble" },
@@ -29,6 +31,7 @@ lvim.builtin.which_key.mappings["l"]["R"] = { ":LspRestart<cr>", lvim.icons.kind
 -- TODO add remap for treesj see docu https://github.com/Wansmer/treesj
 lvim.builtin.which_key.mappings["l"]["J"] = { ":lua require('treesj').toggle()<CR>", " Join/splitting blocks of code" }
 
+
 ------------------------------------------------------------------------------------------------------------------------
 -- Options
 ------------------------------------------------------------------------------------------------------------------------
@@ -37,6 +40,7 @@ vim.opt.colorcolumn = "+1"
 vim.opt.textwidth = 120
 vim.opt.autoread = true
 vim.opt.termguicolors = true
+
 
 ------------------------------------------------------------------------------------------------------------------------
 -- Plugins
@@ -147,6 +151,7 @@ lvim.colorscheme = "catppuccin-frappe"
 -- lvim.lsp.automatic_servers_installation = false
 lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lir.active = false
+lvim.builtin.breadcrumbs.active = false
 lvim.builtin.dap.breakpoint.text = lvim.icons.git.FileIgnored
 lvim.builtin.which_key.setup.icons.separator = lvim.icons.ui.ChevronRight
 table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries,
@@ -160,11 +165,13 @@ lvim.builtin.bufferline.options.show_buffer_icons = false
 lvim.builtin.bufferline.options.show_buffer_close_icons = false
 lvim.builtin.bufferline.options.modified_icon = "[+]"
 lvim.builtin.bufferline.options.color_icons = false
+lvim.builtin.bufferline.options.always_show_bufferline = true
 lvim.builtin.bufferline.options.diagnostics = ""
 
 local components = require "lvim.core.lualine.components"
 -- lualine show different mode icon = 
-lvim.builtin.lualine.sections.lualine_c = { 'diagnostics' }
+lvim.builtin.lualine.sections.lualine_b = {}
+lvim.builtin.lualine.sections.lualine_c = { components.branch, components.diagnostics }
 lvim.builtin.lualine.sections.lualine_x = { components.lsp, components.filetype }
 lvim.builtin.lualine.sections.lualine_y = {}
 lvim.builtin.lualine.extensions = { 'trouble' }
