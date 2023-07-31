@@ -36,7 +36,7 @@ vim.opt.relativenumber = true
 vim.opt.colorcolumn = "+1"
 vim.opt.textwidth = 120
 vim.opt.autoread = true
-
+vim.opt.termguicolors = true
 
 ------------------------------------------------------------------------------------------------------------------------
 -- Plugins
