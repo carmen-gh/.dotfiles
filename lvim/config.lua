@@ -97,7 +97,7 @@ lvim.plugins = {
       vim.g.mkdp_auto_start = 1
     end,
   },
-  { "mrjones2014/nvim-ts-rainbow" },
+  { "HiPhish/rainbow-delimiters.nvim" },
   "simrat39/rust-tools.nvim",
   {
     "saecki/crates.nvim",
@@ -119,7 +119,13 @@ lvim.plugins = {
     "j-hui/fidget.nvim",
     version = 'legacy',
     config = function()
-      require("fidget").setup()
+      require("fidget").setup(
+        {
+          text = {
+            spinner = "dots"
+          }
+        }
+      )
     end,
   },
   {
@@ -149,9 +155,10 @@ lvim.plugins = {
 ------------------------------------------------------------------------------------------------------------------------
 lvim.colorscheme = "catppuccin-frappe"
 -- lvim.lsp.automatic_servers_installation = false
-lvim.builtin.treesitter.rainbow.enable = true
 lvim.builtin.lir.active = false
+lvim.builtin.terminal.active = false
 lvim.builtin.breadcrumbs.active = false
+
 lvim.builtin.dap.breakpoint.text = lvim.icons.git.FileIgnored
 lvim.builtin.which_key.setup.icons.separator = lvim.icons.ui.ChevronRight
 table.insert(lvim.builtin.alpha.dashboard.section.buttons.entries,
@@ -175,8 +182,6 @@ lvim.builtin.lualine.sections.lualine_c = { components.branch, components.diagno
 lvim.builtin.lualine.sections.lualine_x = { components.lsp, components.filetype }
 lvim.builtin.lualine.sections.lualine_y = {}
 lvim.builtin.lualine.extensions = { 'trouble' }
-
-lvim.builtin.terminal.active = false
 
 lvim.builtin.telescope = {
   defaults = {
@@ -383,4 +388,3 @@ lvim.builtin.which_key.mappings["C"] = {
   name = "Python",
   c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" },
 }
-

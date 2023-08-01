@@ -43,6 +43,7 @@ function take {
 }
 
 alias work="timer 90m && notify-send 'timer is over'"
+alias laser="timer 60m && notify-send 'timer is over'"
 alias break="timer 10m && notify-send 'timer is over'"
 
 # Starship prompt
