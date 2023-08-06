@@ -15,6 +15,7 @@ compinit
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export EDITOR=lvim
+export VISUAL=lvim
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export BAT_THEME="Catppuccin-frappe"

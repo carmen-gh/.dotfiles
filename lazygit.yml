@@ -2,6 +2,7 @@ git:
   paging:
     pager: git-split-diffs --color
   branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'" 
+  mainBranches: [master, main, develop]
 
 gui:
   nerdFontsVersion: "3"
@@ -26,3 +27,10 @@ gui:
       - "#8caaee" # Blue
     unstagedChangesColor:
       - red       # Red
+
+os:
+  edit: 'lvim {{filename}}'
+  editAtLine: 'lvim --line={{line}} {{filename}}'
+  editAtLineAndWait: 'lvim --block --line={{line}} {{filename}}'
+  editInTerminal: true
+  openDirInEditor: 'lvim {{dir}}'
