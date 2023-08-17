@@ -117,16 +117,13 @@ lvim.plugins = {
   },
   {
     "j-hui/fidget.nvim",
-    version = 'legacy',
-    config = function()
-      require("fidget").setup(
-        {
-          text = {
-            spinner = "dots"
-          }
-        }
-      )
-    end,
+    tag = "legacy",
+    event = "LspAttach",
+    opts = {
+      text = {
+        spinner = "dots"
+      }
+    },
   },
   {
     "norcalli/nvim-colorizer.lua",

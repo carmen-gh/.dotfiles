@@ -23,9 +23,8 @@ export BAT_THEME="Catppuccin-frappe"
 alias zshconfig="lvim ~/.dotfiles/.zshrc_linux"
 alias vimconfig="lvim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="lvim ~/.gitconfig"
-alias adb='~/Library/Android/sdk/platform-tools/adb'
+alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias vim='lvim' 
-alias lg='lazygit'
 alias mv='mv -i'
 alias cp='cp -i'
 alias grep='grep --color=auto '
@@ -37,6 +36,11 @@ alias adb-restart='adb kill-server; adb start-server'
 alias gw="./gradlew"
 alias trim="awk '{\$1=\$1};1'"
 alias ...="cd ../.."
+alias lg='lazygit'
+alias lg-upgrade="LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin"
 
 function take {
   mkdir -p $1
