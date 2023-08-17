@@ -16,13 +16,14 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export EDITOR=lvim
 export VISUAL=lvim
+export TERMINAL=kitty
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export BAT_THEME="Catppuccin-frappe"
 
-alias zshconfig="lvim ~/.dotfiles/.zshrc_linux"
-alias vimconfig="lvim ~/.dotfiles/lvim/config.lua"
-alias gitconfig="lvim ~/.gitconfig"
+alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' lvim ~/.dotfiles/.zshrc_linux"
+alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' lvim ~/.dotfiles/lvim/config.lua"
+alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' lvim ~/.gitconfig"
 alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias vim='lvim' 
 alias mv='mv -i'
