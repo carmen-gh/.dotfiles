@@ -23,7 +23,8 @@ export BAT_THEME="Catppuccin-frappe"
 
 alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' lvim ~/.dotfiles/.zshrc_linux"
 alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' lvim ~/.dotfiles/lvim/config.lua"
-alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' lvim ~/.gitconfig"
+alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' lvim ~/.dotfiles/.gitconfig"
+alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' lvim ~/.dotfiles/kitty.conf"
 alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias vim='lvim' 
 alias mv='mv -i'
@@ -43,6 +44,7 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit lazygit.tar.gz"
+alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
 
 function take {
   mkdir -p $1
