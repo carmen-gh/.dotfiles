@@ -14,6 +14,8 @@ compinit
 
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+export PATH=$PATH:~/go/bin
+
 export EDITOR=lvim
 export VISUAL=lvim
 export TERMINAL=kitty
@@ -30,7 +32,6 @@ alias vim='lvim'
 alias mv='mv -i'
 alias cp='cp -i'
 alias grep='grep --color=auto '
-alias rm='trash'
 alias rmdir='rm -rf'
 alias cat='batcat'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
@@ -39,11 +40,7 @@ alias gw="./gradlew"
 alias trim="awk '{\$1=\$1};1'"
 alias ...="cd ../.."
 alias lg='lazygit'
-alias lg-upgrade="LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
-rm lazygit lazygit.tar.gz"
+alias lg-upgrade="go install github.com/jesseduffield/lazygit@latest"
 alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
 
 function take {

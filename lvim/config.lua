@@ -8,15 +8,17 @@
 -- Keymappings
 ------------------------------------------------------------------------------------------------------------------------
 lvim.keys.insert_mode["jj"] = "<ESC>"
+lvim.keys.insert_mode["jk"] = "<ESC>"
+lvim.keys.insert_mode["kj"] = "<ESC>"
 lvim.keys.normal_mode["x"] = '"_x'            -- delete single character without copying into register
 lvim.keys.visual_mode["<leader>p"] = [["_dP]] -- paste and keep
-lvim.keys.normal_mode["<leader>d"] = [["_d]]
+lvim.keys.normal_mode["<leader>d"] = [["_d]]  -- delete without putting into register
 lvim.keys.normal_mode["YY"] = "va{Vy}"        -- copy function or json object
 lvim.builtin.which_key.mappings["-"] = { "<cmd>split<CR>", "split horizontally" }
 lvim.builtin.which_key.mappings["|"] = { "<cmd>vs<CR>", "split vertically" }
 -- TODO change from t to D ? t would then be used for test 
 -- remove trouble if references and todo list shown with telescope?
-lvim.builtin.which_key.mappings["t"] = {
+lvim.builtin.which_key.mappings["x"] = {
   name = "Diagnostics",
   t = { "<cmd>TroubleToggle<cr>", "trouble" },
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
