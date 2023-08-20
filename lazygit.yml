@@ -36,3 +36,11 @@ os:
   editAtLineAndWait: 'lvim --block --line={{line}} {{filename}}'
   editInTerminal: true
   openDirInEditor: 'lvim {{dir}}'
+
+customCommands:
+  - key: "l"
+    command: "commit"
+    description: "conventional commit"
+    context: "files"
+    loadingText: "opening gum commit tool"
+    subprocess: true

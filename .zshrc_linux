@@ -15,6 +15,7 @@ compinit
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/.dotfiles/bin # my custom scripts
 
 export EDITOR=lvim
 export VISUAL=lvim
@@ -42,15 +43,25 @@ alias ...="cd ../.."
 alias lg='lazygit'
 alias lg-upgrade="go install github.com/jesseduffield/lazygit@latest"
 alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+alias dot="cd ~/.dotfiles"
 
 function take {
   mkdir -p $1
   cd $1
 }
 
-alias work="timer 90m && notify-send 'timer is over'"
-alias laser="timer 60m && notify-send 'timer is over'"
-alias break="timer 10m && notify-send 'timer is over'"
+alias 90min="timer 90m && notify-send 'timer is over'"
+alias 60min="timer 60m && notify-send 'timer is over'"
+alias 10min="timer 10m && notify-send 'timer is over'"
+
+function choose_timer() {
+  cmds=("90min" "60min" "10min") 
+  chose=$(gum choose $cmds)
+  for cmd in $chose
+  do
+    eval "$cmd"
+  done
+}
 
 # Starship prompt
 eval "$(starship init zsh)"
