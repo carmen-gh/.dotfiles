@@ -8,11 +8,11 @@
     l = log --pretty=custom --reverse
     lg = log --graph --pretty=custom -20
     compare = diff --cached # view the changes you staged for the next commit relative to HEAD
-	unstage = reset HEAD --
+    unstage = reset HEAD --
     amend = commit --amend -m
     cpick = cherry-pick
-    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-	last = log -1 HEAD
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop\\|main' | xargs -n 1 git branch -d"
+    last = log -1 HEAD
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
@@ -28,7 +28,8 @@
     conflictstyle = diff3
     tool = vimdiff
 [mergetool "vimdiff"]
-    path = nvim
+    path = lvim
+    keepBackup = false
 [diff]
     colorMoved = default 
 [push]

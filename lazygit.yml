@@ -7,6 +7,8 @@ git:
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.22
+  authorColors:
+    '*': '#85c1dc' # sapphire
   # use the frappe catpucchin theme
   theme:
     lightTheme: false 
@@ -14,19 +16,19 @@ gui:
       - "#a6d189" # Green
       - bold
     inactiveBorderColor:
-      - "#c6d0f5" # Text
+      - "#949cbb" # Overlay2
     optionsTextColor:
       - "#8caaee" # Blue
     selectedLineBgColor:
-      - "#414559" # Surface0
+      - "#51576d" # Surface0
     selectedRangeBgColor:
-      - "#414559" # Surface0
+      - "#51576d" # Surface0
     cherryPickedCommitBgColor:
       - "#81c8be" # Teal
     cherryPickedCommitFgColor:
       - "#8caaee" # Blue
     unstagedChangesColor:
-      - red       # Red
+      - "#e78284"      # Red
 
 os:
   edit: 'lvim {{filename}}'
