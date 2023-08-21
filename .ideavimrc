@@ -40,6 +40,11 @@ let g:WhichKey_SortOrder = "by_key_prefix_first"
 map <leader>; :vsplit ~/.ideavimrc<CR>
 let g:WhichKeyDesc_leader_vimrc = "<leader>; open ideavimrc"
 
+let g:WhichKeyDesc_replace = "gr replace with register"
+let g:WhichKeyDesc_comment = "gcc comment line"
+let g:WhichKeyDesc_comment = "gc"
+
+
 "disable key movement in normal, visual, select, and operator-pending modes
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -120,16 +125,19 @@ let g:WhichKeyDesc_quit_others = "<leader>qo quit other tabs"
 
 " Test (t) 
 map gt <Action>(GotoTest)
-" run all tests
-" debug all tests
 map <leader>tr <Action>(RunClass)
 map <leader>td <Action>(DebugClass)
+map <leader>tc <Action>(RunCoverage)
 map <leader>tf <Action>(RerunFailedTests)
 map <leader>ta <Action>(RunTestGroup)
 map <leader>tt <Action>(TestTreePopupMenu)
 let g:WhichKeyDesc_leader_test = "<leader>t +Test"
 let g:WhichKeyDesc_test_run = "<leader>tr run nearest test"
 let g:WhichKeyDesc_test_debug = "<leader>td debug nearest test"
+let g:WhichKeyDesc_test_coverage = "<leader>tc run code coverage"
+let g:WhichKeyDesc_test_failed = "<leader>tf rerun failed tests"
+let g:WhichKeyDesc_test_all = "<leader>ta run all"
+let g:WhichKeyDesc_test_popup = "<leader>tt show test menu"
 let g:WhichKeyDesc_test_goto = "gt go to Test"
 
 
@@ -238,6 +246,7 @@ let g:WhichKeyDesc_lsp_rename = "<leader>lr rename"
 let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
 let g:WhichKeyDesc_lsp_imports = "<leader>lo optimize imports"
 let g:WhichKeyDesc_lsp_quicklist = "<leader>lq quicklist refactoring"
+let g:WhichKeyDesc_lsp_error = "gl show error description"
 
 " Marks (m)
 map <leader>mt <Action>(ToggleBookmark)
