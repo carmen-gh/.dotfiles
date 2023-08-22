@@ -1,12 +1,17 @@
 git:
   paging:
     pager: git-split-diffs --color
+  log:
+    order: "topo-order"
+    showGraph: "always"
   branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'" 
   mainBranches: [master, main, develop]
 
+promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.22
+  showBottomLine: false
   authorColors:
     '*': '#85c1dc' # sapphire
   # use the frappe catpucchin theme
