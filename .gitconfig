@@ -1,10 +1,7 @@
 [core]
-    # pager = "git-split-diffs --color 
-    pager = delta --color-only
+    pager = delta -s 
     excludesfile = ~/.gitignore
     editor = lvim
-[color]
-    ui = auto
 [alias]
     l = log --pretty=custom --reverse
     lg = log --graph --pretty=custom -20
@@ -36,6 +33,8 @@
 [push]
     autoSetupRemote = true
     followTags = true
+[interactive]
+    diffFilter = delta --color-only
 [pretty]
     custom = "%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n"
     #                     │        │            │        │               └─ date relativ
@@ -43,9 +42,39 @@
     #                     │        │            └─ decorations(branch, heads or tags)
     #                     │        └─ message
     #                     └─ hash (abbreviated)
-[split-diffs]
+; [split-diffs]
     # turn off syntax highlighting
-    syntax-highlighting-theme = 
+    # syntax-highlighting-theme = 
+
+[delta]
+    commit-decoration-style = none
+    dark = true
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-decoration-style = blue ol
+    file-modified-label = [M]
+    file-removed-label = [-]
+    file-renamed-label = [R]
+    file-style = 232 bold 184
+    hunk-header-decoration-style = none
+    hunk-header-file-style = "#999999"
+    hunk-header-line-number-style = bold "#8caaee"
+    hunk-header-style = file line-number syntax
+    line-numbers = true
+    line-numbers-left-style = black
+    line-numbers-minus-style = "#e78284"
+    line-numbers-plus-style = "#8caaee"
+    line-numbers-right-style = black
+    line-numbers-zero-style = "#999999"
+    minus-emph-style = syntax bold "#780000"
+    minus-style = syntax "#400000"
+    plus-emph-style = syntax bold "#007800"
+    plus-style = syntax "#004000"
+    whitespace-error-style = "#280050" reverse
+    zero-style = syntax
+    syntax-theme = Nord
+    sidy-by-side = true
+
 [user]
     #configered in `~/.gitconfig.local`
 [include]
@@ -55,5 +84,4 @@
     # [!] The following needs to remain at the end of this file in
     #     order to allow any of the above configs to be overwritten
     #     by the local ones
-
     path = ~/.gitconfig.local
