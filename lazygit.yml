@@ -1,7 +1,24 @@
 git:
   paging:
-    pager: delta --dark -s --diff-so-fancy --line-numbers --hunk-header-decoration-style 'omit' --hunk-header-style 'blue' --hunk-label '@@@' --file-style 'omit'
-    # pager: git-split-diffs --color
+    pager: >
+      delta 
+      --dark 
+      --side-by-side 
+      --diff-highlight
+      --line-numbers 
+      --hunk-header-decoration-style 'omit' 
+      --hunk-header-file-style '#999999'
+      --hunk-header-line-number-style 'bold "#8caaee"'
+      --hunk-header-style 'file line-number syntax' 
+      --hunk-label ' @@@'
+      --line-numbers-left-style 'black'
+      --line-numbers-minus-style '#e78284'
+      --minus-emph-style 'syntax bold "#7D0C31"'
+      --plus-emph-style 'syntax bold "#087D08"'
+      --whitespace-error-style '"#280050" reverse'
+      --zero-style 'syntax'
+      --syntax-theme 'Nord'
+      --file-style 'omit'
   log:
     order: "topo-order"
     showGraph: "always"
@@ -9,20 +26,22 @@ git:
   mainBranches: [master, main, develop]
   promptToReturnFromSubprocess: false
   commitPrefixes:
-    lazygitTest:
+    work: # extraxt ticket number from branch name and place it in commit message
       pattern: "(IMOWAPP-[0-9]{4}).*"
       replace: '[$1]'
+
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
   showBottomLine: false
+  border: 'rounded'
   authorColors:
     '*': '#85c1dc' # sapphire
   # use the frappe catpucchin theme
   theme:
     lightTheme: false 
     activeBorderColor:
-      - "#a6d189" # Green
+      - "#81c8be" # Green
       - bold
     inactiveBorderColor:
       - "#949cbb" # Overlay2
@@ -37,7 +56,7 @@ gui:
     cherryPickedCommitFgColor:
       - "#8caaee" # Blue
     unstagedChangesColor:
-      - "#e78284"      # Red
+      - "#f2d5cf" # Red
 
 os:
   edit: 'lvim {{filename}}'
