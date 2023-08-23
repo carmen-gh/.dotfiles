@@ -8,6 +8,10 @@ git:
   branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'" 
   mainBranches: [master, main, develop]
 promptToReturnFromSubprocess: false
+  commitPrefixes:
+    lazygitTest:
+      pattern: "(IMOWAPP-[0-9]{4}).*"
+      replace: '[$1]'
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
