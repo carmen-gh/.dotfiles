@@ -1,16 +1,16 @@
 git:
   paging:
-    pager: git-split-diffs --color
+    pager: delta --dark -s --diff-so-fancy --line-numbers --hunk-header-decoration-style 'omit' --hunk-header-style 'blue' --hunk-label '@@@' --file-style 'omit'
+    # pager: git-split-diffs --color
   log:
     order: "topo-order"
     showGraph: "always"
   branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'" 
   mainBranches: [master, main, develop]
-
 promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
-  sidePanelWidth: 0.22
+  sidePanelWidth: 0.2
   showBottomLine: false
   authorColors:
     '*': '#85c1dc' # sapphire

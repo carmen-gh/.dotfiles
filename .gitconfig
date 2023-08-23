@@ -1,5 +1,6 @@
 [core]
-    pager = "git-split-diffs --color | less -RFX"
+    # pager = "git-split-diffs --color 
+    pager = delta --color-only
     excludesfile = ~/.gitignore
     editor = lvim
 [color]
@@ -43,7 +44,8 @@
     #                     │        └─ message
     #                     └─ hash (abbreviated)
 [split-diffs]
-    theme-name = github-dark-dim
+    # turn off syntax highlighting
+    syntax-highlighting-theme = 
 [user]
     #configered in `~/.gitconfig.local`
 [include]
