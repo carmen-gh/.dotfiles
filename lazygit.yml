@@ -41,10 +41,10 @@ gui:
   theme:
     lightTheme: false 
     activeBorderColor:
-      - "#81c8be" # Green
+      - "#e5c890" # yellow
       - bold
     inactiveBorderColor:
-      - "#949cbb" # Overlay2
+      - "#838ba7" # Overlay1
     optionsTextColor:
       - "#8caaee" # Blue
     selectedLineBgColor:
@@ -56,7 +56,7 @@ gui:
     cherryPickedCommitFgColor:
       - "#8caaee" # Blue
     unstagedChangesColor:
-      - "#f2d5cf" # Red
+      - "#ea999c" # Red
 
 os:
   edit: 'lvim {{filename}}'

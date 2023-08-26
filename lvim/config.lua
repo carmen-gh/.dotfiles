@@ -8,8 +8,8 @@
 -- Keymappings
 ------------------------------------------------------------------------------------------------------------------------
 lvim.keys.insert_mode["jj"] = "<ESC>"
-lvim.keys.insert_mode["jk"] = "<ESC>"
-lvim.keys.insert_mode["kj"] = "<ESC>"
+-- lvim.keys.insert_mode["jk"] = "<ESC>"
+-- lvim.keys.insert_mode["kj"] = "<ESC>"
 lvim.keys.normal_mode["x"] = '"_x'            -- delete single character without copying into register
 lvim.keys.visual_mode["<leader>p"] = [["_dP]] -- paste and keep
 lvim.keys.normal_mode["<leader>d"] = [["_d]]  -- delete without putting into register
