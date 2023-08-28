@@ -8,15 +8,17 @@
 -- Keymappings
 ------------------------------------------------------------------------------------------------------------------------
 lvim.keys.insert_mode["jj"] = "<ESC>"
--- lvim.keys.insert_mode["jk"] = "<ESC>"
--- lvim.keys.insert_mode["kj"] = "<ESC>"
 lvim.keys.normal_mode["x"] = '"_x'            -- delete single character without copying into register
 lvim.keys.visual_mode["<leader>p"] = [["_dP]] -- paste and keep
 lvim.keys.normal_mode["<leader>d"] = [["_d]]  -- delete without putting into register
 lvim.keys.normal_mode["YY"] = "va{Vy}"        -- copy function or json object
+lvim.keys.normal_mode["[b"] = "<cmd>BufferLineCyclePrev<CR>"
+lvim.keys.normal_mode["]b"] = "<cmd>BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<esc>"] = "<cmd>noh<CR><esc>"
+lvim.keys.insert_mode["<esc>"] = "<cmd>noh<CR><esc>"
 lvim.builtin.which_key.mappings["-"] = { "<cmd>split<CR>", "split horizontally" }
 lvim.builtin.which_key.mappings["|"] = { "<cmd>vs<CR>", "split vertically" }
--- TODO change from t to D ? t would then be used for test 
+-- TODO change from x to D ? 
 -- remove trouble if references and todo list shown with telescope?
 lvim.builtin.which_key.mappings["x"] = {
   name = "Diagnostics",
@@ -42,7 +44,9 @@ vim.opt.colorcolumn = "+1"
 vim.opt.textwidth = 120
 vim.opt.autoread = true
 vim.opt.termguicolors = true
-
+vim.opt.winbar ="%=%-.16t"
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = yellow, fg = '#363636' })
+vim.api.nvim_set_hl(0, 'WinBarModified', { bg = yellow, fg = '#ff3838' })
 
 ------------------------------------------------------------------------------------------------------------------------
 -- Plugins
@@ -89,7 +93,7 @@ lvim.plugins = {
   },
   {
     "sindrets/diffview.nvim",
-    event = "BufRead"
+    event = "CmdlineEnter"
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -157,6 +161,8 @@ lvim.colorscheme = "catppuccin-frappe"
 lvim.builtin.lir.active = false
 lvim.builtin.terminal.active = false
 lvim.builtin.breadcrumbs.active = false
+lvim.builtin.illuminate.active = false
+lvim.builtin.bigfile.active = false
 
 lvim.builtin.dap.breakpoint.text = lvim.icons.git.FileIgnored
 lvim.builtin.which_key.setup.icons.separator = lvim.icons.ui.ChevronRight
@@ -224,6 +230,48 @@ vim.api.nvim_create_autocmd("QuitPre", {
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   command = "if mode() != 'c' | checktime | endif",
   pattern = { "*" },
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown", "txt" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+
+-- Auto create dir when saving a file, in case some intermediate directory does not exist
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  callback = function(event)
+    if event.match:match("^%w%w+://") then
+      return
+    end
+    local file = vim.loop.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "startuptime",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
 })
 
 
