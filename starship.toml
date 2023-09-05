@@ -35,7 +35,7 @@ style = "overlay1"
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
 modified = 'M'
-conflicted = ' ' 
+conflicted = ' '
 ahead = '󱞿 '
 behind = '󱞥 '
 diverged = '󰹹 '
@@ -76,7 +76,7 @@ style = "bright-black"
 format = "[$time]($style)"
 
 [palettes.catppuccin_frappe]
-rosewater = "#f2d5cf" 
+rosewater = "#f2d5cf"
 flamingo = "#eebebe"
 pink = "#f4b8e4"
 mauve = "#ca9ee6"
@@ -100,4 +100,3 @@ surface2 = "#626880"
 surface1 = "#51576d"
 surface0 = "#414559"
 base = "#303446"
-
