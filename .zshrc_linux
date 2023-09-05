@@ -29,6 +29,7 @@ alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' lvim ~/.dot
 alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' lvim ~/.dotfiles/.gitconfig"
 alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' lvim ~/.dotfiles/kitty.conf"
 alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
+alias lazyvim="NVIM_APPNAME=LazyVim nvim"
 alias vim='lvim' 
 alias mv='mv -i'
 alias cp='cp -i'
