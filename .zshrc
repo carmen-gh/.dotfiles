@@ -45,6 +45,8 @@ alias vimconfig="lvim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="lvim ~/.gitconfig"
 alias vim='lvim' 
 alias avim="NVIM_APPNAME=AstroNvim nvim"
+alias lazyVim="NVIM_APPNAME=lazyVim nvim"
+alias nvchad="NVIM_APPNAME=nvchad nvim"
 alias lg='lazygit'
 alias mv='mv -i'
 alias cp='cp -i'
