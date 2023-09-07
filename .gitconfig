@@ -47,33 +47,30 @@
     # syntax-highlighting-theme = 
 
 [delta]
-    commit-decoration-style = none
-    dark = true
-    file-added-label = [+]
-    file-copied-label = [C]
-    file-decoration-style = blue ol
-    file-modified-label = [M]
-    file-removed-label = [-]
-    file-renamed-label = [R]
-    file-style = 232 bold 184
-    hunk-header-decoration-style = none
-    hunk-header-file-style = "#999999"
-    hunk-header-line-number-style = bold "#8caaee"
-    hunk-header-style = file line-number syntax
-    line-numbers = true
-    line-numbers-left-style = black
-    line-numbers-minus-style = "#e78284"
-    line-numbers-plus-style = "#8caaee"
-    line-numbers-right-style = black
-    line-numbers-zero-style = "#999999"
-    minus-emph-style = syntax bold "#780000"
-    minus-style = syntax "#400000"
-    plus-emph-style = syntax bold "#007800"
-    plus-style = syntax "#004000"
-    whitespace-error-style = "#280050" reverse
-    zero-style = syntax
-    syntax-theme = Nord
-    sidy-by-side = true
+  dark = true
+  diff-hightlight = true
+	file-decoration-style = black ul
+	file-style = "#b5bfe2" 
+  hunk-header-decoration-style = omit
+  hunk-header-file-style = "#b5bfe2"
+	hunk-header-line-number-style = bold "#b5bfe2"
+  hunk-header-style = file line-number
+  hunk-label = " @@@"
+  line-numbers = true
+	line-numbers-left-format = {nm:>3}│
+	line-numbers-left-style = "#838ba7"
+	line-numbers-minus-style = "#838ba7"
+	line-numbers-plus-style = "#838ba7" 
+	line-numbers-right-format = {np:>3}│
+	line-numbers-right-style ="#838ba7" 
+	line-numbers-zero-style ="#838ba7" 
+	minus-emph-style = white bold "#85494a" 
+	minus-style = red
+	plus-emph-style = "#b5bfe2" bold "#467050"
+	plus-style = green
+	side-by-side = true
+	true-color = auto
+	zero-style = "#838ba7"
 
 [user]
     #configered in `~/.gitconfig.local`

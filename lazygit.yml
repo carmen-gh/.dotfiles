@@ -1,45 +1,28 @@
 git:
   paging:
-    pager: >
-      delta 
-      --dark 
-      --side-by-side 
-      --diff-highlight
-      --line-numbers 
-      --hunk-header-decoration-style 'omit' 
-      --hunk-header-file-style '#999999'
-      --hunk-header-line-number-style 'bold "#8caaee"'
-      --hunk-header-style 'file line-number syntax' 
-      --hunk-label ' @@@'
-      --line-numbers-left-style 'black'
-      --line-numbers-minus-style '#e78284'
-      --minus-emph-style 'syntax bold "#7D0C31"'
-      --plus-emph-style 'syntax bold "#087D08"'
-      --whitespace-error-style '"#280050" reverse'
-      --zero-style 'syntax'
-      --syntax-theme 'Nord'
-      --file-style 'omit'
+    colorArg: always
+    pager: delta --dark --paging=never
   log:
     order: "topo-order"
     showGraph: "always"
-  branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'" 
+  branchLogCmd: "git log --graph --pretty='%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n'"
   mainBranches: [master, main, develop]
   promptToReturnFromSubprocess: false
   commitPrefixes:
     work: # extraxt ticket number from branch name and place it in commit message
       pattern: "(IMOWAPP-[0-9]{4}).*"
-      replace: '[$1]'
+      replace: "[$1]"
 
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
   showBottomLine: false
-  border: 'rounded'
+  border: "rounded"
   authorColors:
-    '*': '#85c1dc' # sapphire
+    "*": "#85c1dc" # sapphire
   # use the frappe catpucchin theme
   theme:
-    lightTheme: false 
+    lightTheme: false
     activeBorderColor:
       - "#e5c890" # yellow
       - bold
@@ -59,11 +42,11 @@ gui:
       - "#ea999c" # Red
 
 os:
-  edit: 'lvim {{filename}}'
-  editAtLine: 'lvim --line={{line}} {{filename}}'
-  editAtLineAndWait: 'lvim --block --line={{line}} {{filename}}'
+  edit: "lvim {{filename}}"
+  editAtLine: "lvim --line={{line}} {{filename}}"
+  editAtLineAndWait: "lvim --block --line={{line}} {{filename}}"
   editInTerminal: true
-  openDirInEditor: 'lvim {{dir}}'
+  openDirInEditor: "lvim {{dir}}"
 
 customCommands:
   - key: "l"
