@@ -42,11 +42,11 @@ gui:
       - "#ea999c" # Red
 
 os:
-  edit: "lvim {{filename}}"
-  editAtLine: "lvim --line={{line}} {{filename}}"
-  editAtLineAndWait: "lvim --block --line={{line}} {{filename}}"
+  edit: "vim {{filename}}"
+  editAtLine: "vim --line={{line}} {{filename}}"
+  editAtLineAndWait: "vim --block --line={{line}} {{filename}}"
   editInTerminal: true
-  openDirInEditor: "lvim {{dir}}"
+  openDirInEditor: "vim {{dir}}"
 
 customCommands:
   - key: "l"
