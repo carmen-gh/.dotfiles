@@ -41,11 +41,16 @@ return {
       },
     },
   },
-  -- Configure LazyVim to load gruvbox
+  {
+    "AlexvZyl/nordic.nvim",
+    branch = "dev",
+    priority = 1000,
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
+      colorscheme = "nordic",
     },
   },
 }

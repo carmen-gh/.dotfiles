@@ -51,6 +51,7 @@ return {
   -- Diffview
   {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewClose", "DiffviewOpen" },
     event = "VeryLazy",
   },
   -- TODO add lualine

@@ -63,9 +63,9 @@ local components = {
     "diff",
     colored = false,
     symbols = {
-      added = "  ",
-      modified = "  ",
-      removed = "  ",
+      added = " ",
+      modified = " ",
+      removed = " ",
     },
     -- padding = { left = 2, right = 1 },
     color = { fg = greyColor },
@@ -78,7 +78,7 @@ local components = {
   diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
-    symbols = { error = " ", warn = " ", info = " ", hint = " " },
+    symbols = { error = " ", warn = " ", info = " ", hint = " " },
   },
   lsp_status = {
     function()
@@ -155,7 +155,10 @@ return {
           lualine_y = {},
         },
         winbar = {
-          lualine_z = { { "filetype", icon_only = true, colored = false }, "filename" },
+          lualine_z = {
+            { "filetype", icon_only = true, colored = false, separator = { right = "", left = "" } },
+            { "filename", separator = { right = "", left = "" } },
+          },
         },
         inactive_winbar = {
           lualine_y = { { "filetype", icon_only = true, colored = false }, "filename" },
