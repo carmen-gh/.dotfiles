@@ -161,9 +161,9 @@ let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
 let g:WhichKeyDesc_android_devices = "<leader>Ae Device Explorer"
 
 " Source code generation (c)
-map <leader>cn <Action>(Kotlin.NewFile)
-let g:WhichKeyDesc_leader_code = "<leader>c +Code Generation"
-let g:WhichKeyDesc_code_newFile = "<leader>cn new file"
+"map <leader>cn <Action>(Kotlin.NewFile)
+"let g:WhichKeyDesc_leader_code = "<leader>c +Code Generation"
+"let g:WhichKeyDesc_code_newFile = "<leader>cn new file"
 
 " Split (s)
 map <leader>sl <Action>(MoveTabRight)
@@ -225,28 +225,30 @@ let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
 let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
 let g:WhichKeyDesc_view_zen = "<leader>vz toggle Zen mode"
 
-" Lsp (l)
-map <leader>la <Action>(ShowIntentionActions)
-map <leader>ld <Action>(ActivateProblemsViewToolWindow)
-map <leader>lf <Action>(ReformatCode)
-map <leader>lk <Action>(ShowErrorDescription)
-map <leader>lr <Action>(RenameElement)
-map <leader>lu <Action>(FindUsages)
-map <leader>lo <Action>(OptimizeImports)
-map <leader>lq <Action>(Refactorings.QuickListPopupAction)
+" Code Lsp (c)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cd <Action>(ActivateProblemsViewToolWindow)
+map <leader>cf <Action>(ReformatCode)
+map <leader>cd <Action>(ShowErrorDescription)
+map <leader>cr <Action>(RenameElement)
+map <leader>cu <Action>(FindUsages)
+map <leader>co <Action>(OptimizeImports)
+map <leader>cq <Action>(Refactorings.QuickListPopupAction)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
-let g:WhichKeyDesc_leader_lsp = "<leader>l +LSP"
-let g:WhichKeyDesc_lsp_action = "<leader>la code action"
-let g:WhichKeyDesc_lsp_diagnostic = "<leader>ld problems file (diagnostics)"
-let g:WhichKeyDesc_lsp_format = "<leader>lf format"
-let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader>lk prev diagnostic"
-let g:WhichKeyDesc_lsp_rename = "<leader>lr rename"
-let g:WhichKeyDesc_lsp_usage = "<leader>lu usage"
-let g:WhichKeyDesc_lsp_imports = "<leader>lo optimize imports"
-let g:WhichKeyDesc_lsp_quicklist = "<leader>lq quicklist refactoring"
+map gr <Action>(FindUsages)
+let g:WhichKeyDesc_leader_lsp = "<leader>c +code"
+let g:WhichKeyDesc_lsp_action = "<leader>ca code action"
+let g:WhichKeyDesc_lsp_diagnostic = "<leader>cd problems file (diagnostics)"
+let g:WhichKeyDesc_lsp_format = "<leader>cf format"
+"let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader>lk prev diagnostic"
+let g:WhichKeyDesc_lsp_rename = "<leader>cr rename"
+let g:WhichKeyDesc_lsp_usage = "<leader>cu usage"
+let g:WhichKeyDesc_lsp_imports = "<leader>co optimize imports"
+let g:WhichKeyDesc_lsp_quicklist = "<leader>cq quicklist refactoring"
 let g:WhichKeyDesc_lsp_error = "gl show error description"
+let g:WhichKeyDesc_lsp_references = "gr show references"
 
 " Marks (m)
 map <leader>mt <Action>(ToggleBookmark)
