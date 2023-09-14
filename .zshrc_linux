@@ -26,10 +26,10 @@ export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
 alias lazyvim="NVIM_APPNAME=LazyVim nvim"
 alias vim='lazyvim' 
-alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' lvim ~/.dotfiles/.zshrc_linux"
-alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' vim ~/.dotfiles/lvim/config.lua"
-alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' vim ~/.dotfiles/.gitconfig"
-alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' vim ~/.dotfiles/kitty.conf"
+alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' nvim ~/.dotfiles/.zshrc_linux"
+alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' nvim ~/.dotfiles/lvim/config.lua"
+alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' nvim ~/.dotfiles/.gitconfig"
+alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' nvim ~/.dotfiles/kitty.conf"
 alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias mv='mv -i'
 alias cp='cp -i'

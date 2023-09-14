@@ -42,15 +42,9 @@ return {
     },
   },
   {
-    "AlexvZyl/nordic.nvim",
-    branch = "dev",
-    priority = 1000,
-  },
-  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
-      -- colorscheme = "nordic",
     },
   },
 }
