@@ -14,7 +14,8 @@ compinit
 
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-export PATH=$PATH:~/go/bin
+export GOPATH=$HOME/Developer/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:~/.dotfiles/bin # my custom scripts
 
 export EDITOR=vim
@@ -22,20 +23,19 @@ export VISUAL=vim
 export TERMINAL=kitty
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
-export BAT_THEME="Catppuccin-frappe"
 
-alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' lvim ~/.dotfiles/.zshrc_linux"
-alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' lvim ~/.dotfiles/lvim/config.lua"
-alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' lvim ~/.dotfiles/.gitconfig"
-alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' lvim ~/.dotfiles/kitty.conf"
-alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias lazyvim="NVIM_APPNAME=LazyVim nvim"
 alias vim='lazyvim' 
+alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' lvim ~/.dotfiles/.zshrc_linux"
+alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' vim ~/.dotfiles/lvim/config.lua"
+alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' vim ~/.dotfiles/.gitconfig"
+alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' vim ~/.dotfiles/kitty.conf"
+alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
 alias mv='mv -i'
 alias cp='cp -i'
 alias grep='grep --color=auto '
 alias rmdir='rm -rf'
-alias cat='batcat'
+alias cat='bat'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 alias gw="./gradlew"
@@ -43,12 +43,17 @@ alias trim="awk '{\$1=\$1};1'"
 alias ...="cd ../.."
 alias lg='lazygit'
 alias lg-upgrade="go install github.com/jesseduffield/lazygit@latest"
-alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin"
+alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop"
 alias dot="cd ~/.dotfiles"
+
 
 function take {
   mkdir -p $1
   cd $1
+}
+
+function update-kitty-icon {
+  sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop
 }
 
 alias 90min="timer 90m && notify-send 'timer is over'"
