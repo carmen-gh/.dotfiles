@@ -13,3 +13,8 @@ vim.keymap.set("n", "<UP>", "<NOP>")
 vim.keymap.set("n", "<DOWN>", "<NOP>")
 vim.keymap.set("n", "<LEFT>", "<NOP>")
 vim.keymap.set("n", "<RIGHT>", "<NOP>")
+
+-- go next hunk
+-- go prev hunk
+-- resest hunk gr
+--

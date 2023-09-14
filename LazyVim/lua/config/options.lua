@@ -2,11 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 --
-vim.opt.conceallevel = 0
--- No separator.
-vim.opt.numberwidth = 4
-vim.opt.statuscolumn = "%= %{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum) : ''}%=%s"
+vim.opt.conceallevel = 0 -- do not hide " in json files
 
--- With sepaartor.
--- vim.opt.numberwidth = 5
--- vim.opt.statuscolumn = "%= %{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum) : ''}%=│%s"
+vim.opt.numberwidth = 4
+vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
