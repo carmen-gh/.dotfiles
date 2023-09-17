@@ -1,6 +1,7 @@
 return {
   {
     "hiphish/rainbow-delimiters.nvim",
+    url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
     event = "BufReadPost",
     config = function()
       local rainbow_delimiters = require("rainbow-delimiters")
@@ -44,5 +45,13 @@ return {
         always_update = false,
       },
     },
+  },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {},
   },
 }
