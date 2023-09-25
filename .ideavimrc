@@ -7,6 +7,7 @@ set argtextobj              " aa, ia
 set commentary              " gcc, gc + motion, v_gc
 set highlightedyank
 set ideajoin
+set ideamarks
 set ideastatusicon=gray
 set surround                " ys, cs, ds, S
 set textobj-entire          " ae, ie
@@ -35,6 +36,8 @@ let g:WhichKey_FontSize = 15
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#41ead4""
 let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_FontFamily = "JetBrainsMono Nerd Font"
+let g:WhichKey_Divider = " "
 
 " Open ideavimrc
 map <leader>; :vsplit ~/.ideavimrc<CR>
@@ -115,13 +118,8 @@ let g:WhichKeyDesc_leader_debug = "<leader>d +Debug"
 let g:WhichKeyDesc_debug_breakpoint = "<leader>dt toggle Breakpoint"
 
 " Quit (q) close
-map <leader>qt <Action>(CloseEditor)
-map <leader>qa <Action>(CloseAllEditors)
-map <leader>qo <Action>(CloseAllEditorsButActive)
-let g:WhichKeyDesc_leader_quit = "<leader>q +Quit (close)"
-let g:WhichKeyDesc_quit_tab = "<leader>qt quit active tab"
-let g:WhichKeyDesc_quit_all = "<leader>qa quit all tabs"
-let g:WhichKeyDesc_quit_others = "<leader>qo quit other tabs"
+map <leader>q <Action>(CloseEditor)
+let g:WhichKeyDesc_leader_quit = "<leader>q quit tab"
 
 " Test (t) 
 map gt <Action>(GotoTest)
@@ -140,30 +138,28 @@ let g:WhichKeyDesc_test_all = "<leader>ta run all"
 let g:WhichKeyDesc_test_popup = "<leader>tt show test menu"
 let g:WhichKeyDesc_test_goto = "gt go to Test"
 
-
-" Android (A)
-map <leader>Ar <Action>(Run)
-map <leader>As <Action>(Stop)
-map <leader>Ag <Action>(Android.SyncProject)
-map <leader>Ad <Action>(XDebugger.AttachToProcess)
-map <leader>Aa <Action>(com.developerphil.adbidea.action.AdbIdeaQuickList)
-map <leader>Ae <Action>(Android.DeviceManager2)
-" select device
-" device explorer
-" configuration
-" studio bot
-let g:WhichKeyDesc_leader_android = "<leader>A +Android"
-let g:WhichKeyDesc_android_run = "<leader>Ar run"
-let g:WhichKeyDesc_android_stop = "<leader>As stop"
-let g:WhichKeyDesc_android_gradleSync = "<leader>Ag gradle sync"
-let g:WhichKeyDesc_android_debugger = "<leader>Ad attach debugger"
-let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
-let g:WhichKeyDesc_android_devices = "<leader>Ae Device Explorer"
-
-" Source code generation (c)
-"map <leader>cn <Action>(Kotlin.NewFile)
-"let g:WhichKeyDesc_leader_code = "<leader>c +Code Generation"
-"let g:WhichKeyDesc_code_newFile = "<leader>cn new file"
+if has('ide')
+  if &ide =~? 'Android Studio'
+    " Android (A)
+    map <leader>Ar <Action>(Run)
+    map <leader>As <Action>(Stop)
+    map <leader>Ag <Action>(Android.SyncProject)
+    map <leader>Ad <Action>(XDebugger.AttachToProcess)
+    map <leader>Aa <Action>(com.developerphil.adbidea.action.AdbIdeaQuickList)
+    map <leader>Ae <Action>(Android.DeviceManager2)
+    " select device
+    " device explorer
+    " configuration
+    " studio bot
+    let g:WhichKeyDesc_leader_android = "<leader>A +Android"
+    let g:WhichKeyDesc_android_run = "<leader>Ar run"
+    let g:WhichKeyDesc_android_stop = "<leader>As stop"
+    let g:WhichKeyDesc_android_gradleSync = "<leader>Ag gradle sync"
+    let g:WhichKeyDesc_android_debugger = "<leader>Ad attach debugger"
+    let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
+    let g:WhichKeyDesc_android_devices = "<leader>Ae Device Explorer"
+  endif
+endif
 
 " Split (s)
 map <leader>sl <Action>(MoveTabRight)
@@ -171,14 +167,12 @@ map <leader>sh <Action>(MoveTabLeft)
 map <leader>sj <Action>(MoveTabDown)
 map <leader>sk <Action>(MoveTabUp)
 map <leader>su <Action>(Unsplit)
-map <leader>sm <Action>(MoveEditorToOppositeTabGroup)
 let g:WhichKeyDesc_leader_split = "<leader>s +Split"
 let g:WhichKeyDesc_split_right = "<leader>sl split and move right"
 let g:WhichKeyDesc_split_left = "<leader>sh split and move left"
 let g:WhichKeyDesc_split_down = "<leader>sj split and move down"
 let g:WhichKeyDesc_split_up = "<leader>sk split and move up"
 let g:WhichKeyDesc_split_unsplit = "<leader>su unsplit"
-let g:WhichKeyDesc_split_move = "<leader>sm move to opposite"
 
 " Find (f)
 map <leader>ff <Action>(GotoFile)
@@ -255,7 +249,7 @@ map <leader>mt <Action>(ToggleBookmark)
 map <leader>me <Action>(EditBookmark)
 map <leader>ml <Action>(ShowBookmarks)
 map gm <Action>(ShowBookmarks)
-let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks)"
+let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks) "
 let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
 let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
 let g:WhichKeyDesc_marks_list = "<leader>ml list"
