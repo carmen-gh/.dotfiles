@@ -66,7 +66,7 @@
 	line-numbers-zero-style ="#838ba7" 
 	minus-emph-style = white bold "#85494a" 
 	minus-style = red
-	plus-emph-style = "#b5bfe2" bold "#467050"
+	plus-emph-style = white bold "#467050"
 	plus-style = green
 	side-by-side = true
 	true-color = auto

@@ -8,7 +8,7 @@ return {
       dim_inactive = {
         enabled = true,
         shade = "light",
-        percentage = 0.8,
+        percentage = 0.5,
       },
       integrations = {
         alpha = true,

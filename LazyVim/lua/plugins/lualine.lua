@@ -48,7 +48,7 @@ local components = {
   mode = {
     function()
       local m = vim.api.nvim_get_mode().mode
-      return "   " .. modes[m][1] .. " "
+      return "   " .. modes[m][1] .. " "
     end,
     padding = { left = 0, right = 0 },
     color = { gui = "bold" },
