@@ -51,8 +51,21 @@ return {
   -- Diffview
   {
     "sindrets/diffview.nvim",
-    cmd = { "DiffviewClose", "DiffviewOpen" },
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewRefresh",
+    },
     event = "VeryLazy",
+    opts = {
+      view = {
+        merge_tool = {
+          layout = "diff3_mixed",
+        },
+      },
+    },
   },
   -- TODO add lualine
 }
