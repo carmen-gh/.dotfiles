@@ -15,7 +15,8 @@ compinit
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 export GOPATH=$HOME/Developer/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:~/Developer/go/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.dotfiles/bin # my custom scripts
 
 export EDITOR=vim

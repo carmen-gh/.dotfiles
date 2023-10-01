@@ -70,6 +70,10 @@ symbol = " "
 format = '[${symbol}(${version} )]($style)'
 symbol = " "
 
+[golang]
+format = '[${symbol}(${version} )]($style)'
+symbol = "󰟓  "
+
 [time]
 disabled = false
 style = "bright-black"
