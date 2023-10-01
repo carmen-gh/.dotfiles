@@ -54,4 +54,9 @@ return {
     },
     opts = {},
   },
+  {
+    "tpope/vim-sleuth",
+    event = { "BufRead", "BufNewFile" },
+    opts = {},
+  },
 }
