@@ -15,6 +15,12 @@ source "$HOME/.cargo/env" # add rust cargo
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
+# flutter
+export PATH="$HOME/Developer/flutter/flutter/bin:$PATH"
+export ANDROID_HOME="/Users/carmen.geelhaar/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # Plugins -------------------------------------------------------------
 plugins=(git colored-man-pages gradle vi-mode)

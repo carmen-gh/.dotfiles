@@ -19,6 +19,8 @@ gui:
   showBottomLine: false
   border: "rounded"
   authorColors:
+    "Carmen Geelhaar": "#ca9ee6"
+    "camina": "#ca9ee6"
     "*": "#85c1dc" # sapphire
   # use the frappe catpucchin theme
   theme:
@@ -55,3 +57,21 @@ customCommands:
     context: "files"
     loadingText: "opening gum commit tool"
     subprocess: true
+  - key : '<c-a>'
+    description: 'Search the whole history (From a ref and down) for an expression in a file'
+    command: "git checkout {{index .PromptResponses 3}}"
+    context: 'commits'
+    prompts:
+      - type: 'input'
+        title: 'Search word:'
+      - type: 'input'
+        title: 'File/Subtree:'
+      - type: 'input'
+        title: 'Ref:'
+        initialValue: "{{index .CheckedOutBranch.Name }}"
+      - type: 'menuFromCommand'
+        title: 'Commits:'
+        command: "git log --oneline {{index .PromptResponses 2}} -S'{{index .PromptResponses 0}}' --all -- {{index .PromptResponses 1}}"
+        filter: '(?P<commit_id>[0-9a-zA-Z]*) *(?P<commit_msg>.*)'
+        valueFormat: '{{ .commit_id }}'
+        labelFormat: '{{ .commit_id | green | bold }} - {{ .commit_msg | yellow }}'
