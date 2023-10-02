@@ -58,4 +58,63 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        layout_config = {
+          height = 0.90,
+          width = 0.90,
+          preview_cutoff = 0,
+          horizontal = { preview_width = 0.60 },
+          vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
+          prompt_position = "top",
+        },
+        path_display = { "smart" },
+        prompt_position = "top",
+      },
+      pickers = {
+        buffers = {
+          prompt_prefix = "󰸩 ",
+        },
+        commands = {
+          prompt_prefix = " ",
+          layout_config = {
+            height = 0.63,
+            width = 0.78,
+          },
+        },
+        command_history = {
+          prompt_prefix = " ",
+          layout_config = {
+            height = 0.63,
+            width = 0.58,
+          },
+        },
+        git_files = {
+          prompt_prefix = "󰊢 ",
+          show_untracked = true,
+        },
+        git_commits = {
+          prompt_prefix = "󰊢 ",
+        },
+        git_branches = {
+          prompt_prefix = "󰊢 ",
+        },
+        git_status = {
+          prompt_prefix = "󰊢 ",
+        },
+        find_files = {
+          prompt_prefix = " ",
+          find_command = { "fd", "-H" },
+        },
+        live_grep = {
+          prompt_prefix = "󰱽 ",
+        },
+        grep_string = {
+          prompt_prefix = "󰱽 ",
+        },
+      },
+    },
+  },
 }
