@@ -37,7 +37,7 @@ let g:WhichKey_CommandColor = "#8caaee"
 let g:WhichKey_PrefixColor = "#ca9ee6"
 let g:WhichKey_KeyColor = "#c6d0f5"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
-let g:WhichKey_FontFamily = "JetBrainsMono Nerd Font"
+let g:WhichKey_FontFamily = "JetBrains Mono Medium"
 let g:WhichKey_Divider = " "
 let g:WhichKey_ShowVimActions = "true"
 
@@ -227,11 +227,12 @@ let g:WhichKeyDesc_view_zen = "<leader>vz toggle Zen mode"
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>cd <Action>(ActivateProblemsViewToolWindow)
 map <leader>cf <Action>(ReformatCode)
+map <leader>cg <Action>(Generate)
 map <leader>cd <Action>(ShowErrorDescription)
 map <leader>cr <Action>(RenameElement)
 map <leader>cu <Action>(FindUsages)
 map <leader>co <Action>(OptimizeImports)
-map <leader>cq <Action>(Refactorings.QuickListPopupAction)
+map <leader>cR <Action>(Refactorings.QuickListPopupAction)
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
@@ -244,7 +245,7 @@ let g:WhichKeyDesc_lsp_format = "<leader>cf format"
 let g:WhichKeyDesc_lsp_rename = "<leader>cr rename"
 let g:WhichKeyDesc_lsp_usage = "<leader>cu usage"
 let g:WhichKeyDesc_lsp_imports = "<leader>co optimize imports"
-let g:WhichKeyDesc_lsp_quicklist = "<leader>cq quicklist refactoring"
+let g:WhichKeyDesc_lsp_quicklist = "<leader>cR Refactoring options"
 let g:WhichKeyDesc_lsp_error = "gl show error description"
 let g:WhichKeyDesc_lsp_references = "gr show references"
 
@@ -291,8 +292,7 @@ let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
 
 
 
-
-
+:map <leader>x <Action>(main.toolbar.Filename)
 
 
 
