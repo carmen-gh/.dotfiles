@@ -90,6 +90,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+"map <C-n> <Action>(PopupMenu-selectnext)
+"map <C-p> <Action>(PopupMenu-selectprev)
+map <A-n> <Action>(Tree-selectNext)
+map <A-p> <Action>(Tree-selectPrevious)
+"inoremap <A-n> <Action>(PopupMenu-selectNext)
+"inoremap <A-p> <Action>(PopupMenu-selectPrev)
+
 " \n open and focus NERDTree on current open file
 map <leader>e :NERDTreeFind<CR>
 let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
@@ -186,6 +193,7 @@ map <leader>fr <Action>(RecentFiles)
 map <leader>fe <Action>(SearchEverywhere)
 map <leader>fa <Action>(GotoAction)
 map <leader>fl <Action>(RecentLocations)
+map <leader>fm <Action>(ShowBookmarks)
 let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
 let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
 let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
@@ -194,6 +202,7 @@ let g:WhichKeyDesc_finder_recent = "<leader>fr recent files"
 let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
 let g:WhichKeyDesc_finder_action = "<leader>fa action"
 let g:WhichKeyDesc_finder_location = "<leader>fl recent location"
+let g:WhichKeyDesc_finder_marks = "<leader>fm Find Marks"
 
 " Views (v)
 map <leader>vb <Action>(ActivateBuildToolWindow)
@@ -251,14 +260,18 @@ let g:WhichKeyDesc_lsp_references = "gr show references"
 
 " Marks (m)
 map <leader>mt <Action>(ToggleBookmark)
+map <leader>mm <Action>(ToggleBookmarkWithMnemonic)
 map <leader>me <Action>(EditBookmark)
-map <leader>ml <Action>(ShowBookmarks)
-map gm <Action>(ShowBookmarks)
+map <leader>ml <Action>(ShowTypeBookmarks)
+map <leader>mp <Action>(ShowBookmarks)
+map gm <Action>(ShowTypeBookmarks)
 let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks)"
 let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
+let g:WhichKeyDesc_marks_mmnemonic = "<leader>mm toggle Mnemonic mark"
 let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
-let g:WhichKeyDesc_marks_list = "<leader>ml list"
-let g:WhichKeyDesc_marks_show = "gm go to marks (show marks)"
+let g:WhichKeyDesc_marks_list = "<leader>ml mnemonic list"
+let g:WhichKeyDesc_marks_preview = "<leader>mp preview all marks"
+let g:WhichKeyDesc_marks_show = "gm go to mnemonic marks (show marks)"
 
 " Git (g)
 map <leader>gn <Action>(Git.CreateNewBranch)
@@ -292,27 +305,12 @@ let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
 
 
 
-:map <leader>x <Action>(main.toolbar.Filename)
+"":map <leader>x <Action>(Bookmarks.Goto)
+:map <leader>x <Action>(ShowTypeBookmarks)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+" ctrl + number jumps to menomic bookmark map
+" GotoBookmark1
+" GotoBookmarkA
+" Bookmarks.Goto
+" ShowTypeBookmarks
+" Tree-selectPrevious
