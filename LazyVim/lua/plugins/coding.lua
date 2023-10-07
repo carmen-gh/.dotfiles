@@ -58,5 +58,6 @@ return {
     "tpope/vim-sleuth",
     event = { "BufRead", "BufNewFile" },
     opts = {},
+    config = function() end,
   },
 }

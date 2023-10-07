@@ -18,6 +18,8 @@
     smudge = git-lfs smudge -- %f
 [pull]
     rebase = true
+[rebase]
+  autoStash = true # Stash and pop uncommitted changes on rebase
 [init]
     defaultBranch = main
 [gpg]
