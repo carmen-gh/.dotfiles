@@ -72,7 +72,7 @@ local components = {
   },
   filename = {
     "filename",
-    color = {},
+    color = { fg = greyColor },
     cond = nil,
   },
   diagnostics = {
@@ -141,7 +141,7 @@ return {
           globalstatus = true,
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
-          disabled_filetypes = { "alpha", "Outline", "dashboard", "neo-tree" },
+          disabled_filetypes = { "Outline", "dashboard", "neo-tree" },
         },
         sections = {
           lualine_a = { components.mode },
@@ -155,10 +155,7 @@ return {
           lualine_y = {},
         },
         winbar = {
-          lualine_z = {
-            { "filetype", icon_only = true, colored = false, separator = { right = "", left = "" } },
-            { "filename", separator = { right = "", left = "" } },
-          },
+          lualine_x = { { "filetype", icon_only = true, colored = true }, "filename" },
         },
         inactive_winbar = {
           lualine_y = { { "filetype", icon_only = true, colored = false }, "filename" },

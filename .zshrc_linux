@@ -18,6 +18,7 @@ export GOPATH=$HOME/Developer/go
 export PATH=$PATH:~/Developer/go/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.dotfiles/bin # my custom scripts
+export PATH=$PATH:/opt/swift/usr/bin
 
 export EDITOR=vim
 export VISUAL=vim
