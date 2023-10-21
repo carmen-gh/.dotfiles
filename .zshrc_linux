@@ -46,6 +46,7 @@ alias ...="cd ../.."
 alias lg='lazygit'
 alias lg-upgrade="go install github.com/jesseduffield/lazygit@latest"
 alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop"
+alias gh-upgrade="gh extension upgrade --all"
 alias dot="cd ~/.dotfiles"
 
 
