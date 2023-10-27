@@ -1,5 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc. Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must go above this block; everything else may go below. if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" fi
-
 
 export ZSH="$HOME/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
@@ -68,6 +66,12 @@ alias la='exa --long --icons --all'
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
+
+# on changed files run ktlint with automatic formatting
+function ktcleanup {
+  git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs ktlint --relative --format
+}
+
 # For a full list of active aliases, run `alias`.
 function take {
   mkdir -p $1
@@ -76,3 +80,6 @@ function take {
 
 # Starship Prompt ------------------------------------------------------------
 eval "$(starship init zsh)"
+
+
+neofetch
