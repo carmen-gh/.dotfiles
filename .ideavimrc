@@ -306,7 +306,7 @@ let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
 
 
 "":map <leader>x <Action>(Bookmarks.Goto)
-:map <leader>x <Action>(ShowTypeBookmarks)
+"":map <leader>x <Action>(ShowTypeBookmarks)
 
 " ctrl + number jumps to menomic bookmark map
 " GotoBookmark1
