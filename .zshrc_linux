@@ -26,6 +26,13 @@ export TERMINAL=kitty
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
+# catppuccin colored fzf output
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
+
+
 alias lazyvim="NVIM_APPNAME=LazyVim nvim"
 alias vim='lazyvim' 
 alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' nvim ~/.dotfiles/.zshrc_linux"
@@ -55,6 +62,11 @@ function take {
   cd $1
 }
 
+# on changed files run ktlint with automatic formatting
+function ktcleanup {
+  git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs ktlint --relative --format
+}
+
 function update-kitty-icon {
   sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop
 }
@@ -76,3 +88,4 @@ function choose_timer() {
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 
+neofetch
