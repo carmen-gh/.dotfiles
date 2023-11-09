@@ -29,6 +29,13 @@ return {
     },
   },
   {
+    "aserowy/tmux.nvim",
+    event = "VeryLazy",
+    opts = {
+      enable_default_keybindings = false,
+    },
+  },
+  {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
     cmd = { "MarkdownPreview", "MarkdownPreviewStop" },

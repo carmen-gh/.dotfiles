@@ -13,3 +13,9 @@ vim.keymap.set("n", "<UP>", "<NOP>")
 vim.keymap.set("n", "<DOWN>", "<NOP>")
 vim.keymap.set("n", "<LEFT>", "<NOP>")
 vim.keymap.set("n", "<RIGHT>", "<NOP>")
+
+-- Move to window using the <ctrl> hjkl keys even between tmux and neovim
+vim.keymap.set("n", "<C-h>", require("tmux").move_left, { desc = "Go to left window", remap = true })
+vim.keymap.set("n", "<C-j>", require("tmux").move_bottom, { desc = "Go to lower window", remap = true })
+vim.keymap.set("n", "<C-k>", require("tmux").move_top, { desc = "Go to upper window", remap = true })
+vim.keymap.set("n", "<C-l>", require("tmux").move_right, { desc = "Go to right window", remap = true })
