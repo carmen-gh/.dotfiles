@@ -22,7 +22,7 @@ export PATH=$PATH:/opt/swift/usr/bin
 
 export EDITOR=vim
 export VISUAL=vim
-export TERMINAL=kitty
+#export TERMINAL=kitty
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 
