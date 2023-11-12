@@ -19,7 +19,8 @@
 [pull]
     rebase = true
 [rebase]
-  autoStash = true # Stash and pop uncommitted changes on rebase
+    autoStash = true # Stash and pop uncommitted changes on rebase
+    autosquash = true
 [init]
     defaultBranch = main
 [gpg]
@@ -37,6 +38,8 @@
     followTags = true
 [interactive]
     diffFilter = delta --color-only
+[rerere]
+    enabled = true # remember each side of a conflict and apply the recorded resolution next time the same conflict reappears. 
 [pretty]
     custom = "%C(yellow)%h %C(green) %s %C(magenta)%d %n%C(cyan) %an  %C(cyan)%ar%n"
     #                     │        │            │        │               └─ date relativ
@@ -44,10 +47,10 @@
     #                     │        │            └─ decorations(branch, heads or tags)
     #                     │        └─ message
     #                     └─ hash (abbreviated)
-; [split-diffs]
+
+; [split-diffs] # alternative to delta
     # turn off syntax highlighting
     # syntax-highlighting-theme = 
-
 [delta]
   dark = true
   diff-hightlight = true
