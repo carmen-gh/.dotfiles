@@ -105,6 +105,7 @@ let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "map <leader>d <Action>(AndroidConnectDebuggerAction)
 
+
 "map <leader>s <Action>(Switcher)
 
 map ]t <Action>(NextTab)
@@ -149,26 +150,26 @@ let g:WhichKeyDesc_test_goto = "gt go to Test"
 
 if has('ide')
   if &ide =~? 'Android Studio'
-    " Android (A)
-    map <leader>Ar <Action>(Run)
-    map <leader>As <Action>(Stop)
-    map <leader>Ag <Action>(Android.SyncProject)
-    map <leader>Ad <Action>(XDebugger.AttachToProcess)
-    map <leader>Aa <Action>(com.developerphil.adbidea.action.AdbIdeaQuickList)
-    map <leader>Ae <Action>(Android.DeviceManager2)
-    " map <leader>Ac <Action>(RedesignedRunConfigurationSelector) not opening menu
+    " Android (a)
+    map <leader>ar <Action>(Run)
+    map <leader>as <Action>(Stop)
+    map <leader>ag <Action>(Android.SyncProject)
+    map <leader>ad <Action>(XDebugger.AttachToProcess)
+    map <leader>aa <Action>(com.developerphil.adbidea.action.AdbIdeaQuickList)
+    map <leader>ae <Action>(Android.DeviceManager2)
+    map <leader>ac <Action>(ChooseRunConfiguration)
     " select device
     " device explorer
     " configuration
     " studio bot
-    let g:WhichKeyDesc_leader_android = "<leader>A +Android"
-    let g:WhichKeyDesc_android_run = "<leader>Ar run"
-    let g:WhichKeyDesc_android_stop = "<leader>As stop"
-    let g:WhichKeyDesc_android_gradleSync = "<leader>Ag gradle sync"
-    let g:WhichKeyDesc_android_debugger = "<leader>Ad attach debugger"
-    let g:WhichKeyDesc_android_adb = "<leader>Aa ADB actions"
-    let g:WhichKeyDesc_android_devices = "<leader>Ae Device Explorer"
-    "let g:WhichKeyDesc_android_configuration = "<leader>Ac run/debug configurations"
+    let g:WhichKeyDesc_leader_android = "<leader>a +Android"
+    let g:WhichKeyDesc_android_run = "<leader>ar run"
+    let g:WhichKeyDesc_android_stop = "<leader>as stop"
+    let g:WhichKeyDesc_android_gradleSync = "<leader>ag gradle sync"
+    let g:WhichKeyDesc_android_debugger = "<leader>ad attach debugger"
+    let g:WhichKeyDesc_android_adb = "<leader>aa ADB actions"
+    let g:WhichKeyDesc_android_devices = "<leader>ae Device Explorer"
+    let g:WhichKeyDesc_android_configuration = "<leader>ac run/debug configurations"
   endif
 endif
 
@@ -314,3 +315,4 @@ let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
 " Bookmarks.Goto
 " ShowTypeBookmarks
 " Tree-selectPrevious
+nnoremap <leader>cx :action ChooseRunConfiguration<CR>
