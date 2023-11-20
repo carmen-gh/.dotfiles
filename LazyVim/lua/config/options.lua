@@ -5,5 +5,5 @@
 
 vim.opt.numberwidth = 4
 vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
-
 vim.opt.termguicolors = true
+vim.opt.colorcolumn = "120"
