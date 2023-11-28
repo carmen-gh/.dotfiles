@@ -47,7 +47,7 @@ export KEYTIMEOUT=1
 alias zshconfig="vim ~/.dotfiles/.zshrc"
 alias vimconfig="vim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="vim ~/.gitconfig"
-alias vim='lazyVim' 
+alias vim='nvim' 
 alias avim="NVIM_APPNAME=AstroNvim nvim"
 alias lazyVim="NVIM_APPNAME=LazyVim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
