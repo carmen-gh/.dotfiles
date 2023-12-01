@@ -24,7 +24,7 @@ font:
   bold_italic:
     family: "JetBrainsMono Nerd Font"
     style: Heavy Italic
-  size: 10.5
+  size: 10
 
 import:
   - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
