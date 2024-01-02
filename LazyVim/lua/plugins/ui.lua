@@ -1,5 +1,5 @@
 return {
-  -- Noice
+  -- Noice NOTE: DISABLED
   {
     "folke/noice.nvim",
     opts = {
@@ -25,7 +25,7 @@ return {
       },
     },
   },
-  -- bufferline currently disable
+  -- bufferline NOTE: DISABLED
   {
     "akinsho/bufferline.nvim",
     opts = {
@@ -37,7 +37,7 @@ return {
       },
     },
   },
-  -- alpha-nvim
+  -- alpha-nvim TODO: replace with dashboard config
   {
     "goolord/alpha-nvim",
     optional = true,
@@ -58,7 +58,6 @@ return {
       "DiffviewFocusFiles",
       "DiffviewRefresh",
     },
-    event = "VeryLazy",
     opts = {
       view = {
         merge_tool = {
@@ -66,6 +65,27 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
+    },
   },
-  -- TODO add lualine
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = "LazyFile",
+    config = true,
+    opts = {
+      signs = false,
+    },
+  -- stylua: ignore
+    keys = {
+      { "<leader>sT", false},
+      { "<leader>st", false},
+      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+      { "<leader>xt", "<cmd>TodoTelescope theme=ivy<cr>", desc = "Todo comments" },
+      { "<leader>xT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME theme=ivy<cr>", desc = "Todo/Fix/Fixme comments" },
+    },
+  },
+  -- TODO: add lualine
 }

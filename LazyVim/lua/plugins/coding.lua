@@ -32,16 +32,10 @@ return {
         hsl_fn = false, -- CSS hsl() and hsla() functions
         css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
         css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-        -- Available modes for `mode`: foreground, background,  virtualtext
         mode = "virtualtext", -- Set the display mode.
-        -- Available methods are false / true / "normal" / "lsp" / "both"
-        -- True is same as normal
         tailwind = false, -- Enable tailwind colors
-        -- parsers can contain values used in |user_default_options|
         sass = { enable = false, parsers = { "css" } }, -- Enable sass colors
         virtualtext = " ",
-        -- update color values even if buffer is not focused
-        -- example use: cmp_menu, cmp_docs
         always_update = false,
       },
     },
@@ -59,5 +53,44 @@ return {
     event = { "BufRead", "BufNewFile" },
     opts = {},
     config = function() end,
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {
+      notification = {
+        window = {
+          winblend = 0,
+          border = "rounded",
+        },
+      },
+    },
+  },
+  {
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    opts = {
+      decorations = {
+        statusline = {
+          device = true,
+          app_version = true,
+        },
+      },
+      debugger = {
+        enabled = true,
+      },
+      dev_log = {
+        enabled = true,
+      },
+    },
+    config = function(_, opts)
+      require("flutter-tools").setup(opts)
+      require("lazyvim.util").on_load("telescope.nvim", function()
+        require("telescope").load_extension("flutter") -- BUG: does not work
+      end)
+    end,
   },
 }

@@ -80,6 +80,27 @@ local components = {
     sources = { "nvim_diagnostic" },
     symbols = { error = " ", warn = " ", info = " ", hint = " " },
   },
+  flutter_device = {
+    function()
+      local device = vim.g.flutter_tools_decorations.device
+      local device_name = device and (device.name or device.id) or ""
+      if device_name ~= "" then
+        return " " .. device_name
+      else
+        return ""
+      end
+    end,
+    color = { fg = greyColor },
+  },
+  dap = {
+    function()
+      return "  " .. require("dap").status()
+    end,
+    cond = function()
+      return package.loaded["dap"] and require("dap").status() ~= ""
+    end,
+    color = { fg = greyColor },
+  },
   lsp_status = {
     function()
       if rawget(vim, "lsp") then
@@ -102,7 +123,7 @@ local components = {
     end,
     color = { fg = greyColor },
   },
-  lsp_progress = {
+  lsp_progress = { -- BUG: does not work
     function()
       local Lsp = vim.lsp.status()[1]
 
@@ -146,8 +167,13 @@ return {
         sections = {
           lualine_a = { components.mode },
           lualine_b = {},
-          lualine_c = { components.branch, components.diff },
+          lualine_c = {
+            components.branch,
+            components.diff,
+          },
           lualine_x = {
+            components.dap,
+            components.flutter_device,
             components.diagnostics,
             components.lsp_progress,
             components.lsp_status,
@@ -160,7 +186,7 @@ return {
         inactive_winbar = {
           lualine_y = { { "filetype", icon_only = true, colored = false }, "filename" },
         },
-        extensions = { "neo-tree", "lazy", "trouble", "quickfix", "fugitive" },
+        extensions = { "neo-tree", "lazy", "trouble", "quickfix" },
       }
     end,
   },

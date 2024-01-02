@@ -10,6 +10,10 @@ return { -- add more treesitter parsers
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    opts = {},
+  },
+  {
     "Wansmer/treesj",
     keys = {
       { "<leader>cj", ":lua require('treesj').toggle()<CR>", desc = "Join code block (toggle)" },
