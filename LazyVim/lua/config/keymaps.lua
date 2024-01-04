@@ -27,3 +27,4 @@ function CloseAllOtherBuffers()
   vim.cmd([[up | %bd | e#]]) -- to save current buffer and close delete all open hidden buffers
 end
 vim.api.nvim_set_keymap("n", "<leader>qb", "<cmd>lua CloseAllOtherBuffers()<CR>", { desc = "Close other buffers" })
+vim.api.nvim_set_keymap("n", "<leader>qs", "<cmd>only<CR>", { desc = "Close other splits" })
