@@ -266,6 +266,11 @@ map <leader>me <Action>(EditBookmark)
 map <leader>ml <Action>(ShowTypeBookmarks)
 map <leader>mp <Action>(ShowBookmarks)
 map gm <Action>(ShowTypeBookmarks)
+map g1 <Action>(GotoBookmark1)
+map g2 <Action>(GotoBookmark2)
+map g3 <Action>(GotoBookmark3)
+map g4 <Action>(GotoBookmark4)
+map g5 <Action>(GotoBookmark5)
 let g:WhichKeyDesc_leader_marks = "<leader>m +Marks (Bookmarks)"
 let g:WhichKeyDesc_marks_toggle = "<leader>mt toggle mark"
 let g:WhichKeyDesc_marks_mmnemonic = "<leader>mm toggle Mnemonic mark"
@@ -273,6 +278,11 @@ let g:WhichKeyDesc_marks_edit = "<leader>me edit name"
 let g:WhichKeyDesc_marks_list = "<leader>ml mnemonic list"
 let g:WhichKeyDesc_marks_preview = "<leader>mp preview all marks"
 let g:WhichKeyDesc_marks_show = "gm go to mnemonic marks (show marks)"
+let g:WhichKeyDesc_marks_goto1 = "g1 go to mark 1"
+let g:WhichKeyDesc_marks_goto2 = "g2 go to mark 2"
+let g:WhichKeyDesc_marks_goto3 = "g3 go to mark 3"
+let g:WhichKeyDesc_marks_goto4 = "g4 go to mark 4"
+let g:WhichKeyDesc_marks_goto5 = "g5 go to mark 5"
 
 " Git (g)
 map <leader>gn <Action>(Git.CreateNewBranch)
