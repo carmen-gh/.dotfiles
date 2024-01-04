@@ -5,7 +5,7 @@ git:
   log:
     order: "topo-order"
     showGraph: "always"
-  branchLogCmd: "git log --graph --pretty='%C(blue)%h %C(green) %s %C(magenta)%(decorate:prefix=,suffix=,tag= ,pointer=  ) %n%C(cyan) %an  %C(cyan)%ar%n'"
+  branchLogCmd: "git log --graph --pretty=custom"
   mainBranches: [master, main, develop]
   promptToReturnFromSubprocess: false
   commitPrefixes:

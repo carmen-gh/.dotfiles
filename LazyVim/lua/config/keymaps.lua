@@ -4,8 +4,8 @@
 
 vim.keymap.set("i", "jj", "<ESC>", { noremap = false }) -- better escape
 vim.keymap.set("n", "x", '"_x') -- delete single character without copying into register
-vim.keymap.set("v", "<leader>p", [["_dP]]) -- paste and keep
-vim.keymap.set("n", "<leader>d", [["_d]]) -- delete without putting into register
+vim.keymap.set("n", "<leader>d", '"_d', { desc = "delete without putting into register" })
+vim.keymap.set("n", "<leader>p", '"_0p', { desc = "copy last yanked text" })
 vim.keymap.set("n", "YY", "va{Vy}", { desc = "copy function or json object" })
 
 -- disable arrow keys
