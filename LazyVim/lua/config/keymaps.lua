@@ -20,8 +20,10 @@ vim.keymap.set("n", "<C-j>", require("tmux").move_bottom, { desc = "Go to lower 
 vim.keymap.set("n", "<C-k>", require("tmux").move_top, { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<C-l>", require("tmux").move_right, { desc = "Go to right window", remap = true })
 
-vim.keymap.set("n", "]q", "<cmd>cnext<cr>", { desc = "quickfix next entry" })
-vim.keymap.set("n", "[q", "<cmd>cprevious<cr>", { desc = "quickfix previous entry" })
+-- Quickfix
+vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 function CloseAllOtherBuffers()
   vim.cmd([[up | %bd | e#]]) -- to save current buffer and close delete all open hidden buffers
