@@ -33,8 +33,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
 
-alias lazyvim="NVIM_APPNAME=LazyVim nvim"
-alias vim='lazyvim' 
+alias lvim="NVIM_APPNAME=LazyVim nvim"
+alias vim='nvim' 
 alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' nvim ~/.dotfiles/.zshrc_linux"
 alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' nvim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' nvim ~/.dotfiles/.gitconfig"
