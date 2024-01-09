@@ -2,7 +2,7 @@
 -- TODO: add Whichkey plugin
 return {
 	{ "numToStr/Comment.nvim", opts = {} },
-	-- { "windwp/nvim-autopairs", opts = {} },
+	-- 	-- { "windwp/nvim-autopairs", opts = {} },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
@@ -29,13 +29,13 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
-	{
-		"aserowy/tmux.nvim",
-		event = "VeryLazy",
-		opts = {
-			enable_default_keybindings = false,
-		},
-	},
+	-- {
+	-- 	"aserowy/tmux.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		enable_default_keybindings = false,
+	-- 	},
+	-- },
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -45,15 +45,15 @@ return {
 		opts = {
 			signs = false,
 		},
-  -- stylua: ignore
-    keys = {
-      { "<leader>sT", false},
-      { "<leader>st", false},
-      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-      { "<leader>xt", "<cmd>TodoTelescope theme=ivy<cr>", desc = "Todo comments" },
-      { "<leader>xT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME theme=ivy<cr>", desc = "Todo/Fix/Fixme comments" },
-    },
+	  -- stylua: ignore
+	    keys = {
+	      { "<leader>sT", false},
+	      { "<leader>st", false},
+	      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+	      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+	      { "<leader>xt", "<cmd>TodoTelescope theme=ivy<cr>", desc = "Todo comments" },
+	      { "<leader>xT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME theme=ivy<cr>", desc = "Todo/Fix/Fixme comments" },
+	    },
 	},
 	{
 		"hiphish/rainbow-delimiters.nvim",
@@ -103,15 +103,15 @@ return {
 		config = function(_, opts)
 			require("harpoon"):setup(opts)
 		end,
--- stylua: ignore
-    keys = {
-      { "<leader>hm", function() require("harpoon"):list():append() end, desc = "mark file", },
-      { "<leader>hl", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "list marked files", },
-      { "<leader>ha", function() require("harpoon"):list():select(1) end, desc = "file 1", },
-      { "<leader>hs", function() require("harpoon"):list():select(2) end, desc = "file 2", },
-      { "<leader>hd", function() require("harpoon"):list():select(3) end, desc = "file 3", },
-      { "<leader>hf", function() require("harpoon"):list():select(4) end, desc = "file 4", },
-      { "<leader>hg", function() require("harpoon"):list():select(5) end, desc = "file 5", },
-    },
+	-- stylua: ignore
+	    keys = {
+	      { "<leader>hm", function() require("harpoon"):list():append() end, desc = "mark file", },
+	      { "<leader>hl", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "list marked files", },
+	      { "<leader>ha", function() require("harpoon"):list():select(1) end, desc = "file 1", },
+	      { "<leader>hs", function() require("harpoon"):list():select(2) end, desc = "file 2", },
+	      { "<leader>hd", function() require("harpoon"):list():select(3) end, desc = "file 3", },
+	      { "<leader>hf", function() require("harpoon"):list():select(4) end, desc = "file 4", },
+	      { "<leader>hg", function() require("harpoon"):list():select(5) end, desc = "file 5", },
+	    },
 	},
 }
