@@ -312,17 +312,3 @@ let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
 " track actions by turning on 'IdeaVim: track action Ids' in settings
-
-
-
-
-"":map <leader>x <Action>(Bookmarks.Goto)
-"":map <leader>x <Action>(ShowTypeBookmarks)
-
-" ctrl + number jumps to menomic bookmark map
-" GotoBookmark1
-" GotoBookmarkA
-" Bookmarks.Goto
-" ShowTypeBookmarks
-" Tree-selectPrevious
-nnoremap <leader>cx :action ChooseRunConfiguration<CR>
