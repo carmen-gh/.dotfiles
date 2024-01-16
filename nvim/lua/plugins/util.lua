@@ -2,7 +2,7 @@
 -- TODO: add Whichkey plugin
 return {
 	{ "numToStr/Comment.nvim", opts = {} },
-	-- 	-- { "windwp/nvim-autopairs", opts = {} },
+	{ "windwp/nvim-autopairs", opts = {} },
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
@@ -29,13 +29,6 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
-	-- {
-	-- 	"aserowy/tmux.nvim",
-	-- 	event = "VeryLazy",
-	-- 	opts = {
-	-- 		enable_default_keybindings = false,
-	-- 	},
-	-- },
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -47,8 +40,6 @@ return {
 		},
 	  -- stylua: ignore
 	    keys = {
-	      { "<leader>sT", false},
-	      { "<leader>st", false},
 	      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
 	      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
 	      { "<leader>xt", "<cmd>TodoTelescope theme=ivy<cr>", desc = "Todo comments" },
@@ -113,5 +104,18 @@ return {
 	      { "<leader>hf", function() require("harpoon"):list():select(4) end, desc = "file 4", },
 	      { "<leader>hg", function() require("harpoon"):list():select(5) end, desc = "file 5", },
 	    },
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
 	},
 }

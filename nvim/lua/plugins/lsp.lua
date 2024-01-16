@@ -3,37 +3,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 
 	callback = function(ev)
-		-- TODO: add descriptions see git.lua
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<leader>xd", "<cmd>Telescope diagnostics theme=ivy<cr>", opts)
-		vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", opts)
-		vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float)
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+		local function map(mode, l, r, desc)
+			vim.keymap.set(mode, l, r, { buffer = ev.buf, desc = desc })
+		end
+
+		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
+		map("n", "gd", vim.lsp.buf.definition, "go to definition")
+		map("n", "K", vim.lsp.buf.hover, "Documentation")
+		map("n", "gI", vim.lsp.buf.implementation, "go to implementation")
+		map("n", "<C-k>", vim.lsp.buf.signature_help, "singnature help")
+		map("n", "<leader>cr", vim.lsp.buf.rename, "rename")
+		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "code action")
+		map("n", "<leader>xd", "<cmd>Telescope diagnostics theme=ivy<cr>", "diagnostics")
+		map("n", "gr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "go to references")
+		map("n", "<leader>fr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "references")
+		map("n", "<leader>cd", vim.diagnostic.open_float, "show diagnostic")
+		map("n", "[d", vim.diagnostic.goto_prev, "prev diagnostics")
+		map("n", "]d", vim.diagnostic.goto_next, "next diagnostics")
+
+		-- TODO: add toggle for inline hints
 	end,
 })
-
--- NOTE: Server list
-local server_list = {
-	"bashls",
-	"eslint",
-	"lua_ls",
-	"gopls",
-	"html",
-	"jsonls",
-	"marksman",
-	"yamlls",
-	"kotlin_language_server",
-	"rust_analyzer",
-	"lemminx",
-}
 
 return {
 	{
@@ -48,15 +38,24 @@ return {
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
-			local mason = require("mason")
 			local mason_lsp = require("mason-lspconfig")
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			mason.setup({
-				ui = {
-					border = "rounded",
-				},
-			})
+			-- TODO: remove in favour of mason-tool-installer
+
+			local server_list = {
+				"bashls",
+				"eslint",
+				"lua_ls",
+				"gopls",
+				"html",
+				"jsonls",
+				"marksman",
+				"yamlls",
+				"kotlin_language_server",
+				"rust_analyzer",
+				"lemminx",
+			}
 
 			local handlers = {
 				-- Default handler
@@ -82,6 +81,12 @@ return {
 				["yamlls"] = function()
 					lspconfig.lua_ls.setup({
 						settings = require("plugins.lsp-settings.yamlls").settings,
+					})
+				end,
+
+				["gopls"] = function()
+					lspconfig.gopls.setup({
+						settings = require("plugins.lsp-settings.gopls").settings,
 					})
 				end,
 			}

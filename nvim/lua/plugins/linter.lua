@@ -1,14 +1,14 @@
 return {
 	"mfussenegger/nvim-lint",
 	lazy = true,
-	event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-
 		lint.linters_by_ft = {
 			python = { "pylint" },
-			kotlin = { "ktlint" },
+			kotlin = { "ktlint" }, -- detekt not supported
 			markdown = { "markdownlint" },
+			-- go = { "golangci-lint" }, --defined in go.lua
 			-- lua = { "luacheck" },
 		}
 

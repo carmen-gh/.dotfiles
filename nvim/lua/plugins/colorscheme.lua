@@ -12,7 +12,7 @@ return {
 			native_lsp = {
 				enabled = true,
 				underlines = {
-					errors = { "undercurl" }, -- TODO: why is not curl
+					errors = { "undercurl" },
 					hints = { "undercurl" },
 					warnings = { "undercurl" },
 					information = { "undercurl" },
