@@ -112,10 +112,17 @@ return {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
+		config = function()
+			local wk = require("which-key")
+			wk.register({
+				["<leader>f"] = { name = "+file" },
+				["<leader>c"] = { name = "+code" },
+				["<leader>d"] = { name = "+debug" },
+				["<leader>g"] = { name = "+git" },
+				["<leader>h"] = { name = "+harpoon" },
+				["<leader>q"] = { name = "+quit" },
+				["<leader>x"] = { name = "+quickfix" },
+			})
+		end,
 	},
 }
