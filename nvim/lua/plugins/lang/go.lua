@@ -1,11 +1,4 @@
--- TODO: add lsp, linter, formatter
--- TODO: add go plugin
 return {
-	{
-		"leoluz/nvim-dap-go",
-		opts = {},
-	},
-	-- { "nvim-neotest/neotest-go" } see testing.lua
 	{
 		"crispgm/nvim-go",
 		dependencies = {
@@ -47,5 +40,5 @@ return {
 				quick_type_flags = { "--just-types" },
 			})
 		end,
-	}, --NOTE: :GoInstallBinaries after plugin installed.
+	},
 }

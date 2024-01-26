@@ -41,7 +41,7 @@ return {
 			local mason_lsp = require("mason-lspconfig")
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- TODO: remove in favour of mason-tool-installer
+			-- TODO: remove mason-lsp in favour of mason-tool-installer
 
 			local server_list = {
 				"bashls",
