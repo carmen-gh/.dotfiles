@@ -6,6 +6,9 @@ vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copyin
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
+-- Exit terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- Line movement (alt-j and alt-k)
 vim.keymap.set("n", "<A-j>", ":m+1<CR>", { desc = "Move line down [alt + j]" })
 vim.keymap.set("n", "<A-k>", ":m-2<CR>", { desc = "Move line up [alt + k]" })
@@ -19,6 +22,9 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
+
+-- Edit the alternate / previously edited file
+vim.keymap.set("n", "<leader>o", "<C-^>", { desc = "edit prev edited file" })
 
 -- Resize window using <ctrl> arrow keys
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -36,9 +42,16 @@ vim.keymap.set("n", "]B", "<cmd>blast<CR>", { desc = "last buffer" })
 vim.keymap.set("n", "<leader>|", "<cmd>vs<CR>", { desc = "split vertically" })
 vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", { desc = "split horizontally" })
 
--- better indenting
+-- better indenting (keep visual selection)
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+-- Open line, but stay in normal mode
+vim.keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "add line below in normal mode" })
+
+-- Increment/decrement numbers
+vim.keymap.set({ "n", "v" }, "+", "<C-a>", { desc = "increment number" })
+vim.keymap.set({ "n", "v" }, "-", "<C-x>", { desc = "decrement number" })
 
 -- Quickfix
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
