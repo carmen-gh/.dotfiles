@@ -8,8 +8,7 @@ return {
 			python = { "pylint" },
 			kotlin = { "ktlint" }, -- detekt not supported
 			markdown = { "markdownlint" },
-			-- go = { "golangci-lint" }, --defined in go.lua
-			-- lua = { "luacheck" },
+			go = { "golangcilint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

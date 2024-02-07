@@ -32,7 +32,7 @@ end
 
 vim.keymap.set(
 	"n",
-	"<leader>ct",
+	"<leader>t",
 	":lua ToggleCheckbox()<CR>",
 	{ noremap = true, silent = true, desc = "toggle checkbox" }
 )

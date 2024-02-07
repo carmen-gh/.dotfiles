@@ -120,7 +120,7 @@ return {
 					border = "rounded",
 					source = "always",
 					header = "",
-					prefix = "",
+					prefix = " ",
 				},
 			}
 			vim.diagnostic.config(default_diagnostic_config)
