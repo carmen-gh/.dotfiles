@@ -5,7 +5,7 @@ return {
 		{ "theHamsta/nvim-dap-virtual-text", opts = {} },
 		"williamboman/mason.nvim",
 		-- special debuggers
-		{ "leoluz/nvim-dap-go", config = true },
+		-- { "leoluz/nvim-dap-go", config = true },
 	},
 	config = function()
 		require("dapui").setup()
@@ -54,6 +54,6 @@ return {
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 		-- Install language specific config
-		require("dap-go").setup()
+		require("gopher.dap").setup()
 	end,
 }

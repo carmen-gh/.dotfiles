@@ -6,6 +6,7 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			notify_on_error = false,
 			formatters_by_ft = {
 				html = { "prettier" },
 				json = { "prettier" },
@@ -17,8 +18,7 @@ return {
 			},
 			format_on_save = {
 				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
+				timeout_ms = 500,
 			},
 		})
 
