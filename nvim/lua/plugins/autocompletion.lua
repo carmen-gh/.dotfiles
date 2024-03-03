@@ -22,7 +22,7 @@ return {
 
 		cmp.setup({
 			completion = {
-				completeopt = "menu,menuone,preview,noselect",
+				completeopt = "menu,menuone,noinsert",
 			},
 			snippet = {
 				expand = function(args)
@@ -34,6 +34,8 @@ return {
 				completion = cmp.config.window.bordered(),
 			},
 			formatting = {
+				expandable_indicator = true,
+				fields = { "kind", "abbr" },
 				format = lspkind.cmp_format({
 					mode = "symbol",
 					maxwidth = 50,
@@ -41,15 +43,22 @@ return {
 				}),
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-k>"] = cmp.mapping.select_prev_item(),
-				["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				["<C-j>"] = cmp.mapping.select_next_item(),
-				["<Tab>"] = cmp.mapping.select_next_item(),
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-n>"] = cmp.mapping.select_next_item(),
+				["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(), -- show suggestions
-				["<C-e>"] = cmp.mapping.abort(),
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				-- jump to next location
+				["<Tab>"] = cmp.mapping(function()
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					end
+				end, { "i", "s" }),
+				-- jump to previous location
+				["<S-Tab>"] = cmp.mapping(function()
+					if luasnip.locally_jumpable(-1) then
+						luasnip.jump(-1)
+					end
+				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- lsp

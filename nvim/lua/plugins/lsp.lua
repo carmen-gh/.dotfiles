@@ -2,9 +2,9 @@
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 
-	callback = function(ev)
+	callback = function(event)
 		local function map(mode, l, r, desc)
-			vim.keymap.set(mode, l, r, { buffer = ev.buf, desc = desc })
+			vim.keymap.set(mode, l, r, { buffer = event.buf, desc = desc })
 		end
 
 		map("n", "gD", vim.lsp.buf.declaration, "go to declaration")
@@ -18,10 +18,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "gr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "go to references")
 		map("n", "<leader>fr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "references")
 		map("n", "<leader>cd", vim.diagnostic.open_float, "show diagnostic")
-		map("n", "[d", vim.diagnostic.goto_prev, "prev diagnostics")
-		map("n", "]d", vim.diagnostic.goto_next, "next diagnostics")
 
 		-- TODO: add toggle for inline hints
+
+		-- The following two autocommands are used to highlight references of the
+		-- word under your cursor when your cursor rests there for a little while.
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+		if client and client.server_capabilities.documentHighlightProvider then
+			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+				buffer = event.buf,
+				callback = vim.lsp.buf.document_highlight,
+			})
+
+			-- When you move your cursor, the highlights will be cleared
+			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+				buffer = event.buf,
+				callback = vim.lsp.buf.clear_references,
+			})
+		end
 	end,
 })
 
@@ -41,7 +55,7 @@ return {
 			local mason_lsp = require("mason-lspconfig")
 			local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			-- TODO: remove mason-lsp in favour of mason-tool-installer
+			-- TODO: remove mason-lsp in favour of mason-tool-installer, see nvim kickstart to copy the serverlist
 
 			local server_list = {
 				"bashls",

@@ -1,6 +1,5 @@
--- TODO: add keymap descriptions
--- TODO: add Whichkey plugin
 return {
+	{ "tpope/vim-sleuth" },
 	{ "numToStr/Comment.nvim", opts = {} },
 	{ "windwp/nvim-autopairs", opts = {} },
 	{
@@ -21,6 +20,11 @@ return {
 	},
 	{
 		"echasnovski/mini.surround",
+		version = false,
+		opts = {},
+	},
+	{
+		"echasnovski/mini.ai",
 		version = false,
 		opts = {},
 	},
@@ -115,13 +119,13 @@ return {
 		config = function()
 			local wk = require("which-key")
 			wk.register({
-				["<leader>f"] = { name = "+file" },
-				["<leader>c"] = { name = "+code" },
-				["<leader>d"] = { name = "+debug" },
-				["<leader>g"] = { name = "+git" },
-				["<leader>h"] = { name = "+harpoon" },
-				["<leader>q"] = { name = "+quit" },
-				["<leader>x"] = { name = "+quickfix" },
+				["<leader>f"] = { name = "file" },
+				["<leader>c"] = { name = "code" },
+				["<leader>d"] = { name = "debug" },
+				["<leader>g"] = { name = "git" },
+				["<leader>h"] = { name = "harpoon" },
+				["<leader>q"] = { name = "quit" },
+				["<leader>x"] = { name = "quickfix" },
 			})
 		end,
 	},

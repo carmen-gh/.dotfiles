@@ -7,8 +7,8 @@ return {
 
 		build = ":TSUpdate",
 		config = function()
-			local config = require("nvim-treesitter.configs")
-			config.setup({
+			---@diagnostic disable-next-line: missing-fields
+			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
 					"bash",
 					"dart",

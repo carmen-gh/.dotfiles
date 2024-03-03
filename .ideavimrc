@@ -190,7 +190,7 @@ let g:WhichKeyDesc_split_unsplit = "<leader>su unsplit"
 map <leader>ff <Action>(GotoFile)
 map <leader>fs <Action>(FindInPath)
 map <leader>fu <Action>(FindUsages)
-map <leader>fr <Action>(RecentFiles)
+map <leader>fo <Action>(RecentFiles)
 map <leader>fe <Action>(SearchEverywhere)
 map <leader>fa <Action>(GotoAction)
 map <leader>fl <Action>(RecentLocations)
@@ -199,7 +199,7 @@ let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
 let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
 let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
 let g:WhichKeyDesc_finder_usage = "<leader>fu Find usage"
-let g:WhichKeyDesc_finder_recent = "<leader>fr recent files"
+let g:WhichKeyDesc_finder_recent = "<leader>fo old files"
 let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
 let g:WhichKeyDesc_finder_action = "<leader>fa action"
 let g:WhichKeyDesc_finder_location = "<leader>fl recent location"
