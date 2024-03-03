@@ -162,7 +162,7 @@ return {
 					globalstatus = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
-					disabled_filetypes = { "Outline", "dashboard", "neo-tree" },
+					disabled_filetypes = { "Outline", "dashboard", "neo-tree", "dapui*", "dap-repl" },
 				},
 				sections = {
 					lualine_a = { components.mode },

@@ -26,28 +26,8 @@ return {
 		end, { desc = "Set Breakpoint with condition" })
 		vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "toggle REPL" })
 		vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "terminate" })
-
-		-- dap UI
-		-- TODO: check if problem with icons still exists
-		dapui.setup({
-			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-			controls = {
-				icons = {
-					pause = "⏸",
-					play = "▶",
-					step_into = "⏎",
-					step_over = "⏭",
-					step_out = "⏮",
-					step_back = "b",
-					run_last = "▶▶",
-					terminate = "⏹",
-					disconnect = "⏏",
-				},
-			},
-		})
 		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "toggle UI" })
-		-- vim.keymap.set("n", "v", "<leader>de", dapui.eval, { desc = "eval UI" })
-		vim.keymap.set("n", "<leader>dw", dap.ui.widgets.hover, { desc = "Widgets" })
+		vim.keymap.set({ "n", "v" }, "<leader>de", dapui.eval, { desc = "eval UI" })
 
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
