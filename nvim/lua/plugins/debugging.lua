@@ -46,7 +46,7 @@ return {
 			},
 		})
 		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "toggle UI" })
-		vim.keymap.set("n", "v", "<leader>de", dapui.eval, { desc = "eval UI" })
+		-- vim.keymap.set("n", "v", "<leader>de", dapui.eval, { desc = "eval UI" })
 		vim.keymap.set("n", "<leader>dw", dap.ui.widgets.hover, { desc = "Widgets" })
 
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
