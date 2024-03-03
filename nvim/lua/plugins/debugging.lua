@@ -18,12 +18,13 @@ return {
 
 		vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Start/Continue" })
 		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "step into" })
-		vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "step over" })
-		vim.keymap.set("n", "<leader>dO", dap.step_over, { desc = "step out" })
+		vim.keymap.set("n", "<leader>do", dap.step_out, { desc = "step out" })
+		vim.keymap.set("n", "<leader>dO", dap.step_over, { desc = "step over" })
 		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "toggle Breakpoint" })
 		vim.keymap.set("n", "<leader>dB", function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Set Breakpoint with condition" })
+		vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "toggle REPL" })
 		vim.keymap.set("n", "<leader>dt", dap.terminate, { desc = "terminate" })
 
 		-- dap UI
@@ -45,6 +46,8 @@ return {
 			},
 		})
 		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "toggle UI" })
+		vim.keymap.set("n", "v", "<leader>de", dapui.eval, { desc = "eval UI" })
+		vim.keymap.set("n", "<leader>dw", dap.ui.widgets.hover, { desc = "Widgets" })
 
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
