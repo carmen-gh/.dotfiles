@@ -5,9 +5,14 @@ return {
 	lazy = false,
 	priority = 1000,
 	opts = {
-		flavour = "frappe", -- "latte, frappe, macchiato, mocha"
+		flavour = "macchiato", -- "latte, frappe, macchiato, mocha"
+		background = { -- :h background
+			dark = "mocha",
+		},
 		integrations = {
+			cmp = true,
 			mason = true,
+			treesitter = true,
 			harpoon = true,
 			native_lsp = {
 				enabled = true,
