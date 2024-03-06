@@ -24,5 +24,8 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "explorer" })
+		vim.keymap.set("n", "<leader>E", function()
+			MiniFiles.open(vim.api.nvim_buf_get_name(0))
+		end, { desc = "mini explorer" })
 	end,
 }

@@ -63,10 +63,4 @@ return {
 		enabled = true,
 		opts = { mode = "cursor", max_lines = 1 },
 	},
-	{
-		"Wansmer/treesj",
-		keys = {
-			{ "<leader>cj", ":lua require('treesj').toggle()<CR>", desc = "Join code block (toggle)" },
-		},
-	},
 }

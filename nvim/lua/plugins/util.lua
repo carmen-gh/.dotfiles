@@ -1,33 +1,5 @@
 return {
 	{ "tpope/vim-sleuth" },
-	{ "numToStr/Comment.nvim", opts = {} },
-	{ "windwp/nvim-autopairs", opts = {} },
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = "VeryLazy",
-		opts = {
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"help",
-					"neo-tree",
-					"mason",
-					"dashboard",
-				},
-			},
-		},
-		main = "ibl",
-	},
-	{
-		"echasnovski/mini.surround",
-		version = false,
-		opts = {},
-	},
-	{
-		"echasnovski/mini.ai",
-		version = false,
-		opts = {},
-	},
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
@@ -126,6 +98,22 @@ return {
 				["<leader>h"] = { name = "harpoon" },
 				["<leader>q"] = { name = "quit" },
 				["<leader>x"] = { name = "quickfix" },
+			})
+		end,
+	},
+	{
+		"echasnovski/mini.nvim",
+		config = function()
+			require("mini.ai").setup({ n_lines = 500 })
+			require("mini.surround").setup()
+			require("mini.comment").setup()
+			require("mini.files").setup()
+			require("mini.misc").setup()
+			require("mini.pairs").setup()
+			require("mini.splitjoin").setup()
+			require("mini.indentscope").setup({
+				symbol = "▏",
+				draw = { animation = require("mini.indentscope").gen_animation.none() },
 			})
 		end,
 	},
