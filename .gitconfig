@@ -11,6 +11,8 @@
     cpick = cherry-pick
     cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop\\|main' | xargs -n 1 git branch -d"
     last = log -1 HEAD
+    bl = blame -w -C # ignore whitespace changes and follow code movement commits
+    fpush = push --force-with-lease # force push will fail if someone updated the remote ref (not overriding their changes by accident)
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
@@ -40,6 +42,11 @@
     diffFilter = delta --color-only
 [rerere]
     enabled = true # remember each side of a conflict and apply the recorded resolution next time the same conflict reappears. 
+    autoUpdate = true
+[branch]
+    sort = -committerdate
+[column]
+    ui = auto
 [pretty]
     custom = "%C(blue)%h %C(green) %s %C(magenta)%(decorate:prefix=,suffix=,tag= ,pointer=  ) %n%C(cyan) %an  %C(cyan)%ar%n"
     #                  │        │                   │                                                         │             └─ date relativ
