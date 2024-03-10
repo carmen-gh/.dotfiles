@@ -6,23 +6,6 @@ return {
 		opts = {},
 	},
 	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = "VeryLazy",
-		config = true,
-		opts = {
-			signs = false,
-		},
-	  -- stylua: ignore
-	    keys = {
-	      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-	      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-	      { "<leader>xt", "<cmd>TodoTelescope theme=ivy<cr>", desc = "Todo comments" },
-	      { "<leader>xT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME theme=ivy<cr>", desc = "Todo/Fix/Fixme comments" },
-	    },
-	},
-	{
 		"hiphish/rainbow-delimiters.nvim",
 		url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
 		event = "BufReadPost",
@@ -39,29 +22,6 @@ return {
 				},
 			}
 		end,
-	},
-	{
-		"NvChad/nvim-colorizer.lua",
-		event = "VeryLazy",
-		opts = {
-			fileytypes = { "css", "javascript", "toml", "html" },
-			user_default_options = {
-				names = false, -- "Name" codes like Blue or blue
-				RGB = true, -- #RGB hex codes
-				RRGGBB = true, -- #RRGGBB hex codes
-				RRGGBBAA = false, -- #RRGGBBAA hex codes
-				AARRGGBB = false, -- 0xAARRGGBB hex codes
-				rgb_fn = false, -- CSS rgb() and rgba() functions
-				hsl_fn = false, -- CSS hsl() and hsla() functions
-				css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-				css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-				mode = "virtualtext", -- Set the display mode.
-				tailwind = false, -- Enable tailwind colors
-				sass = { enable = false, parsers = { "css" } }, -- Enable sass colors
-				virtualtext = "󰋘 ",
-				always_update = false,
-			},
-		},
 	},
 	{
 		"theprimeagen/harpoon",
@@ -103,17 +63,34 @@ return {
 	},
 	{
 		"echasnovski/mini.nvim",
+		version = false,
 		config = function()
 			require("mini.ai").setup({ n_lines = 500 })
 			require("mini.surround").setup()
 			require("mini.comment").setup()
-			require("mini.files").setup()
 			require("mini.misc").setup()
 			require("mini.pairs").setup()
 			require("mini.splitjoin").setup()
+			require("mini.notify").setup({
+				lsp_progress = {
+					duration_last = 3000,
+				},
+			})
 			require("mini.indentscope").setup({
-				symbol = "▏",
+				symbol = "▏", -- "│",
 				draw = { animation = require("mini.indentscope").gen_animation.none() },
+			})
+			local hipatterns = require("mini.hipatterns")
+			hipatterns.setup({
+				highlighters = {
+					-- Highlight standalone 'FIXME', 'TODO', 'NOTE'
+					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+					todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+					note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+
+					-- Highlight hex color strings (`#rrggbb`) using that color
+					hex_color = hipatterns.gen_highlighter.hex_color(),
+				},
 			})
 		end,
 	},

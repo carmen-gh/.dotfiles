@@ -5,7 +5,7 @@
 
 -- local opt = vim.opt
 --
--- opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
+vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 -- opt.colorcolumn = "120" -- max text width column
 -- --opt.timeoutlen = 300
 -- opt.autowrite = true -- Enable auto write
