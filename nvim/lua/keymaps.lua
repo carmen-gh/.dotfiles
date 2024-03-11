@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 vim.keymap.set("i", "jj", "<ESC>")
 
 vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copying into register" })

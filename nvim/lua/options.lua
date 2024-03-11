@@ -5,7 +5,6 @@
 
 -- local opt = vim.opt
 --
-vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 -- opt.colorcolumn = "120" -- max text width column
 -- --opt.timeoutlen = 300
 -- opt.autowrite = true -- Enable auto write
@@ -53,9 +52,7 @@ vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%
 -- 	eob = " ",
 -- }
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
+vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
