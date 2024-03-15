@@ -20,10 +20,7 @@ return {
 			harpoon = true,
 			markdown = true,
 			mason = true,
-			mini = {
-				enabled = true,
-				indentscope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
-			},
+			mini = true,
 			neotree = true,
 			neotest = true,
 			native_lsp = {
@@ -41,6 +38,7 @@ return {
 			treesitter = true,
 			treesitter_context = true,
 			rainbow_delimiters = true,
+			semantic_tokens = true,
 			telescope = {
 				enabled = true,
 			},
@@ -54,6 +52,12 @@ return {
 				FloatBorder = { bg = colors.surface0 },
 				TelescopeNormal = { bg = colors.surface0 },
 				TelescopeSelection = { bg = colors.overlay0 },
+				MiniHipatternsTodo = { bg = colors.yellow, fg = colors.base },
+				MiniHipatternsFixme = { bg = colors.red, fg = colors.base },
+				MiniHipatternsHack = { bg = colors.peach, fg = colors.base },
+				MiniHipatternsNote = { bg = colors.teal, fg = colors.base },
+				GitSignsChange = { fg = "#FFD700" },
+				GitSignsAdd = { fg = "#00A36C" },
 			}
 		end,
 	},
