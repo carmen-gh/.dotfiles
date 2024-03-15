@@ -29,10 +29,6 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-			window = {
-				documentation = cmp.config.window.bordered(),
-				completion = cmp.config.window.bordered(),
-			},
 			formatting = {
 				expandable_indicator = true,
 				fields = { "kind", "abbr" },

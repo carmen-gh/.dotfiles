@@ -9,11 +9,23 @@ return {
 		background = { -- :h background
 			dark = "mocha",
 		},
+		-- transparent_background = true,
 		integrations = {
+			alpha = true,
 			cmp = true,
-			mason = true,
-			treesitter = true,
+			dap = true,
+			dap_ui = true,
+			fidget = true,
+			gitsigns = true,
 			harpoon = true,
+			markdown = true,
+			mason = true,
+			mini = {
+				enabled = true,
+				indentscope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+			},
+			neotree = true,
+			neotest = true,
 			native_lsp = {
 				enabled = true,
 				underlines = {
@@ -26,11 +38,24 @@ return {
 					background = true,
 				},
 			},
-			neotree = true,
-			neotest = true,
+			treesitter = true,
+			treesitter_context = true,
+			rainbow_delimiters = true,
+			telescope = {
+				enabled = true,
+			},
 			which_key = true,
-			alpha = true,
 		},
+		custom_highlights = function(colors)
+			return {
+				Pmenu = { bg = colors.surface1 },
+				PmenuSel = { bg = colors.overlay0 },
+				NormalFloat = { bg = colors.surface0 },
+				FloatBorder = { bg = colors.surface0 },
+				TelescopeNormal = { bg = colors.surface0 },
+				TelescopeSelection = { bg = colors.overlay0 },
+			}
+		end,
 	},
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
