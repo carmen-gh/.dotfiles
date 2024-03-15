@@ -46,7 +46,7 @@ return {
 		},
 		custom_highlights = function(colors)
 			return {
-				Pmenu = { bg = colors.surface1 },
+				Pmenu = { bg = colors.surface0 },
 				PmenuSel = { bg = colors.overlay0 },
 				NormalFloat = { bg = colors.surface0 },
 				FloatBorder = { bg = colors.surface0 },
