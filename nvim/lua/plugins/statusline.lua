@@ -2,21 +2,21 @@ local greyColor = "#949cbb"
 
 local modes = {
 	["n"] = { "NORMAL", "St_NormalMode" },
-	["no"] = { "NORMAL (no)", "St_NormalMode" },
-	["nov"] = { "NORMAL (nov)", "St_NormalMode" },
-	["noV"] = { "NORMAL (noV)", "St_NormalMode" },
+	["no"] = { "NORMAL", "St_NormalMode" },
+	["nov"] = { "NORMAL", "St_NormalMode" },
+	["noV"] = { "NORMAL", "St_NormalMode" },
 	["noCTRL-V"] = { "NORMAL", "St_NormalMode" },
 	["niI"] = { "NORMAL i", "St_NormalMode" },
 	["niR"] = { "NORMAL r", "St_NormalMode" },
 	["niV"] = { "NORMAL v", "St_NormalMode" },
-	["nt"] = { "NTERMINAL", "St_NTerminalMode" },
-	["ntT"] = { "NTERMINAL (ntT)", "St_NTerminalMode" },
+	["nt"] = { "NORMAL", "St_NTerminalMode" },
+	["ntT"] = { "NORMAL", "St_NTerminalMode" },
 
 	["v"] = { "VISUAL", "St_VisualMode" },
 	["vs"] = { "V-CHAR (Ctrl O)", "St_VisualMode" },
-	["V"] = { "V-LINE", "St_VisualMode" },
+	["V"] = { "VISUAL", "St_VisualMode" },
 	["Vs"] = { "V-LINE", "St_VisualMode" },
-	[""] = { "V-BLOCK", "St_VisualMode" },
+	[""] = { "VISUAL", "St_VisualMode" },
 
 	["i"] = { "INSERT", "St_InsertMode" },
 	["ic"] = { "INSERT (completion)", "St_InsertMode" },
