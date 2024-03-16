@@ -5,23 +5,19 @@ vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copyin
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
---vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-
 -- Line movement (alt-j and alt-k)
 vim.keymap.set("n", "<A-j>", ":m+1<CR>", { desc = "Move line down [alt + j]" })
 vim.keymap.set("n", "<A-k>", ":m-2<CR>", { desc = "Move line up [alt + k]" })
 vim.keymap.set("i", "<A-j>", "<ESC><cmd>m .+1<CR>==gi", { desc = "Move line down [alt + j]" })
 vim.keymap.set("i", "<A-k>", "<ESC><cmd>m .-2<CR>==gi", { desc = "Move line up [alt + k]" })
 vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move line down [alt + j]" })
-vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
 
 -- window navigation <ctrl> hjkl
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
+vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
 
 -- Edit the alternate / previously edited file
 vim.keymap.set("n", "<leader>o", "<C-^>", { desc = "edit prev edited file" })
@@ -64,10 +60,13 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "next diagnostics" 
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
 vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
--- Close
-function CloseAllOtherBuffers()
-	vim.cmd([[up | %bd | e#]]) -- to save current buffer and close delete all open hidden buffers
-end
-vim.keymap.set("n", "<leader>qb", "<cmd>lua CloseAllOtherBuffers()<CR>", { desc = "quite other buffers" })
+-- Close buffers
+vim.keymap.set("n", "<leader>qb", vim.cmd.CloseAllOtherBuffers, { desc = "quite other buffers" })
 vim.keymap.set("n", "<leader>qs", "<cmd>only<CR>", { desc = "quite other splits" })
-vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all}" })
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
+
+-- Terminal
+vim.keymap.set("n", "<leader>t", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
+vim.keymap.set("t", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
