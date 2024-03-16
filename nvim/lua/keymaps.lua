@@ -5,12 +5,7 @@ vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copyin
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
--- Line movement (alt-j and alt-k)
-vim.keymap.set("n", "<A-j>", ":m+1<CR>", { desc = "Move line down [alt + j]" })
-vim.keymap.set("n", "<A-k>", ":m-2<CR>", { desc = "Move line up [alt + k]" })
-vim.keymap.set("i", "<A-j>", "<ESC><cmd>m .+1<CR>==gi", { desc = "Move line down [alt + j]" })
-vim.keymap.set("i", "<A-k>", "<ESC><cmd>m .-2<CR>==gi", { desc = "Move line up [alt + k]" })
-vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", { desc = "Move line down [alt + j]" })
+-- Line movement (alt-j and alt-k) see mini.move plugin
 
 -- window navigation <ctrl> hjkl
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })

@@ -71,20 +71,18 @@ return {
 			require("mini.misc").setup()
 			require("mini.pairs").setup()
 			require("mini.splitjoin").setup()
-			require("mini.notify").setup({
-				lsp_progress = {
-					duration_last = 3000,
-				},
-			})
+			require("mini.animate").setup({ cursor = { enable = false } })
+			require("mini.notify").setup({ lsp_progress = { enable = false } })
+			require("mini.move").setup()
 			require("mini.indentscope").setup({
-				symbol = "▏", -- "│",
+				symbol = "▏",
 				draw = { animation = require("mini.indentscope").gen_animation.none() },
 			})
 			local hipatterns = require("mini.hipatterns")
 			hipatterns.setup({
 				highlighters = {
 					warn = { pattern = "%f[%w]()WARN()%f[%W]", group = "MiniHipatternsHack" },
-					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsHack" },
+					fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
 					error = { pattern = "%f[%w]()ERROR()%f[%W]", group = "MiniHipatternsFixme" },
 					todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
 					note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
