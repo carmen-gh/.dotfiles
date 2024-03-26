@@ -1,6 +1,8 @@
 vim.keymap.set("i", "jj", "<ESC>")
 
 vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copying into register" })
+-- Paste without overwriting register
+vim.keymap.set("v", "p", '"_dP')
 
 -- Clear search with <esc>
 vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -61,7 +63,7 @@ vim.keymap.set("n", "<leader>qs", "<cmd>only<CR>", { desc = "quite other splits"
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
 
 -- Terminal
-vim.keymap.set("n", "<leader>t", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
+vim.keymap.set("n", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
 vim.keymap.set("t", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })

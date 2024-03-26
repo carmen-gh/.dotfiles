@@ -1,43 +1,43 @@
 return {
-	{
-		"sindrets/diffview.nvim",
-		cmd = {
-			"DiffviewOpen",
-			"DiffviewClose",
-			"DiffviewToggleFiles",
-			"DiffviewFocusFiles",
-			"DiffviewRefresh",
-		},
-		event = "VeryLazy",
-		opts = {
-			view = {
-				merge_tool = {
-					layout = "diff3_mixed",
-				},
-			},
-		},
-		keys = {
-			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
-		},
-	},
-	{
-		"lewis6991/gitsigns.nvim",
-		event = "VeryLazy",
-		opts = {
-			signs = {
-				add = { text = "▎" },
-				change = { text = "▎" },
-				delete = { text = "" },
-				topdelete = { text = "" },
-				changedelete = { text = "▎" },
-				untracked = { text = "▎" },
-			},
-			on_attach = function(buffer)
-				local gs = package.loaded.gitsigns
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewClose",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewRefresh",
+    },
+    event = "VeryLazy",
+    opts = {
+      view = {
+        merge_tool = {
+          layout = "diff3_mixed",
+        },
+      },
+    },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
+    opts = {
+      signs = {
+        add = { text = " ▎" },
+        change = { text = " ▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = " ▎" },
+        untracked = { text = " " },
+      },
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
 
-				local function map(mode, l, r, desc)
-					vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-				end
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        end
 
         -- stylua: ignore start
         map("n", "]h", gs.next_hunk, "Next Hunk")
@@ -51,7 +51,7 @@ return {
         map("n", "<leader>gl", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>gb", "<cmd>Telescope git_branches theme=dropdown previewer=false<cr>", "branch" )
         map({ "o", "x" }, "ih", "<cmd><C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-			end,
-		},
-	},
+      end,
+    },
+  },
 }

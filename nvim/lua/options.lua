@@ -52,7 +52,7 @@
 -- 	eob = " ",
 -- }
 
-vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
+-- vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"

@@ -24,6 +24,11 @@ return {
 			completion = {
 				completeopt = "menu,menuone,noinsert",
 			},
+			window = {
+				documentation = {
+					border = "rounded",
+				},
+			},
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
