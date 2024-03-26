@@ -20,8 +20,8 @@ export PATH=$PATH:~/.dotfiles/bin # my custom scripts
 export PATH=$PATH:/opt/swift/usr/bin
 export PATH=$PATH:~/Developer/flutter/bin
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 #export TERMINAL=kitty
 export LESS='-R --use-color -Dd+r$Du+b$' # colored man-pages
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
@@ -33,10 +33,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
 
-alias lvim="NVIM_APPNAME=LazyVim nvim"
 alias vim='nvim' 
 alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' nvim ~/.dotfiles/.zshrc_linux"
-alias vimconfig="kitty @ launch --type=tab --tab-title 'lvim config' nvim ~/.dotfiles/lvim/config.lua"
+alias vimconfig="kitty @ launch --type=tab --tab-title 'nvim config' nvim ~/.dotfiles/nvim/"
 alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' nvim ~/.dotfiles/.gitconfig"
 alias kittyconfig="kitty @ launch --type=tab --tab-title 'kitty config' nvim ~/.dotfiles/kitty.conf"
 alias adb='~/Library/Android/sdk/platform-tools/adb' # FIXME MacOS path
@@ -51,16 +50,11 @@ alias gw="./gradlew"
 alias trim="awk '{\$1=\$1};1'"
 alias ...="cd ../.."
 alias lg='lazygit'
-alias lg-upgrade="go install github.com/jesseduffield/lazygit@latest"
-alias kitty-upgrade="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop"
-alias gh-upgrade="gh extension upgrade --all"
+alias update-lazygit="go install github.com/jesseduffield/lazygit@latest"
+alias update-kitty="curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && sudo sed -i '/Icon/c\Icon=/home/carmen/.local/share/icons/kitty-light.png' /usr/share/applications/kitty.desktop"
+alias update-gh="gh extension upgrade --all"
 alias dot="cd ~/.dotfiles"
 
-
-function take {
-  mkdir -p $1
-  cd $1
-}
 
 # on changed files run ktlint with automatic formatting
 function ktcleanup {
@@ -87,5 +81,3 @@ function choose_timer() {
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
-
-neofetch
