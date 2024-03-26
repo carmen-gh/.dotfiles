@@ -4,20 +4,23 @@ git:
     pager: delta --dark --paging=never
   log:
     order: "topo-order"
-    showGraph: "always"
+    # showGraph: "always"
   branchLogCmd: "git log --graph --pretty=custom"
+  allBranchesLogCmd: "git log --graph --pretty=custom"
   mainBranches: [master, main, develop]
   promptToReturnFromSubprocess: false
   commitPrefixes:
-    work: # extraxt ticket number from branch name and place it in commit message
-      pattern: "(IMOWAPP-[0-9]{4}).*"
+    android: # repository folder name
+      pattern: "(IMOWAPP-[0-9]{4}).*" # extraxt ticket number from branch name and place it in commit message
       replace: "[$1]"
 
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
-  showBottomLine: false
+  showBottomLine: true
   border: "rounded"
+  branchColors:
+    "release": "#838ba7" # for branches beginning with 'release/'
   authorColors:
     "Carmen Geelhaar": "#ca9ee6"
     "camina": "#ca9ee6"
@@ -44,11 +47,7 @@ gui:
       - "#ea999c" # Red
 
 os:
-  edit: "vim {{filename}}"
-  editAtLine: "vim --line={{line}} {{filename}}"
-  editAtLineAndWait: "vim --block --line={{line}} {{filename}}"
-  editInTerminal: true
-  openDirInEditor: "vim {{dir}}"
+  editPreset: "nvim"
 
 customCommands:
   - key: "l"
