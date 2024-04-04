@@ -13,6 +13,7 @@ return {
       require("telescope").setup({
         extensions = {},
         defaults = {
+          path_display = { "tail" },
           prompt_prefix = "  ",
           selection_caret = " ",
           layout_config = {
