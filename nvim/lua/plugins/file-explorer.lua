@@ -14,6 +14,11 @@ return {
         filesystem = {
           follow_current_file = { enabled = true },
         },
+        default_component_configs = {
+          indent = {
+            with_markers = false,
+          },
+        },
         event_handlers = {
           {
             event = "file_opened",

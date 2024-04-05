@@ -29,7 +29,7 @@ return {
     }
     -- Set menu
     dashboard.section.buttons.val = {
-      dashboard.button("e", "  New file", "<cmd>ene<CR>"),
+      dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert <CR>"),
       dashboard.button("f", "  Find file", "<cmd>Telescope find_files theme=dropdown preview=false<CR>"),
       dashboard.button("o", "  Find old files", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>"),
       dashboard.button("d", "  Diffview", "<cmd>DiffviewOpen<CR>"),
@@ -37,6 +37,9 @@ return {
       dashboard.button("u", "  Update", "<cmd>Lazy update<cr>"),
       dashboard.button("q", "  Close", ":qa<CR>"),
     }
+
+    dashboard.section.header.opts.hl = "AlphaHeader"
+    dashboard.section.buttons.opts.hl = "AlphaButtons"
 
     alpha.setup(dashboard.opts)
   end,
