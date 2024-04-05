@@ -1,7 +1,7 @@
 [core]
     pager = delta -s 
     excludesfile = ~/.gitignore
-    editor = vim
+    editor = nvim
 [alias]
     l = log --pretty=custom
     lg = log --graph --pretty=custom -20

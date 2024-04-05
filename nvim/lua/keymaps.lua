@@ -66,4 +66,16 @@ vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
 vim.keymap.set("n", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
 vim.keymap.set("t", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lazygit",
+  callback = function(args)
+    -- vim.api.nvim_buf_del_keymap(args.buf, "t", "<Esc>")
+    -- vim.keymap.del("t", "<Esc>", { buffer = args.buf })
+    -- vim.keymap.set("t", "<Esc>", "<Esc>", { desc = "Exit terminal mode" })
+    -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
+
+    vim.keymap.set("t", "<Esc>", "<Esc>", { desc = "Exit terminal mode" })
+  end,
+})
