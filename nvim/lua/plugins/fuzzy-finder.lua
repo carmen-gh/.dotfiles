@@ -31,7 +31,7 @@ return {
 
 			-- keys
                         -- stylua: ignore
-			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown previewer=false<cr>", { desc = "files"})
+      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown previewer=false<cr>", { desc = "files"})
       vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "grep" })
       vim.keymap.set(
         "n",
