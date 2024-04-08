@@ -24,6 +24,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 plugins=(git colored-man-pages gradle vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+source /path/to/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # catppuccin colored fzf output
 export FZF_DEFAULT_OPTS=" \
@@ -87,5 +88,7 @@ function take {
 # Starship Prompt ------------------------------------------------------------
 eval "$(starship init zsh)"
 
+# Startup Zoxide ------------------------------------------------------------
+eval "$(zoxide init zsh)"
 
 neofetch
