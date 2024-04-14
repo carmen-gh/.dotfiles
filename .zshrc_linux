@@ -82,4 +82,5 @@ function choose_timer() {
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
+
 eval "$(zoxide init zsh)"
