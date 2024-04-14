@@ -34,6 +34,7 @@ export FZF_DEFAULT_OPTS=" \
 
 
 alias vim='nvim' 
+alias lazyvim='NVIM_APPNAME=Lazyvim nvim' # LazyVim
 alias zshconfig="kitty @ launch --type=tab --tab-title 'zsh config' nvim ~/.dotfiles/.zshrc_linux"
 alias vimconfig="kitty @ launch --type=tab --tab-title 'nvim config' nvim ~/.dotfiles/nvim/"
 alias gitconfig="kitty @ launch --type=tab --tab-title 'git config' nvim ~/.dotfiles/.gitconfig"
@@ -81,3 +82,4 @@ function choose_timer() {
 # Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
+eval "$(zoxide init zsh)"
