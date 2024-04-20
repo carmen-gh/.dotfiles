@@ -1,11 +1,6 @@
 return {
   { "tpope/vim-sleuth" },
   {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
@@ -63,8 +58,8 @@ return {
       require("mini.misc").setup()
       require("mini.pairs").setup()
       require("mini.splitjoin").setup()
-      require("mini.animate").setup({ cursor = { enable = false } })
-      require("mini.notify").setup({ lsp_progress = { enable = false } })
+      -- require("mini.animate").setup({ cursor = { enable = false } })
+      -- require("mini.notify").setup({ lsp_progress = { enable = false } })
       require("mini.move").setup()
       require("mini.indentscope").setup({
         symbol = "▏",

@@ -47,7 +47,7 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "b0o/schemastore.nvim",
-      { "j-hui/fidget.nvim", opts = {} },
+      -- { "j-hui/fidget.nvim", opts = {} },
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
@@ -141,10 +141,10 @@ return {
       for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
       end
-
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+      --
+      -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+      -- vim.lsp.handlers["textDocument/signatureHelp"] =
+      --   vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     end,
   },
 }
