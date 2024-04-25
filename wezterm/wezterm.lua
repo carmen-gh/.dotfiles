@@ -7,6 +7,7 @@ config.font = wezterm.font("JetBrains Mono")
 config.color_scheme = "Catppuccin Macchiato"
 config.status_update_interval = 1000
 config.default_prog = { "/usr/bin/fish", "-l" }
+config.default_cursor_style = "SteadyBar"
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 10,

@@ -9,6 +9,7 @@ M.icons = {
 	["docker"] = wezterm.nerdfonts.linux_docker,
 	["docker-compose"] = wezterm.nerdfonts.linux_docker,
 	["fish"] = wezterm.nerdfonts.md_fish,
+	["dnf"] = wezterm.nerdfonts.linux_fedora,
 	["gh"] = wezterm.nerdfonts.dev_github_badge,
 	["git"] = wezterm.nerdfonts.dev_git,
 	["go"] = wezterm.nerdfonts.seti_go,
@@ -19,13 +20,14 @@ M.icons = {
 	["lua"] = wezterm.nerdfonts.seti_lua,
 	["make"] = wezterm.nerdfonts.seti_makefile,
 	["node"] = wezterm.nerdfonts.mdi_hexagon,
-	["nvim"] = wezterm.nerdfonts.custom_vim,
+	["nvim"] = wezterm.nerdfonts.linux_neovim,
 	["psql"] = wezterm.nerdfonts.dev_postgresql,
 	["ruby"] = wezterm.nerdfonts.cod_ruby,
 	["sudo"] = wezterm.nerdfonts.fa_hashtag,
 	["vim"] = wezterm.nerdfonts.dev_vim,
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
 	["zsh"] = wezterm.nerdfonts.dev_terminal,
+	["yazi"] = wezterm.nerdfonts.dev_terminal,
 	["lazygit"] = wezterm.nerdfonts.dev_git,
 }
 
@@ -65,20 +67,6 @@ function M.setup(config)
 
 	wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 		local title = M.title(tab, max_width)
-		local colors = config.resolved_palette
-		local active_bg = colors.tab_bar.active_tab.bg_color
-		local inactive_bg = colors.tab_bar.inactive_tab.bg_color
-
-		local tab_idx = 1
-		for i, t in ipairs(tabs) do
-			if t.tab_id == tab.tab_id then
-				tab_idx = i
-				break
-			end
-		end
-		local is_last = tab_idx == #tabs
-		local next_tab = tabs[tab_idx + 1]
-		local next_is_active = next_tab and next_tab.is_active
 
 		local ret = tab.is_active
 				and {
