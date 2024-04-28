@@ -18,6 +18,7 @@ return {
     },
     keys = {
       { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
+      { "<leader>gD", "<cmd>DiffviewOpen origin/develop...HEAD<cr>", desc = "DiffView against develop" },
     },
   },
   {
