@@ -41,6 +41,11 @@ config.keys = {
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	{
+		key = "z",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.TogglePaneZoomState,
+	},
+	{
 		key = "h",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Left"),
@@ -59,6 +64,27 @@ config.keys = {
 		key = "l",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "LeftArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.AdjustPaneSize({ "Left", 1 }),
+	},
+	{
+		key = "RightArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.AdjustPaneSize({ "Right", 1 }),
+	},
+	{
+		key = "UpArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.AdjustPaneSize({ "Up", 1 }),
+	},
+
+	{
+		key = "DownArrow",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.AdjustPaneSize({ "Down", 1 }),
 	},
 }
 return config
