@@ -39,6 +39,9 @@ fish_add_path $HOME/.android/platform-tools
 # Abbreviations
 
 ## git
+
+
+
 abbr gco 'git checkout'
 abbr gaa 'git add -all'
 abbr gcm 'git commit -m'
@@ -61,3 +64,4 @@ abbr adb-restart 'adb kill-server; adb start-server'
 abbr gw "./gradlew"
 abbr ... "cd ../.."
 abbr update-gh "gh extension upgrade --all"
+abbr wezterm 'flatpak run org.wezfurlong.wezterm'
