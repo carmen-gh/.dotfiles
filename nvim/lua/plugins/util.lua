@@ -63,7 +63,6 @@ return {
       require("mini.misc").setup()
       require("mini.pairs").setup()
       require("mini.splitjoin").setup()
-      require("mini.animate").setup({ cursor = { enable = false } })
       require("mini.notify").setup({ lsp_progress = { enable = false } })
       require("mini.move").setup()
       require("mini.indentscope").setup({
