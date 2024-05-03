@@ -80,26 +80,26 @@ config.keys = {
 		action = wezterm.action.TogglePaneZoomState,
 	},
 	-- move between panes
-	{
-		key = "h",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "j",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "k",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "l",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivatePaneDirection("Right"),
-	},
+	-- {
+	-- 	key = "h",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = wezterm.action.ActivatePaneDirection("Left"),
+	-- },
+	-- {
+	-- 	key = "j",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = wezterm.action.ActivatePaneDirection("Down"),
+	-- },
+	-- {
+	-- 	key = "k",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = wezterm.action.ActivatePaneDirection("Up"),
+	-- },
+	-- {
+	-- 	key = "l",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = wezterm.action.ActivatePaneDirection("Right"),
+	-- },
 	-- resizing pane
 	{
 		key = "LeftArrow",
@@ -193,4 +193,7 @@ config.keys = {
 		}),
 	},
 }
+
+require("vim").addNavigationKeys(config)
+
 return config

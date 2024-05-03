@@ -11,11 +11,11 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 -- Line movement (alt-j and alt-k) see mini.move plugin
 
 -- window navigation <ctrl> hjkl
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
-vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
+-- vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
 
 -- Edit the alternate / previously edited file
 vim.keymap.set("n", "<leader>o", "<C-^>", { desc = "edit prev edited file" })
@@ -25,7 +25,7 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window he
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
-
+--
 -- buffer navigation
 vim.keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })

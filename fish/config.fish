@@ -64,4 +64,4 @@ abbr adb-restart 'adb kill-server; adb start-server'
 abbr gw "./gradlew"
 abbr ... "cd ../.."
 abbr update-gh "gh extension upgrade --all"
-abbr wezterm 'flatpak run org.wezfurlong.wezterm'
+# abbr wezterm 'flatpak run org.wezfurlong.wezterm'
