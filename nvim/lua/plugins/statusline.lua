@@ -161,7 +161,7 @@ return {
           theme = "auto",
           globalstatus = true,
           component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          section_separators = { right = "", left = "" },
           disabled_filetypes = { "outline", "dashboard", "neo-tree", "dapui*", "dap-repl", "alpha" },
         },
         sections = {
@@ -181,7 +181,7 @@ return {
           lualine_y = {},
         },
         winbar = {
-          lualine_x = { { "filetype", icon_only = true, colored = true }, "filename" },
+          lualine_z = { { "filetype", icon_only = true, colored = false }, "filename" },
         },
         inactive_winbar = {
           lualine_y = { { "filetype", icon_only = true, colored = false }, "filename" },
