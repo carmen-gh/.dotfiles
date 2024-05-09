@@ -54,6 +54,15 @@ return {
     end,
   },
   {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    opts = {
+      timeout = 3000,
+      render = "wrapped-compact",
+      stages = "fade",
+    },
+  },
+  {
     "echasnovski/mini.nvim",
     version = false,
     config = function()
@@ -63,7 +72,6 @@ return {
       require("mini.misc").setup()
       require("mini.pairs").setup()
       require("mini.splitjoin").setup()
-      require("mini.notify").setup({ lsp_progress = { enable = false } })
       require("mini.move").setup()
       require("mini.indentscope").setup({
         symbol = "▏",
