@@ -3,7 +3,7 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2dH\x20\x2dE\x20\x27\x2egit\x27
 SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dreverse\x20\x2d\x2dborder\x20rounded\x20\x2d\x2dno\x2dinfo\x20\x2d\x2dpointer\x3d\x27\ue602\x27\x20\x2d\x2dmarker\x3d\x27\uf02e\x20\x27\x20\x2d\x2dansi\x20\x2d\x2dcolor\x3d\x2716\x2cbg\x2b\x3a\x2d1\x2cgutter\x3a\x2d1\x2cprompt\x3a5\x2cpointer\x3a5\x2cmarker\x3a6\x2cborder\x3a4\x2clabel\x3a4\x2cheader\x3aitalic\x27
-SETUVAR --export --path GOPATH:/home/carmen/go
+SETUVAR --export --path GOPATH:/home/carmen/\x2ego
 SETUVAR --export LESS:\x2dR\x20\x2d\x2duse\x2dcolor\x20\x2dDd\x2br\x24Du\x2bb\x24
 SETUVAR --export QEMU_AUDIO_DRV:none
 SETUVAR --export VISUAL:nvim

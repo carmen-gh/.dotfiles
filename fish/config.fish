@@ -1,7 +1,6 @@
 
 starship init fish | source
 zoxide init fish | source
-# fzf --fish | source
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
@@ -23,25 +22,27 @@ set -Ux VISUAL nvim
 # --ansi \
 # --color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic'"
 
-set -Ux QEMU_AUDIO_DRV "none" # disable audio backend for all android emulators
-# set -x LESS '-R --use-color -Dd+r$Du+b$' # colored man-pages'
+# MANPAGER
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p --theme 'Nord''"
 set -x MANROFFOPT "-c"
 
-set -Ux GOPATH (go env GOPATH)
+# GO
+set -x GOPATH $HOME/.go 
 fish_add_path $GOPATH/bin
 
+# RUST
 fish_add_path $HOME/.cargo/bin
 
-fish_add_path $HOME/.android/cmdline-tools/latest/bin
-fish_add_path $HOME/.android/platform-tools
+# ANDROID
+set -x ANDROID_HOME $HOME/.android
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $ANDROID_HOME/platform-tools
+set -Ux QEMU_AUDIO_DRV "none" # disable audio backend for all android emulators
+
 
 # Abbreviations
 
 ## git
-
-
-
 abbr gco 'git checkout'
 abbr gaa 'git add -all'
 abbr gcm 'git commit -m'
@@ -64,4 +65,3 @@ abbr adb-restart 'adb kill-server; adb start-server'
 abbr gw "./gradlew"
 abbr ... "cd ../.."
 abbr update-gh "gh extension upgrade --all"
-# abbr wezterm 'flatpak run org.wezfurlong.wezterm'
