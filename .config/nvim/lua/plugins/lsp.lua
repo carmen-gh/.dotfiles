@@ -60,7 +60,7 @@ return {
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
-      require("mason").setup({ ui = { border = "rounded" } })
+      require("mason").setup()
       local lspconfig = require("lspconfig")
       local mason_lsp = require("mason-lspconfig")
       local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
