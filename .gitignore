@@ -4,3 +4,4 @@ lvim/lazy-lock.json
 .git
 .DS_Store
 LazyVim/lazy-lock.json
+.config/nvim/lazy-lock.json

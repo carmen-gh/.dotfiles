@@ -41,13 +41,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 return {
   {
+    "j-hui/fidget.nvim",
+    config = function()
+      local fidget = require("fidget")
+      fidget.setup({
+        notification = {
+          window = {
+            winblend = 0,
+          },
+        },
+      })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "b0o/schemastore.nvim",
-      { "j-hui/fidget.nvim", opts = {} },
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
