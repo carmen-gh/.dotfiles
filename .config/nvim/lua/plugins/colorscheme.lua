@@ -9,7 +9,7 @@ return {
     background = { -- :h background
       dark = "mocha",
     },
-    -- transparent_background = true,
+    transparent_background = true,
     integrations = {
       alpha = true,
       cmp = true,
@@ -47,7 +47,7 @@ return {
     custom_highlights = function(colors)
       return {
         Pmenu = { bg = colors.surface0 },
-        PmenuSel = { bg = colors.surface1 },
+        PmenuSel = { bg = colors.blue, fg = colors.base },
         NormalFloat = { bg = colors.surface0 },
         FloatBorder = { bg = colors.surface0 },
         TelescopeNormal = { bg = colors.surface0 },
@@ -61,8 +61,7 @@ return {
         MiniHipatternsNote = { fg = colors.teal },
         MiniIndentscopeSymbol = { fg = colors.surface2 },
         GitSignsChange = { fg = colors.yellow },
-        -- GitSignsChange = { fg = "#FFD700" },
-        GitSignsAdd = { fg = "#00A36C" },
+        GitSignsAdd = { fg = "#40A02B" },
       }
     end,
   },
