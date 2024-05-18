@@ -53,8 +53,6 @@ vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- Diagnostics
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "prev diagnostics" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "next diagnostics" })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
 vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
