@@ -11,6 +11,7 @@ config.window_frame = {
 config.window_frame = {
 	active_titlebar_bg = "#181926",
 }
+config.window_background_opacity = 0.97
 config.color_scheme = "Catppuccin Macchiato"
 config.status_update_interval = 1000
 config.default_prog = { "/usr/bin/fish", "-l" } -- set fish as login shell
