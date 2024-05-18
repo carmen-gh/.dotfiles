@@ -20,8 +20,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>cl", function()
-      lint.try_lint()
-    end, { desc = "linting for current file" })
+    -- stylua: ignore
+    vim.keymap.set("n", "<leader>cl", function() lint.try_lint() end, { desc = "linting for current file" })
   end,
 }

@@ -16,9 +16,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>xd", "<cmd>Telescope diagnostics theme=ivy<cr>", "diagnostics")
     map("n", "gr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "go to references")
     map("n", "<leader>fr", "<cmd>Telescope lsp_references theme=ivy path_display={'tail'}<cr>", "references")
-    map("n", "<leader>cd", vim.diagnostic.open_float, "show diagnostic")
-
-    -- TODO: add toggle for inline hints
 
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
@@ -35,21 +32,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
         callback = vim.lsp.buf.clear_references,
       })
     end
+
+    -- enable inlay hints in your, if the language server you are using supports them
+    if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+      -- stylua: ignore
+      map("n", "<leader>ch", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, "toggle inlay hints")
+    end
   end,
 })
 
 return {
   {
-    "j-hui/fidget.nvim",
+    "j-hui/fidget.nvim", -- show lsp progress
     config = function()
       local fidget = require("fidget")
-      fidget.setup({
-        notification = {
-          window = {
-            winblend = 0,
-          },
-        },
-      })
+      fidget.setup({ notification = { window = { winblend = 0 } } })
     end,
   },
   {
@@ -58,29 +55,55 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
       "b0o/schemastore.nvim",
       { "folke/neodev.nvim", opts = {} },
     },
     config = function()
+      require("mason").setup({ ui = { border = "rounded" } })
       local lspconfig = require("lspconfig")
       local mason_lsp = require("mason-lspconfig")
       local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- TODO: remove mason-lsp in favour of mason-tool-installer, see nvim kickstart to copy the serverlist
-
       local server_list = {
         "bashls",
-        "eslint",
-        "lua_ls",
         "gopls",
         "html",
         "jsonls",
-        "marksman",
-        "yamlls",
         "kotlin_language_server",
-        "rust_analyzer",
         "lemminx",
+        "lua_ls",
+        "marksman",
+        "rust_analyzer",
+        "yamlls",
       }
+
+      local ensure_installed = vim.tbl_keys(server_list or {})
+      vim.list_extend(ensure_installed, {
+        "codelldb",
+        "delve",
+        "detekt",
+        "eslint",
+        "gofumpt",
+        "goimports",
+        "golangci-lint",
+        "golines",
+        "gomodifytags",
+        "gotests",
+        "iferr",
+        "impl",
+        "isort",
+        "ktlint",
+        "markdownlint",
+        "marksman",
+        "misspell",
+        "prettier",
+        "shellcheck",
+        "shfmt",
+        "stylua",
+        "yamlls",
+      })
+      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       local handlers = {
         -- Default handler
@@ -115,11 +138,7 @@ return {
           })
         end,
       }
-
-      mason_lsp.setup({
-        ensure_installed = server_list,
-        handlers = handlers,
-      })
+      mason_lsp.setup({ handlers = handlers })
 
       local default_diagnostic_config = {
         signs = {
@@ -153,9 +172,9 @@ return {
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
       end
 
+      -- stylua: ignore
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
     end,
   },
 }

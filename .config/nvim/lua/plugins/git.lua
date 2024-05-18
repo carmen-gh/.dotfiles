@@ -52,6 +52,7 @@ return {
         map("n", "<leader>gl", function() gs.blame_line({ full = true }) end, "Blame Line")
         map("n", "<leader>gb", "<cmd>Telescope git_branches theme=dropdown previewer=false<cr>", "branch" )
         map({ "o", "x" }, "ih", "<cmd><C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+        -- stylua: ignore end
       end,
     },
   },

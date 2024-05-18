@@ -33,12 +33,10 @@ return {
     config = function()
       local wk = require("which-key")
       wk.register({
-        ["<leader>f"] = { name = "file" },
         ["<leader>c"] = { name = "code" },
         ["<leader>d"] = { name = "debug" },
+        ["<leader>f"] = { name = "file" },
         ["<leader>g"] = { name = "git" },
-        ["<leader>h"] = { name = "harpoon" },
-        ["<leader>m"] = { name = "marks" },
         ["<leader>q"] = { name = "quit" },
         ["<leader>x"] = { name = "quickfix" },
       })

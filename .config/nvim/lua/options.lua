@@ -52,25 +52,27 @@
 -- }
 
 -- vim.opt.statuscolumn = "%= %{&nu?(&rnu && v:relnum ? v:relnum : v:lnum) : ''}%=%s"
+vim.opt.breakindent = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.inccommand = "nosplit" -- preview incremental substitute
+vim.opt.laststatus = 3 -- global statusline
+vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.mouse = "a"
-vim.opt.showmode = false
-vim.opt.clipboard = "unnamedplus"
-vim.opt.breakindent = true
-vim.opt.undofile = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.signcolumn = "yes"
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.inccommand = "split"
-vim.opt.cursorline = true
 vim.opt.scrolloff = 10
-vim.opt.laststatus = 3 -- global statusline
 vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.smoothscroll = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
-vim.opt.hlsearch = true
+vim.opt.timeoutlen = 300
+vim.opt.undofile = true
+vim.opt.updatetime = 250
+vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")

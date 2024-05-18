@@ -55,6 +55,7 @@ vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 -- Diagnostics
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
 vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "show diagnostic" })
 
 -- Close buffers
 vim.keymap.set("n", "<leader>qb", vim.cmd.CloseAllOtherBuffers, { desc = "quite other buffers" })
