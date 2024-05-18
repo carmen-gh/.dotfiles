@@ -28,7 +28,7 @@ set -x MANROFFOPT "-c"
 
 # GO
 set -x GOPATH $HOME/.go 
-fish_add_path $GOPATH/bin
+fish_add_path $HOME/.go/bin
 
 # RUST
 fish_add_path $HOME/.cargo/bin

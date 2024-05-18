@@ -1,0 +1,6 @@
+\.git
+.DS_Store
+raycast-scripts
+zed.json
+bin
+^/README.md
