@@ -18,7 +18,7 @@ set noerrorbells
 
 set autoindent
 set clipboard+=ideaput
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 set ignorecase
 set incsearch
 "set nohlsearch
@@ -49,6 +49,11 @@ let g:WhichKeyDesc_replace = "gr replace with register"
 let g:WhichKeyDesc_comment = "gcc comment line"
 let g:WhichKeyDesc_comment = "gc"
 
+" use space as leader
+map <Space> <leader>
+
+" use ;; for escape
+inoremap jj <Esc>
 
 "disable key movement in normal, visual, select, and operator-pending modes
 noremap <Up> <Nop>
@@ -76,13 +81,6 @@ nnoremap YY va{Vy}
 " increment and decrement number
 " nnoremap <leader>+ <C-a>
 " nnoremap <leader>- <C-x>
-
-" use ;; for escape
-inoremap jj <Esc>
-
-
-" use space as leader
-map <Space> <leader>
 
 " window navigation
 map <C-h> <C-w>h
@@ -211,6 +209,7 @@ map <leader>vl <Action>(ActivateLogcatToolWindow)
 map <leader>vm <Action>(ActivateBookmarksToolWindow)
 map <leader>vo <Action>(ActivateTODOToolWindow)
 map <leader>vp <Action>(ActivateProblemsViewToolWindow)
+map <leader>vr <Action>(ActivateRunningDevicesToolWindow)
 map <leader>vs <Action>(ActivateStructureToolWindow)
 map <leader>vt <Action>(ActivateTerminalToolWindow)
 "map <leader> <Action>(ActivatePullRequestsToolWindow)
@@ -224,6 +223,7 @@ let g:WhichKeyDesc_view_git = "<leader>vg GIT view"
 let g:WhichKeyDesc_view_logcat = "<leader>vl LOGCAT view"
 let g:WhichKeyDesc_view_marks = "<leader>vm BOOKMARKS (marks) view"
 let g:WhichKeyDesc_view_problems = "<leader>vp PROBLEMS view"
+let g:WhichKeyDesc_view_running_devices = "<leader>vr running devcies view"
 let g:WhichKeyDesc_view_structure = "<leader>vs STRUCTURE view"
 let g:WhichKeyDesc_view_terminal = "<leader>vt TERMINAL view"
 let g:WhichKeyDesc_view_todo = "<leader>vo TODO view"
