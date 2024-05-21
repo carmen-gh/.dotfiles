@@ -10,6 +10,7 @@ return {
       formatters_by_ft = {
         html = { "prettier" },
         json = { "prettier" },
+        kotlin = { "ktlint " },
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },

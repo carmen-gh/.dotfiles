@@ -94,6 +94,7 @@ return {
         "impl",
         "isort",
         "ktlint",
+        "kotlin-debug-adapter",
         "markdownlint",
         "marksman",
         "misspell",
