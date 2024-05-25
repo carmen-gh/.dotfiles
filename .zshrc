@@ -1,15 +1,16 @@
 
 export ZSH="$HOME/.oh-my-zsh"
-export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
 export BAT_THEME="Catppuccin-frappe"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export PATH=/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp:$PATH
+export PATH=/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp:$PATH # add swift lsp
 export PATH=$HOME/.local/bin:$PATH
 
 source "$HOME/.cargo/env" # add rust cargo
 
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
@@ -46,7 +47,6 @@ export KEYTIMEOUT=1
 
 # ALIAS ----------------------------------------------------------------- 
 alias zshconfig="vim ~/.dotfiles/.zshrc"
-alias vimconfig="vim ~/.dotfiles/lvim/config.lua"
 alias gitconfig="vim ~/.gitconfig"
 alias vim='nvim' 
 alias avim="NVIM_APPNAME=AstroNvim nvim"
@@ -61,12 +61,14 @@ alias rmdir='rm -rf'
 alias gw="./gradlew"
 alias trim="awk '{\$1=\$1};1'"
 alias ...="cd ../.."
-alias ls='exa --oneline --icons'
-alias ll='exa --long --icons'
-alias la='exa --long --icons --all'
+alias ls='eza --group-directories-first --icons'
+alias ll='eza --group-directories-first --icons -lh --git'
+alias la='eza --group-directories-first --icons -lh --git -a'
+alias tree='eza --group-directories-first --icons -lh --git --tree --level=2'
 alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
+alias update-gh="gh extension upgrade --all"
 
 function video_to_gif() {
     # Based on https://gist.github.com/SheldonWangRJT/8d3f44a35c8d1386a396b9b49b43c385
