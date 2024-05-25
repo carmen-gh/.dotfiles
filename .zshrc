@@ -93,4 +93,3 @@ eval "$(starship init zsh)"
 # Startup Zoxide ------------------------------------------------------------
 eval "$(zoxide init zsh)"
 
-neofetch
