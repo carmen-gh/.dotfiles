@@ -16,7 +16,7 @@
 ## MacBook
 
 - zsh
-- kitty
+- wezterm
 - lazygit
 - delta
 - fzf
