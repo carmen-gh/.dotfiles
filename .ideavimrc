@@ -21,7 +21,6 @@ set clipboard+=ideaput
 set clipboard+=unnamedplus
 set ignorecase
 set incsearch
-"set nohlsearch
 set number relativenumber
 set scrolloff=8
 set showcmd
@@ -30,6 +29,11 @@ set smartindent
 set smarttab
 set which-key
 set notimeout
+
+" better mapping for search
+nnoremap / :action Find<CR>
+nnoremap <C-n> :action FindNext<CR>
+nnoremap <C-p> :action FindPrevious<CR>
 
 
 let g:WhichKey_FontSize = 15
@@ -90,8 +94,8 @@ map <C-l> <C-w>l
 
 "map <C-n> <Action>(PopupMenu-selectnext)
 "map <C-p> <Action>(PopupMenu-selectprev)
-map <A-n> <Action>(Tree-selectNext)
-map <A-p> <Action>(Tree-selectPrevious)
+"map <A-n> <Action>(Tree-selectNext)
+"map <A-p> <Action>(Tree-selectPrevious)
 "inoremap <A-n> <Action>(PopupMenu-selectNext)
 "inoremap <A-p> <Action>(PopupMenu-selectPrev)
 
