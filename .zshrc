@@ -1,4 +1,4 @@
-
+export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$HOME/.oh-my-zsh"
 export BAT_THEME="Catppuccin-frappe"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
