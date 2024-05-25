@@ -12,6 +12,7 @@ config.window_frame = {
 	active_titlebar_bg = "#181926",
 }
 config.window_background_opacity = 0.97
+config.macos_window_background_blur = 20
 config.color_scheme = "Catppuccin Macchiato"
 config.status_update_interval = 1000
 
@@ -84,27 +85,6 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.TogglePaneZoomState,
 	},
-	-- move between panes
-	-- {
-	-- 	key = "h",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action.ActivatePaneDirection("Left"),
-	-- },
-	-- {
-	-- 	key = "j",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action.ActivatePaneDirection("Down"),
-	-- },
-	-- {
-	-- 	key = "k",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action.ActivatePaneDirection("Up"),
-	-- },
-	-- {
-	-- 	key = "l",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action.ActivatePaneDirection("Right"),
-	-- },
 	-- resizing pane
 	{
 		key = "LeftArrow",
