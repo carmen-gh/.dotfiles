@@ -25,7 +25,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 plugins=(git colored-man-pages gradle vi-mode)
 
 source $ZSH/oh-my-zsh.sh
-source /path/to/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # catppuccin colored fzf output
 export FZF_DEFAULT_OPTS=" \
@@ -69,6 +69,7 @@ alias adb='~/Library/Android/sdk/platform-tools/adb'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 alias update-gh="gh extension upgrade --all"
+# ... more alias in ~/.oh-my-zsh/custom/
 
 function video_to_gif() {
     # Based on https://gist.github.com/SheldonWangRJT/8d3f44a35c8d1386a396b9b49b43c385
@@ -93,3 +94,4 @@ eval "$(starship init zsh)"
 # Startup Zoxide ------------------------------------------------------------
 eval "$(zoxide init zsh)"
 
+# ssh-add --apple-load-keychain

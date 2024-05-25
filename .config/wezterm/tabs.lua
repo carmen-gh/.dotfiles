@@ -3,18 +3,20 @@ local wezterm = require("wezterm")
 local M = {}
 M.icons = {
 	["btm"] = wezterm.nerdfonts.mdi_chart_donut_variant,
+	["btop"] = wezterm.nerdfonts.md_chart_areaspline,
 	["cargo"] = wezterm.nerdfonts.dev_rust,
 	["curl"] = wezterm.nerdfonts.mdi_flattr,
+	["dnf"] = wezterm.nerdfonts.linux_fedora, -- does not show the right icon, instead '#'
 	["docker"] = wezterm.nerdfonts.linux_docker,
 	["docker-compose"] = wezterm.nerdfonts.linux_docker,
-	["dnf"] = wezterm.nerdfonts.linux_fedora, -- does not show the right icon, instead '#'
 	["gh"] = wezterm.nerdfonts.dev_github_badge,
 	["git"] = wezterm.nerdfonts.dev_git,
 	["go"] = wezterm.nerdfonts.seti_go,
-	["btop"] = wezterm.nerdfonts.md_chart_areaspline,
 	["kubectl"] = wezterm.nerdfonts.linux_docker,
 	["kuberlr"] = wezterm.nerdfonts.linux_docker,
 	["lazydocker"] = wezterm.nerdfonts.linux_docker,
+	["lazygit"] = wezterm.nerdfonts.dev_git,
+	["lg"] = wezterm.nerdfonts.dev_git,
 	["lua"] = wezterm.nerdfonts.seti_lua,
 	["make"] = wezterm.nerdfonts.seti_makefile,
 	["node"] = wezterm.nerdfonts.mdi_hexagon,
@@ -24,9 +26,8 @@ M.icons = {
 	["sudo"] = wezterm.nerdfonts.fa_hashtag,
 	["vim"] = wezterm.nerdfonts.dev_vim,
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
-	["zsh"] = wezterm.nerdfonts.dev_terminal,
 	["yazi"] = wezterm.nerdfonts.dev_terminal, -- Bug: not working
-	["lazygit"] = wezterm.nerdfonts.dev_git,
+	["zsh"] = wezterm.nerdfonts.dev_terminal,
 }
 
 function M.title(tab)
