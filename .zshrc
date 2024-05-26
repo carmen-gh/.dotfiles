@@ -21,6 +21,9 @@ export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
+#ruby
+export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.1/bin:$PATH
+
 # Plugins -------------------------------------------------------------
 plugins=(git colored-man-pages gradle vi-mode)
 
@@ -94,4 +97,5 @@ eval "$(starship init zsh)"
 # Startup Zoxide ------------------------------------------------------------
 eval "$(zoxide init zsh)"
 
-# ssh-add --apple-load-keychain
+# keychain drops after every reboot my ssh keys, this loads them into the keychain 
+ssh-add --apple-load-keychain 2> /dev/null
