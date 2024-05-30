@@ -78,8 +78,8 @@ return {
         "yamlls",
       }
 
-      local ensure_installed = vim.tbl_keys(server_list or {})
-      vim.list_extend(ensure_installed, {
+      -- extend the list with tools
+      vim.list_extend(server_list, {
         "codelldb",
         "delve",
         "detekt",
@@ -104,7 +104,7 @@ return {
         "stylua",
         "yamlls",
       })
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+      require("mason-tool-installer").setup({ ensure_installed = server_list })
 
       local handlers = {
         -- Default handler
