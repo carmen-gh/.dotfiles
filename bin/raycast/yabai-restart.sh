@@ -8,4 +8,7 @@
 # Optional parameters:
 # @raycast.icon https://github.com/koekeishiya/yabai/blob/master/assets/icon/1x/icon-128px.png
 
-yabai --restart-service
+# Execute the command and start-service if it wasn't running
+if ! yabai --restart-service; then
+    yabai --start-service
+fi
