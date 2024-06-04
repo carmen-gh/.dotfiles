@@ -1,5 +1,7 @@
-local textColor = "#949cbb"
-local bgColor = "#181825"
+local textColor = "#181823"
+local textColorLight = "#6c7086"
+local hiColor = "#526792"
+-- local bgColor = "#181823"
 local bgColorEditor = "#24273a"
 
 local components = {
@@ -75,8 +77,8 @@ return {
               c = { fg = textColor, bg = bgColorEditor },
             },
             normal = {
-              a = { fg = textColor, bg = bgColor },
-              c = { fg = textColor, bg = bgColor },
+              a = { fg = textColor, bg = hiColor },
+              c = { fg = textColor, bg = hiColor },
             },
           },
           globalstatus = true,
@@ -123,8 +125,8 @@ return {
         },
         inactive_winbar = {
           lualine_x = {
-            { "filetype", icon_only = true, colored = false },
-            { "filename", padding = { right = 1 } },
+            { "filetype", icon_only = true, colored = false, color = { fg = textColorLight } },
+            { "filename", padding = { right = 1 }, color = { fg = textColorLight, gui = "bold" } },
           },
         },
         extensions = {
