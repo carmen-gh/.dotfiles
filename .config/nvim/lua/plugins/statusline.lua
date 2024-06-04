@@ -1,79 +1,17 @@
-local greyColor = "#949cbb"
-
-local modes = {
-  ["n"] = { "NORMAL", "St_NormalMode" },
-  ["no"] = { "NORMAL", "St_NormalMode" },
-  ["nov"] = { "NORMAL", "St_NormalMode" },
-  ["noV"] = { "NORMAL", "St_NormalMode" },
-  ["noCTRL-V"] = { "NORMAL", "St_NormalMode" },
-  ["niI"] = { "NORMAL i", "St_NormalMode" },
-  ["niR"] = { "NORMAL r", "St_NormalMode" },
-  ["niV"] = { "NORMAL v", "St_NormalMode" },
-  ["nt"] = { "NORMAL", "St_NTerminalMode" },
-  ["ntT"] = { "NORMAL", "St_NTerminalMode" },
-
-  ["v"] = { "VISUAL", "St_VisualMode" },
-  ["vs"] = { "V-CHAR (Ctrl O)", "St_VisualMode" },
-  ["V"] = { "VISUAL", "St_VisualMode" },
-  ["Vs"] = { "V-LINE", "St_VisualMode" },
-  [""] = { "VISUAL", "St_VisualMode" },
-
-  ["i"] = { "INSERT", "St_InsertMode" },
-  ["ic"] = { "INSERT (completion)", "St_InsertMode" },
-  ["ix"] = { "INSERT completion", "St_InsertMode" },
-
-  ["t"] = { "TERMINAL", "St_TerminalMode" },
-
-  ["R"] = { "REPLACE", "St_ReplaceMode" },
-  ["Rc"] = { "REPLACE (Rc)", "St_ReplaceMode" },
-  ["Rx"] = { "REPLACEa (Rx)", "St_ReplaceMode" },
-  ["Rv"] = { "V-REPLACE", "St_ReplaceMode" },
-  ["Rvc"] = { "V-REPLACE (Rvc)", "St_ReplaceMode" },
-  ["Rvx"] = { "V-REPLACE (Rvx)", "St_ReplaceMode" },
-
-  ["s"] = { "SELECT", "St_SelectMode" },
-  ["S"] = { "S-LINE", "St_SelectMode" },
-  [""] = { "S-BLOCK", "St_SelectMode" },
-  ["c"] = { "COMMAND", "St_CommandMode" },
-  ["cv"] = { "COMMAND", "St_CommandMode" },
-  ["ce"] = { "COMMAND", "St_CommandMode" },
-  ["r"] = { "PROMPT", "St_ConfirmMode" },
-  ["rm"] = { "MORE", "St_ConfirmMode" },
-  ["r?"] = { "CONFIRM", "St_ConfirmMode" },
-  ["x"] = { "CONFIRM", "St_ConfirmMode" },
-  ["!"] = { "SHELL", "St_TerminalMode" },
-}
+local textColor = "#949cbb"
+local bgColor = "#181825"
+local bgColorEditor = "#24273a"
 
 local components = {
   mode = {
-    function()
-      local m = vim.api.nvim_get_mode().mode
-      return "   " .. modes[m][1] .. " "
-    end,
-    padding = { left = 0, right = 0 },
+    "mode",
+    padding = { left = 2, right = 2 },
     color = { gui = "bold" },
-    cond = nil,
   },
   branch = {
     "b:gitsigns_head",
     icon = " ",
-    color = { fg = greyColor, gui = "bold" },
-  },
-  diff = {
-    "diff",
-    colored = false,
-    symbols = {
-      added = " ",
-      modified = " ",
-      removed = " ",
-    },
-    -- padding = { left = 2, right = 1 },
-    color = { fg = greyColor },
-  },
-  filename = {
-    "filename",
-    color = { fg = greyColor },
-    cond = nil,
+    color = { fg = textColor, gui = "bold" },
   },
   diagnostics = {
     "diagnostics",
@@ -90,7 +28,7 @@ local components = {
         return ""
       end
     end,
-    color = { fg = greyColor },
+    color = { fg = textColor },
   },
   dap = {
     function()
@@ -99,7 +37,7 @@ local components = {
     cond = function()
       return package.loaded["dap"] and require("dap").status() ~= ""
     end,
-    color = { fg = greyColor },
+    color = { fg = textColor },
   },
   lsp_status = {
     function()
@@ -121,33 +59,7 @@ local components = {
         return string.format(" %s", unique_client_names)
       end
     end,
-    color = { fg = greyColor },
-  },
-  lsp_progress = { -- BUG: does not work
-    function()
-      local Lsp = vim.lsp.status()[1]
-
-      if vim.o.columns < 120 or not Lsp then
-        return ""
-      end
-
-      if Lsp.done then
-        vim.defer_fn(function()
-          vim.cmd.redrawstatus()
-        end, 1000)
-      end
-
-      local msg = Lsp.message or ""
-      local percentage = Lsp.percentage or 0
-      local title = Lsp.title or ""
-      local spinners = { "", "󰪞", "󰪟", "󰪠", "󰪢", "󰪣", "󰪤", "󰪥" }
-      local ms = vim.loop.hrtime() / 1000000
-      local frame = math.floor(ms / 120) % #spinners
-      local content = string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
-
-      return ("%#St_LspProgress#" .. content) or ""
-    end,
-    color = { fg = greyColor, gui = "bold" },
+    color = { fg = textColor },
   },
 }
 
@@ -158,35 +70,71 @@ return {
     opts = function()
       return {
         options = {
-          theme = "auto",
+          theme = {
+            inactive = {
+              c = { fg = textColor, bg = bgColorEditor },
+            },
+            normal = {
+              a = { fg = textColor, bg = bgColor },
+              c = { fg = textColor, bg = bgColor },
+            },
+          },
           globalstatus = true,
           component_separators = { left = "", right = "" },
           section_separators = { right = "", left = "" },
-          disabled_filetypes = { "outline", "dashboard", "neo-tree", "dapui*", "dap-repl", "alpha", "oil" },
+          disabled_filetypes = {
+            "alpha",
+            "dap-repl",
+            "dapui*",
+            "dashboard",
+            "neo-tree",
+            "oil",
+            "outline",
+          },
         },
         sections = {
           lualine_a = { components.mode },
           lualine_b = {},
-          lualine_c = {
-            components.branch,
-            components.diff,
-          },
-          lualine_x = {
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {
+            components.diagnostics,
             components.dap,
             components.flutter_device,
-            components.diagnostics,
-            components.lsp_progress,
             components.lsp_status,
+            components.branch,
+            {
+              "location",
+              left_padding = 2,
+              right_padding = 2,
+            },
           },
-          lualine_y = {},
         },
         winbar = {
-          lualine_z = { { "filetype", icon_only = true, colored = false }, "filename" },
+          lualine_x = {
+            { "filetype", icon_only = true, colored = true, padding = { right = 1 } },
+            {
+              "filename",
+              color = { fg = textColor, gui = "bold" },
+              padding = { left = 0, right = 2 },
+            },
+          },
         },
         inactive_winbar = {
-          lualine_y = { { "filetype", icon_only = true, colored = false }, "filename" },
+          lualine_x = {
+            { "filetype", icon_only = true, colored = false },
+            { "filename", padding = { right = 1 } },
+          },
         },
-        extensions = { "neo-tree", "lazy", "quickfix", "mason", "nvim-dap-ui" },
+        extensions = {
+          "lazy",
+          "mason",
+          "neo-tree",
+          "nvim-dap-ui",
+          "oil",
+          "quickfix",
+        },
       }
     end,
   },
