@@ -5,6 +5,13 @@ zoxide init fish | source
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
+# Cursor styles
+set -gx fish_vi_force_cursor 1
+set -gx fish_cursor_default block
+set -gx fish_cursor_insert line blink
+set -gx fish_cursor_visual block
+set -gx fish_cursor_replace_one underscore
+
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
 # set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
@@ -33,6 +40,10 @@ fish_add_path $HOME/.go/bin
 # RUST
 fish_add_path $HOME/.cargo/bin
 
+#set -x JAVA_HOME /usr/bin/java
+set -x JDK_HOME /usr/lib/jvm/jre-17-openjdk/
+set -x JAVA_HOME $JDK_HOME/jre-17-openjdk
+
 # ANDROID
 set -x ANDROID_HOME $HOME/.android
 fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
@@ -49,10 +60,10 @@ abbr gcm 'git commit -m'
 abbr ggpull 'git pull origin'
 abbr ggpush 'git push origin'
 ## ls 
-abbr ls 'eza --group-directories-first --icons'
-abbr ll 'eza --group-directories-first --icons -lh --git'
-abbr la 'eza --group-directories-first --icons -lh --git -a'
-abbr tree 'eza --group-directories-first --icons -lh --git --tree --level=2'
+alias ls 'eza --group-directories-first --icons'
+alias ll 'eza --group-directories-first --icons -lh --git'
+alias la 'eza --group-directories-first --icons -lh --git -a'
+alias tree 'eza --group-directories-first --icons -lh --git --tree --level=2'
 
 abbr mv 'mv -i'
 abbr cp 'cp -i'
@@ -65,3 +76,15 @@ abbr adb-restart 'adb kill-server; adb start-server'
 abbr gw "./gradlew"
 abbr ... "cd ../.."
 abbr update-gh "gh extension upgrade --all"
+
+
+
+# to change the current working directory when exiting Yazi
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
