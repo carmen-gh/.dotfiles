@@ -26,7 +26,7 @@ M.icons = {
 	["sudo"] = wezterm.nerdfonts.fa_hashtag,
 	["vim"] = wezterm.nerdfonts.dev_vim,
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
-	["yazi"] = wezterm.nerdfonts.dev_terminal, -- Bug: not working
+	["Yazi"] = wezterm.nerdfonts.dev_terminal, -- Bug: not working
 	["zsh"] = wezterm.nerdfonts.dev_terminal,
 }
 

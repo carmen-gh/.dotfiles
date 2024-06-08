@@ -8,3 +8,7 @@ linemode       = "none"
 show_hidden    = true
 show_symlink   = true
 
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
