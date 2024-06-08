@@ -34,15 +34,15 @@ style = "overlay1"
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-modified = 'M'
+modified = '* '
 conflicted = ' '
-ahead = '󱞿 '
-behind = '󱞥 '
+ahead = '⇡ '
+behind = '⇣ '
 diverged = '󰹹 '
-untracked = '?'
-stashed = ' '
-staged = 'S'
-deleted = 'D'
+# untracked = '?'
+stashed = ' '
+# staged = 'S'
+# deleted = 'D'
 style = "overlay1"
 
 [git_state]
@@ -70,9 +70,22 @@ symbol = " "
 format = '[${symbol}(${version} )]($style)'
 symbol = " "
 
+[dart]
+format = '[${symbol}(${version} )]($style)'
+symbol = " "
+
 [golang]
 format = '[${symbol}(${version} )]($style)'
 symbol = ""
+
+[kotlin]
+symbol = ' '
+
+[azure]
+disabled = false
+format = '[$symbol($subscription)]($style) '
+symbol = '󰠅 '
+style = 'blue bold'
 
 [time]
 disabled = false
