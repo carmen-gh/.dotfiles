@@ -1,8 +1,10 @@
 local wezterm = require("wezterm")
 
 local M = {}
+-- TODO add brew entry
 M.icons = {
 	["btm"] = wezterm.nerdfonts.mdi_chart_donut_variant,
+	["brew"] = wezterm.nerdfonts.cod_package,
 	["btop"] = wezterm.nerdfonts.md_chart_areaspline,
 	["cargo"] = wezterm.nerdfonts.dev_rust,
 	["curl"] = wezterm.nerdfonts.mdi_flattr,
@@ -26,7 +28,7 @@ M.icons = {
 	["sudo"] = wezterm.nerdfonts.fa_hashtag,
 	["vim"] = wezterm.nerdfonts.dev_vim,
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
-	["Yazi"] = wezterm.nerdfonts.dev_terminal, -- Bug: not working
+	["Yazi"] = wezterm.nerdfonts.oct_file_directory, -- Bug: not working
 	["zsh"] = wezterm.nerdfonts.dev_terminal,
 }
 
