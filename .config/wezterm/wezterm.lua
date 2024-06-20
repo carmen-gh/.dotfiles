@@ -17,11 +17,15 @@ config.color_scheme = "Catppuccin Macchiato"
 config.status_update_interval = 1000
 
 if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
+	-- Linux
 	config.default_prog = { "/usr/bin/fish", "-l" } -- set fish as login shell
+	-- config.window_decorations = "RESIZE" NOTE: see bugreport wezterm gnome wayland issue
+else
+	-- Mac OS
+	config.window_decorations = "RESIZE"
 end
 
 config.default_cursor_style = "SteadyBar"
-config.window_decorations = "RESIZE"
 config.adjust_window_size_when_changing_font_size = false
 config.window_padding = {
 	left = 6,
