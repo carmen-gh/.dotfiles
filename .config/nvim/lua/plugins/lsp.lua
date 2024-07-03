@@ -67,6 +67,7 @@ return {
 
       local server_list = {
         "bashls",
+        "elixirls",
         "gopls",
         "html",
         "jsonls",
