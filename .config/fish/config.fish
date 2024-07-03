@@ -51,6 +51,12 @@ fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
 fish_add_path $ANDROID_HOME/platform-tools
 set -Ux QEMU_AUDIO_DRV "none" # disable audio backend for all android emulators
 
+# Elixir
+fish_add_path $HOME/.mix/escripts
+
+fish_add_path $HOME/.local/bin/
+
+
 
 # Abbreviations
 
