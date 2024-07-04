@@ -10,6 +10,11 @@ $git_status\
 $fill\
 $rust\
 $python\
+$dart\
+$golang\
+$elixir\
+$kotlin\
+$aws\
 $cmd_duration $jobs\
 $line_break\
 $character"""
@@ -39,10 +44,6 @@ conflicted = ' '
 ahead = '⇡ '
 behind = '⇣ '
 diverged = '󰹹 '
-# untracked = '?'
-stashed = ''
-# staged = 'S'
-# deleted = 'D'
 style = "overlay1"
 
 [git_state]
@@ -63,27 +64,32 @@ format = "[$duration]($style)"
 style = "yellow"
 
 [rust]
-format = '[${symbol}(${version} )]($style)'
+format = '[${symbol} (${version} )]($style)'
 symbol = " "
 
 [python]
-format = '[${symbol}(${version} )]($style)'
+format = '[${symbol} (${version} )]($style)'
 symbol = " "
 
 [dart]
-format = '[${symbol}(${version} )]($style)'
+format = '[${symbol} (${version} )]($style)'
 symbol = " "
 
 [golang]
-format = '[${symbol}(${version} )]($style)'
+format = '[${symbol} (${version} )]($style)'
 symbol = ""
 
+[elixir]
+format = '[${symbol} (${version} )]($style)'
+symbol = ""
+
 [kotlin]
+format = '[${symbol} (${version} )]($style)'
 symbol = ' '
 
 [azure]
 disabled = false
-format = '[$symbol($subscription)]($style) '
+format = '[$symbol ($subscription)]($style) '
 symbol = '󰠅 '
 style = 'blue bold'
 
