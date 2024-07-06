@@ -60,7 +60,13 @@ return {
       require("mini.ai").setup({ n_lines = 500 })
       require("mini.surround").setup()
       require("mini.misc").setup()
-      require("mini.pairs").setup()
+      require("mini.pairs").setup({
+        modes = { insert = true, command = true, terminal = false },
+        skip_next = [=[[%w%%%'%[%"%.%`%$]]=], -- skip autopair when next character is one of these
+        skip_ts = { "string" }, -- skip autopair when the cursor is inside these treesitter nodes
+        skip_unbalanced = true, -- skip autopair when next character is closing pair and there are more closing pairs than opening pairs
+        markdown = true, -- better deal with markdown code blocks
+      })
       require("mini.splitjoin").setup()
       require("mini.move").setup()
       require("mini.indentscope").setup({

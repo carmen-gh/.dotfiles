@@ -97,3 +97,24 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end
   end,
 })
+
+-- Disable miniindentscope on filetype
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "alpha",
+    "dashboard",
+    "fzf",
+    "help",
+    "lazy",
+    "lazyterm",
+    "mason",
+    "neo-tree",
+    "notify",
+    "toggleterm",
+    "Trouble",
+    "trouble",
+  },
+  callback = function()
+    vim.b.miniindentscope_disable = true
+  end,
+})
