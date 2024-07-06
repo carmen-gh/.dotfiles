@@ -1,4 +1,3 @@
-local textColor = "#181823"
 local textColorLight = "#6c7086"
 
 local components = {
