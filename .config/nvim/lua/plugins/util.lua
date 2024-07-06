@@ -1,5 +1,6 @@
 return {
   { "tpope/vim-sleuth" },
+  { "windwp/nvim-ts-autotag" },
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
