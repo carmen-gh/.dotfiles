@@ -1,4 +1,4 @@
--- Catppuccin Theme
+-- -- Catppuccin Theme
 return {
   "catppuccin/nvim",
   name = "catppuccin",
@@ -55,13 +55,9 @@ return {
         TelescopeSelection = { bg = colors.surface1, fg = colors.text },
         TelescopeMatching = { fg = colors.blue },
         TelescopeSelectionCaret = { fg = colors.blue },
-        MiniHipatternsTodo = { fg = colors.yellow },
-        MiniHipatternsFixme = { bg = colors.red, fg = colors.base },
-        MiniHipatternsHack = { bg = colors.peach, fg = colors.base },
-        MiniHipatternsNote = { fg = colors.teal },
         MiniIndentscopeSymbol = { fg = colors.surface2 },
-        GitSignsChange = { fg = colors.yellow },
-        GitSignsAdd = { fg = "#40A02B" },
+        GitSignsChange = { fg = colors.blue },
+        FidgetBorder = { bg = colors.black, fg = colors.blue },
       }
     end,
   },
@@ -72,24 +68,22 @@ return {
 }
 
 -- One Nord Theme
+-- ( rainbow delimiters not supported)
 -- return {
--- 	-- https://github.com/rmehri01/onenord.nvim
--- 	"shaunsingh/nord.nvim",
--- 	lazy = false, -- We want the colorscheme to load immediately when starting Neovim
--- 	priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
--- 	config = function(_, opts)
--- 		vim.cmd("colorscheme nord") -- Replace this with your favorite colorscheme
--- 	end,
+--   "rmehri01/onenord.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function(_, opts)
+--     vim.cmd("colorscheme onenord")
+--   end,
 -- }
---
 
--- Tokyo Night Theme
+-- Everforest
 -- return {
--- 	"folke/tokyonight.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	opts = {},
--- 	config = function()
--- 		vim.cmd([[colorscheme tokyonight-storm]])
--- 	end,
+--   "neanias/everforest-nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     vim.cmd("colorscheme everforest")
+--   end,
 -- }

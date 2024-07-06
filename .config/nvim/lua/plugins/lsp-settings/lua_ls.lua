@@ -18,7 +18,7 @@ return {
         arrayIndex = "Disable",
       },
       codeLens = {
-        enable = true,
+        enable = false,
       },
       completion = {
         callSnippet = "Replace",
