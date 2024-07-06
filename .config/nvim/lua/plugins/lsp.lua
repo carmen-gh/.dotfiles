@@ -33,10 +33,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    -- enable inlay hints in your, if the language server you are using supports them
+    -- inlay hins
     if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
       -- stylua: ignore
       map("n", "<leader>ch", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, "toggle inlay hints")
+    end
+
+    -- codelens
+    if client and client.supports_method("textDocument/codeLens") and vim.lsp.codelens then
+      vim.lsp.codelens.refresh()
+      vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+        buffer = event.buf,
+        callback = vim.lsp.codelens.refresh,
+      })
     end
   end,
 })
@@ -46,7 +55,16 @@ return {
     "j-hui/fidget.nvim", -- show lsp progress
     config = function()
       local fidget = require("fidget")
-      fidget.setup({ notification = { window = { winblend = 0 } } })
+      fidget.setup({
+        notification = {
+          override_vim_notify = true, -- Automatically override vim.notify() with Fidget
+          window = {
+            winblend = 0,
+            border = "rounded",
+            border_hl = "FidgetBorder",
+          },
+        },
+      })
     end,
   },
   {
@@ -142,17 +160,15 @@ return {
       }
       mason_lsp.setup({ handlers = handlers })
 
-      local default_diagnostic_config = {
+      vim.diagnostic.config({
         signs = {
-          active = true,
-          values = {
-            { name = "DiagnosticSignError", text = " " },
-            { name = "DiagnosticSignWarn", text = " " },
-            { name = "DiagnosticSignHint", text = " " },
-            { name = "DiagnosticSignInfo", text = " " },
+          text = {
+            [vim.diagnostic.severity.ERROR] = "󱐋 ",
+            [vim.diagnostic.severity.WARN] = "󱐋 ",
+            [vim.diagnostic.severity.HINT] = "» ",
+            [vim.diagnostic.severity.INFO] = " ",
           },
         },
-        underline = true,
         update_in_insert = false,
         virtual_text = {
           spacing = 4,
@@ -166,15 +182,17 @@ return {
           border = "rounded",
           source = "always",
           header = "",
-          prefix = " ",
+          prefix = " ● ",
         },
-      }
-      vim.diagnostic.config(default_diagnostic_config)
-      for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-      end
+        document_highlight = {
+          enabled = true,
+        },
+        codelens = {
+          enabled = false,
+        },
+      })
 
-      -- stylua: ignore
+    -- stylua: ignore
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
     end,
