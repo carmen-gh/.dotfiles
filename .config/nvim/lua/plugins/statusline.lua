@@ -1,19 +1,16 @@
 local textColor = "#181823"
 local textColorLight = "#6c7086"
-local hiColor = "#526792"
--- local bgColor = "#181823"
-local bgColorEditor = "#24273a"
 
 local components = {
   mode = {
     "mode",
     padding = { left = 2, right = 2 },
+    separator = { left = "", right = "" },
     color = { gui = "bold" },
   },
   branch = {
     "b:gitsigns_head",
     icon = " ",
-    color = { fg = textColor, gui = "bold" },
   },
   diagnostics = {
     "diagnostics",
@@ -30,7 +27,6 @@ local components = {
         return ""
       end
     end,
-    color = { fg = textColor },
   },
   dap = {
     function()
@@ -39,7 +35,6 @@ local components = {
     cond = function()
       return package.loaded["dap"] and require("dap").status() ~= ""
     end,
-    color = { fg = textColor },
   },
   lsp_status = {
     function()
@@ -61,7 +56,6 @@ local components = {
         return string.format(" %s", unique_client_names)
       end
     end,
-    color = { fg = textColor },
   },
 }
 
@@ -72,18 +66,9 @@ return {
     opts = function()
       return {
         options = {
-          theme = {
-            inactive = {
-              c = { fg = textColor, bg = bgColorEditor },
-            },
-            normal = {
-              a = { fg = textColor, bg = hiColor },
-              c = { fg = textColor, bg = hiColor },
-            },
-          },
+          component_separators = "",
+          section_separators = { left = "", right = "" },
           globalstatus = true,
-          component_separators = { left = "", right = "" },
-          section_separators = { right = "", left = "" },
           disabled_filetypes = {
             "alpha",
             "dap-repl",
@@ -99,15 +84,15 @@ return {
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
-          lualine_y = {},
-          lualine_z = {
+          lualine_z = {},
+          lualine_y = {
             components.diagnostics,
             components.dap,
             components.flutter_device,
             components.lsp_status,
             components.branch,
             {
-              "location",
+              "progress",
               left_padding = 2,
               right_padding = 2,
             },
@@ -118,7 +103,6 @@ return {
             { "filetype", icon_only = true, colored = true, padding = { right = 1 } },
             {
               "filename",
-              color = { fg = textColor, gui = "bold" },
               padding = { left = 0, right = 2 },
             },
           },
@@ -126,7 +110,10 @@ return {
         inactive_winbar = {
           lualine_x = {
             { "filetype", icon_only = true, colored = false, color = { fg = textColorLight } },
-            { "filename", padding = { right = 1 }, color = { fg = textColorLight, gui = "bold" } },
+            {
+              "filename",
+              padding = { right = 1 },
+            },
           },
         },
         extensions = {
