@@ -3,6 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -36,7 +37,7 @@ return {
       -- keys
       -- stylua: ignore start
       vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown previewer=false<cr>", { desc = "files"})
-      vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "string" })
+      vim.keymap.set("n", "<leader>fs", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", {desc = "string"})
       vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git files" })
       vim.keymap.set("n", "<leader>gf", builtin.git_status, { desc = "find modified file" })
       vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true theme=dropdown previewer=false<cr>", { desc = "buffers" })
@@ -49,6 +50,7 @@ return {
 
       -- extensions
       require("telescope").load_extension("fzf")
+      require("telescope").load_extension("live_grep_args")
     end,
   },
 }
