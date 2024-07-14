@@ -20,7 +20,10 @@ return {
       harpoon = true,
       markdown = true,
       mason = true,
-      mini = true,
+      mini = {
+        enabled = true,
+        indentscope_color = "surface2",
+      },
       neotree = true,
       neotest = true,
       native_lsp = {
@@ -35,6 +38,7 @@ return {
           background = true,
         },
       },
+      notify = true,
       treesitter = true,
       treesitter_context = true,
       rainbow_delimiters = true,
@@ -55,7 +59,6 @@ return {
         TelescopeSelection = { bg = colors.surface1, fg = colors.text },
         TelescopeMatching = { fg = colors.blue },
         TelescopeSelectionCaret = { fg = colors.blue },
-        MiniIndentscopeSymbol = { fg = colors.surface2 },
         GitSignsChange = { fg = colors.blue },
         FidgetBorder = { bg = colors.black, fg = colors.blue },
       }

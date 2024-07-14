@@ -52,22 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 return {
   {
-    "j-hui/fidget.nvim", -- show lsp progress
-    config = function()
-      local fidget = require("fidget")
-      fidget.setup({
-        notification = {
-          override_vim_notify = true, -- Automatically override vim.notify() with Fidget
-          window = {
-            winblend = 0,
-            border = "rounded",
-            border_hl = "FidgetBorder",
-          },
-        },
-      })
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {

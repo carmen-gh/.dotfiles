@@ -27,19 +27,24 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 2000
-    end,
     config = function()
       local wk = require("which-key")
-      wk.register({
-        ["<leader>c"] = { name = "code" },
-        ["<leader>d"] = { name = "debug" },
-        ["<leader>f"] = { name = "file" },
-        ["<leader>g"] = { name = "git" },
-        ["<leader>q"] = { name = "quit" },
-        ["<leader>x"] = { name = "quickfix" },
+      wk.setup({
+        preset = "helix",
+        spec = {
+          { "<leader>c", group = "code" },
+          { "<leader>d", group = "debug" },
+          { "<leader>f", group = "file" },
+          { "<leader>g", group = "git" },
+          { "<leader>q", group = "quit" },
+          { "<leader>x", group = "quickfix" },
+        },
+        win = {
+          title = false,
+        },
+        icons = {
+          rules = false,
+        },
       })
     end,
   },

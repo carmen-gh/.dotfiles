@@ -71,8 +71,8 @@ vim.opt.smoothscroll = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
-vim.opt.timeoutlen = 300
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+vim.notify = require("notify")

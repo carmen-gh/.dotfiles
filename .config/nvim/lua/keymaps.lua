@@ -10,7 +10,7 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 
 -- Line movement (alt-j and alt-k) see mini.move plugin
 
--- window navigation <ctrl> hjkl
+-- window navigation <ctrl> hjkl see letieu/wezterm-move.nvim,
 -- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
 -- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
 -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
