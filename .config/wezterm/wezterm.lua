@@ -13,7 +13,7 @@ config.window_frame = {
 }
 config.window_background_opacity = 0.97
 config.macos_window_background_blur = 20
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Catppuccin Mocha"
 config.status_update_interval = 1000
 
 if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
