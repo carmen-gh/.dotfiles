@@ -30,7 +30,7 @@ return {
     config = function()
       local wk = require("which-key")
       wk.setup({
-        preset = "helix",
+        preset = "modern",
         spec = {
           { "<leader>c", group = "code" },
           { "<leader>d", group = "debug" },

@@ -47,8 +47,8 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle right<CR>", { desc = "explorer" })
-      vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status toggle right<CR>", { desc = "explorer" })
+      vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "explorer (toggle)" })
+      vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status toggle<CR>", { desc = "status explorer" })
     end,
   },
 }
