@@ -1,5 +1,4 @@
 vim.keymap.set("i", "jj", "<ESC>")
-vim.keymap.set("i", "<C-f>", "<esc>la")
 
 vim.keymap.set("n", "x", '"_x', { desc = "delete single character without copying into register" })
 -- Paste without overwriting register
@@ -16,6 +15,11 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
 -- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
 -- vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
+--
+
+-- Quicker macro playback (record macro to q register)
+vim.keymap.set("n", "Q", "@qj")
+vim.keymap.set("x", "Q", ":norm @q<CR>")
 
 -- Edit the alternate / previously edited file
 vim.keymap.set("n", "<leader>o", "<C-^>", { desc = "edit prev edited file" })

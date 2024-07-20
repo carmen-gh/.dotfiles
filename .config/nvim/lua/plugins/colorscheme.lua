@@ -60,7 +60,8 @@ return {
         TelescopeMatching = { fg = colors.blue },
         TelescopeSelectionCaret = { fg = colors.blue },
         GitSignsChange = { fg = colors.blue },
-        FidgetBorder = { bg = colors.black, fg = colors.blue },
+        LazyGitFloat = { bg = colors.mantle },
+        LazyGitBorder = { fg = colors.mantle },
       }
     end,
   },
