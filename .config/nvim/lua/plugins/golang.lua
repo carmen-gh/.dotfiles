@@ -11,7 +11,6 @@ return {
         commands = {
           go = "go",
           gomodifytags = "gomodifytags",
-          gotests = "/home/carmen/Developer/go/bin/gotests", -- also you can set custom command path
           impl = "impl",
           iferr = "iferr",
           dlv = "dlv",
