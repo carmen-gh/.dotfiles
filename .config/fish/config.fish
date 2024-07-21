@@ -3,6 +3,7 @@ starship init fish | source
 zoxide init fish | source
 
 /usr/bin/mise activate fish | source
+
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
@@ -31,12 +32,12 @@ set -Ux VISUAL nvim
 # --color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic'"
 
 # MANPAGER
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p --theme 'Nord''"
+#set -x MANPAGER "sh -c 'col -bx | bat -l man -p --theme 'Nord''"
+set -x MANPAGER "nvim +Man!"
 set -x MANROFFOPT "-c"
 
 # GO
-set -x GOPATH $HOME/.go 
-fish_add_path $HOME/.go/bin
+fish_add_path /usr/local/go/bin
 
 # RUST
 fish_add_path $HOME/.cargo/bin
