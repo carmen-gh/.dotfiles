@@ -22,6 +22,7 @@ if wezterm.target_triple == "x86_64-unknown-linux-gnu" then
 	-- config.window_decorations = "RESIZE" -- NOTE: see bugreport wezterm gnome wayland issue
 else
 	-- Mac OS
+	config.font_size = 14.0
 	config.window_decorations = "RESIZE"
 end
 
