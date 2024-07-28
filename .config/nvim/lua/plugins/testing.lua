@@ -1,5 +1,7 @@
+-- TODO disable for markdown files (lsp marksman)
 return {
   "nvim-neotest/neotest",
+  lazy = true,
   dependencies = {
     "nvim-neotest/nvim-nio",
     "jfpedroza/neotest-elixir",

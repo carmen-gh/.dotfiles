@@ -125,13 +125,13 @@ return {
         end,
 
         ["jsonls"] = function()
-          lspconfig.lua_ls.setup({
+          lspconfig.jsonls.setup({
             settings = require("plugins.lsp-settings.jsonls").settings,
           })
         end,
 
         ["yamlls"] = function()
-          lspconfig.lua_ls.setup({
+          lspconfig.yamlls.setup({
             settings = require("plugins.lsp-settings.yamlls").settings,
           })
         end,
