@@ -2,6 +2,12 @@ return {
   { "tpope/vim-sleuth" },
   { "windwp/nvim-ts-autotag" },
   {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
+  {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
     opts = {},
