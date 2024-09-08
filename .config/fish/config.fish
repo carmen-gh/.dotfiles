@@ -55,6 +55,10 @@ set -Ux QEMU_AUDIO_DRV "none" # disable audio backend for all android emulators
 # Elixir
 fish_add_path $HOME/.mix/escripts
 
+# Fly.io
+fish_add_path $HOME/.fly/bin
+
+# other
 fish_add_path $HOME/.local/bin/
 
 
