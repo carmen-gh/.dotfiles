@@ -1,8 +1,7 @@
 -- TODO disable for markdown files (lsp marksman)
--- TODO find out why neotest is not loading correctly (elixir)
 return {
   "nvim-neotest/neotest",
-  lazy = false,
+  lazy = true,
   dependencies = {
     "nvim-neotest/nvim-nio",
     "jfpedroza/neotest-elixir",
@@ -18,11 +17,11 @@ return {
     },
     status = { virtual_text = false },
     output = { open_on_run = true },
-    quickfix = {
-      open = function()
-        vim.cmd("copen")
-      end,
-    },
+    -- quickfix = {
+    --   open = function()
+    --     vim.cmd("copen")
+    --   end,
+    -- },
     icons = {
       running_animated = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
       passed = "",
