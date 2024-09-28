@@ -60,30 +60,32 @@
     # turn off syntax highlighting
     # syntax-highlighting-theme = 
 [delta]
-  dark = true
-  diff-hightlight = true
-	file-decoration-style = black ul
-	file-style = "#b5bfe2" 
-  hunk-header-decoration-style = omit
-  hunk-header-file-style = "#b5bfe2"
-	hunk-header-line-number-style = bold "#b5bfe2"
-  hunk-header-style = file line-number
-  hunk-label = " @@@"
-  line-numbers = true
-	line-numbers-left-format = {nm:>3}│
-	line-numbers-left-style = "#838ba7"
-	line-numbers-minus-style = "#838ba7"
-	line-numbers-plus-style = "#838ba7" 
-	line-numbers-right-format = {np:>3}│
-	line-numbers-right-style ="#838ba7" 
-	line-numbers-zero-style ="#838ba7" 
-	minus-emph-style = white bold "#85494a" 
-	minus-style = red
-	plus-emph-style = white bold "#467050"
-	plus-style = green
-	side-by-side = true
-	true-color = auto
-	zero-style = "#838ba7"
+    dark = true
+    diff-hightlight = true
+    file-decoration-style = black ul
+    file-style = "#b5bfe2" 
+    hunk-header-decoration-style = omit
+    hunk-header-file-style = "#b5bfe2"
+    hunk-header-line-number-style = bold "#b5bfe2"
+    hunk-header-style = file line-number
+    hunk-label = " @@@"
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscodium://file/{path}:{line}"
+    line-numbers = true
+    line-numbers-left-format = {nm:>3}│
+    line-numbers-left-style = "#838ba7"
+    line-numbers-minus-style = "#838ba7"
+    line-numbers-plus-style = "#838ba7" 
+    line-numbers-right-format = {np:>3}│
+    line-numbers-right-style ="#838ba7" 
+    line-numbers-zero-style ="#838ba7" 
+    minus-emph-style = white bold "#85494a" 
+    minus-style = red
+    plus-emph-style = white bold "#467050"
+    plus-style = green
+    side-by-side = true
+    true-color = auto
+    zero-style = "#838ba7"
 
 [user]
     #configered in `~/.gitconfig.local`
