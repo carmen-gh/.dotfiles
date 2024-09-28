@@ -1,14 +1,13 @@
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   log:
     order: "topo-order"
     # showGraph: "always"
   branchLogCmd: "git log --graph --pretty=custom"
   allBranchesLogCmd: "git log --graph --pretty=custom"
   mainBranches: [master, main, develop]
-  promptToReturnFromSubprocess: false
   commitPrefixes:
     android: # repository folder name
       pattern: "(IMOWAPP-[0-9]{4}).*" # extraxt ticket number from branch name and place it in commit message
@@ -27,7 +26,6 @@ gui:
     "*": "#85c1dc" # sapphire
   # use the frappe catpucchin theme
   theme:
-    lightTheme: false
     activeBorderColor:
       - "#ebcb8b" # yellow
       - bold
@@ -36,8 +34,6 @@ gui:
     optionsTextColor:
       - "#8caaee" # Blue
     selectedLineBgColor:
-      - "#51576d" # Surface0
-    selectedRangeBgColor:
       - "#51576d" # Surface0
     cherryPickedCommitBgColor:
       - "#81c8be" # Teal
