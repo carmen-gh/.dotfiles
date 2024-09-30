@@ -105,6 +105,7 @@ return {
         "shellcheck",
         "shfmt",
         "stylua",
+        "sqlfluff",
         "yamlls",
       })
       require("mason-tool-installer").setup({ ensure_installed = server_list })

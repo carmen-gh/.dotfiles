@@ -8,13 +8,14 @@ return {
     conform.setup({
       notify_on_error = false,
       formatters_by_ft = {
+        go = { "goimports" },
         html = { "prettier" },
         json = { "prettier" },
         kotlin = { "ktlint " },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
         lua = { "stylua" },
-        go = { "goimports" },
+        markdown = { "prettier" },
+        sql = { "sqlfmt" },
+        yaml = { "prettier" },
       },
       format_on_save = {
         lsp_fallback = true,
