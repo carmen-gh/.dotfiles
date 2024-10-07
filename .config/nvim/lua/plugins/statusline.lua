@@ -58,13 +58,43 @@ local components = {
   },
 }
 
--- Lualine Config
 return {
+  -- use incline for better winbar settings then lualine offers
+  {
+    "b0o/incline.nvim",
+    event = "VeryLazy",
+    config = function()
+      local devicons = require("mini.icons")
+      require("incline").setup({
+        hide = { only_win = true },
+        highlight = {
+          groups = {
+            InclineNormal = { default = false, group = "Title" },
+            InclineNormalNC = { default = true, group = "FloatTitle" },
+          },
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          if filename == "" then
+            filename = "[No Name]"
+          end
+          local ft_icon, ft_color = devicons.get("file", filename)
+          local modified = vim.bo[props.buf].modified
+          return {
+            ft_icon and { ft_icon, " ", guibg = "none", group = ft_color } or "",
+            { filename, gui = modified and "bold,italic" or "bold" },
+          }
+        end,
+        --
+      })
+    end,
+  },
   {
     "nvim-lualine/lualine.nvim",
     opts = function()
       return {
         options = {
+          theme = "catppuccin",
           component_separators = "",
           section_separators = { left = "", right = "" },
           globalstatus = true,
@@ -81,37 +111,22 @@ return {
         sections = {
           lualine_a = { components.mode },
           lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_z = {},
-          lualine_y = {
+          lualine_c = {
+            components.branch,
+            { "filetype", icon_only = true, colored = true, padding = { left = 2, right = 1 } },
+            { "filename", padding = { left = 0, right = 2 } },
             components.diagnostics,
+          },
+          lualine_z = {},
+          lualine_y = {},
+          lualine_x = {
             components.dap,
             components.flutter_device,
-            components.lsp_status,
-            components.branch,
+            -- components.lsp_status,
             {
               "progress",
               left_padding = 2,
               right_padding = 2,
-            },
-          },
-        },
-        winbar = {
-          lualine_x = {
-            { "filetype", icon_only = true, colored = true, padding = { right = 1 } },
-            {
-              "filename",
-              padding = { left = 0, right = 2 },
-            },
-          },
-        },
-        inactive_winbar = {
-          lualine_x = {
-            { "filetype", icon_only = true, colored = false, color = { fg = textColorLight } },
-            {
-              "filename",
-              padding = { right = 1 },
             },
           },
         },
