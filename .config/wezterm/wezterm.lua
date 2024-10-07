@@ -69,9 +69,9 @@ config.term = "wezterm"
 
 wezterm.on("update-right-status", function(window, _)
 	local workspaces = wezterm.mux.get_workspace_names()
-	local num_of_workspaces = #workspaces
-	-- only show worspace title if more then workspace is used
-	if num_of_workspaces > 1 then
+	local name = wezterm.mux.get_active_workspace()
+	-- only show worspace title if name is not default name
+	if name ~= "default" then
 		local space = "    "
 		window:set_right_status(wezterm.format({
 			{ Foreground = { Color = fg_color_outline } },
