@@ -76,6 +76,7 @@ alias ls 'eza --group-directories-first --icons'
 alias ll 'eza --group-directories-first --icons -lh --git'
 alias la 'eza --group-directories-first --icons -lh --git -a'
 alias tree 'eza --group-directories-first --icons -lh --git --tree --level=2'
+alias lazyvim 'NVIM_APPNAME=lazyvim nvim'
 
 abbr mv 'mv -i'
 abbr cp 'cp -i'
