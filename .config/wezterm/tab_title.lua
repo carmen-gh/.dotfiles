@@ -30,14 +30,16 @@ M.icons = {
 	["wget"] = wezterm.nerdfonts.mdi_arrow_down_box,
 	["Yazi"] = wezterm.nerdfonts.oct_file_directory, -- Bug: not working
 	["zsh"] = wezterm.nerdfonts.dev_terminal,
+	["fish"] = wezterm.nerdfonts.dev_terminal,
 }
 
 function M.title(tab)
 	local title = (tab.tab_title and #tab.tab_title > 0) and tab.tab_title or tab.active_pane.title
 	local process, other = title:match("^(%S+)%s*%-?%s*%s*(.*)$")
+	local space = "    "
 
 	if M.icons[process] then
-		title = M.icons[process] .. "  " .. (other or "")
+		title = M.icons[process] .. space .. (other or "")
 	end
 
 	local is_zoomed = false
@@ -51,7 +53,7 @@ function M.title(tab)
 		title = "  " .. title
 	end
 
-	return " " .. title .. " "
+	return space .. title .. space
 end
 
 ---@class config Config
