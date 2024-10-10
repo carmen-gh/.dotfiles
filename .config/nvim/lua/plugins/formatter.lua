@@ -14,7 +14,7 @@ return {
         kotlin = { "ktlint " },
         lua = { "stylua" },
         markdown = { "prettier" },
-        sql = { "sqlfmt" },
+        sql = { "sql-formatter" },
         yaml = { "prettier" },
       },
       format_on_save = {
