@@ -68,7 +68,6 @@ config.colors = {
 config.term = "wezterm"
 
 wezterm.on("update-right-status", function(window, _)
-	local workspaces = wezterm.mux.get_workspace_names()
 	local name = wezterm.mux.get_active_workspace()
 	-- only show worspace title if name is not default name
 	if name ~= "default" then
