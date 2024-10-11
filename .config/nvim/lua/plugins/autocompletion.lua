@@ -1,24 +1,22 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "iguanacucumber/magazine.nvim",
+  name = "nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-nvim-lsp",
-    "rafamadriz/friendly-snippets",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "onsails/lspkind.nvim",
+    {
+      "garymjr/nvim-snippets",
+      opts = { friendly_snippets = true },
+      dependencies = { "rafamadriz/friendly-snippets" },
+    },
   },
-
   config = function()
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
     local lspkind = require("lspkind")
-
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
@@ -31,7 +29,7 @@ return {
       },
       snippet = {
         expand = function(args)
-          luasnip.lsp_expand(args.body)
+          vim.snippet.expand(args.body)
         end,
       },
       formatting = {
@@ -50,21 +48,17 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- show suggestions
         -- jump to next location
         ["<Tab>"] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
+          return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
         end, { "i", "s" }),
         -- jump to previous location
         ["<S-Tab>"] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          end
+          return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
         end, { "i", "s" }),
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- lsp
+        { name = "snippets" }, -- snippets
         { name = "vim-dadbod-completion" },
-        { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
