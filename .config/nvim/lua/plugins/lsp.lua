@@ -59,7 +59,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "b0o/schemastore.nvim",
-      { "folke/neodev.nvim", opts = {} },
     },
     config = function()
       require("mason").setup()

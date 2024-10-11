@@ -74,5 +74,6 @@ vim.opt.tabstop = 2 -- Number of spaces tabs count for
 vim.opt.undofile = true
 vim.opt.updatetime = 250
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
+vim.opt.colorcolumn = "120" -- max text width column
 
 vim.notify = require("notify")
