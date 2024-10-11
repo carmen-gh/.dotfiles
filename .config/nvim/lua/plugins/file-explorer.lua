@@ -29,7 +29,7 @@ return {
           git_status = {
             symbols = {
               modified = "",
-              untracked = "",
+              untracked = "󰡯",
               ignored = "",
               unstaged = "",
               staged = "",
