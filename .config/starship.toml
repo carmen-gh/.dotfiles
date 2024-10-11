@@ -28,9 +28,9 @@ read_only = ""
 truncate_to_repo = true
 
 [character]
-success_symbol = "[](green)"
-error_symbol = "[](red)"
-vicmd_symbol = "[](mauve)"
+success_symbol = "[󰄾](green)"
+error_symbol = "[󰄾](red)"
+vicmd_symbol = "[󰄾](mauve)"
 
 [git_branch]
 symbol = " "
