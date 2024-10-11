@@ -3,6 +3,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -15,13 +16,31 @@ return {
       local builtin = require("telescope.builtin")
 
       telescope.setup({
-        extensions = {},
+        extensions = {
+          undo = {
+            mappings = {
+              i = {
+                ["<cr>"] = require("telescope-undo.actions").yank_additions,
+                ["<S-cr>"] = require("telescope-undo.actions").yank_deletions,
+                ["<C-cr>"] = require("telescope-undo.actions").restore,
+                -- alternative defaults, for users whose terminals do questionable things with modified <cr>
+                ["<C-y>"] = require("telescope-undo.actions").yank_deletions,
+                ["<C-r>"] = require("telescope-undo.actions").restore,
+              },
+              n = {
+                ["y"] = require("telescope-undo.actions").yank_additions,
+                ["Y"] = require("telescope-undo.actions").yank_deletions,
+                ["u"] = require("telescope-undo.actions").restore,
+              },
+            },
+          },
+        },
         defaults = {
           path_display = {
             "filename_first",
           },
           prompt_prefix = "  ",
-          selection_caret = "  ",
+          selection_caret = "󰄾 ",
           file_ignore_patterns = {
             ".DS_Store",
             ".git/",
@@ -61,10 +80,12 @@ return {
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "keymaps" })
       vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>", { desc = "oldfiles" })
       vim.keymap.set("n", "<leader>fm", function() require('telescope').extensions.notify.notify() end, { desc ="messages"})
+      vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "undo history"})
       -- stylua: ignore end
 
       -- extensions
       require("telescope").load_extension("fzf")
+      require("telescope").load_extension("undo")
     end,
   },
 }
