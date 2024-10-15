@@ -46,7 +46,7 @@ config.window_padding = {
 	top = 12,
 	bottom = 12,
 }
-config.show_close_tab_button_in_tabs = false
+-- config.show_close_tab_button_in_tabs = false
 config.colors = {
 	background = bg_color_active,
 	tab_bar = {

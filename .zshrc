@@ -25,7 +25,7 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.1/bin:$PATH
 
 # Plugins -------------------------------------------------------------
-plugins=(git colored-man-pages gradle vi-mode)
+plugins=(git colored-man-pages gradle vi-mode asdf)
 
 source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -48,10 +48,10 @@ export KEYTIMEOUT=1
    export EDITOR='vim'
  fi
 
-# ALIAS ----------------------------------------------------------------- 
+# ALIAS -----------------------------------------------------------------
 alias zshconfig="vim ~/.dotfiles/.zshrc"
 alias gitconfig="vim ~/.gitconfig"
-alias vim='nvim' 
+alias vim='nvim'
 alias avim="NVIM_APPNAME=AstroNvim nvim"
 alias lazyVim="NVIM_APPNAME=LazyVim nvim"
 alias nvchad="NVIM_APPNAME=nvchad nvim"
@@ -73,6 +73,15 @@ alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 alias update-gh="gh extension upgrade --all"
 # ... more alias in ~/.oh-my-zsh/custom/
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 function video_to_gif() {
     # Based on https://gist.github.com/SheldonWangRJT/8d3f44a35c8d1386a396b9b49b43c385
@@ -97,5 +106,5 @@ eval "$(starship init zsh)"
 # Startup Zoxide ------------------------------------------------------------
 eval "$(zoxide init zsh)"
 
-# keychain drops after every reboot my ssh keys, this loads them into the keychain 
+# keychain drops after every reboot my ssh keys, this loads them into the keychain
 ssh-add --apple-load-keychain 2> /dev/null
