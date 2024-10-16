@@ -66,9 +66,22 @@ return {
         }
       end,
     },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd("colorscheme catppuccin")
+    custom_highlights = function(colors)
+      return {
+        WinSeparator = { fg = colors.surface2 },
+        Pmenu = { bg = colors.surface0 },
+        PmenuSel = { bg = colors.blue, fg = colors.base },
+        NormalFloat = { bg = colors.surface0 },
+        FloatBorder = { bg = colors.surface0 },
+        TelescopeNormal = { bg = colors.surface0 },
+        TelescopePromptPrefix = { fg = colors.blue },
+        TelescopeSelection = { bg = colors.surface1, fg = colors.text },
+        TelescopeMatching = { fg = colors.blue },
+        TelescopeSelectionCaret = { fg = colors.blue },
+        GitSignsChange = { fg = colors.blue },
+        LazyGitFloat = { bg = colors.mantle },
+        LazyGitBorder = { fg = colors.mantle },
+      }
     end,
   },
   config = function(_, opts)
