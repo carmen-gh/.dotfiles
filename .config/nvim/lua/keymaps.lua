@@ -48,8 +48,8 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "add line below in normal mode" })
 
 -- Increment/decrement numbers
-vim.keymap.set({ "n", "v" }, "+", "<C-a>", { desc = "increment number" })
-vim.keymap.set({ "n", "v" }, "-", "<C-x>", { desc = "decrement number" })
+vim.keymap.set({ "n", "v" }, "+", "<C-x>", { desc = "increment number" })
+vim.keymap.set({ "n", "v" }, "-", "<C-a>", { desc = "decrement number" })
 
 -- Quickfix
 vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
