@@ -25,7 +25,7 @@
 - neovim
 - yazi
 - skhd
-- yabai
+- aerospace
 - raycast
 - zed
 
