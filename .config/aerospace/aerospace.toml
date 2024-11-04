@@ -71,30 +71,25 @@ cmd-ctrl-alt-shift-l = 'move right'
 cmd-ctrl-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 
-# SERVICE MODE---------------------------------------------------------------------------------------------------------
-cmd-ctrl-alt-shift-semicolon = 'mode service'
+# SETTINGS MODE---------------------------------------------------------------------------------------------------------
+cmd-ctrl-alt-semicolon = 'mode settings'
 
-[mode.service.binding]
+[mode.settings.bindig]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']                # reset layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-h = ['join-with left', 'mode main']
-j = ['join-with down', 'mode main']
-k = ['join-with up', 'mode main']
-l = ['join-with right', 'mode main']
+# join
+left = ['join-with left', 'mode main']
+down = ['join-with down', 'mode main']
+up = ['join-with up', 'mode main']
+right = ['join-with right', 'mode main']
 
-# RESIZE MODE----------------------------------------------------------------------------------------------------------
-cmd-ctrl-alt-r = 'mode resize'
-
-[mode.resize.binding]
+# resize
 h = 'resize width -50'
 j = 'resize height +50'
 k = 'resize height -50'
 l = 'resize width +50'
-enter = 'mode main'
-esc = 'mode main'
-
 
 # FLOATING APPS -------------------------------------------------------------------------------------------------------
 [[on-window-detected]]
