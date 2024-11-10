@@ -38,6 +38,7 @@ end
 
 --@class config Config
 function M.addNavigationKeys(config)
+	config.keys = config.keys or {} -- init config.keys if it doesn't exist
 	table.insert(config.keys, split_nav("move", "h"))
 	table.insert(config.keys, split_nav("move", "j"))
 	table.insert(config.keys, split_nav("move", "k"))

@@ -1,23 +1,20 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local act = wezterm.action
-
--- Catppuccin Mocha colors
-local bg_color_active = "#1e1e2e"
-local bg_color_inactive = "#313244"
-local fg_color_border = "#6c7086"
-local fg_color_inactive = "#89b4fa"
-local fg_color_active = "#cba6f7"
-local fg_color_outline = "#89dceb"
 
 require("tab_title").setup(config)
+-- require("workspaces").setup(config)
+require("vim_navigation").addNavigationKeys(config)
+local utils = require("utils")
+local colors = require("colors")
+
+local act = wezterm.action
 
 config.font = wezterm.font("JetBrains Mono")
 config.window_frame = {
 	font = wezterm.font({ family = "Cantarell", weight = "Regular" }),
 }
 config.window_frame = {
-	active_titlebar_bg = bg_color_inactive,
+	active_titlebar_bg = colors.bg.inactive,
 }
 -- config.window_background_opacity = 0.97
 config.macos_window_background_blur = 20
@@ -48,21 +45,21 @@ config.window_padding = {
 }
 -- config.show_close_tab_button_in_tabs = false
 config.colors = {
-	background = bg_color_active,
+	background = colors.bg.active,
 	tab_bar = {
 		active_tab = {
-			bg_color = bg_color_active,
-			fg_color = fg_color_active,
+			bg_color = colors.bg.active,
+			fg_color = colors.fg.active,
 		},
 		inactive_tab = {
-			bg_color = bg_color_inactive,
-			fg_color = fg_color_inactive,
+			bg_color = colors.bg.inactive,
+			fg_color = colors.fg.inactive,
 		},
 		inactive_tab_hover = {
-			bg_color = bg_color_active,
-			fg_color = fg_color_inactive,
+			bg_color = colors.bg.active,
+			fg_color = colors.fg.inactive,
 		},
-		inactive_tab_edge = fg_color_border,
+		inactive_tab_edge = colors.fg.border,
 	},
 }
 config.term = "wezterm"
@@ -76,8 +73,8 @@ wezterm.on("update-right-status", function(window, _)
 	if name ~= "default" or num_of_workspaces > 1 then
 		local space = "    "
 		window:set_right_status(wezterm.format({
-			{ Foreground = { Color = fg_color_outline } },
-			{ Background = { Color = bg_color_inactive } },
+			{ Foreground = { Color = colors.fg.outline } },
+			{ Background = { Color = colors.bg.inactive } },
 			{ Text = space },
 			{ Text = wezterm.nerdfonts.fa_window_restore },
 			{ Text = space },
@@ -87,11 +84,11 @@ wezterm.on("update-right-status", function(window, _)
 	end
 end)
 
--- ------------------------------------------------------------------------------------------------------------------------
--- KEYBINDINGS ------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------------------------
+-- KEYBINDINGS --------------------------------------------------------------------------------------------------------
+config.keys = config.keys or {} -- init config.keys if it doesn't exist
 
-config.keys = {
-
+local new_keys = {
 	-- font reset
 	{ key = "0", mods = "CTRL|SHIFT", action = act.ResetFontSize },
 	-- activate copy mode
@@ -99,7 +96,7 @@ config.keys = {
 	-- activate search mode leader and /
 	{ key = "?", mods = "CTRL|SHIFT", action = act.Search("CurrentSelectionOrEmptyString") },
 
-	-- PANE ----------------------------------------------------------------------------------------------------------------
+	-- PANE -------------------------------------------------------------------------------------------------------------
 
 	-- split pane
 	{ key = "|", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
@@ -120,7 +117,7 @@ config.keys = {
 	-- pane navgiation see config file vim.lua
 	-- navigate with CTRL and hjkl also works with neovim integration and navigating between neovim splits
 
-	-- TAB ----------------------------------------------------------------------------------------------------------------
+	-- TAB --------------------------------------------------------------------------------------------------------------
 
 	-- navigate between tabs "[" and "]" or "h" and "l"
 	{ key = "{", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
@@ -135,7 +132,7 @@ config.keys = {
 		action = act.PromptInputLine({
 			description = wezterm.format({
 				{ Attribute = { Intensity = "Bold" } },
-				{ Foreground = { Color = fg_color_active } },
+				{ Foreground = { Color = colors.fg.active } },
 				{ Text = "Renaming Tab Title...:" },
 			}),
 			action = wezterm.action_callback(function(window, _, line)
@@ -146,13 +143,14 @@ config.keys = {
 		}),
 	},
 
-	-- WORKSPACE ----------------------------------------------------------------------------------------------------------
+	-- WORKSPACE --------------------------------------------------------------------------------------------------------
 	{
 		key = "w",
 		mods = "CTRL|SHIFT",
 		action = act.ActivateKeyTable({ name = "workspace", one_shot = true }),
 	},
 }
+utils.merge_keybindings(config, new_keys)
 
 config.key_tables = {
 	workspace = {
@@ -169,7 +167,7 @@ config.key_tables = {
 			action = act.PromptInputLine({
 				description = wezterm.format({
 					{ Attribute = { Intensity = "Bold" } },
-					{ Foreground = { Color = fg_color_active } },
+					{ Foreground = { Color = colors.fg.active } },
 					{ Text = "Enter name for new workspace" },
 				}),
 				action = wezterm.action_callback(function(window, pane, line)
@@ -185,7 +183,7 @@ config.key_tables = {
 			action = act.PromptInputLine({
 				description = wezterm.format({
 					{ Attribute = { Intensity = "Bold" } },
-					{ Foreground = { Color = fg_color_active } },
+					{ Foreground = { Color = colors.fg.active } },
 					{ Text = "Enter name for current workspace" },
 				}),
 				action = wezterm.action_callback(function(_, _, line)
@@ -211,7 +209,7 @@ config.key_tables = {
 					act.InputSelector({
 						description = wezterm.format({
 							{ Attribute = { Intensity = "Bold" } },
-							{ Foreground = { Color = fg_color_active } },
+							{ Foreground = { Color = colors.fg.active } },
 							{ Text = "Open or create workspace:" },
 						}),
 						action = wezterm.action_callback(function(inner_window, inner_pane, id, label)
@@ -252,7 +250,7 @@ config.key_tables = {
 					act.InputSelector({
 						description = wezterm.format({
 							{ Attribute = { Intensity = "Bold" } },
-							{ Foreground = { Color = fg_color_active } },
+							{ Foreground = { Color = colors.fg.active } },
 							{ Text = "Switch to workspace:" },
 						}),
 						action = wezterm.action_callback(function(inner_window, inner_pane, _, label)
@@ -279,7 +277,5 @@ for i = 1, 9 do
 		action = act.ActivateTab(i - 1),
 	})
 end
-
-require("vim_navigation").addNavigationKeys(config)
 
 return config
