@@ -49,25 +49,12 @@ return {
         map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>gl", function() gs.blame_line({ full = true }) end, "Blame Line")
+        -- using snack git blame
+        -- map("n", "<leader>gl", function() gs.blame_line({ full = false, ignore_whitespace = true }) end, "Blame Line")
         map("n", "<leader>gb", "<cmd>Telescope git_branches theme=dropdown previewer=false<cr>", "branch" )
         map({ "o", "x" }, "ih", "<cmd><C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
         -- stylua: ignore end
       end,
-    },
-  },
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
 }

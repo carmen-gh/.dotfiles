@@ -79,7 +79,6 @@ return {
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help" })
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "keymaps" })
       vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>", { desc = "oldfiles" })
-      vim.keymap.set("n", "<leader>fm", function() require('telescope').extensions.notify.notify() end, { desc ="messages"})
       vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "undo history"})
       -- stylua: ignore end
 
