@@ -1,22 +1,20 @@
-local wezterm = require("wezterm")
-local config = wezterm.config_builder()
-
-require("tab_title").setup(config)
--- require("workspaces").setup(config)
-require("vim_navigation").addNavigationKeys(config)
 local utils = require("utils")
 local colors = require("colors")
-
+local wezterm = require("wezterm")
+local config = wezterm.config_builder()
+require("tab_title").setup(config)
+require("vim_navigation").addNavigationKeys(config)
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
 local act = wezterm.action
 
 config.font = wezterm.font("JetBrains Mono")
 config.window_frame = {
-	font = wezterm.font({ family = "Cantarell", weight = "Regular" }),
+	font = wezterm.font({
+		family = "Cantarell",
+		weight = "Regular",
+	}),
 }
-config.window_frame = {
-	active_titlebar_bg = colors.bg.inactive,
-}
--- config.window_background_opacity = 0.97
+config.window_frame = { active_titlebar_bg = colors.bg.inactive }
 config.macos_window_background_blur = 20
 config.color_scheme = "Catppuccin Mocha"
 config.status_update_interval = 1000
@@ -66,8 +64,8 @@ config.term = "wezterm"
 
 wezterm.on("update-right-status", function(window, _)
 	local name = wezterm.mux.get_active_workspace()
-	local workspaces = wezterm.mux.get_workspace_names()
-	local num_of_workspaces = #workspaces
+	local workspace_names = wezterm.mux.get_workspace_names()
+	local num_of_workspaces = #workspace_names
 
 	-- only show worspace title if name is not "default" or more then one workspaces exists
 	if name ~= "default" or num_of_workspaces > 1 then
@@ -78,7 +76,7 @@ wezterm.on("update-right-status", function(window, _)
 			{ Text = space },
 			{ Text = wezterm.nerdfonts.fa_window_restore },
 			{ Text = space },
-			{ Text = window:active_workspace() },
+			{ Text = string.gsub(name, "(.*[/\\])(.*)", "%2") },
 			{ Text = space },
 		}))
 	end
@@ -149,6 +147,13 @@ local new_keys = {
 		mods = "CTRL|SHIFT",
 		action = act.ActivateKeyTable({ name = "workspace", one_shot = true }),
 	},
+	{
+		key = "Space",
+		mods = "CTRL|SHIFT",
+		action = wezterm.plugin
+			.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+			.switch_workspace(),
+	},
 }
 utils.merge_keybindings(config, new_keys)
 
@@ -193,53 +198,9 @@ config.key_tables = {
 				end),
 			}),
 		},
-		-- open predefined workspace
+		-- switch between space (without smart-workspace-switcher)
 		{
-			key = "o",
-			action = wezterm.action_callback(function(window, pane)
-				local home = wezterm.home_dir
-				local workspaces = {
-					{ id = home, label = "Home" },
-					{ id = home .. "/work", label = "Work" },
-					{ id = home .. "/Developer/elixir/loki", label = "Loki" },
-					{ id = home .. "/.dotfiles", label = "dotfiles" },
-				}
-
-				window:perform_action(
-					act.InputSelector({
-						description = wezterm.format({
-							{ Attribute = { Intensity = "Bold" } },
-							{ Foreground = { Color = colors.fg.active } },
-							{ Text = "Open or create workspace:" },
-						}),
-						action = wezterm.action_callback(function(inner_window, inner_pane, id, label)
-							if not id and not label then
-								wezterm.log_info("cancelled")
-							else
-								wezterm.log_info("id = " .. id)
-								wezterm.log_info("label = " .. label)
-								inner_window:perform_action(
-									act.SwitchToWorkspace({
-										name = label,
-										spawn = {
-											label = "Workspace: " .. label,
-											cwd = id,
-										},
-									}),
-									inner_pane
-								)
-							end
-						end),
-						choices = workspaces,
-						fuzzy = false,
-					}),
-					pane
-				)
-			end),
-		},
-		-- Switch between workspace
-		{
-			key = "s",
+			key = "Space",
 			action = wezterm.action_callback(function(window, pane)
 				local choices = {}
 				for _, value in ipairs(wezterm.mux.get_workspace_names()) do
@@ -250,7 +211,7 @@ config.key_tables = {
 					act.InputSelector({
 						description = wezterm.format({
 							{ Attribute = { Intensity = "Bold" } },
-							{ Foreground = { Color = colors.fg.active } },
+							{ Foreground = { Color = colors.fg.outline } },
 							{ Text = "Switch to workspace:" },
 						}),
 						action = wezterm.action_callback(function(inner_window, inner_pane, _, label)
@@ -277,5 +238,20 @@ for i = 1, 9 do
 		action = act.ActivateTab(i - 1),
 	})
 end
+
+-----------------------------------------------------------------------------------------------------------------------
+-- PLUGINS
+
+workspace_switcher.apply_to_config(config)
+workspace_switcher.workspace_formatter = function(label)
+	return wezterm.format({
+		{ Attribute = { Italic = true } },
+		{ Foreground = { Color = colors.fg.outline } },
+		{ Background = { Color = colors.bg.active } },
+		{ Text = wezterm.nerdfonts.fa_window_restore .. "  " .. label },
+	})
+end
+
+wezterm.plugin.update_all()
 
 return config
