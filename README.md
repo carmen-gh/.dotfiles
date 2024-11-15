@@ -31,8 +31,9 @@
 
 ---
 
-not used
+not used anymore or not regularly 
 
 - tmux
 - rofi
 - LazyVim
+- yabai
