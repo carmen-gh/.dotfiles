@@ -152,7 +152,7 @@ local new_keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.plugin
 			.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
-			.switch_workspace(),
+			.switch_workspace({ extra_args = " | head -n 20" }), -- limit results from zoxide to 20
 	},
 }
 utils.merge_keybindings(config, new_keys)
