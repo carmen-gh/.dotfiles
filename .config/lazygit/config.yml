@@ -27,20 +27,35 @@ gui:
   # use the frappe catpucchin theme
   theme:
     activeBorderColor:
-      - "#ebcb8b" # yellow
+      - "#f9e2af" # yellow
       - bold
     inactiveBorderColor:
       - "#838ba7" # Overlay1
     optionsTextColor:
       - "#8caaee" # Blue
     selectedLineBgColor:
-      - "#51576d" # Surface0
+      - "#414559"
+      - bold
     cherryPickedCommitBgColor:
       - "#81c8be" # Teal
     cherryPickedCommitFgColor:
       - "#8caaee" # Blue
     unstagedChangesColor:
       - "#ea999c" # Red
+
+  spinner:
+    frames:
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
+    rate: 80
 
 os:
   editPreset: "nvim"
@@ -72,18 +87,9 @@ customCommands:
           - name: "docs"
             description: "Documentation only changes"
             value: "docs"
-          - name: "perf"
-            description: "A code change that improves performance"
-            value: "perf"
           - name: "refactor"
             description: "A code change that neither fixes a bug nor adds a feature"
             value: "refactor"
-          - name: "revert"
-            description: "Reverts a previous commit"
-            value: "revert"
-          - name: "style"
-            description: "Changes that do not affect the meaning of the code"
-            value: "style"
           - name: "test"
             description: "Adding missing tests or correcting existing tests"
             value: "test"
