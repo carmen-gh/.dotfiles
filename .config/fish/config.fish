@@ -4,7 +4,6 @@ zoxide init fish | source
 
 /usr/bin/mise activate fish | source
 
-source ~/.asdf/asdf.fish
 
 set -U fish_greeting # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
@@ -105,3 +104,4 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
+mise activate fish | source
