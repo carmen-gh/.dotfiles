@@ -1,4 +1,4 @@
-local textColorLight = "#6c7086"
+-- local textColorLight = "#6c7086"
 
 local components = {
   mode = {
@@ -56,6 +56,12 @@ local components = {
       end
     end,
   },
+  harpoon = {
+    "harpoon2",
+    icon = "",
+    _separator = " ",
+    no_harpoon = "",
+  },
 }
 
 return {
@@ -91,6 +97,9 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "letieu/harpoon-lualine",
+    },
     opts = function()
       return {
         options = {
@@ -122,6 +131,7 @@ return {
           lualine_x = {
             components.dap,
             components.flutter_device,
+            components.harpoon,
             -- components.lsp_status,
             {
               "progress",
