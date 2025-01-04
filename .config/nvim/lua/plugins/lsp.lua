@@ -77,6 +77,7 @@ return {
         "lua_ls",
         "marksman",
         "rust_analyzer",
+        "tailwindcss",
         "yamlls",
       }
 
@@ -139,6 +140,12 @@ return {
         ["gopls"] = function()
           lspconfig.gopls.setup({
             settings = require("plugins.lsp-settings.gopls").settings,
+          })
+        end,
+
+        ["tailwindcss"] = function()
+          lspconfig.tailwindcss.setup({
+            settings = require("plugins.lsp-settings.tailwindcss").settings,
           })
         end,
       }

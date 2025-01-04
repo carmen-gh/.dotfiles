@@ -94,18 +94,11 @@ return {
     opts = {
       bigfile = { enabled = true },
       bufdelete = { enabled = false },
-      notifier = {
-        enabled = true,
-        timeout = 3000,
-      },
+      notifier = { enabled = true, timeout = 3000 },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
-      styles = {
-        notification = {
-          wo = { wrap = true }, -- Wrap notifications
-        },
-      },
+      styles = { notification = { wo = { wrap = true } } },
     },
     keys = {
   -- stylua: ignore start
