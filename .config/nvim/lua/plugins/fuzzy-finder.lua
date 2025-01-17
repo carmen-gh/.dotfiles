@@ -69,7 +69,7 @@ return {
 
       -- keys
       -- stylua: ignore start
-      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=dropdown previewer=false<cr>", { desc = "files"})
+      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true theme=dropdown previewer=false<cr>", { desc = "files"})
       vim.keymap.set("n", "<leader>fs", builtin.live_grep, {desc = "string"})
       vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git files" })
       vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "find word under cursor"})
