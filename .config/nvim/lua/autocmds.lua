@@ -101,6 +101,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 -- Disable miniindentscope on filetype
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
+    "Trouble",
     "alpha",
     "dashboard",
     "fzf",
@@ -110,8 +111,11 @@ vim.api.nvim_create_autocmd("FileType", {
     "mason",
     "neo-tree",
     "notify",
+    "snacks_dashboard",
+    "snacks_notif",
+    "snacks_terminal",
+    "snacks_win",
     "toggleterm",
-    "Trouble",
     "trouble",
   },
   callback = function()

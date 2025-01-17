@@ -2,11 +2,40 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+    build = function()
+      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+      vim.fn["mkdp#util#install"]()
     end,
-    ft = { "markdown" },
+    keys = {
+      {
+        "<leader>cp",
+        ft = "markdown",
+        "<cmd>MarkdownPreviewToggle<cr>",
+        desc = "Markdown Preview",
+      },
+    },
+    -- config = function()
+    --   vim.cmd([[do FileType]])
+    -- end,
+    ft = "markdown, puml",
+    init = function()
+      local g = vim.g
+      g.mkdp_auto_start = 0
+      g.mkdp_auto_close = 1
+      g.mkdp_refresh_slow = 0
+      g.mkdp_command_for_global = 0
+      g.mkdp_open_to_the_world = 0
+      g.mkdp_open_ip = ""
+      g.mkdp_browser = "chrome"
+      g.mkdp_echo_preview_url = 0
+      g.mkdp_browserfunc = ""
+      g.mkdp_theme = "dark"
+      g.mkdp_filetypes = { "markdown", "puml" }
+      g.mkdp_preview_options = {
+        disable_sync_scroll = 0,
+        disable_filename = 1,
+      }
+    end,
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",

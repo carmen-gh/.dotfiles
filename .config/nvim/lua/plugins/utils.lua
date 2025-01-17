@@ -1,16 +1,8 @@
 return {
   { "tpope/vim-sleuth" },
   { "windwp/nvim-ts-autotag" },
-  {
-    "folke/ts-comments.nvim",
-    opts = {},
-    event = "VeryLazy",
-  },
-  {
-    "stevearc/dressing.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
+  { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
+  { "stevearc/dressing.nvim", event = "VeryLazy", opts = {} },
   {
     "hiphish/rainbow-delimiters.nvim",
     url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
@@ -80,9 +72,40 @@ return {
       })
       require("mini.splitjoin").setup()
       require("mini.move").setup()
-      require("mini.indentscope").setup({
-        symbol = "▏",
-        draw = { animation = require("mini.indentscope").gen_animation.none() },
+    end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = false, -- wait till new 0.7.0 release to put it back on semver
+    lazy = true,
+    opts = {
+      -- symbol = "▏",
+      symbol = "│",
+      options = { try_as_border = true },
+      -- draw = { animation = MiniIndentscope.gen_animation.none },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "Trouble",
+          "alpha",
+          "dashboard",
+          "fzf",
+          "help",
+          "lazy",
+          "mason",
+          "neo-tree",
+          "notify",
+          "snacks_dashboard",
+          "snacks_notif",
+          "snacks_terminal",
+          "snacks_win",
+          "trouble",
+          "toggleterm",
+        },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
       })
     end,
   },
@@ -92,23 +115,27 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+      animate = { enabled = false },
       bigfile = { enabled = true },
       bufdelete = { enabled = false },
       notifier = { enabled = true, timeout = 3000 },
       quickfile = { enabled = true },
+      rename = { enabled = false },
+      scope = { enabled = false },
+      scratch = { enabled = false },
+      scroll = { enabled = false },
       statuscolumn = { enabled = true },
       words = { enabled = true },
       styles = { notification = { wo = { wrap = true } } },
     },
     keys = {
   -- stylua: ignore start
-      {"<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit",},
       {"<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit",},
       {"<leader>gl", function() Snacks.git.blame_line() end, desc = "Git Blame Line",},
       {"<leader>gB", function() Snacks.gitbrowse() end, desc = "Open Git Browser",},
       {"<leader>gh", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History",},
       {"<leader>gL", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)",},
-      {"<leader>cR", function() Snacks.rename() end, desc = "Rename File",},
+      -- {"<leader>cR", function() Snacks.rename() end, desc = "Rename File",},
       {"<leader>fn", function() Snacks.notifier.show_history() end, desc ="notifications",},
       {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
       {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
