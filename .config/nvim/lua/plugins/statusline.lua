@@ -3,7 +3,6 @@
 local components = {
   mode = {
     "mode",
-    padding = { left = 2, right = 2 },
     separator = { left = "", right = "" },
     color = { gui = "bold" },
   },
