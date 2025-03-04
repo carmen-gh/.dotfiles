@@ -36,9 +36,15 @@ return {
           },
         },
         defaults = {
-          path_display = {
-            "filename_first",
-          },
+          path_display = function(_, path)
+            local cwd = vim.fn.getcwd() -- Get the current working directory
+            local rel_path = string.gsub(path, cwd .. "/", "") -- Make the path relative to cwd
+            local directory = vim.fn.fnamemodify(rel_path, ":h") -- Extract the directory
+            local filename = vim.fn.fnamemodify(rel_path, ":t") -- Extract the filename
+            local formatted = string.format("%s/%s", directory, filename)
+            local highlights = { { { 0, #directory }, "Comment" } } -- set highlight group for directory
+            return formatted, highlights
+          end,
           prompt_prefix = "  ",
           selection_caret = "󰄾 ",
           file_ignore_patterns = {
@@ -69,7 +75,7 @@ return {
 
       -- keys
       -- stylua: ignore start
-      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true theme=dropdown previewer=false<cr>", { desc = "files"})
+      vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files hidden=true<cr>", { desc = "files"})
       vim.keymap.set("n", "<leader>fs", builtin.live_grep, {desc = "string"})
       vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "git files" })
       vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "find word under cursor"})
