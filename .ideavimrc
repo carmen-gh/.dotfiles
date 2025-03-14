@@ -56,7 +56,7 @@ let g:WhichKeyDesc_comment = "gc"
 " use space as leader
 map <Space> <leader>
 
-" use ;; for escape
+" use jj for escape
 inoremap jj <Esc>
 
 "disable key movement in normal, visual, select, and operator-pending modes
@@ -82,10 +82,6 @@ nnoremap Y y$
 " copy method or json object
 nnoremap YY va{Vy}
 
-" increment and decrement number
-" nnoremap <leader>+ <C-a>
-" nnoremap <leader>- <C-x>
-
 " window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -99,15 +95,16 @@ map <C-l> <C-w>l
 "inoremap <A-n> <Action>(PopupMenu-selectNext)
 "inoremap <A-p> <Action>(PopupMenu-selectPrev)
 
-" \n open and focus NERDTree on current open file
-map <leader>e :NERDTreeFind<CR>
-let g:WhichKeyDesc_leader_explorer = "<leader>e open file in File Explorer"
+" current open file: settings > behavior > Always select opened file
+map <leader>e :NERDTreeToggle<CR>
+let g:WhichKeyDesc_leader_explorer = "<leader>e open Project Explorer"
 
 
 "map <leader>s <Action>(Switcher)
 
-map ]t <Action>(NextTab)
-map [t <Action>(PreviousTab)
+"use buffer terminology from vim instead of tabs
+map ]b <Action>(NextTab)
+map [b <Action>(PreviousTab)
 
 " Debug (d)
 " TODO add
@@ -125,9 +122,6 @@ map <leader>dt <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_leader_debug = "<leader>d +Debug"
 let g:WhichKeyDesc_debug_breakpoint = "<leader>dt toggle Breakpoint"
 
-" Quit (q) close
-map <leader>q <Action>(CloseEditor)
-let g:WhichKeyDesc_leader_quit = "<leader>q quit tab"
 
 " Test (t) 
 map gt <Action>(GotoTest)
@@ -186,6 +180,7 @@ let g:WhichKeyDesc_split_unsplit = "<leader>su unsplit"
 
 " Find (f)
 map <leader>ff <Action>(GotoFile)
+map <leader>fb <Action>(Switcher)
 map <leader>fs <Action>(FindInPath)
 map <leader>fu <Action>(FindUsages)
 map <leader>fo <Action>(RecentFiles)
@@ -194,14 +189,15 @@ map <leader>fa <Action>(GotoAction)
 map <leader>fl <Action>(RecentLocations)
 map <leader>fm <Action>(ShowBookmarks)
 let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
-let g:WhichKeyDesc_finder_file = "<leader>ff Find file (Name)"
-let g:WhichKeyDesc_finder_string = "<leader>fs Find string"
-let g:WhichKeyDesc_finder_usage = "<leader>fu Find usage"
+let g:WhichKeyDesc_finder_file = "<leader>ff file (Name)"
+let g:WhichKeyDesc_finder_buffer = "<leader>fb open buffer (tab)"
+let g:WhichKeyDesc_finder_string = "<leader>fs string"
+let g:WhichKeyDesc_finder_usage = "<leader>fu usage"
 let g:WhichKeyDesc_finder_recent = "<leader>fo old files"
 let g:WhichKeyDesc_finder_everywhere = "<leader>fe everywhere"
 let g:WhichKeyDesc_finder_action = "<leader>fa action"
 let g:WhichKeyDesc_finder_location = "<leader>fl recent location"
-let g:WhichKeyDesc_finder_marks = "<leader>fm Find Marks"
+let g:WhichKeyDesc_finder_marks = "<leader>fm Marks"
 
 " Views (v)
 map <leader>vb <Action>(ActivateBuildToolWindow)
@@ -251,7 +247,7 @@ let g:WhichKeyDesc_leader_lsp = "<leader>c +code"
 let g:WhichKeyDesc_lsp_action = "<leader>ca code action"
 let g:WhichKeyDesc_lsp_diagnostic = "<leader>cd problems file (diagnostics)"
 let g:WhichKeyDesc_lsp_format = "<leader>cf format"
-"let g:WhichKeyDesc_lsp_previewDiagnostic = "<leader>lk prev diagnostic"
+let g:WhichKeyDesc_lsp_generate = "<leader>cg generate options"
 let g:WhichKeyDesc_lsp_rename = "<leader>cr rename"
 let g:WhichKeyDesc_lsp_usage = "<leader>cu usage"
 let g:WhichKeyDesc_lsp_imports = "<leader>co optimize imports"
@@ -288,26 +284,25 @@ let g:WhichKeyDesc_marks_goto5 = "g5 go to mark 5"
 map <leader>gn <Action>(Git.CreateNewBranch)
 map <leader>ga <Action>(Git.Branches)
 map <leader>gb <Action>(GitToolBox.SwitchRecentBranches)
-map <leader>gj <Action>(VcsShowNextChangeMarker)
-map <leader>gk <Action>(VcsShowPrevChangeMarker)
 map <leader>gd <Action>(Compare.LastVersion)
 map <leader>gr <Action>(Vcs.RollbackChangedLines)
 map <leader>gc <Action>(ActivateCommitToolWindow)
 map <leader>gl <Action>(Annotate)
 map <leader>gp <Action>(Vcs.UpdateProject)
+map <leader>gm <Action>(Vcs.UpdateProject)
+map <leader>gL <Action>(ActivateVersionControlToolWindow)
 map [h <Action>(VcsShowPrevChangeMarker)
 map ]h <Action>(VcsShowNextChangeMarker)
 let g:WhichKeyDesc_leader_git = "<leader>g +Git"
 let g:WhichKeyDesc_git_new = "<leader>gn new branch"
 let g:WhichKeyDesc_git_action = "<leader>ga action panel"
 let g:WhichKeyDesc_git_branch = "<leader>gb switch branch"
-let g:WhichKeyDesc_git_nextHunk = "<leader>gj next hunk"
-let g:WhichKeyDesc_git_prevHunk = "<leader>gk prev hunk"
 let g:WhichKeyDesc_git_diff = "<leader>gd diff"
 let g:WhichKeyDesc_git_rollback = "<leader>gr rollback"
 let g:WhichKeyDesc_git_commit = "<leader>gc commit"
 let g:WhichKeyDesc_git_blame = "<leader>gl blame"
 let g:WhichKeyDesc_git_update = "<leader>gp pull (update project)"
+let g:WhichKeyDesc_git_log = "<leader>gL open logs"
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 " find actions in  :actionlist
