@@ -1,97 +1,55 @@
 git:
-    paging:
-        colorArg: always
-        pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
-    log:
-        order: "topo-order"
-        # showGraph: "always"
-    branchLogCmd: "git log --graph --pretty=custom"
-    allBranchesLogCmd: "git log --graph --pretty=custom"
-    mainBranches: [master, main, develop]
-    commitPrefixes:
-        android: # repository folder name
-            - pattern: "(IMOWAPP-[0-9]{4}).*" # extraxt ticket number from branch name and place it in commit message
-              replace: "[$1]"
+  paging:
+    colorArg: always
+    pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  branchLogCmd: "git log --graph --color=always --pretty=custom"
+  allBranchesLogCmd: "git log --graph --color=always --pretty=custom"
+  mainBranches: [master, main, develop]
+
+  commitPrefixes:
+    android: # repository folder name
+      - pattern: "(IMOWAPP-[0-9]{4}).*" # extraxt ticket number from branch name and place it in commit message
+        replace: "[$1]"
 gui:
-    nerdFontsVersion: "3"
-    sidePanelWidth: 0.2
-    showBottomLine: true
-    border: "rounded"
-    branchColors:
-        "release": "#838ba7" # for branches beginning with 'release/'
-    authorColors:
-        "Carmen Geelhaar": "#ca9ee6"
-        "camina": "#ca9ee6"
-        "*": "#85c1dc" # sapphire
-    # use the frappe catpucchin theme
-    theme:
-        activeBorderColor:
-            - "#f9e2af" # yellow
-            - bold
-        inactiveBorderColor:
-            - "#838ba7" # Overlay1
-        optionsTextColor:
-            - "#8caaee" # Blue
-        selectedLineBgColor:
-            - "#414559"
-            - bold
-        cherryPickedCommitBgColor:
-            - "#81c8be" # Teal
-        cherryPickedCommitFgColor:
-            - "#8caaee" # Blue
-        unstagedChangesColor:
-            - "#ea999c" # Red
-    spinner:
-        frames:
-            - "⠋"
-            - "⠙"
-            - "⠹"
-            - "⠸"
-            - "⠼"
-            - "⠴"
-            - "⠦"
-            - "⠧"
-            - "⠇"
-            - "⠏"
-        rate: 80
+  nerdFontsVersion: "3"
+  sidePanelWidth: 0.2
+  enlargedSideViewLocation: top
+  showBottomLine: true
+  branchColors:
+    "release": "#838ba7" # for branches beginning with 'release/'
+  authorColors:
+    "Carmen Geelhaar": "#ca9ee6"
+    "camina": "#ca9ee6"
+    "*": "#85c1dc"
+  theme:
+    activeBorderColor:
+      - "#f9e2af"
+      - bold
+    inactiveBorderColor:
+      - "#838ba7"
+    optionsTextColor:
+      - "#8caaee"
+    selectedLineBgColor:
+      - "#414559"
+      - bold
+    cherryPickedCommitBgColor:
+      - "#81c8be"
+    cherryPickedCommitFgColor:
+      - "#8caaee"
+    unstagedChangesColor:
+      - "#ea999c"
+  spinner:
+    frames:
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
+    rate: 80
 os:
-    editPreset: "nvim"
-customCommands:
-    - key: "<c-v>"
-      context: "global"
-      description: "Create new conventional commit"
-      prompts:
-        - type: "menu"
-          key: "Type"
-          title: "Type of change"
-          options:
-            - name: "feat"
-              description: "A new feature"
-              value: "feat"
-            - name: "fix"
-              description: "A bug fix"
-              value: "fix"
-            - name: "build"
-              description: "Changes that affect the build system or external dependencies"
-              value: "build"
-            - name: "chore"
-              description: "Other changes that don't modify src or test files"
-              value: "chore"
-            - name: "ci"
-              description: "Changes to CI configuration files and scripts"
-              value: "ci"
-            - name: "docs"
-              description: "Documentation only changes"
-              value: "docs"
-            - name: "refactor"
-              description: "A code change that neither fixes a bug nor adds a feature"
-              value: "refactor"
-            - name: "test"
-              description: "Adding missing tests or correcting existing tests"
-              value: "test"
-        - type: "input"
-          title: "message"
-          key: "Message"
-          initialValue: ""
-      command: "git commit --message '{{.Form.Type}}: {{.Form.Message}}'"
-      loadingText: "Creating conventional commit..."
+  editPreset: "nvim"
