@@ -190,7 +190,7 @@ map <leader>fl <Action>(RecentLocations)
 map <leader>fm <Action>(ShowBookmarks)
 let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
 let g:WhichKeyDesc_finder_file = "<leader>ff file (Name)"
-let g:WhichKeyDesc_finder_buffer = "<leader>fb open buffer (tab)"
+let g:WhichKeyDesc_finder_buffer = "<leader>fb open buffer (switcher)"
 let g:WhichKeyDesc_finder_string = "<leader>fs string"
 let g:WhichKeyDesc_finder_usage = "<leader>fu usage"
 let g:WhichKeyDesc_finder_recent = "<leader>fo old files"
