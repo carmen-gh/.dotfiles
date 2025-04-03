@@ -97,7 +97,7 @@ return {
       lazygit = { enabled = true },
       notifier = { enabled = true, timeout = 3000 },
       notify = { enabled = true },
-      picker = { enabled = false },
+      picker = { enabled = true },
       profiler = { enabled = false },
       quickfile = { enabled = true },
       rename = { enabled = false },
@@ -126,6 +126,41 @@ return {
       -- words
       {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
       {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
+      -- PICKER
+      -- find
+      { "<leader><space>", function() Snacks.picker.smart({ layout = "ivy" }) end, desc = "Smart Find Files" },
+      { "<leader>fb", function() Snacks.picker.buffers({ layout = "select" }) end, desc = "Buffers" },
+      { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+      { "<leader>ff", function() Snacks.picker.files({ layout = "ivy" }) end, desc = "Find Files" },
+      { "<leader>fp", function() Snacks.picker.projects({ layout = "select" }) end, desc = "Projects" },
+      { "<leader>fo", function() Snacks.picker.recent({ layout = "ivy" }) end, desc = "Old files" },
+      { "<leader>fB", function() Snacks.picker.grep_buffers({ layout = "ivy" }) end, desc = "Grep Open Buffers" },
+      { "<leader>fg", function() Snacks.picker.grep({ layout = "ivy" }) end, desc = "Grep" },
+      { "<leader>fw", function() Snacks.picker.grep_word({ layout = "ivy" }) end, desc = "Visual selection or word", mode = { "n", "x" } },
+      { '<leader>f"', function() Snacks.picker.registers({ layout = "ivy" }) end, desc = "Registers" },
+      { '<leader>f/', function() Snacks.picker.search_history({ layout = "ivy" }) end, desc = "Search History" },
+      { "<leader>fh", function() Snacks.picker.help({ layout = "ivy" }) end, desc = "Help Pages" },
+      { "<leader>fk", function() Snacks.picker.keymaps({ layout = "ivy" }) end, desc = "Keymaps" },
+      { "<leader>fm", function() Snacks.picker.marks() end, desc = "Marks" },
+      { "<leader>fn", function() Snacks.picker.notifications({ layout = "ivy" }) end, desc = "Notifications" },
+      { "<leader>fR", function() Snacks.picker.resume({ layout = "ivy" }) end, desc = "Resume" },
+      { "<leader>fu", function() Snacks.picker.undo({ layout = "ivy" }) end, desc = "Undo History" },
+      -- Diagnostics
+      { "<leader>xd", function() Snacks.picker.diagnostics({ layout = "ivy" }) end, desc = "Diagnostics" },
+      { "<leader>xD", function() Snacks.picker.diagnostics_buffer({ layout = "ivy" }) end, desc = "Buffer Diagnostics" },
+      -- git
+      -- { "<leader>fg", function() Snacks.picker.git_files({ layout = "ivy" }) end, desc = "Find Git Files" },
+      -- { "<leader>fs", function() Snacks.picker.git_status({ layout = "ivy" }) end, desc = "Find Git Status" },
+      { "<leader>gb", function() Snacks.picker.git_branches({ layout = "select"}) end, desc = "Git Branches" },
+      -- LSP
+      { "gd", function() Snacks.picker.lsp_definitions({ layout = "ivy" }) end, desc = "Goto Definition" },
+      { "gD", function() Snacks.picker.lsp_declarations({ layout = "ivy" }) end, desc = "Goto Declaration" },
+      { "gr", function() Snacks.picker.lsp_references({ layout = "ivy" }) end, nowait = true, desc = "References" },
+      { "gI", function() Snacks.picker.lsp_implementations({ layout = "ivy" }) end, desc = "Goto Implementation" },
+      { "gy", function() Snacks.picker.lsp_type_definitions({ layout = "ivy" }) end, desc = "Goto T[y]pe Definition" },
+      { "<leader>fs", function() Snacks.picker.lsp_symbols({ layout = "right" }) end, desc = "LSP Symbols" },
+      { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols({ layout = "right" }) end, desc = "LSP Workspace Symbols" },
+      { "<leader>fH", function() Snacks.picker.highlights({pattern = "hl_group:^Snacks"}) end, desc = "LSP Workspace Symbols" },
       -- stylua: ignore end
     },
     init = function()
@@ -144,7 +179,7 @@ return {
           -- Create some toggle mappings
           Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
           Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-          Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
+          Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>ul")
           Snacks.toggle.diagnostics():map("<leader>ud")
           Snacks.toggle
             .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })

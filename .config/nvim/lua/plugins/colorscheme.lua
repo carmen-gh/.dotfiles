@@ -38,6 +38,7 @@ return {
         treesitter_context = true,
         rainbow_delimiters = true,
         semantic_tokens = true,
+        snacks = { enabled = true },
         telescope = {
           enabled = true,
         },
