@@ -21,10 +21,6 @@ return {
         harpoon = true,
         markdown = true,
         mason = true,
-        mini = {
-          enabled = true,
-          indentscope_color = "surface2",
-        },
         neotree = true,
         neotest = true,
         native_lsp = {
@@ -66,6 +62,7 @@ return {
           GitSignsChange = { fg = colors.peach },
           LazyGitFloat = { bg = colors.mantle },
           LazyGitBorder = { fg = colors.mantle },
+          IblScope = { fg = colors.surface2 },
         }
       end,
     },

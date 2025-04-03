@@ -4,6 +4,14 @@ return {
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
   { "stevearc/dressing.nvim", event = "VeryLazy", opts = {} },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
+    main = "ibl",
+    opts = {
+      scope = { enabled = true, show_start = false },
+    },
+  },
+  {
     "hiphish/rainbow-delimiters.nvim",
     url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
     event = "BufReadPost",
@@ -36,79 +44,31 @@ return {
           { "<leader>q", group = "quit" },
           { "<leader>x", group = "quickfix" },
         },
-        win = {
-          title = false,
-        },
-        icons = {
-          rules = false,
-        },
+        win = { title = false },
+        icons = { rules = false },
       })
     end,
   },
   {
     "echasnovski/mini.icons",
-    lazy = true,
     opts = {},
+    lazy = true,
+    specs = {
+      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    },
     init = function()
+      -- support plugins which only support nvim-web-devicons
       package.preload["nvim-web-devicons"] = function()
         require("mini.icons").mock_nvim_web_devicons()
         return package.loaded["nvim-web-devicons"]
       end
     end,
   },
-  {
-    "echasnovski/mini.nvim",
-    version = false,
-    config = function()
-      require("mini.ai").setup({ n_lines = 500 })
-      require("mini.surround").setup()
-      require("mini.misc").setup()
-      require("mini.pairs").setup({
-        modes = { insert = true, command = true, terminal = false },
-        skip_next = [=[[%w%%%'%[%"%.%`%$]]=], -- skip autopair when next character is one of these
-        skip_ts = { "string" }, -- skip autopair when the cursor is inside these treesitter nodes
-        skip_unbalanced = true, -- skip autopair when next character is closing pair and there are more closing pairs than opening pairs
-        markdown = true, -- better deal with markdown code blocks
-      })
-      require("mini.splitjoin").setup()
-      require("mini.move").setup()
-    end,
-  },
-  {
-    "echasnovski/mini.indentscope",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
-    lazy = true,
-    opts = {
-      -- symbol = "▏",
-      symbol = "│",
-      options = { try_as_border = true },
-      -- draw = { animation = MiniIndentscope.gen_animation.none },
-    },
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "Trouble",
-          "alpha",
-          "dashboard",
-          "fzf",
-          "help",
-          "lazy",
-          "mason",
-          "neo-tree",
-          "notify",
-          "snacks_dashboard",
-          "snacks_notif",
-          "snacks_terminal",
-          "snacks_win",
-          "trouble",
-          "toggleterm",
-        },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end,
-  },
+  { "echasnovski/mini.ai", version = false, opts = { n_lines = 500 } },
+  { "echasnovski/mini.surround", version = false, opts = {} },
+  { "echasnovski/mini.splitjoin", version = false, opts = {} },
+  { "echasnovski/mini.move", version = false, opts = {} },
+  { "echasnovski/mini.pairs", version = false, opts = {} },
   {
     "folke/snacks.nvim",
     priority = 1000,
@@ -116,6 +76,7 @@ return {
     ---@type snacks.Config
     opts = {
       animate = { enabled = false },
+      indent = { enabled = false },
       bigfile = { enabled = true },
       bufdelete = { enabled = false },
       notifier = { enabled = true, timeout = 3000 },
