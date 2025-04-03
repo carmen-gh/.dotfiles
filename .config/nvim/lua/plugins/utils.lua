@@ -121,7 +121,7 @@ return {
       {"<leader>fn", function() Snacks.notifier.show_history() end, desc ="notifications",},
       -- terminal
       {"<C-t>", function() Snacks.terminal() end, { desc = "Open terminal" }},
-      {"<C-t>", "<cmd>close<cr>", mode="t", { desc = "Hide Terminal" }},
+      {"<C-t>", "<cmd>close<cr>", mode = "t", { desc = "Hide Terminal" }},
       -- words
       {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
       {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
