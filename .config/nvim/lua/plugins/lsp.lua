@@ -13,9 +13,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<C-k>", vim.lsp.buf.signature_help, "singnature help")
     map("n", "<leader>cr", vim.lsp.buf.rename, "rename")
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "code action")
-    map("n", "<leader>xd", "<cmd>Telescope diagnostics theme=ivy<cr>", "diagnostics")
-    map("n", "gr", "<cmd>Telescope lsp_references theme=ivy<cr>", "go to references")
-    map("n", "<leader>fr", "<cmd>Telescope lsp_references theme=ivy<cr>", "references")
 
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
