@@ -29,9 +29,9 @@ return {
     }
     -- Set menu
     dashboard.section.buttons.val = {
-      dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert <CR>"),
-      dashboard.button("f", "  Find file", "<cmd>Telescope find_files theme=dropdown previewer=false<CR>"),
-      dashboard.button("o", "  Recent files", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>"),
+      -- dashboard.button("e", "  New file", "<cmd>ene <BAR> startinsert <CR>"),
+      -- dashboard.button("f", "  Find file", "<cmd>Telescope find_files theme=dropdown previewer=false<CR>"),
+      -- dashboard.button("o", "  Recent files", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>"),
       dashboard.button("d", "  Diffview", "<cmd>DiffviewOpen<CR>"),
       dashboard.button("s", "  Settings", ":e $MYVIMRC | :cd %:h<CR>"),
       dashboard.button("u", "  Update", "<cmd>Lazy update<cr>"),

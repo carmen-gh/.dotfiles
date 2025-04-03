@@ -86,6 +86,12 @@ return {
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "keymaps" })
       vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles theme=dropdown previewer=false<cr>", { desc = "oldfiles" })
       vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "undo history"})
+      -- lsp
+      vim.keymap.set("n", "<leader>xd", "<cmd>Telescope diagnostics theme=ivy<cr>", { desc = "diagnostics" })
+      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references theme=ivy<cr>", { desc = "go to references" })
+      vim.keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references theme=ivy<cr>", { desc = "references" })
+      -- git
+      vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=dropdown previewer=false<cr>", { desc = "branch" })
       -- stylua: ignore end
 
       -- extensions
