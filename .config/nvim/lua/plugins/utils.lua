@@ -131,7 +131,7 @@ return {
       { "<leader><space>", function() Snacks.picker.smart({ layout = "ivy" }) end, desc = "Smart Find Files" },
       { "<leader>fb", function() Snacks.picker.buffers({ layout = "select" }) end, desc = "Buffers" },
       { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-      { "<leader>ff", function() Snacks.picker.files({ layout = "ivy" }) end, desc = "Find Files" },
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
       { "<leader>fp", function() Snacks.picker.projects({ layout = "select" }) end, desc = "Projects" },
       { "<leader>fo", function() Snacks.picker.recent({ layout = "ivy" }) end, desc = "Old files" },
       { "<leader>fB", function() Snacks.picker.grep_buffers({ layout = "ivy" }) end, desc = "Grep Open Buffers" },
