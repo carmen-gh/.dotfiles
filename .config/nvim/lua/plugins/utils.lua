@@ -35,17 +35,23 @@ return {
     config = function()
       local wk = require("which-key")
       wk.setup({
-        preset = "modern",
+        preset = "helix",
         spec = {
+          { "<leader>1", hidden = true },
+          { "<leader>2", hidden = true },
+          { "<leader>3", hidden = true },
+          { "<leader>4", hidden = true },
+          { "<leader>5", hidden = true },
+          { "<leader>lg", hidden = true },
+          { "<leader>o", hidden = true },
           { "<leader>c", group = "code" },
           { "<leader>d", group = "debug" },
           { "<leader>f", group = "file" },
           { "<leader>g", group = "git" },
+          { "<leader>u", group = "toggle" },
           { "<leader>q", group = "quit" },
           { "<leader>x", group = "quickfix" },
         },
-        win = { title = false },
-        icons = { rules = false },
       })
     end,
   },
