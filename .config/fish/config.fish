@@ -15,8 +15,12 @@ set -gx fish_cursor_insert line blink
 set -gx fish_cursor_visual block
 set -gx fish_cursor_replace_one underscore
 
-set -Ux EDITOR nvim
-set -Ux VISUAL nvim
+# set -Ux EDITOR nvim
+# set -Ux VISUAL nvim
+
+set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
 # set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 # set -UX FZF_DEFAULT_OPTS " \
 # --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
@@ -62,6 +66,8 @@ fish_add_path $HOME/.fly/bin
 # other
 fish_add_path $HOME/.local/bin/
 
+# gems
+fish_add_path $HOME/bin/
 
 
 # Abbreviations
@@ -78,6 +84,8 @@ alias ll 'eza --group-directories-first --icons -lh --git'
 alias la 'eza --group-directories-first --icons -lh --git -a'
 alias tree 'eza --group-directories-first --icons -lh --git --tree --level=2'
 alias lazyvim 'NVIM_APPNAME=lazyvim nvim'
+alias nvchad 'NVIM_APPNAME=nvchad nvim'
+alias kickstart 'NVIM_APPNAME=kickstart nvim'
 
 abbr mv 'mv -i'
 abbr cp 'cp -i'
