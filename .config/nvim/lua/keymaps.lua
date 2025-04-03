@@ -54,9 +54,3 @@ vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "show diag
 vim.keymap.set("n", "<leader>qb", vim.cmd.CloseAllOtherBuffers, { desc = "quite other buffers" })
 vim.keymap.set("n", "<leader>qs", "<cmd>only<CR>", { desc = "quite other splits" })
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
-
--- Terminal
-vim.keymap.set("n", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
-vim.keymap.set("t", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
--- vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
