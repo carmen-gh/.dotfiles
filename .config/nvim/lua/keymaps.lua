@@ -29,12 +29,6 @@ vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window he
 vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
---
--- buffer navigation
-vim.keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
-vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
-vim.keymap.set("n", "[B", "<cmd>bfirst<CR>", { desc = "first buffer" })
-vim.keymap.set("n", "]B", "<cmd>blast<CR>", { desc = "last buffer" })
 
 -- splitting
 vim.keymap.set("n", "<leader>|", "<cmd>vs<CR>", { desc = "split vertically" })
@@ -50,11 +44,6 @@ vim.keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "add line below in normal
 -- Increment/decrement numbers
 vim.keymap.set({ "n", "v" }, "+", "<C-a>", { desc = "increment number" })
 vim.keymap.set({ "n", "v" }, "-", "<C-x>", { desc = "decrement number" })
-
--- Quickfix
-vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
-vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
-vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 
 -- Diagnostics
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
