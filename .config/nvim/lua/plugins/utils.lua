@@ -83,28 +83,47 @@ return {
     ---@type snacks.Config
     opts = {
       animate = { enabled = false },
-      indent = { enabled = false },
       bigfile = { enabled = true },
-      bufdelete = { enabled = false },
+      bufdelete = { enabled = true },
+      dashboard = { enabled = false },
+      dim = { enabled = false },
+      explorer = { enabled = false },
+      git = { enabled = false },
+      gitbrowse = { enabled = true },
+      image = { enabled = true },
+      indent = { enabled = false },
+      input = { enabled = false },
+      layout = { enabled = true },
+      lazygit = { enabled = true },
       notifier = { enabled = true, timeout = 3000 },
+      notify = { enabled = true },
+      picker = { enabled = false },
+      profiler = { enabled = false },
       quickfile = { enabled = true },
       rename = { enabled = false },
       scope = { enabled = false },
       scratch = { enabled = false },
-      scroll = { enabled = false },
+      scroll = { enabled = true },
       statuscolumn = { enabled = true },
+      terminal = { enabled = true },
+      toggle = { enabled = false },
       words = { enabled = true },
-      styles = { notification = { wo = { wrap = true } } },
+      zen = { enabled = false },
     },
     keys = {
-  -- stylua: ignore start
-      {"<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit",},
-      {"<leader>gl", function() Snacks.git.blame_line() end, desc = "Git Blame Line",},
+      -- stylua: ignore start
+      -- gitbrowse
       {"<leader>gB", function() Snacks.gitbrowse() end, desc = "Open Git Browser",},
+      -- lazygit
+      {"<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit",},
       {"<leader>gh", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History",},
       {"<leader>gL", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)",},
-      -- {"<leader>cR", function() Snacks.rename() end, desc = "Rename File",},
+      -- Notifier
       {"<leader>fn", function() Snacks.notifier.show_history() end, desc ="notifications",},
+      -- terminal
+      {"<C-t>", function() Snacks.terminal() end, { desc = "Open terminal" }},
+      {"<C-t>", "<cmd>close<cr>", mode="t", { desc = "Hide Terminal" }},
+      -- words
       {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
       {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
       -- stylua: ignore end
@@ -134,7 +153,7 @@ return {
           Snacks.toggle.inlay_hints():map("<leader>uh")
         end,
       })
-      -- LSP Progress
+      -- LSP Progress notifier
       vim.api.nvim_create_autocmd("LspProgress", {
         ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
         callback = function(ev)
