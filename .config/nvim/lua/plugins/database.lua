@@ -7,7 +7,7 @@ return {
       { "kristijanhusak/vim-dadbod-completion" },
     },
     keys = {
-      { "<leader>D", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
+      { "<leader>D", "<cmd>DBUIToggle<CR>", desc = "Database toggle" },
     },
     init = function()
       local data_path = vim.fn.stdpath("data")
