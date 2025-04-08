@@ -3,8 +3,9 @@
     excludesfile = ~/.gitignore
     editor = nvim
 [alias]
+    st = status -s
     l = log --pretty=custom
-    lg = log --graph --pretty=custom -20
+    lg = log --graph --pretty=custom --all
     undo = reset --soft HEAD^
     compare = diff --cached # view the changes you staged for the next commit relative to HEAD
     unstage = reset HEAD --
@@ -24,19 +25,22 @@
 [rebase]
     autoStash = true # Stash and pop uncommitted changes on rebase
     autosquash = true
+    updateRefs = true
 [init]
     defaultBranch = main
 [gpg]
     program = /usr/local/bin/gpg # linux: /usr/bin/gpg
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     tool = vimdiff
 [mergetool "vimdiff"]
     path = nvim
     keepBackup = false
 [diff]
-    colorMoved = default 
+    algorithm = histogram
+    colorMoved = plain
 [push]
+    push = simple
     autoSetupRemote = true
     followTags = true
 [interactive]
@@ -46,10 +50,14 @@
     autoUpdate = true
 [branch]
     sort = -committerdate
+[tag]
+    sort = version:refname
 [column]
     ui = auto
+[help]
+    autocorrect = prompt
 [pretty]
-    custom = "%C(blue)%h %C(green) %s %C(magenta)%(decorate:prefix=,suffix=,tag= ,pointer=  ) %n%C(cyan) %an  %C(cyan)%ar%n"
+    custom = "%C(blue)%h %C(green) %s %C(magenta)%(decorate:prefix= ,suffix=,tag= ,pointer= ) %n%C(cyan) %an  %C(cyan)%ar%n"
     #                  │        │                   │                                                         │             └─ date relativ
     #                  │        │                   │                                                         └─ author name
     #                  │        │                   └─ decorations(branch, heads or tags)
