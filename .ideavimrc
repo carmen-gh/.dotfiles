@@ -100,7 +100,8 @@ map <leader>e :NERDTreeToggle<CR>
 let g:WhichKeyDesc_leader_explorer = "<leader>e open Project Explorer"
 
 
-"map <leader>s <Action>(Switcher)
+map <leader><space> <Action>(Switcher)
+map <leader>q <Action>(CloseContent)
 
 "use buffer terminology from vim instead of tabs
 map ]b <Action>(NextTab)
