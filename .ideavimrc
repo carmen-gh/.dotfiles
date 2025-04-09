@@ -191,7 +191,7 @@ map <leader>fl <Action>(RecentLocations)
 map <leader>fm <Action>(ShowBookmarks)
 let g:WhichKeyDesc_leader_finder = "<leader>f +Find"
 let g:WhichKeyDesc_finder_file = "<leader>ff file (Name)"
-let g:WhichKeyDesc_finder_buffer = "<leader>fb open buffer (switcher)"
+let g:WhichKeyDesc_finder_buffer = "<leader>fb open buffer (tab)"
 let g:WhichKeyDesc_finder_string = "<leader>fs string"
 let g:WhichKeyDesc_finder_usage = "<leader>fu usage"
 let g:WhichKeyDesc_finder_recent = "<leader>fo old files"
@@ -287,7 +287,8 @@ map <leader>ga <Action>(Git.Branches)
 map <leader>gb <Action>(GitToolBox.SwitchRecentBranches)
 map <leader>gd <Action>(Compare.LastVersion)
 map <leader>gr <Action>(Vcs.RollbackChangedLines)
-map <leader>gc <Action>(ActivateCommitToolWindow)
+"map <leader>gc <Action>(ActivateCommitToolWindow)
+map <leader>gc <Action>(CheckinProject)
 map <leader>gl <Action>(Annotate)
 map <leader>gp <Action>(Vcs.UpdateProject)
 map <leader>gm <Action>(Vcs.UpdateProject)
