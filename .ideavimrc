@@ -35,6 +35,9 @@ nnoremap / :action Find<CR>
 nnoremap <C-n> :action FindNext<CR>
 nnoremap <C-p> :action FindPrevious<CR>
 
+" also works for open link in Browser
+nnoremap gx :action GotoDeclaration<CR>
+
 
 let g:WhichKey_FontSize = 15
 let g:WhichKey_CommandColor = "#8caaee"
