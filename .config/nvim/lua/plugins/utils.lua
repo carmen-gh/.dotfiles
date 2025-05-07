@@ -1,4 +1,5 @@
 return {
+  { "tpope/vim-projectionist" },
   { "tpope/vim-sleuth" },
   { "windwp/nvim-ts-autotag" },
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
