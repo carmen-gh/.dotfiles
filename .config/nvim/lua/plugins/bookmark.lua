@@ -1,29 +1,21 @@
 return {
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    opts = {
-      menu = { width = vim.api.nvim_win_get_width(0) - 4 },
-      settings = { save_on_toggle = true },
+    "cbochs/grapple.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons", lazy = true },
     },
-    keys = function()
-      local keys = {
-      -- stylua: ignore start
-      { "<leader>H", function() require("harpoon"):list():add() end, desc = "Harpoon File", },
-      { "<leader>h", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Harpoon Quick Menu", },
-        -- stylua: ignore end
-      }
-
-      for i = 1, 5 do
-        table.insert(keys, {
-          "<leader>" .. i,
-          function()
-            require("harpoon"):list():select(i)
-          end,
-          desc = "Harpoon to File " .. i,
-        })
-      end
-      return keys
-    end,
+    opts = {
+      scope = "git",
+    },
+    event = { "BufReadPost", "BufNewFile" },
+    cmd = "Grapple",
+    keys = {
+      { "<leader>m", "<cmd>Grapple toggle<cr>", desc = "Grapple toggle tag" },
+      { "<leader>M", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window" },
+      { "<leader>1", "<cmd>Grapple select index=1<cr>", desc = "Select first tag" },
+      { "<leader>2", "<cmd>Grapple select index=2<cr>", desc = "Select second tag" },
+      { "<leader>3", "<cmd>Grapple select index=3<cr>", desc = "Select third tag" },
+      { "<leader>4", "<cmd>Grapple select index=4<cr>", desc = "Select fourth tag" },
+    },
   },
 }
