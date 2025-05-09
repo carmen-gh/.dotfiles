@@ -1,5 +1,4 @@
 return {
-  settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
       workspace = {
@@ -25,5 +24,4 @@ return {
       },
       diagnostics = { disable = { "missing-fields" } },
     },
-  },
 }

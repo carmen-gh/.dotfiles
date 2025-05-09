@@ -51,141 +51,83 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 return {
-  {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
-      "b0o/schemastore.nvim",
-    },
-    config = function()
-      require("mason").setup()
-      local lspconfig = require("lspconfig")
-      local mason_lsp = require("mason-lspconfig")
-      local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      local server_list = {
-        "bashls",
-        "elixirls",
-        "gopls",
-        "html",
-        "jsonls",
-        "kotlin_language_server",
-        "lemminx",
-        "lua_ls",
-        "marksman",
-        "rust_analyzer",
-        "tailwindcss",
-        "yamlls",
-      }
-
-      -- extend the list with tools
-      vim.list_extend(server_list, {
-        "codelldb",
-        "delve",
-        "detekt",
-        "eslint",
-        "gofumpt",
-        "goimports",
-        "golangci-lint",
-        "golines",
-        "gomodifytags",
-        "gotests",
-        "iferr",
-        "impl",
-        "isort",
-        "ktlint",
-        "kotlin-debug-adapter",
-        "markdownlint",
-        "marksman",
-        "misspell",
-        "prettier",
-        "shellcheck",
-        "shfmt",
-        "stylua",
-        "sqlfluff",
-        "yamlls",
-      })
-      require("mason-tool-installer").setup({ ensure_installed = server_list })
-
-      local handlers = {
-        -- Default handler
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = lsp_capabilities,
-          })
-        end,
-
-        -- Targeted overrides for specific servers.
-        ["lua_ls"] = function()
-          lspconfig.lua_ls.setup({
-            settings = require("plugins.lsp-settings.lua_ls").settings,
-          })
-        end,
-
-        ["jsonls"] = function()
-          lspconfig.jsonls.setup({
-            settings = require("plugins.lsp-settings.jsonls").settings,
-          })
-        end,
-
-        ["yamlls"] = function()
-          lspconfig.yamlls.setup({
-            settings = require("plugins.lsp-settings.yamlls").settings,
-          })
-        end,
-
-        ["gopls"] = function()
-          lspconfig.gopls.setup({
-            settings = require("plugins.lsp-settings.gopls").settings,
-          })
-        end,
-
-        ["tailwindcss"] = function()
-          lspconfig.tailwindcss.setup({
-            settings = require("plugins.lsp-settings.tailwindcss").settings,
-          })
-        end,
-      }
-      mason_lsp.setup({ handlers = handlers })
-
-      vim.diagnostic.config({
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "󱐋 ",
-            [vim.diagnostic.severity.WARN] = "󱐋 ",
-            [vim.diagnostic.severity.HINT] = "» ",
-            [vim.diagnostic.severity.INFO] = " ",
-          },
-        },
-        update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-          prefix = "●",
-        },
-        severity_sort = true,
-        float = {
-          focusable = true,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = " ● ",
-        },
-        document_highlight = {
-          enabled = true,
-        },
-        codelens = {
-          enabled = false,
-        },
-      })
-
-    -- stylua: ignore
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-    end,
+  "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    -- Mason must be loaded before its dependencies, so we need to set it up here
+    { "williamboman/mason.nvim", opts = {} },
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "b0o/schemastore.nvim",
   },
+  config = function()
+    local server_list = {
+      bashls = {},
+      elixirls = {},
+      gopls = { settings = require("plugins.lsp-settings.gopls") },
+      html = {},
+      jsonls = { settings = require("plugins.lsp-settings.jsonls") },
+      kotlin_language_server = {},
+      lemminx = {},
+      lua_ls = { setttings = require("plugins.lsp-settings.lua_ls") },
+      marksman = {},
+      rust_analyzer = {},
+      tailwindcss = { settings = require("plugins.lsp-settings.tailwindcss") },
+      yamlls = { settings = require("plugins.lsp-settings.yamlls") },
+    }
+
+    -- extend the list with tools
+    vim.list_extend(server_list, {
+      "codelldb",
+      "delve",
+      "detekt",
+      "eslint",
+      "gofumpt",
+      "goimports",
+      "golangci-lint",
+      "golines",
+      "gomodifytags",
+      "gotests",
+      "iferr",
+      "impl",
+      "isort",
+      "ktlint",
+      "kotlin-debug-adapter",
+      "markdownlint",
+      "marksman",
+      "misspell",
+      "prettier",
+      "shellcheck",
+      "shfmt",
+      "stylua",
+      "sqlfluff",
+      "yamlls",
+    })
+    require("mason-tool-installer").setup({ ensure_installed = server_list })
+
+    -- NOTE: Some servers still require the nvim-lspconfig setup until they are updated
+    -- Add this template inside the handler function after initializing config if you encounter issues with any lsp
+    --
+    -- if server_name == 'example_server' or server_name == 'example_server2' then
+    --   -- This handles overriding only values explicitly passed
+    --   -- by the server configuration above. Useful when disabling
+    --   -- certain features of an LSP (for example, turning off formatting for ts_ls)
+    --   local capabilities = require('blink.cmp').get_lsp_capabilities()
+    --   config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+    --   require('mason-lspconfig')[server_name].setup(config)
+    --   return
+    -- end
+
+    require("mason-lspconfig").setup({
+      ensure_installed = {}, -- explicitly set to an empty table (will be installed via mason-tool-installer)
+      automatic_installation = false,
+      handlers = {
+        function(server_name)
+          local config = server_list[server_name] or {}
+          vim.lsp.config(server_name, config)
+          vim.lsp.enable(server_name)
+        end,
+      },
+    })
+  end,
 }

@@ -1,5 +1,4 @@
 return {
-  settings = {
     gopls = {
       gofumpt = true,
       codelenses = {
@@ -34,5 +33,4 @@ return {
       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
       semanticTokens = true,
     },
-  },
 }

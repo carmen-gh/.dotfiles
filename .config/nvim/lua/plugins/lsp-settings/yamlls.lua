@@ -1,5 +1,4 @@
 return {
-  settings = {
     yaml = {
       schemaStore = {
         enable = false, -- this plugin and its advanced options like `ignore`.
@@ -7,5 +6,4 @@ return {
       },
       schemas = require("schemastore").yaml.schemas(),
     },
-  },
 }

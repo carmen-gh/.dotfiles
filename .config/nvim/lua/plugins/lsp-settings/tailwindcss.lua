@@ -1,5 +1,4 @@
 return {
-  settings = {
     tailwindcss = {
       includeLanguages = {
         elixir = "html-eex",
@@ -7,5 +6,4 @@ return {
         heex = "html-eex",
       },
     },
-  },
 }
