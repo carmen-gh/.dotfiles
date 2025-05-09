@@ -1,5 +1,24 @@
 return {
   {
+    "stevearc/oil.nvim",
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    config = function()
+      require("oil").setup({
+        default_file_explorer = true, -- start up nvim with oil instead of netrw
+        columns = {
+          "icon",
+        },
+        keymaps = {
+          ["H"] = "actions.toggle_hidden",
+          ["q"] = "actions.close",
+        },
+        delete_to_trash = true,
+        skip_confirm_for_simple_edits = true,
+      })
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    end,
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {

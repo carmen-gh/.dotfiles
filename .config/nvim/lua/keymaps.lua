@@ -41,10 +41,6 @@ vim.keymap.set("v", ">", ">gv")
 -- Open line, but stay in normal mode
 vim.keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "add line below in normal mode" })
 
--- Increment/decrement numbers
-vim.keymap.set({ "n", "v" }, "+", "<C-a>", { desc = "increment number" })
-vim.keymap.set({ "n", "v" }, "-", "<C-x>", { desc = "decrement number" })
-
 -- Diagnostics
 vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
 vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
