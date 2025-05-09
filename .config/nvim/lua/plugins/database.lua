@@ -4,7 +4,6 @@ return {
     cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
     dependencies = {
       { "tpope/vim-dadbod", lazy = true },
-      { "kristijanhusak/vim-dadbod-completion" },
     },
     keys = {
       { "<leader>D", "<cmd>DBUIToggle<CR>", desc = "Database toggle" },
