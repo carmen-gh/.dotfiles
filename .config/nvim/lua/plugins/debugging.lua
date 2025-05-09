@@ -9,9 +9,9 @@ return {
     { "leoluz/nvim-dap-go", config = true },
   },
   config = function()
-    require("dapui").setup()
-
-    local dap, dapui = require("dap"), require("dapui")
+    local dap = require("dap")
+    local dapui = require("dapui")
+    dapui.setup()
 
     vim.fn.sign_define("DapBreakpoint", { text = " ", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
     vim.fn.sign_define("DapStopped", { text = "󰁕 ", texthl = "DiagnosticWarn", linehl = "", numhl = "" })
