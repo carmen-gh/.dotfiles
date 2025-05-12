@@ -121,7 +121,7 @@ return {
           lualine_b = {},
           lualine_c = {
             components.branch,
-            { "filetype", icon_only = true, colored = true, padding = { left = 2, right = 1 } },
+            { "filetype", icon_only = true, colored = true, padding = { left = 2, right = 0 } },
             { "filename", padding = { left = 0, right = 2 } },
             components.diagnostics,
           },
