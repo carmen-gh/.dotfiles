@@ -3,13 +3,13 @@ git:
     colorArg: always
     pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   branchLogCmd: "git log --graph --color=always --pretty=custom"
-  allBranchesLogCmd: "git log --graph --color=always --pretty=custom"
   mainBranches: [master, main, develop]
-
   commitPrefixes:
     android: # repository folder name
       - pattern: "(IMOWAPP-[0-9]{4}).*" # extraxt ticket number from branch name and place it in commit message
         replace: "[$1]"
+  allBranchesLogCmds:
+    - git log --graph --color=always --pretty=custom
 gui:
   nerdFontsVersion: "3"
   sidePanelWidth: 0.2
