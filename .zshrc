@@ -106,5 +106,8 @@ eval "$(starship init zsh)"
 # Startup Zoxide ------------------------------------------------------------
 eval "$(zoxide init zsh)"
 
+# activate mise -------------------------------------------------------------
+eval "$(mise activate zsh)"
+
 # keychain drops after every reboot my ssh keys, this loads them into the keychain
 ssh-add --apple-load-keychain 2> /dev/null
