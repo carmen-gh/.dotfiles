@@ -1,27 +1,17 @@
 return {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          "${3rd}/luv/library",
-          unpack(vim.api.nvim_get_runtime_file("", true)),
-        },
-      },
-      hint = {
-        enable = true,
-        setType = false,
-        paramType = true,
-        paramName = "Disable",
-        semicolon = "Disable",
-        arrayIndex = "Disable",
-      },
-      codeLens = {
-        enable = false,
-      },
-      completion = {
-        callSnippet = "Replace",
-      },
-      diagnostics = { disable = { "missing-fields" } },
+  Lua = {
+    runtime = {
+      version = "LuaJIT",
     },
+    diagnostics = {
+      -- Get the language server to recognize the `vim` global
+      globals = {
+        "vim",
+        "require",
+      },
+    },
+    workspace = {
+      library = vim.api.nvim_get_runtime_file("", true),
+    },
+  },
 }
