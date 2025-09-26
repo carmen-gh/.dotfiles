@@ -1,34 +1,27 @@
+
+source ~/.local/share/omarchy/default/bash/rc
+
+export ANDROID_HOME=/opt/android-sdk/
+export ANDROID_SDK_ROOT=/opt/android-sdk/
+export ANDROID_AVD_HOME=~/.android/avd
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$HOME/.oh-my-zsh"
-export BAT_THEME="Catppuccin-frappe"
+
+export FLUTTER="$HOME/Developer/.flutter/flutter/bin"
+export PATH="$FLUTTER:$PATH"
+export CHROME_EXECUTABLE="chromium"
+
+export SSH_AUTH_SOCK=/home/carmen/.bitwarden-ssh-agent.sock
+
+# export BAT_THEME="Catppuccin-frappe"
 export QEMU_AUDIO_DRV=none # disable audio backend for all android emulators
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export PATH=/Library/Developer/CommandLineTools/usr/bin/sourcekit-lsp:$PATH # add swift lsp
-export PATH=$HOME/.local/bin:$PATH
-
-source "$HOME/.cargo/env" # add rust cargo
-
-# Java
-export JAVA_HOME=$(/usr/libexec/java_home -v 17.0)
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-
-# flutter
-export PATH="$HOME/Developer/flutter/flutter/bin:$PATH"
-export ANDROID_HOME="/Users/carmen.geelhaar/Library/Android/sdk"
-export PATH="$PATH:$ANDROID_HOME/tools"
-export PATH="$PATH:$ANDROID_HOME/tools/bin"
-export PATH="$PATH:$ANDROID_HOME/platform-tools"
-
-#ruby
-export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.3.1/bin:$PATH
 
 # Plugins -------------------------------------------------------------
 plugins=(git colored-man-pages gradle vi-mode asdf)
 
-source $ZSH/oh-my-zsh.sh
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # catppuccin colored fzf output
 export FZF_DEFAULT_OPTS=" \
@@ -41,20 +34,12 @@ export FZF_DEFAULT_OPTS=" \
 export KEYTIMEOUT=1
 
 # Preferred editor for local and remote sessions------------------------
-#
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='vim'
- fi
+export EDITOR='vim'
 
 # ALIAS -----------------------------------------------------------------
 alias zshconfig="vim ~/.dotfiles/.zshrc"
 alias gitconfig="vim ~/.gitconfig"
 alias vim='nvim'
-alias avim="NVIM_APPNAME=AstroNvim nvim"
-alias lazyVim="NVIM_APPNAME=LazyVim nvim"
-alias nvchad="NVIM_APPNAME=nvchad nvim"
 alias lg='lazygit'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -68,7 +53,7 @@ alias ls='eza --group-directories-first --icons'
 alias ll='eza --group-directories-first --icons -lh --git'
 alias la='eza --group-directories-first --icons -lh --git -a'
 alias tree='eza --group-directories-first --icons -lh --git --tree --level=2'
-alias adb='~/Library/Android/sdk/platform-tools/adb'
+alias adb='$ANDROID_HOME/platform-tools/adb'
 alias adb-kill-emulator='adb -s emulator-5554 emu kill'
 alias adb-restart='adb kill-server; adb start-server'
 alias update-gh="gh extension upgrade --all"
@@ -94,7 +79,6 @@ function ktcleanup {
   git diff --name-only --cached --relative | grep '\.kt[s"]\?$' | xargs ktlint --relative --format
 }
 
-# For a full list of active aliases, run `alias`.
 function take {
   mkdir -p $1
   cd $1
@@ -109,5 +93,14 @@ eval "$(zoxide init zsh)"
 # activate mise -------------------------------------------------------------
 eval "$(mise activate zsh)"
 
-# keychain drops after every reboot my ssh keys, this loads them into the keychain
-ssh-add --apple-load-keychain 2> /dev/null
+# Created by Zap installer
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zap-zsh/supercharge"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zap-zsh/fzf"
+plug "zap-zsh/vim"
+
+# Load and initialise completion system
+autoload -Uz compinit
+compinit
