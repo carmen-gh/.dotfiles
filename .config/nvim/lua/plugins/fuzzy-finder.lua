@@ -97,6 +97,7 @@ return {
       -- extensions
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("undo")
+      require("telescope").load_extension("flutter")
     end,
   },
 }
