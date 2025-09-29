@@ -13,6 +13,6 @@ return {
       },
       render_modes = { "n", "c", "t" },
     },
-    ft = { "markdown", "norg", "rmd", "org" },
+    ft = { "markdown", "norg", "rmd", "org", "livebook" },
   },
 }
