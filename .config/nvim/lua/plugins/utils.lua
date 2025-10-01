@@ -1,5 +1,5 @@
 return {
-  { "tpope/vim-projectionist" },
+  { "tpope/vim-projectionist" }, -- TODO: checkout https://github.com/rgroli/other.nvim instead of vim-projectionist
   { "tpope/vim-sleuth" },
   { "windwp/nvim-ts-autotag" },
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
@@ -86,7 +86,7 @@ return {
       indent = { enabled = false },
       bigfile = { enabled = true },
       bufdelete = { enabled = false },
-      notifier = { enabled = true, timeout = 3000 },
+      notifier = { enabled = false, timeout = 3000 },
       quickfile = { enabled = true },
       rename = { enabled = false },
       scope = { enabled = false },

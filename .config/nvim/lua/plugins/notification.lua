@@ -1,22 +1,22 @@
 return {
-  -- {
-  --   "j-hui/fidget.nvim", -- show lsp progress
-  --   config = function()
-  --     local fidget = require("fidget")
-  --     fidget.setup({
-  --       notification = {
-  --         override_vim_notify = true, -- Use Fidget for vim.notify()
-  --         window = {
-  --           winblend = 0,
-  --           align = "top",
-  --           y_padding = 2,
-  --           -- border = "rounded",
-  --           -- border_hl = "FidgetBorder",
-  --         },
-  --       },
-  --     })
-  --   end,
-  -- },
+  {
+    "j-hui/fidget.nvim", -- show lsp progress
+    config = function()
+      local fidget = require("fidget")
+      fidget.setup({
+        notification = {
+          override_vim_notify = true, -- Use Fidget for vim.notify()
+          window = {
+            winblend = 0,
+            align = "top",
+            y_padding = 2,
+            border = "rounded",
+            border_hl = "FidgetBorder",
+          },
+        },
+      })
+    end,
+  },
   -- {
   --   "rcarriga/nvim-notify",
   --   keys = {
@@ -51,5 +51,27 @@ return {
   --       notify = require("notify"),
   --     })
   --   end,
+  -- },
+  -- {
+  --   "nvim-mini/mini.notify",
+  --   opts = {
+  --     content = {
+  --       format = nil,
+  --       sort = nil,
+  --     },
+  --     lsp_progress = {
+  --       enable = true,
+  --       duration_last = 3000,
+  --     },
+  --     window = {
+  --       config = {
+  --         border = "rounded",
+  --       },
+  --       max_width_share = 0.382,
+  --       -- winblend = 0,
+  --     },
+  --   },
+  --
+  --   event = { "VeryLazy" },
   -- },
 }
