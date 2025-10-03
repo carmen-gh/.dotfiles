@@ -36,30 +36,24 @@ local components = {
   },
   lsp_status = {
     function()
-      if rawget(vim, "lsp") then
-        local buf_clients = vim.lsp.get_clients()
-        local buf_client_names = {}
-
-        if #buf_clients == 0 then
-          return ""
-        end
-
-        for _, client in ipairs(buf_clients) do
-          if client.attached_buffers[vim.api.nvim_get_current_buf()] and client.name ~= "null-ls" then
-            table.insert(buf_client_names, client.name)
-          end
-        end
-
-        local unique_client_names = table.concat(buf_client_names, ", ")
-        return string.format(" %s", unique_client_names)
+      local lsp = vim.lsp.util.get_progress_messages()[1]
+      if lsp then
+        local name = lsp.name or ""
+        local title = lsp.title or ""
+        -- local msg = lsp.message or ""
+        local percentage = lsp.percentage or 0
+        -- return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
+        return string.format(" 󰲽 %%<%s: %s (%s%%%%) ", name, title, percentage)
       end
     end,
   },
-  harpoon = {
-    "harpoon2",
-    icon = "",
-    _separator = " ",
-    no_harpoon = "",
+  bookmark = {
+    function()
+      return " " .. require("grapple").name_or_index()
+    end,
+    cond = function()
+      return package.loaded["grapple"] and require("grapple").exists()
+    end,
   },
 }
 
@@ -71,7 +65,7 @@ return {
     config = function()
       local devicons = require("mini.icons")
       require("incline").setup({
-        hide = { only_win = true },
+        hide = { only_win = false },
         highlight = {
           groups = {
             InclineNormal = { default = false, group = "Title" },
@@ -107,10 +101,8 @@ return {
           section_separators = { left = "", right = "" },
           globalstatus = true,
           disabled_filetypes = {
-            "alpha",
             "dap-repl",
             "dapui*",
-            "dashboard",
             "neo-tree",
             "oil",
             "outline",
@@ -120,18 +112,18 @@ return {
           lualine_a = { components.mode },
           lualine_b = {},
           lualine_c = {
-            components.branch,
-            { "filetype", icon_only = true, colored = true, padding = { left = 2, right = 0 } },
-            { "filename", padding = { left = 0, right = 2 } },
+            { "filename", path = 1, padding = { left = 2, right = 1 }, icon = "" },
+            -- { "filetype", icon_only = true, colored = true, padding = { left = 1, right = 0 } },
             components.diagnostics,
           },
           lualine_z = {},
           lualine_y = {},
           lualine_x = {
+            components.lsp_status,
             components.dap,
             components.flutter_device,
-            components.harpoon,
-            -- components.lsp_status,
+            components.bookmark,
+            components.branch,
             {
               "progress",
               left_padding = 2,
@@ -140,6 +132,7 @@ return {
           },
         },
         extensions = {
+          "fzf",
           "lazy",
           "mason",
           "neo-tree",

@@ -5,13 +5,13 @@ return {
       local fidget = require("fidget")
       fidget.setup({
         notification = {
-          override_vim_notify = true, -- Use Fidget for vim.notify()
+          override_vim_notify = false, -- Use Fidget for vim.notify()
           window = {
-            winblend = 0,
-            align = "top",
-            y_padding = 2,
-            border = "rounded",
-            border_hl = "FidgetBorder",
+            -- winblend = 0,
+            -- align = "top",
+            -- y_padding = 2,
+            -- border = "rounded",
+            -- border_hl = "FidgetBorder",
           },
         },
       })

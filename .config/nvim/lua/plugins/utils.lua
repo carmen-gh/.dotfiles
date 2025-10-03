@@ -1,7 +1,6 @@
 return {
   { "tpope/vim-projectionist" }, -- TODO: checkout https://github.com/rgroli/other.nvim instead of vim-projectionist
   { "tpope/vim-sleuth" },
-  { "windwp/nvim-ts-autotag" },
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
   { "stevearc/dressing.nvim", event = "VeryLazy", opts = {} },
   {
@@ -71,11 +70,29 @@ return {
       end
     end,
   },
-  { "echasnovski/mini.ai", version = false, opts = { n_lines = 500 } },
-  { "echasnovski/mini.surround", version = false, opts = {} },
-  { "echasnovski/mini.splitjoin", version = false, opts = {} },
-  { "echasnovski/mini.move", version = false, opts = {} },
-  { "echasnovski/mini.pairs", version = false, opts = {} },
+  { "nvim-mini/mini.ai", version = false, opts = { n_lines = 500 } },
+  { "nvim-mini/mini.surround", version = false, opts = {} },
+  { "nvim-mini/mini.splitjoin", version = false, opts = {} },
+  { "nvim-mini/mini.move", version = false, opts = {} },
+  { "nvim-mini/mini.pairs", version = false, opts = {} },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
   {
     "folke/snacks.nvim",
     priority = 1000,

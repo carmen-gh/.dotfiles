@@ -1,6 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    version = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
@@ -11,6 +13,10 @@ return {
         ensure_installed = {
           "bash",
           "dart",
+          "diff",
+          "html",
+          "javascript",
+          "json",
           "eex",
           "elixir",
           "go",
@@ -18,8 +24,6 @@ return {
           "gosum",
           "gowork",
           "heex",
-          "html",
-          "json",
           "kotlin",
           "lua",
           "markdown",
@@ -28,6 +32,7 @@ return {
           "rust",
           "sql",
           "toml",
+          "xml",
           "yaml",
         },
         incremental_selection = {
@@ -46,6 +51,7 @@ return {
         },
         highlight = { enable = true },
         indent = { enable = true },
+        folds = { enable = true },
         textobjects = {
           move = {
             enable = true,
@@ -81,4 +87,5 @@ return {
     enabled = true,
     opts = { mode = "cursor", max_lines = 1 },
   },
+  { "windwp/nvim-ts-autotag" },
 }

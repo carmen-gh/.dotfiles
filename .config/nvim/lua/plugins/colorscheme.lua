@@ -16,6 +16,8 @@ return {
         dap = true,
         dap_ui = true,
         fidget = true,
+        fzf = true,
+        diffview = true,
         gitsigns = true,
         markdown = true,
         mason = true,
@@ -37,6 +39,7 @@ return {
         treesitter = true,
         treesitter_context = true,
         rainbow_delimiters = true,
+        render_markdown = true,
         semantic_tokens = true,
         telescope = {
           enabled = true,

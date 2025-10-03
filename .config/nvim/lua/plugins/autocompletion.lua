@@ -1,7 +1,7 @@
 return {
   "saghen/blink.cmp",
-  event = "VimEnter",
   version = "1.*",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     {
       "saghen/blink.compat",
@@ -22,6 +22,11 @@ return {
     },
     completion = {
       documentation = { auto_show = true, auto_show_delay_ms = 500 },
+      menu = {
+        draw = {
+          treesitter = { "lsp" },
+        },
+      },
     },
     sources = {
       default = { "lsp", "buffer", "snippets", "path" },
@@ -32,6 +37,19 @@ return {
       providers = {
         dadbod = { module = "vim_dadbod_completion.blink" },
         lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+      },
+    },
+    cmdline = {
+      enabled = true,
+      keymap = { preset = "cmdline" },
+      completion = {
+        list = { selection = { preselect = false } },
+        menu = {
+          auto_show = function(ctx)
+            return vim.fn.getcmdtype() == ":"
+          end,
+        },
+        ghost_text = { enabled = true },
       },
     },
     -- snippets = { preset = "luasnip" },
