@@ -13,3 +13,5 @@ LazyVim/lazy-lock.json
 .config/btop/btop.log
 .config/tmux/plugins
 .config/tmux/tmuxx
+.config/yazi/plugins
+.config/yazi/flavors

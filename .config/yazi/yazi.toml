@@ -1,14 +1,14 @@
-[manager]
+[mgr]
 ratio         = [ 1, 2, 4 ]
-sort_by        = "modified"
-sort_sensitive = true
-sort_reverse   = true
-sort_dir_first = true
-linemode       = "none"
 show_hidden    = true
 show_symlink   = true
 
-[plugin]
-prepend_previewers = [
-  { name = "*.md", run = "glow" },
-]
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
