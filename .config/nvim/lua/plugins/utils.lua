@@ -4,14 +4,6 @@ return {
   { "folke/ts-comments.nvim", event = "VeryLazy", opts = {} },
   { "stevearc/dressing.nvim", event = "VeryLazy", opts = {} },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
-    main = "ibl",
-    opts = {
-      scope = { enabled = true, show_start = false },
-    },
-  },
-  {
     "hiphish/rainbow-delimiters.nvim",
     url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
     event = "BufReadPost",
@@ -75,22 +67,4 @@ return {
   { "nvim-mini/mini.splitjoin", version = false, opts = {} },
   { "nvim-mini/mini.move", version = false, opts = {} },
   { "nvim-mini/mini.pairs", version = false, opts = {} },
-  {
-    "christoomey/vim-tmux-navigator",
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-      "TmuxNavigatorProcessList",
-    },
-    keys = {
-      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    },
-  },
 }

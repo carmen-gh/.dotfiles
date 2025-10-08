@@ -4,12 +4,22 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    animate = { enabled = false },
+    animate = { enabled = true },
     bigfile = { enabled = true },
     bufdelete = { enabled = false },
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+      auto_close = true,
+      jump = { close = true },
+    },
     image = { enabled = true },
-    indent = { enabled = false }, -- TODO
+    indent = {
+      enabled = true,
+      animate = {
+        enabled = false,
+      },
+    }, -- TODO
     input = { enabled = true },
     lazygit = { enabled = false },
     notifier = { enabled = true, timeout = 3000 },
@@ -21,26 +31,44 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-    styles = { notification = { wo = { wrap = true } } },
+    styles = {
+      notification = { wo = { wrap = true } },
+      input = { relative = "cursor" },
+    },
   },
   keys = {
     -- stylua: ignore start
-    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-    { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-    { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-    { "<leader>fg", function() Snacks.picker.git_status() end, desc = "Find Git Files" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
-    { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
-    -- {"<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit",},
-    -- {"<leader>gl", function() Snacks.git.blame_line() end, desc = "Git Blame Line",},
-    -- {"<leader>gB", function() Snacks.gitbrowse() end, desc = "Open Git Browser",},
-    -- {"<leader>gh", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History",},
-    -- {"<leader>gL", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)",},
-    -- {"<leader>cR", function() Snacks.rename() end, desc = "Rename File",},
+    { "<leader>fh", function() Snacks.picker.help() end, desc = "Help" },
+    { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+    { "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo" },
+
+    -- grep
+    { "<leader>/", function() Snacks.picker.grep_buffers() end, desc = "Grep Buffers" },
+    { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+    { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+
+    -- files
+    { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
+
+    -- git
+    { "<leader>fm", function() Snacks.picker.git_status() end, desc = "Modified Git Files" },
+    { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Branches" },
+    { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Browse", mode = { "n", "v" } },
+
+    -- lsp
+    { "<leader>fD", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+    { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+    { "<leader>cs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "<leader>cS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
-    -- {"<leader>fn", function() Snacks.notifier.show_history() end, desc ="notifications",},
+
+    -- words
     {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
     {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
     -- stylua: ignore end
