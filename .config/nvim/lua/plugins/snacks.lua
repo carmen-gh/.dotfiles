@@ -19,7 +19,7 @@ return {
       animate = {
         enabled = false,
       },
-    }, -- TODO
+    },
     input = { enabled = true },
     lazygit = { enabled = false },
     notifier = { enabled = true, timeout = 3000 },
@@ -42,6 +42,7 @@ return {
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Help" },
     { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
     { "<leader>fu", function() Snacks.picker.undo() end, desc = "Undo" },
+    { "<leader>fr", function() Snacks.picker.resume() end, desc = "Resume" },
 
     -- grep
     { "<leader>/", function() Snacks.picker.grep_buffers() end, desc = "Grep Buffers" },
@@ -52,6 +53,7 @@ return {
     { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
+    { "<leader>fo", function() Snacks.picker.recent() end, desc = "Old Files" },
 
     -- git
     { "<leader>fm", function() Snacks.picker.git_status() end, desc = "Modified Git Files" },

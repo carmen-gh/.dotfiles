@@ -57,7 +57,7 @@ return {
         map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
         map({ "o", "x" }, "ih", "<cmd><C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-        map("n", "<leader>gl", gs.blame, "Undo Stage Hunk")
+        map("n", "<leader>gl", gs.blame, "blame")
         -- stylua: ignore end
       end,
     },

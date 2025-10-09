@@ -9,7 +9,7 @@ return {
     build = ":TSUpdate",
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "bash",
           "dart",
@@ -88,4 +88,10 @@ return {
     opts = { mode = "cursor", max_lines = 1 },
   },
   { "windwp/nvim-ts-autotag" },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    event = "VeryLazy",
+    opts = {},
+  },
 }
