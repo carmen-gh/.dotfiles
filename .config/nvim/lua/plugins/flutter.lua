@@ -7,7 +7,7 @@ return {
   },
   config = function()
     require("flutter-tools").setup({
-      fvm = false,
+      fvm = true,
       decorations = {
         statusline = {
           app_version = true,

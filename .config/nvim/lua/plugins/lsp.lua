@@ -58,6 +58,17 @@ return {
     "b0o/schemastore.nvim",
   },
   config = function()
+    local lspconfig = require("lspconfig")
+    lspconfig.sourcekit.setup({
+      capabilities = {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+        },
+      },
+    })
+
     local server_list = {
       bashls = {},
       elixirls = {},
