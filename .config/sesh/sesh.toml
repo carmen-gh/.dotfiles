@@ -1,0 +1,23 @@
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"
+
+[[session]]
+name = "dotfiles"
+path = "~/.dotfiles"
+startup_command = 'nvim -c ":lua Snacks.picker.files({ hidden = true })"'
+windows = ["lazygit"]
+
+[[session]]
+name = "App Development"
+path = "~/Developer/Android/CamperVanCompose"
+windows = ["lazygit", "gh-dash"]
+
+[[window]]
+name = "lazygit"
+startup_script = "lazygit"
+
+[[window]]
+name = "gh-dash"
+startup_script = "gh dash"
