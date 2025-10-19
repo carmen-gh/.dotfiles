@@ -1,18 +1,18 @@
 [colors.primary]
 background = "#1e1e2e"
-foreground = "#bac2de"
+foreground = "#ffffff"
 
 [colors.cursor]
 text = "#1e1e2e"
-cursor = "#bac2de"
+cursor = "#ffffff"
 
 [colors.vi_mode_cursor]
 text = "#1e1e2e"
-cursor = "#bac2de"
+cursor = "#ffffff"
 
 [colors.search.matches]
 foreground = "#1e1e2e"
-background = "#bac2de"
+background = "#ffffff"
 
 [colors.search.focused_match]
 foreground = "CellBackground"
@@ -24,7 +24,7 @@ background = "None"
 
 [colors.footer_bar]
 foreground = "#45475a"
-background = "#bac2de"
+background = "#ffffff"
 
 [colors.selection]
 text = "CellBackground"
@@ -36,7 +36,7 @@ red = "#f38ba8"
 green = "#a6e3a1"
 yellow = "#f9e2af"
 blue = "#89b4fa"
-magenta = "#c49bf6"
+magenta = "#cba6f7"
 cyan = "#94e2d5"
 white = "#cdd6f4"
 
@@ -48,10 +48,10 @@ yellow = "#f9e2af"
 blue = "#89b4fa"
 magenta = "#cba6f7"
 cyan = "#94e2d5"
-white = "#bac2de"
+white = "#ffffff"
 
 [colors.dim]
-black = "#bac2de"
+black = "#ffffff"
 red = "#f38ba8"
 green = "#a6e3a1"
 yellow = "#f9e2af"
