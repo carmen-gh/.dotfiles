@@ -27,7 +27,6 @@ return {
     config = function()
       local wk = require("which-key")
       wk.setup({
-        preset = "helix",
         spec = {
           { "<leader>1", hidden = true },
           { "<leader>2", hidden = true },
@@ -51,16 +50,16 @@ return {
     "echasnovski/mini.icons",
     opts = {},
     lazy = true,
-    specs = {
-      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
-    },
-    init = function()
-      -- support plugins which only support nvim-web-devicons
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end,
+    -- specs = {
+    --   { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    -- },
+    -- init = function()
+    --   -- support plugins which only support nvim-web-devicons
+    --   package.preload["nvim-web-devicons"] = function()
+    --     require("mini.icons").mock_nvim_web_devicons()
+    --     return package.loaded["nvim-web-devicons"]
+    --   end
+    -- end,
   },
   { "nvim-mini/mini.ai", version = false, opts = { n_lines = 500 } },
   { "nvim-mini/mini.surround", version = false, opts = {} },

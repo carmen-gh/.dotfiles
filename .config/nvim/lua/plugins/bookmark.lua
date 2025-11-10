@@ -1,11 +1,10 @@
 return {
   {
     "cbochs/grapple.nvim",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons", lazy = true },
-    },
+    lazy = true,
     opts = {
       scope = "git",
+      icons = false,
     },
     event = { "BufReadPost", "BufNewFile" },
     cmd = "Grapple",
