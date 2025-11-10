@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   branchLogCmd: "git log --graph --color=always --pretty=custom"
   mainBranches: [master, main, develop]
   commitPrefixes:
