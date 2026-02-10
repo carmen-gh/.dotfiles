@@ -4,8 +4,11 @@
 # for navigation vim keys hjkl are used instead of arrow keys
 
 after-login-command = []
-after-startup-command = []
+# after-startup-command = []
 start-at-login = true
+after-startup-command = [
+  'exec-and-forget borders active_color=0xff2271b3 inactive_color=0xff494d64 width=5.0'
+]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -32,44 +35,49 @@ outer.right = 8
 # BINDING MODE---------------------------------------------------------------------------------------------------------
 [mode.main.binding]
 # All possible modifiers: cmd, alt, ctrl, shift
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+# alt-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 
 # alt-slash = 'layout tiles horizontal vertical'
 # alt-comma = 'layout accordion horizontal vertical'
 
-cmd-ctrl-alt-z = 'fullscreen'             # zoom toggle
-cmd-ctrl-alt-f = 'layout floating tiling' # floating toggle
+alt-f = 'fullscreen'             # zoom toggle
+alt-t = 'layout floating tiling' # floating toggle
+alt-g = 'layout tiles horizontal vertical' # toggle split
 
-# FOCUS (hyper)
-cmd-ctrl-alt-tab = 'workspace-back-and-forth'
+# FOCUS
+alt-tab = 'workspace-back-and-forth'
 
-cmd-ctrl-alt-h = 'focus left --boundaries all-monitors-outer-frame'
-cmd-ctrl-alt-j = 'focus down --boundaries all-monitors-outer-frame'
-cmd-ctrl-alt-k = 'focus up --boundaries all-monitors-outer-frame'
-cmd-ctrl-alt-l = 'focus right --boundaries all-monitors-outer-frame'
+alt-left = 'focus left --boundaries all-monitors-outer-frame'
+alt-down = 'focus down --boundaries all-monitors-outer-frame'
+alt-up = 'focus up --boundaries all-monitors-outer-frame'
+alt-right = 'focus right --boundaries all-monitors-outer-frame'
 
-cmd-ctrl-alt-1 = 'workspace 1'
-cmd-ctrl-alt-2 = 'workspace 2'
-cmd-ctrl-alt-3 = 'workspace 3'
-cmd-ctrl-alt-4 = 'workspace 4'
-cmd-ctrl-alt-5 = 'workspace 5'
-cmd-ctrl-alt-6 = 'workspace 6'
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
 
-# MOVE (hyper-shift) 
-cmd-ctrl-alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
-cmd-ctrl-alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
-cmd-ctrl-alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-cmd-ctrl-alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-cmd-ctrl-alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
-cmd-ctrl-alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+# MOVE
+alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 
-cmd-ctrl-alt-shift-h = 'move left'
-cmd-ctrl-alt-shift-j = 'move down'
-cmd-ctrl-alt-shift-k = 'move up'
-cmd-ctrl-alt-shift-l = 'move right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
 
-cmd-ctrl-alt-shift-tab = 'move-node-to-monitor --wrap-around next'
+alt-shift-tab = 'move-node-to-monitor --wrap-around next'
 
+alt-minus = 'resize width -50'
+alt-equal = 'resize width +50'
+alt-shift-minus = 'resize height +50'
+alt-shift-equal = 'resize height -50'
 
 # SETTINGS MODE---------------------------------------------------------------------------------------------------------
 cmd-ctrl-alt-semicolon = 'mode settings'
@@ -117,9 +125,6 @@ run = 'layout floating'
 if.app-id = 'com.apple.Music'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-run = ["layout floating"]
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Raycast extension https://www.raycast.com/limonkufu/aerospace
