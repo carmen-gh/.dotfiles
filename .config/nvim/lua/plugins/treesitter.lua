@@ -40,8 +40,8 @@ return {
             node_decremental = "<bs>",
           },
         },
-      },
-    },
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
