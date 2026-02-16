@@ -66,4 +66,8 @@ return {
   { "nvim-mini/mini.splitjoin", version = false, opts = {} },
   { "nvim-mini/mini.move", version = false, opts = {} },
   { "nvim-mini/mini.pairs", version = false, opts = {} },
+  {
+    "stevearc/quicker.nvim",
+    opts = {},
+  },
 }

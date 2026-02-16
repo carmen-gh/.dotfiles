@@ -1,24 +1,32 @@
 return {
+  -- {
+  --   "sindrets/diffview.nvim",
+  --   cmd = {
+  --     "DiffviewOpen",
+  --     "DiffviewClose",
+  --     "DiffviewToggleFiles",
+  --     "DiffviewFocusFiles",
+  --     "DiffviewRefresh",
+  --   },
+  --   event = "VeryLazy",
+  --   opts = {
+  --     view = {
+  --       merge_tool = {
+  --         layout = "diff3_mixed",
+  --       },
+  --     },
+  --   },
+  --   keys = {
+  --     { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
+  --     { "<leader>gD", "<cmd>DiffviewOpen origin/develop...HEAD<cr>", desc = "DiffView against develop" },
+  --   },
+  -- },
   {
-    "sindrets/diffview.nvim",
-    cmd = {
-      "DiffviewOpen",
-      "DiffviewClose",
-      "DiffviewToggleFiles",
-      "DiffviewFocusFiles",
-      "DiffviewRefresh",
-    },
-    event = "VeryLazy",
-    opts = {
-      view = {
-        merge_tool = {
-          layout = "diff3_mixed",
-        },
-      },
-    },
+    "esmuellert/codediff.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    cmd = "CodeDiff",
     keys = {
-      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "DiffView" },
-      { "<leader>gD", "<cmd>DiffviewOpen origin/develop...HEAD<cr>", desc = "DiffView against develop" },
+      { "<leader>gd", "<cmd>CodeDiff<cr>", desc = "diff view" },
     },
   },
   {
