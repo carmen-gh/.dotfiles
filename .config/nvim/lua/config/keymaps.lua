@@ -18,7 +18,7 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 --
 
 -- Quicker macro playback (record macro to q register)
-vim.keymap.set("n", "Q", "@qj")
+vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("x", "Q", ":norm @q<CR>")
 
 -- Edit the alternate / previously edited file
