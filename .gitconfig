@@ -29,8 +29,6 @@
     updateRefs = true
 [init]
     defaultBranch = main
-[gpg]
-    program = /usr/local/bin/gpg # linux: /usr/bin/gpg
 [merge]
     conflictstyle = zdiff3
     tool = vimdiff

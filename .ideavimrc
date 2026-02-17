@@ -29,6 +29,7 @@ set smartindent
 set smarttab
 set which-key
 set notimeout
+set peekaboo " Show contents in the registers (IDEA plugin required)
 
 " better mapping for search
 nnoremap / :action Find<CR>
@@ -85,18 +86,25 @@ nnoremap Y y$
 " copy method or json object
 nnoremap YY va{Vy}
 
+" Special paste mappings
+" Paste last yanked text (not deleted)
+nmap <leader>p "0p
+" Paste over selection without saving to register
+vnoremap p "_dP
+
 " window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+
 "map <C-n> <Action>(PopupMenu-selectnext)
 "map <C-p> <Action>(PopupMenu-selectprev)
 "map <A-n> <Action>(Tree-selectNext)
 "map <A-p> <Action>(Tree-selectPrevious)
-"inoremap <A-n> <Action>(PopupMenu-selectNext)
-"inoremap <A-p> <Action>(PopupMenu-selectPrev)
+"noremap <A-n> <Action>(Forward)
+":wnoremap <A-p> <Action>(Back)
 
 " current open file: settings > behavior > Always select opened file
 map <leader>e :NERDTreeToggle<CR>
@@ -112,7 +120,7 @@ map [b <Action>(PreviousTab)
 
 " Debug (d)
 " TODO add
-map <leader>dt <Action>(ToggleLineBreakpoint) 
+map <leader>dt <Action>(ToggleLineBreakpoint)
 " step back
 " continue
 " disconnect
@@ -126,8 +134,16 @@ map <leader>dt <Action>(ToggleLineBreakpoint)
 let g:WhichKeyDesc_leader_debug = "<leader>d +Debug"
 let g:WhichKeyDesc_debug_breakpoint = "<leader>dt toggle Breakpoint"
 
+" Run (r) configurations
+nmap <leader>rr :action Run<CR>
+nmap <leader>rd :action Debug<CR>
+nmap <leader>rs :action Stop<CR>
+let g:WhichKeyDesc_leader_run = "<leader>r Run"
+let g:WhichKeyDesc_run_run = "<leader>rr Run"
+let g:WhichKeyDesc_run_debug = "<leader>rd Debug"
+let g:WhichKeyDesc_run_stop = "<leader>rs Stop"
 
-" Test (t) 
+" Test (t)
 map gt <Action>(GotoTest)
 map <leader>tr <Action>(RunClass)
 map <leader>td <Action>(DebugClass)
@@ -167,7 +183,15 @@ if has('ide')
     let g:WhichKeyDesc_android_devices = "<leader>ae Device Explorer"
     let g:WhichKeyDesc_android_configuration = "<leader>ac run/debug configurations"
   endif
+ if &ide =~? 'intellij'
+   map <leader>Ff <Action>(Run)
+   let g:WhichKeyDesc_leader_android = "<leader>F +Flutter"
+ endif
 endif
+
+" Folds
+nnoremap - :action ExpandAllRegions<cr>
+nnoremap za :action ExpandCollapseToggleAction<cr>
 
 " Split (s)
 map <leader>sl <Action>(MoveTabRight)
@@ -235,6 +259,7 @@ let g:WhichKeyDesc_view_zen = "<leader>vz toggle Zen mode"
 
 " Code Lsp (c)
 map <leader>ca <Action>(ShowIntentionActions)
+map <leader>cc <Action>(CallHierarchy)
 map <leader>cd <Action>(ActivateProblemsViewToolWindow)
 map <leader>cf <Action>(ReformatCode)
 map <leader>cg <Action>(Generate)
@@ -243,6 +268,8 @@ map <leader>cr <Action>(RenameElement)
 map <leader>cu <Action>(FindUsages)
 map <leader>co <Action>(OptimizeImports)
 map <leader>cR <Action>(Refactorings.QuickListPopupAction)
+map <leader>cg <Action>(Generate)
+nmap <leader>q :action ActivateProblemsViewToolWindow<CR>
 map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map gl <Action>(ShowErrorDescription)
@@ -255,7 +282,8 @@ let g:WhichKeyDesc_lsp_generate = "<leader>cg generate options"
 let g:WhichKeyDesc_lsp_rename = "<leader>cr rename"
 let g:WhichKeyDesc_lsp_usage = "<leader>cu usage"
 let g:WhichKeyDesc_lsp_imports = "<leader>co optimize imports"
-let g:WhichKeyDesc_lsp_quicklist = "<leader>cR Refactoring options"
+let g:WhichKeyDesc_lsp_refactor = "<leader>cR Refactoring options"
+let g:WhichKeyDesc_lsp_quicklist = "<leader>q ProblemsView"
 let g:WhichKeyDesc_lsp_error = "gl show error description"
 let g:WhichKeyDesc_lsp_references = "gr show references"
 

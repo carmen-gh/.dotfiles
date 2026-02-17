@@ -5,9 +5,9 @@ return {
     -- useful to show previews and failing snapshots.
 
     -- You must select at least one:
-    "nvim-telescope/telescope.nvim",
+    -- "nvim-telescope/telescope.nvim",
     -- "ibhagwan/fzf-lua",
-    -- "folke/snacks.nvim", -- (optional) to show previews
+    "folke/snacks.nvim", -- (optional) to show previews
 
     "MunifTanjim/nui.nvim",
     "nvim-tree/nvim-tree.lua", -- (optional) to manage project files
