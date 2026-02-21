@@ -6,6 +6,7 @@ return {
     "nvim-neotest/nvim-nio",
     "jfpedroza/neotest-elixir",
     "fredrikaverpil/neotest-golang",
+    "sidlatau/neotest-dart",
   },
   opts = {
     adapters = {
@@ -13,6 +14,10 @@ return {
       ["neotest-golang"] = {
         dap_go_enabled = true, -- requires leoluz/nvim-dap-go
         go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
+      },
+      ["neotest-dart"] = {
+        command = "flutter",
+        use_lsp = true,
       },
     },
     status = { virtual_text = false },
