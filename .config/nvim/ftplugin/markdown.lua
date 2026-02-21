@@ -36,3 +36,10 @@ vim.keymap.set(
   ":lua ToggleCheckbox()<CR>",
   { noremap = true, silent = true, desc = "toggle checkbox" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>p",
+  ":MarkdownPreviewOpen<CR>",
+  { noremap = true, silent = true, desc = "privew in browser" }
+)
