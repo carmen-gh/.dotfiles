@@ -4,6 +4,7 @@ return {
     opts = {
       ensure_installed = {
         "bashls",
+        "copilot",
         "elixirls",
         "gopls",
         "html",

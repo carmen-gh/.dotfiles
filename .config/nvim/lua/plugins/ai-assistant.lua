@@ -2,6 +2,7 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
+      -- add any options here
       cli = {
         mux = {
           backend = "tmux",
@@ -24,9 +25,10 @@ return {
       {
         "<c-.>",
         function()
-          require("sidekick.cli").toggle()
+          require("sidekick.cli").focus()
         end,
-        desc = "Sidekick Toggle",
+        desc = "Sidekick Focus",
+        mode = { "n", "t", "i", "x" },
       },
       {
         "<leader>aa",
@@ -91,25 +93,25 @@ return {
         desc = "Sidekick Toggle Claude",
       },
     },
-    {
-      "NickvanDyke/opencode.nvim",
-      dependencies = {
-        { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+  },
+  {
+    "NickvanDyke/opencode.nvim",
+    dependencies = {
+      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+    },
+    keys = {
+      {
+        "<leader>oa",
+        function()
+          require("opencode").ask()
+        end,
       },
-      keys = {
-        {
-          "<leader>oa",
-          function()
-            require("opencode").ask()
-          end,
-        },
-        {
-          "<leader>oa",
-          function()
-            require("opencode").ask("@this: ")
-          end,
-          mode = "v",
-        },
+      {
+        "<leader>oa",
+        function()
+          require("opencode").ask("@this: ")
+        end,
+        mode = "v",
       },
     },
   },

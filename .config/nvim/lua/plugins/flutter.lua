@@ -16,7 +16,7 @@ return {
         },
       },
       dev_tools = {
-        autostart = true,
+        autostart = false,
         auto_open_browser = true,
       },
       dev_log = {

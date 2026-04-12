@@ -19,8 +19,9 @@ local components = {
     function()
       local device = vim.g.flutter_tools_decorations.device
       local device_name = device and (device.name or device.id) or ""
+      local app_version = vim.g.flutter_tools_decorations.app_version
       if device_name ~= "" then
-        return " " .. device_name
+        return " " .. device_name .. "  " .. app_version
       else
         return ""
       end
