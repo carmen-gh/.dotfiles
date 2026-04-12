@@ -27,5 +27,11 @@ return {
         focus_on_open = true,
       },
     })
+
+    vim.keymap.set("n", "<leader>Fr", "<cmd>FlutterRun<cr>", { desc = "run" })
+    vim.keymap.set("n", "<leader>Ft", "<cmd>FlutterDevTools<cr>", { desc = "dev tools" })
+    vim.keymap.set("n", "<leader>Fl", "<cmd>FlutterLogToggle<cr>", { desc = "logs toggle" })
+    vim.keymap.set("n", "<leader>Fd", "<cmd>FlutterDebug<cr>", { desc = "debug mode" })
+    vim.keymap.set("n", "<leader>Fo", "<cmd>FlutterOutlineToggle<cr>", { desc = "outline toggle" })
   end,
 }
