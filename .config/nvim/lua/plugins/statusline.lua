@@ -63,7 +63,7 @@ return {
   opts = function()
     return {
       options = {
-        theme = "catppuccin",
+        theme = "catppuccin-nvim",
         component_separators = "",
         section_separators = { left = "", right = "" },
         globalstatus = true,
