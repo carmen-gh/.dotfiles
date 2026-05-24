@@ -15,7 +15,7 @@ return {
     },
     image = { enabled = true },
     indent = {
-      enabled = true,
+      enabled = false,
       animate = {
         enabled = false,
       },
@@ -59,7 +59,7 @@ return {
     scope = { enabled = true },
     scratch = { enabled = false },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = { enabled = false },
     words = { enabled = true },
     styles = {
       notification = { wo = { wrap = true } },
@@ -86,7 +86,7 @@ return {
 
     -- git
     { "<leader>fm", function() Snacks.picker.git_status() end, desc = "Modified Git Files" },
-    { "<leader>gb", function() Snacks.picker.git_branches({layout = "ivy"}) end, desc = "Branches" },
+    -- { "<leader>gb", function() Snacks.picker.git_branches({layout = "ivy"}) end, desc = "Branches" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Browse", mode = { "n", "v" } },
 
     -- lsp
@@ -99,12 +99,11 @@ return {
 
 
     { "<leader>n", function() Snacks.picker.notifications({layout = "ivy"}) end, desc = "Notification History" },
-    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    { "<leader>E", function() Snacks.explorer() end, desc = "File Explorer" },
 
     -- words
     {"]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" },},
     {"[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" },},
-
 
     -- Github
     { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },

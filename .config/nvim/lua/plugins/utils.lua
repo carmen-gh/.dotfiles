@@ -27,6 +27,10 @@ return {
     config = function()
       local wk = require("which-key")
       wk.setup({
+        preset = "helix",
+        icons = {
+          mappings = false,
+        },
         spec = {
           { "<leader>1", hidden = true },
           { "<leader>2", hidden = true },
@@ -36,12 +40,13 @@ return {
           { "<leader>lg", hidden = true },
           { "<leader>o", hidden = true },
           { "<leader>c", group = "code" },
+          { "<leader>a", group = "AI Sidekick" },
           { "<leader>d", group = "debug" },
-          { "<leader>f", group = "file" },
+          { "<leader>f", group = "find" },
+          { "<leader>F", group = "Flutter" },
           { "<leader>g", group = "git" },
-          { "<leader>u", group = "toggle" },
-          { "<leader>q", group = "quit" },
-          { "<leader>x", group = "quickfix" },
+          { "<leader>q", group = "quickfix" },
+          { "gr", group = "LSP Actions", mode = { "n" } },
         },
       })
     end,
@@ -66,8 +71,5 @@ return {
   { "nvim-mini/mini.splitjoin", version = false, opts = {} },
   { "nvim-mini/mini.move", version = false, opts = {} },
   { "nvim-mini/mini.pairs", version = false, opts = {} },
-  {
-    "stevearc/quicker.nvim",
-    opts = {},
-  },
+  { "stevearc/quicker.nvim", ft = "qf", opts = {} },
 }

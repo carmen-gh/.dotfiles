@@ -9,14 +9,6 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 
 -- Line movement (alt-j and alt-k) see mini.move plugin
 
--- window navigation <ctrl> hjkl see letieu/wezterm-move.nvim,
--- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "jump to left window" })
--- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "jump down to window" })
--- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "jump up to window" })
--- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "jump to right window" })
--- vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", { desc = "Move line up [alt + k]" })
---
-
 -- Quicker macro playback (record macro to q register)
 vim.keymap.set("n", "Q", "@q")
 vim.keymap.set("x", "Q", ":norm @q<CR>")
@@ -38,21 +30,18 @@ vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", { desc = "split horizontally" })
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Open line, but stay in normal mode
-vim.keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "add line below in normal mode" })
-
 -- Diagnostics
-vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
-vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "show diagnostic" })
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic line" })
+vim.keymap.set("n", "gq", vim.diagnostic.setloclist, { desc = "add buffer diagnostics to the location list" })
+vim.keymap.set("n", "gQ", vim.diagnostic.setqflist, { desc = "add all diagnostics to quickfix list" })
+vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>", { desc = "quickfix list" })
 
 -- Close buffers
-vim.keymap.set("n", "<leader>qb", vim.cmd.CloseAllOtherBuffers, { desc = "quite other buffers" })
-vim.keymap.set("n", "<leader>qs", "<cmd>only<CR>", { desc = "quite other splits" })
-vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
+-- vim.keymap.set("n", "<leader>qb", vim.cmd.CloseAllOtherBuffers, { desc = "quite other buffers" })
+-- vim.keymap.set("n", "<leader>qs", "<cmd>only<CR>", { desc = "quite other splits" })
+-- vim.keymap.set("n", "<leader>qq", "<cmd>qa<CR>", { desc = "quite all" })
 
 -- Terminal
 vim.keymap.set("n", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
 vim.keymap.set("t", "<C-t>", vim.cmd.TermToggle, { desc = "Toggle Terminal", silent = true })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
--- vim.keymap.set("t", "jj", "<C-\\><C-n>", { desc = "Exit terminal mode" })
