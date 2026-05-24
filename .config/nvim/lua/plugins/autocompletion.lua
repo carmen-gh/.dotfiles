@@ -31,11 +31,11 @@ return {
     sources = {
       default = { "lsp", "buffer", "snippets", "path" },
       per_filetype = {
-        sql = { "snippets", "dadbod", "buffer" },
+        sql = { "snippets", "dbab", "buffer" },
         lua = { inherit_defaults = true, "lazydev" },
       },
       providers = {
-        dadbod = { module = "vim_dadbod_completion.blink" },
+        dbab = { name = "dbab", module = "blink_dbab" },
         lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
       },
     },
