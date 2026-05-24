@@ -1,6 +1,6 @@
 return {
   "akinsho/flutter-tools.nvim",
-  lazy = false,
+  cmd = { "FlutterRun", "FlutterDebug", "FlutterDevTools", "FlutterDevices", "FlutterAttach" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "stevearc/dressing.nvim",
