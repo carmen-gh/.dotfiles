@@ -122,33 +122,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.b.miniindentscope_disable = true
   end,
 })
-
--- refesh neotree when lazygit closed
-vim.api.nvim_create_autocmd("TermClose", {
-  pattern = "*lazygit",
-  callback = function()
-    if package.loaded["neo-tree.sources.git_status"] then
-      require("neo-tree.sources.git_status").refresh()
-    end
-  end,
-})
-
--- Define the function to get the plantuml_jar_path
-local function get_plantuml_jar_path()
-  -- Run the system command to get the plantuml jar path
-  local handle = io.popen("cat $(which plantuml) | grep plantuml.jar")
-  local result = handle:read("*a")
-  handle:close()
-
-  -- Match the jar path using Lua patterns
-  local jar_path = result:match(".*%s[\"']?([^\"'%s]+plantuml.jar)")
-  return jar_path or 0
-end
-
--- Set up an autocmd to set the plantuml jar path
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "plantuml",
-  callback = function()
-    vim.g["plantuml_previewer#plantuml_jar_path"] = get_plantuml_jar_path()
-  end,
-})

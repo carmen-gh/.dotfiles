@@ -19,7 +19,20 @@ return {
     },
   },
   config = function(_, opts)
-    require("mini.files").setup(opts)
+    require("mini.files").setup({
+
+      mappings = {
+        go_in_plus = "<CR>",
+        go_out_plus = "-",
+        mark_goto = "'",
+        mark_set = "m",
+        reveal_cwd = ".",
+        show_help = "g?",
+        synchronize = "=",
+        trim_left = "<",
+        trim_right = ">",
+      },
+    })
 
     -- toggle dotfiles
     local show_dotfiles = true

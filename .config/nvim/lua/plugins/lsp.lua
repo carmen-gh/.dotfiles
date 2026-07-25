@@ -1,6 +1,6 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
         "bashls",
@@ -19,42 +19,8 @@ return {
       },
     },
     dependencies = {
-      { "williamboman/mason.nvim", opts = {} },
+      { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
-    },
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        "codelldb",
-        "delve",
-        "detekt",
-        "eslint",
-        "gofumpt",
-        "goimports",
-        "golangci-lint",
-        "golines",
-        "gomodifytags",
-        "gotests",
-        "iferr",
-        "impl",
-        "isort",
-        "ktlint",
-        "kotlin-debug-adapter",
-        "markdownlint",
-        "marksman",
-        "misspell",
-        "prettier",
-        "shellcheck",
-        "shfmt",
-        "stylua",
-        "sqlfluff",
-        "yamlls",
-      },
-    },
-    dependencies = {
-      "williamboman/mason.nvim",
     },
   },
 }
