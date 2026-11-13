@@ -1,7 +1,7 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      command: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   branchLogCmd: "git log --graph --color=always --pretty=custom"
   mainBranches: [master, main, develop]
   commitPrefixes:
@@ -15,12 +15,6 @@ gui:
   sidePanelWidth: 0.2
   enlargedSideViewLocation: top
   showBottomLine: true
-  branchColors:
-    "release": "#838ba7" # for branches beginning with 'release/'
-  authorColors:
-    "Carmen Geelhaar": "#ca9ee6"
-    "camina": "#ca9ee6"
-    "*": "#85c1dc"
   theme:
     activeBorderColor:
       - "#f9e2af"
@@ -38,6 +32,12 @@ gui:
       - "#8caaee"
     unstagedChangesColor:
       - "#ea999c"
+    authorColors:
+      "Carmen Geelhaar": "#ca9ee6"
+      "camina": "#ca9ee6"
+      "*": "#85c1dc"
+    branchColorPatterns:
+      "^release(/|$)": "#838ba7" # for branches beginning with 'release/'
   spinner:
     frames:
       - "⠋"
